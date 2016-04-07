@@ -19,17 +19,17 @@ url: http://jingzztech.cn
 rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
-gavatar: /public/img/deer3.png
-favicon: /public/img/deer3.png
+gavatar: /public/img/useravatar.png
+favicon: /public/img/useravatar.png
 
 # google analytics 设置
 ga:
   id: UA-54262064-1 
-  url: painterlin.com
+  url: jingzztech.cn
 
 # disqus 设置
 disqus:
-  shortname: painterlin
+  shortname: jingzztech
 
 # 主题设置，自动激活某个标签
 active: 技术
@@ -45,3 +45,4 @@ locals:
   about: 关于
   newest: 最新文章
   archive: 归档
+  technology: 技术
