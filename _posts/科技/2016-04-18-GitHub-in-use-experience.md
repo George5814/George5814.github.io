@@ -1,3 +1,12 @@
+---
+layout: post
+title: github使用经验
+category: 技术
+tags: 
+keywords: 
+description: 
+---
+
 ## 1. fork分支pull原分支上的更新commit
 	例如：要把AA更新的commit代码pull到BB代码区
 
