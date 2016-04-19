@@ -1,31 +1,26 @@
 permalink: /:year/:month/:day/:title.html
-paginate: 10
-markdown: redcarpet
+paginate: 20
+# markdown: redcarpet
 
 # 作者信息
 author: 
-  name: Anya Lin
-  email: lay.1010@hotmail.com
-  link: http://painterlin.com
-  weibo: http://weibo.com/orangeissweet
-  github: http://github.com/lay1010
-  music: http://site.douban.com/linanya
-  linkedin: https://www.linkedin.com/pub/anya-lin/81/91/232
+  name: 荆中志
+  email: zhongzhijing@126.com
+  link: http://jingzztech.cn/
+  weibo: http://weibo.com/jingzhongzhi
+  github: http://github.com/george5814
+  csdn: http://blog.csdn.net/kisssun0608
+  linkedin: http://www.linkedin.com/in/jingzz
 
 # 站点信息
 title: 荆忠志的博客
-description: My personal blog
-url: http://painterlin.com
+description: 我的博客
+url: http://jingzztech.cn/
 rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
 gavatar: /public/img/dog.png
 favicon: /public/img/dog.png
-
-# google analytics 设置
-ga:
-  id: UA-54262064-1 
-  url: painterlin.com
 
 # disqus 设置
 disqus:
