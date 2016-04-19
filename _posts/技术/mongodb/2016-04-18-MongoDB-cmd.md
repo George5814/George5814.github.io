@@ -1,6 +1,16 @@
+
+---
+layout: post
+title: MongoDB 命令
+category: 技术
+tags: 
+keywords: 
+description: 
+---
+
 ## MongoDB 命令
 
-[toc]
+{:toc}
 
 RDBMS和mongodb的对应术语
 |RDBMS|MongoDB|
