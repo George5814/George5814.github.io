@@ -42,3 +42,5 @@ locals:
   archive: 归档
 
 markdown: kramdown
+gems:
+    [jekyll-paginate]
