@@ -31,10 +31,10 @@ function nav_click(is_show) {
 /* 控制文章章节列表按钮 */
 function content_click(is_show){
   if (is_show) {
-    $('#content_table').show();
+    $('#content_table').show(200);
     $('#content_btn i').removeClass('fa-plus').addClass('fa-minus');
   } else {
-    $('#content_table').hide();
+    $('#content_table').hide(300);
     $('#content_btn i').removeClass('fa-minus').addClass('fa-plus');
   }
 }
@@ -60,9 +60,9 @@ $(document).ready(function() {
 	$("#content_btn").on('blur', function(){
 		$(".panel-body a").each(function(){
 			$(this).on('click',function(){
-				isClicked = false;
-		    content_click(isClicked);
-		    $("#content_btn").data('clicked',isClicked);
+			isClicked = false;
+	    content_click(isClicked);
+	    $("#content_btn").data('clicked',isClicked);
 			});
 		});
 	});
