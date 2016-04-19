@@ -7,8 +7,6 @@ keywords:
 description: 
 ---
 
-# Google Java Style 中文版
-
 	基于官方文档2013.12.19最后一次改动。
 	翻译人：Weir Zhang (zh.weir)
 	旁白：水平有限，很多地方只是意译。不准确的地方，大家以原版文档为准。

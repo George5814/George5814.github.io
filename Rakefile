@@ -11,7 +11,7 @@ CONFIG = {
   'post_ext' => "md",
   'theme_package_version' => "0.1.0"
 }
-
+ 
 # Path configuration helper
 module JB
   class Path
