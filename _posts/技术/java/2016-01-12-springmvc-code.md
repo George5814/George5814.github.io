@@ -24,7 +24,7 @@ public String  msgFlowAnal(@PathVariable("flag") int flag,HttpServletRequest req
 }
 ```
 
-2.springMVC restFul 形式url，即url中包含参数
+### 2.springMVC restFul 形式url，即url中包含参数
 
 ```java
 @RequestMapping(value = "/day_active/{year}/{month}/{day}", produces = MediaType.APPLICATION_JSON_VALUE)
