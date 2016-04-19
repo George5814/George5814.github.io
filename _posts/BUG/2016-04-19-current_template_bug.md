@@ -17,4 +17,6 @@ description:
 
 ![目录滚动](/public/img/catalog-scroll.png)
 
+解决办法：
+	/_layout/post.html内的`<div class="panel-body" id="nav" style="overflow: scroll;width: 100%;height: 600px"></div>`将style改为当前样式
 
