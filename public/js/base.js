@@ -51,13 +51,22 @@ $(document).ready(function() {
 
   $("#content_btn").on('click', function(){
     isClicked = $(this).data('clicked');
-
     content_click(!isClicked);
-
     $(this).data('clicked',!isClicked);
 
   });
-
+  
+  //点击目录锚后，隐藏目录
+	$("#content_btn").on('blur', function(){
+		$(".panel-body a").each(function(){
+			$(this).on('click',function(){
+				isClicked = false;
+		    content_click(isClicked);
+		    $("#content_btn").data('clicked',isClicked);
+			});
+		});
+	});
+  
   $(document).pjax('.pjaxlink', '#pjax', { fragment: "#pjax", timeout: 10000 });
   $(document).on("pjax:end", function() {
     if($("body").find('.container').width() < 992)
