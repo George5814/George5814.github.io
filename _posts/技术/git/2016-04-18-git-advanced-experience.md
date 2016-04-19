@@ -8,8 +8,8 @@ description:
 ---
 
 
-## git进阶使用经验
 {:toc}
+
 本经验如未明确说明，默认的命令操作位置为git bash，平台为windows7，操作位置为/c/user/{userHome}
 
 ### 1. 同一git客户端，配置不同git url的用户名和密码
