@@ -13,4 +13,8 @@ description:
 	
 ![目录不滚动](/public/img/catalog-not-scroll.png)
 
+**已经解决**
+
+![目录滚动](/public/img/catalog-scroll.png)
+
 
