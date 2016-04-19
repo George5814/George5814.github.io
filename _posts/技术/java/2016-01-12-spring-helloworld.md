@@ -9,7 +9,6 @@ description:
 
 {:toc}
 
-![](/public/img/posts/springmvc-.png)
 # 一、SpringMVC基础入门，创建一个HelloWorld程序
 
 ### 1.首先，导入SpringMVC需要的jar包：
