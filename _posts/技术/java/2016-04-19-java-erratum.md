@@ -1,18 +1,15 @@
-﻿---
+---
 layout: post
 title: java排错
 category: 技术
-tags: java
-keywords: 
-description: 
 ---
 
+{:toc}
 
-## java排错
 
+### 1.错误提示：
 
-### 1. 错误提示：
-
+```java
 	org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: Error instantiating class com.skd.domain.User with invalid types () or values (). Cause: java.lang.NoSuchMethodException: com.skd.domain.User.<init>()
 		at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:75)
 		at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:371)
@@ -27,6 +24,7 @@ description:
 		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 		at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 		at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+```
 		
 #### 问题原因和解决方法：
 
@@ -62,4 +60,5 @@ maven项目中在引入dubbo包的同时还要引入javassist即：依赖包
 	</dependencies>
 ```
 	
+
 
