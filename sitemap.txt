@@ -8,4 +8,4 @@ title : Sitemap
 
 {% for post in site.posts %}
   {{site.address}}{{ post.url }}
-{% endfor %}
+{% endfor %}  
