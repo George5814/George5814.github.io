@@ -14,8 +14,10 @@ titlename: 关于
 </div>
 
 <hr>
+
 	
-<a href="{{ site.author.qq }}" target="_blank">
+<!--网页启动qq临时对话-->
+<a href="tencent://message/?uin=1182696993&Site=&menu=yes" target="_blank">
   <i class="fa fa fa-qq fa-lg" style="color:#16a095;"></i>
 </a>
 <a href="{{ site.author.linkedin }}">
@@ -37,3 +39,17 @@ titlename: 关于
   <i class="fa fa-envelope-o fa-lg" style="color:#16a095;"></i>
 </a>
 <hr>
+	
+<script type="text/javascript">
+	var openQQ = function(){
+		var clearset = setInterval("j_wb()","10000");  
+		ttti=0;  
+		function j_wb(){  
+		ttti++;  
+		if(ttti==1){  
+		clearInterval(clearset);  
+		}  
+		window.location.href='tencent://message/?uin=1182696993&Site=在线联系&Menu=yes';  
+		}  
+	}
+</script>
