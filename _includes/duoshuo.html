@@ -14,7 +14,7 @@ var duoshuoQuery = {short_name:"jingzz"};
 	})();
 	</script>-->
 <!-- 多说公共JS代码 end -->
-<a href="javascript:void(0);" onclick="toggleDuoshuoComments('#comment-box', '{{ page.id }}', '{{ site.url }}{{ page.url }}');">查看评论</a>
+<a id="showDuoshuoBtn" href="javascript:void(0);" onclick="toggleDuoshuoComments(this,'#comment-box', '{{ page.id }}', '{{ site.url }}{{ page.url }}');">打开评论</a>
 <div id="comment-box" ></div>
 
 
@@ -22,9 +22,10 @@ var duoshuoQuery = {short_name:"jingzz"};
 <script src="http://static.duoshuo.com/embed.js"></script>
 
 <script type="text/javascript">
-function toggleDuoshuoComments(container, id, url){
+function toggleDuoshuoComments(src,container, id, url){
   if(jQuery(container).has("div").length>0){
     jQuery(container).empty();
+    jQuery(src).text("打开评论");
     return;
   }
   var el = document.createElement('div');
@@ -32,5 +33,7 @@ function toggleDuoshuoComments(container, id, url){
   el.setAttribute('data-url', url);
   DUOSHUO.EmbedThread(el);
   jQuery(container).append(el);
+  
+  jQuery(src).text("关闭评论");
 }
 </script>
