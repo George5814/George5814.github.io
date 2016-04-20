@@ -1,6 +1,6 @@
 ---
 layout: page_title
-title: <i class="fa fa-archive fa-lg"></i>
+title: 导航
 titlename: 归档
 comments: false
 ---
@@ -16,6 +16,7 @@ comments: false
       <ul>
     {% endif %}
     <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; 
+    	<!--归档页面显示的链接-->
       <a class="pjaxlink" href="{{ post.url }}">{{ post.title }}</a>
     </li>
   
