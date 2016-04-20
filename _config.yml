@@ -13,7 +13,7 @@ author:
   linkedin: http://www.linkedin.com/in/jingzz
 
 # 站点信息
-title: 荆忠志的博客
+title: 荆中志的博客
 description: 我的博客
 url: http://jingzztech.cn
 rss_url: /pages/atom.xml
@@ -24,7 +24,11 @@ favicon: /public/img/dog.png
 
 # disqus 设置
 disqus:
-  shortname: painterlin
+  shortname: jingzz
+
+#多说 设置 
+duoshuo:
+  shortname: jingzz
 
 # 主题设置，自动激活某个标签
 active: tags
