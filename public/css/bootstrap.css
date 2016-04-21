@@ -5322,6 +5322,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     margin-bottom: -1px;
     background-color: #fff;
     border: 1px solid #f5f5f5;
+    word-wrap: break-word;
 }
 
 .list-group-item-lay {
@@ -5737,7 +5738,7 @@ a.list-group-item-danger.active:focus {
 }
 
 .panel-group .panel+.panel {
-    margin-top: 5px
+    margin-top: 3px;
 }
 
 .panel-group .panel-heading {
