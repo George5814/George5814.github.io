@@ -81,7 +81,7 @@ body, html {
   padding-right: 30px;
 }
 
-::-webkit-scrollbar{
+div ::-webkit-scrollbar{
 	width: 0px;
 }
 
@@ -144,4 +144,28 @@ blockquote p {
 a{
 	text-decoration: none;
 	cursor: pointer;
+}
+
+#return-top{
+	display: block;
+	background-color: #009926;
+	display: none;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	z-index: 300;
+	width: 45px;
+	height: 45px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	color: #FFF;
+	opacity: .8;
+}
+a,a:link,a:visited{
+	text-decoration: none;
+}
+
+.icon-pos{
+	position: absolute;
+	margin: 25% 19%;
 }
