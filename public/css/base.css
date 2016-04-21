@@ -124,3 +124,15 @@ blockquote p {
   width: 100%;
   margin-bottom: 40px;
 }
+
+.about i:before,a{
+	display: inline-block;
+	padding: 5px;
+	color:#16a095;
+	text-decoration: none;
+}
+
+a{
+	text-decoration: none;
+	cursor: pointer;
+}
