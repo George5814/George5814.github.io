@@ -15,7 +15,8 @@ body, html {
 /* 导航栏 + 目录栏 */
 .aside {
   height: 100%;
-  width: 24%;
+  /*width: 24%;*/
+ margin-right: -9%;
 }
 /* 左侧导航栏 */
 .aside1 {
