@@ -1635,8 +1635,8 @@ pre code {
 .col-md-12, .col-lg-12 {
     position: relative;
     min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px
+    /*padding-left: 15px;*/
+    padding-right: 3px
 }
 
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6,
