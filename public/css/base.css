@@ -15,8 +15,7 @@ body, html {
 /* 导航栏 + 目录栏 */
 .aside {
   height: 100%;
-  /*width: 24%;*/
- margin-right: -9%;
+ /*margin-right: -9%;*/
 }
 /* 左侧导航栏 */
 .aside1 {
@@ -28,6 +27,8 @@ body, html {
   padding-right: 0px;
   text-align: center;
   /*box-shadow: inset -15px 0 20px -15px #77AEF4;*/
+ 	width: 17%;
+  /*padding-left: 4%;*/
 }
 .aside1 > .nav > li > a {
   padding-left: 0px;
@@ -94,6 +95,7 @@ div ::-webkit-scrollbar{
   overflow-x: hidden;
 
   /*background-image: url(/public/img/bg_lines1.jpg);*/
+ margin-right: -9%;
 }
 .aside3-title {
   background-color: #f5f5f5;
@@ -189,4 +191,14 @@ a,a:link,a:visited{
 .tab-content-row{
 	height: 100%;
   width: 100%;
+}
+
+.col-md-row{
+	height: 100%;
+	/*margin-left: -4%;*/
+	width: 100%;
+}
+
+.pjaxlink-custom{
+	margin-left: 0;
 }
