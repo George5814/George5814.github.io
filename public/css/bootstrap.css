@@ -1681,7 +1681,7 @@ pre code {
 }
 
 .col-xs-3 {
-    width: 25%
+    /*width: 25%*/
 }
 
 .col-xs-2 {
@@ -1890,7 +1890,7 @@ pre code {
     }
 
     .col-sm-3 {
-        width: 25%
+        /*width: 25%*/
     }
 
     .col-sm-2 {
@@ -2100,7 +2100,7 @@ pre code {
     }
 
     .col-md-3 {
-        width: 25%
+        /*width: 25%*/
     }
 
     .col-md-2 {
@@ -2310,7 +2310,7 @@ pre code {
     }
 
     .col-lg-3 {
-        width: 25%
+        /*width: 25%*/
     }
 
     .col-lg-2 {
