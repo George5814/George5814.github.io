@@ -71,14 +71,14 @@ body, html {
 
   background-color: #303030;
   height: 100%;
-  border-right: 2px solid #303030;
+  /*border-right: 2px solid #303030;*/
   font-color: #fff;
   margin-top: 40px;
-  width: 64%;
+  width: 47%;
   overflow-x: hidden;
   overflow-y: overlay;
-  padding-left: 0;
-  padding-right: 30px;
+  padding-left: 3px;
+  /*padding-right: 30px;*/
 }
 
 div ::-webkit-scrollbar{
@@ -168,4 +168,24 @@ a,a:link,a:visited{
 .icon-pos{
 	position: absolute;
 	margin: 25% 19%;
+}
+
+/*自定义修改的样式*/
+.panel-group-custom{
+	/*覆盖bootstrap的样式*/
+  margin-left: 0;
+}
+
+.tab-pane-custom{
+	/*width: 80%;*/
+}
+
+.tab-content-custom{
+	/*width: 100%;
+  margin-left: -16px;*/
+}
+
+.tab-content-row{
+	height: 100%;
+  width: 100%;
 }
