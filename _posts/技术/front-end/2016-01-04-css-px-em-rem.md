@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CSS笔记（1）
-category: 技术
+category: 前端
 tags:  CSS
 keywords: 
 description: 
