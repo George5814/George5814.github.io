@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 从零开始搭建spring+springmvc+mybatis+mysql+dubbo项目
+title: 从零开始搭建spring-springmvc-mybatis-mysql和dubbo项目
 category: 技术
 tags: java
 keywords: 
