@@ -15,6 +15,8 @@ body, html {
 /* 导航栏 + 目录栏 */
 .aside {
   height: 100%;
+ /*margin-right: -9%;*/
+	width: 20%;
 }
 /* 左侧导航栏 */
 .aside1 {
@@ -26,6 +28,8 @@ body, html {
   padding-right: 0px;
   text-align: center;
   /*box-shadow: inset -15px 0 20px -15px #77AEF4;*/
+ 	width: 20%;
+  /*padding-left: 4%;*/
 }
 .aside1 > .nav > li > a {
   padding-left: 0px;
@@ -46,7 +50,7 @@ body, html {
   color: #fff;
   /*background-color: #fafaf6;*/
   /*background-image: url(/public/img/body_bg.jpg);*/
-  background-color: #303030;
+  background-color: #7098A7;
 }
 
 .avatar {
@@ -70,10 +74,18 @@ body, html {
 
   background-color: #303030;
   height: 100%;
-  border-right: 2px solid #303030;
-  overflow-y: auto;
+  /*border-right: 2px solid #303030;*/
   font-color: #fff;
   margin-top: 40px;
+  width: 80%;
+  overflow-x: hidden;
+  overflow-y: overlay;
+  padding-left: 3px;
+  /*padding-right: 30px;*/
+}
+
+div ::-webkit-scrollbar{
+	width: 0px;
 }
 
 /* 右侧内容栏 */
@@ -84,6 +96,7 @@ body, html {
   overflow-x: hidden;
 
   /*background-image: url(/public/img/bg_lines1.jpg);*/
+ margin-right: -9%;
 }
 .aside3-title {
   background-color: #f5f5f5;
@@ -117,10 +130,81 @@ blockquote p {
 }
 .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
   color: #fff;
-  background-color: #303030;
+  background-color: #7098A7;
 }
 /* 显示评论按钮 */
 .show-commend {
   width: 100%;
   margin-bottom: 40px;
 }
+
+.about i:before,a{
+	display: inline-block;
+	padding: 5px;
+	color:#16a095;
+	text-decoration: none;
+}
+
+a{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#return-top{
+	display: block;
+	background-color: #009926;
+	display: none;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	z-index: 300;
+	width: 45px;
+	height: 45px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	color: #FFF;
+	opacity: .8;
+}
+a,a:link,a:visited{
+	text-decoration: none;
+}
+
+.icon-pos{
+	position: absolute;
+	margin: 25% 19%;
+}
+
+/*自定义修改的样式*/
+.panel-group-custom{
+	/*覆盖bootstrap的样式*/
+  margin-left: 0;
+}
+
+.tab-pane-custom{
+	/*width: 80%;*/
+}
+
+.tab-content-custom{
+	/*width: 100%;
+  margin-left: -16px;*/
+}
+
+.tab-content-row{
+	height: 100%;
+  width: 100%;
+}
+
+.col-md-row{
+	height: 100%;
+	/*margin-left: -4%;*/
+	width: 100%;
+}
+
+.pjaxlink-custom{
+	margin-left: 0;
+}
+
+.panel-title a{
+	display: block;
+}
+
