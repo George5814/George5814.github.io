@@ -92,6 +92,20 @@ h2s2
 
 slaves内添加，每个机器的ip或者在hosts文件中对应的hostname，每个ip一行。
 
+将spark目录复制到其他slave机器
+
+`#scp /usr/local/spark/* root@h2s1:/usr/local/spark`
+
+`#scp /usr/local/spark/* root@h2s2:/usr/local/spark`
+
+将/etc/profile复制到其他机器
+
+`#scp /etc/profile root@h2s1:/etc/`
+
+`#scp /etc/profile root@h2s2:/etc/`
+
+在每个机器上执行`source /etc/profile`,使得环境变量修改生效。
+
 ### 4.启动hadoop集群
 
 启动命令：`start-dfs.sh`
