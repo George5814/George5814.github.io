@@ -122,11 +122,11 @@ slaves内添加，每个机器的ip或者在hosts文件中对应的hostname，�
 
 WebUI验证：
 
-Master URL：http://h2m1:7777/
+Master URL：[http://h2m1:7777/](http://h2m1:7777/)
 
 ![UI查看](/public/img/posts/hadoop/spark-start-setup-6.png)
 
-Worker URL:http://h2m1:8081
+Worker URL:[http://h2m1:8081](http://h2m1:8081)
 
 ![UI查看](/public/img/posts/hadoop/spark-start-setup-7.png)
 
