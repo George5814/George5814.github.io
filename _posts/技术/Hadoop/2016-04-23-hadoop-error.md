@@ -37,3 +37,27 @@ Incorrect configuration: namenode address dfs.namenode.servicerpc-address or dfs
 **解决后运行截图**
 	
 ![hadoop RPC访问地址](/public/img/posts/hadoop/hadoop-error-1.png)
+
+
+### 2.配置hadoop集群时出现错误
+
+**错误提示：**
+
+```
+java.lang.NoClassDefFoundError: org/apache/hadoop/security/authorize/RefreshAuthorizationPolicyProtocol
+```
+
+**错误原因：**
+
+	未配置HADOOP_COMMON_HOME变量，或者改变量设置错误
+	
+**解决办法**
+	
+	正确设置HADOOP_COMMON_HOME为hadoop的主目录，检查/etc/profile文件和{hadoop_home}/etc/hadop/hadoop-env.sh文件
+
+**解决后运行截图**
+
+![hadoop RPC访问地址](/public/img/posts/hadoop/hadoop-error-2.png)
+
+
+![hadoop RPC访问地址](/public/img/posts/hadoop/hadoop-error-3.png)
