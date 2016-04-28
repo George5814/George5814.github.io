@@ -28,4 +28,7 @@ public String  msgFlowAnal(@PathVariable("flag") int flag,HttpServletRequest req
 
 ```java
 @RequestMapping(value = "/day_active/{year}/{month}/{day}", produces = MediaType.APPLICATION_JSON_VALUE)
+
+//{day:.+}包含所有的"."及其后的内容
+@RequestMapping(value = "/day_active/{year}/{month}/{day:.+}", produces = MediaType.APPLICATION_JSON_VALUE)
 ```
