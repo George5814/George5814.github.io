@@ -49,3 +49,6 @@ locals:
 markdown: kramdown
 gems:
     [jekyll-paginate]
+
+port:
+    4001
