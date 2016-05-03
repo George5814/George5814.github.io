@@ -1,0 +1,39 @@
+多表查询需要连接条件，不然会出现笛卡尔乘积
+
+内连接和外连接(面试时会问到)
+  内连接只返回满足连接条件的数据
+  外连接:左外连接\右外连接\满外连接
+
+函数不需要记
+
+日期类型
+	转换函数 to_date()\to_char()
+	建议使用显示的转换
+	select empno,ename,sal,to_char(hiredate) from emp 
+	select empno,ename,sal,to_char(hiredate,'yyyy-mm-dd hh:mi:ss day') from emp 
+	--创建datetest表
+	create table datetest(
+   	    mydate date
+	)
+	--插入数据
+	insert into datetest values(to_date('2014-5-5 12:34:58','yyyy-mm-dd hh:mi:ss'))
+
+	--不带时分秒
+	insert into datetest values(to_date(sysdate))
+
+	--带有时分秒
+	insert into datetest values(sysdate)
+
+通用函数
+	nvl() --nvl(EXP1,EXP2) 说明：如果表达式exp1的值为null，则返回exp2的值，否则返回exp1的值。
+
+	nvl2(EXP1,EXP2,EXP3) 说明：如果表达式exp1的值不为null，则返回exp2的值，否则返回exp3的值。
+
+ --在oracle中 ''内的值与null都代表空\空格不是
+
+约束:
+	主键(primary kry)
+	外键(foreign key) 开发阶段不写,在测试阶段全添加上  
+	唯一(unique)
+	非空(not null)
+	检查(check)

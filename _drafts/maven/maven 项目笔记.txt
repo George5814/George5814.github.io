@@ -1,0 +1,11 @@
+1.maven项目的控制台打印信息
+INFO: validateJarFile(D:\dev_tools\workspace\JavaEE\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\book\WEB-INF\lib\servlet-api-3.0-alpha-1.jar) - jar not loaded. See Servlet Spec 2.3, section 9.7.2. Offending class: javax/servlet/Servlet.class
+解决jar not loaded问题，是因为javax/servlet/Servlet.class在tomcat的lib中的servlet-api.jar中已经提供，与servlet-api-3.0-alpha-1.jar中的类重复，所以会等待一段时间。因此需要在配置pom.xml时
+<dependency>
+	<groupId>javax.servlet</groupId>
+	<artifactId>servlet-api</artifactId>
+	<version>3.0-alpha-1</version>
+	<!-- tomcat中已经提供，在构建项目时不再将该包放在war中 -->
+	<scope>provided</scope>
+</dependency>
+加上<scope>provided</scope>，告诉系统tomcat已经提供该jar包了，不需要将依赖中的相同jar包放入war中了。

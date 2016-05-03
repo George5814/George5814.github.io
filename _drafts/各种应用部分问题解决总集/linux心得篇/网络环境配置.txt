@@ -1,0 +1,194 @@
+﻿
+/******************一:打开无线网络wifi*******************/
+  
+1.进入root模式，"cd /etc/NetworkManager/ "进入该目录;
+  
+2.  vi NetworkManager.conf 后，会得到一下内容：
+     [main]
+plugins=ifupdown,keyfile
+dns=dnsmasq
+
+no-auto-default=B8:70:F4:1C:62:72,
+
+[ifupdown]
+managed=false
+
+
+  
+3.将[ifupdown]//也可适用于有线设备
+     manager=false  的false改为true。
+  
+4. Esc 回到一般模式，shift + ： 然后按wq，保存并退出。
+  
+5.运行命令：service  network-manager  restart  
+
+就可以启动无线网络了
+
+
+
+ /*******************二：开启linux有线网络链*************************/
+#方式二：
+
+1.打开/etc/network/interface文件，提前得备份以防不测
+
+2.#内容如下：
+
+# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
+
+auto dsl-provider
+iface dsl-provider inet ppp
+pre-up /sbin/ifconfig eth0 up # line maintained by pppoeconf
+provider dsl-provider
+
+auto wlan0
+iface wlan0 inet manual
+
+auto eth0
+iface eth0 inet  manual
+   dhcp
+
+##改为下面的：
+#自动获取ip地址
+auto eth0
+iface eth0 inet  dhcp
+
+
+3.保存并退出interfaces
+
+4.
+#配置dns
+#按我自己估计不用配置，联网时会自动分配的
+讲里面的ip改为：61.144.56.100
+
+
+5.保存并退出resolv.conf
+
+6.
+#重启网络
+sudo  /etc/init.d/networking restart
+
+
+
+方式三：
+#打开有线网络
+
+1. sudo pppoeconf
+按照提示配置好即可 
+sudo vi /etc/resolv.conf
+
+
+
+
+
+可以直接点右上角网络图标，进去后选择static ip,然后填写。
+或者可以直接修改配置文件设置静态ip，
+1） 编辑 /etc/network/interfaces
+1.1）将dhcp 一行屏蔽
+# The primary network interface
+auto eth0
+#iface eth0 inet dhcp
+
+2）添加和静态ip有关的参数
+# The primary network interface
+iface eth0 inet static
+address 192.168.0.10
+netmask 255.255.255.0
+gateway 192.168.0.1
+
+2）编辑 /etc/resolv.conf，设置dns
+nameserver 202.96.134.133
+nameserver 202.106.0.20
+
+3）执行下面两个命令，启用新设置
+$sudo ifdown eth0
+$sudo ifup eth0
+==============
+就算把/etc/network/interfaces文件和/etc/resolv.conf文件中内容复制给你恐怕也不行，还不如重新设置，方法可以参考这个帖子，http://forum.ubuntu.org.cn/viewtopic.php?t=159615，希望有帮助
+1.解压拷贝myxrgsu到/bin
+sudo cp /home/peian/Documents/myxrgsu /bin
+
+/home/peian/Documents/myxrgsu 换成实际的myxrgsu地址
+
+2、解压拷贝libpcap.so.0.6.2和libstdc++.so.5到/usr/lib
+
+sudo cp /home/peian/Documents/libpcap.so.0.6.2 /usr/lib
+sudo cp /home/peian/Documents/libstdc++.so.5 /usr/lib
+
+/home/peian/Documents/myxrgsu 换成实际的myxrgsu地址
+
+3.修改网络配置：
+将网络配置改为静态IP（static IP），不知为何锐捷不能动态获取IP！无奈，想上网只能如此。
+首先查出自己的IP,DNS,掩码，网关（一般在windows下查，运行cmd,运行命令ipconfig/all即可查看）。
+
+4.进入Ubuntu选择静态获取IP，并将其填入对应处，保存。具体如下：
+1）左击网络链接，或从系统——网络进入网络配置。
+
+2）有线连接——属性——输入IP、子网掩码、默认网关
+
+3）DNS——输入DNS、DNS Suffix（搜索域）保存退出
+
+5.设置IP
+
+sudo ifconfig eth0 xxx.xxx.xxx.xxx
+
+xxx.xxx.xxx.xxx为实际的IP地址
+
+6.运行 myxrgsu
+sudo myxrgsu -d
+
+7.注意要在管理员权限下才能上锐捷。
+
+管理员密码：
+
+[XXXX@localhost ~]# myxrgsu
+
+/************************三：解决启动时网络配置时间过长******************/
+
+1.打开终端，转root身份
+2.vi /etc/network/interfaces
+3.可能会有这样的显示：
+   auto lo
+   iface lo inet loopback
+
+
+   auto dsl-provider
+   iface dsl-provider inet ppp
+   pre-up /sbin/ifconfig eth0 up # line maintained by pppoeconf
+   provider dsl-provider
+
+   auto eth0
+   iface eth0 inet dhcp
+4.删除内容只保留：
+   auto lo
+   iface lo inet loopback
+
+5.重启，查看结果，一般都是可以解决的，并且如果有网络配置与网络管理器不兼容的情况，
+这时候也有可能解决了。
+
+/***************/
+
+/************************************************************/
+6.ubuntu 系统的网络服务与此版本的网络管理器不兼容解决
+
+ubuntu 12.04 "系统的网络服务与此版本的网络管理器不兼容解决
+ 
+今天上午在实验室一顿乱整，不知道整坏了什么，结果重启以后网络图标都没有了，悲了个剧。
+  www.2cto.com  
+启动系统设置-》网络，结果显示“系统的网络服务与此版本的网络管理器不兼容”，查了一下资料，解决了这个问题，在此mark
+ 
+1 su
+2 cd /etc/NetworkManager/
+3 rm system-connections
+4 mkdir /system-connections
+如果害怕处理不好的话，可以将第3步的那个文件夹移动到别处，以便恢复。
+ 
+接下来重启NetworkManager你的网络连接就出来了！
+ 
+1 NetworkManager
+/************************************************************/
+
+
+
+

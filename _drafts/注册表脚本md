@@ -1,0 +1,5 @@
+## 1. 通过注册表添加JAVA_HOME
+
+```bash
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Session Manager\Environment" /v "JAVA_HOME" /d "C:\Program Files\Java\jdk1.8.0_60"
+```

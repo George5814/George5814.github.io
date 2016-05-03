@@ -1,0 +1,55 @@
+body{
+	background: #47c9af;
+	width: 90%;
+}
+
+div{
+	width: 80px;
+	height: 100px;
+}
+.div1{
+	background-color: #acc;
+	float:right;
+	
+}
+
+.div2{
+	background-color: #111;
+	float:right;
+}
+
+.div3{
+	background-color: #eee;
+
+}
+
+.div4{
+	background-color: #134;
+	width: 90%;
+	height: 300px;
+	position: absolute;
+	top: 100px;
+	left: 100px;
+
+}
+.div5,.div6{
+	
+	height: 80%;
+
+}
+.div5{
+	background-color: #e56;
+	float:right;
+	width: 70%;
+}
+
+.div6{
+	background-color: #a2f;
+	width: 29%;
+}
+
+.div7{
+	background-color: #bbb;
+	width: 100%;
+	height: 20%;
+}

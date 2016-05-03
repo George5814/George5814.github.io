@@ -1,0 +1,9 @@
+1.集群中jdk版本必须一致，不然可能就因为很小的不同造成集群启动不起来	
+
+solr全文检索
+
+2.HDFS web访问接口：
+	http://h2m1:50070/
+   ResourceManager web访问接口：
+   	http://h2m1:8088
+   	

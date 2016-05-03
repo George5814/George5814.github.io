@@ -1,0 +1,34 @@
+上午：
+
+  启动oracle
+	打开sql+plus
+	开启服务 oracle和listener
+  如果listener打不开则
+	在 配置和移植工具/net configuration assiatant中重新配置listener
+
+ PL/SQL developer 是oracle的图形界面操作工具
+	SYSTEM用户登录本地数据库
+		修改用户名密码、新建用户等
+	用新建的用户新建张表然后填写数据
+	
+	连接远程的数据库
+ 修改C:\oracle\product\10.2.0\db_1\network\ADMIN\tnsnames.ora
+修改ORACLE实例名和host的ip地址和端口号；
+
+
+ORACLE =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.1.237.35)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = oracle)
+    )
+  )
+
+ceops
+
+
+下午：
+    数据的修改和提交
+	number（5,2）总共长度为5位，小数点后2位，小数点前3位
+	小数位数超出后会四舍五入为规定的小数位数

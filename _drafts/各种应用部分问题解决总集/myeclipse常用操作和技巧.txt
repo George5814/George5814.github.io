@@ -1,0 +1,69 @@
+﻿1. 显示行号：windows | preferences | general | editors | text editors | show line number
+
+   在行最前的空白部分右击选择：show  line numbers
+
+2.设置编码：windows | preferences | general | editors | text editors | spelling |  Encoding  
+
+3.自动提示错误
+
+4.导入jar包，复制粘贴到项目后然后添加到路径
+
+5.添加注释：
+	单行注释：ctrl+/
+	多行注释：ctrl+shift+/  取消多行注释：ctrl+shift+\
+
+6.显示源码操作菜单：
+	alt+shift+s
+
+7.单行缩进:	ctrl+i
+
+8全文格式化： ctrl+shift+f
+
+9.重写或重定义父类方法：Override/implement Methods
+
+10.javabean生成get和set方法
+11.生成代理方法：delegate Methods
+	在其他类中产生某个类的实例并对实例生成代理
+
+12.生成构造函数
+
+
+
+13.包围方式：surround with中的方法  alt+shift+z
+	异常包围、控制语句包围、多线程包围、同步包围
+
+
+
+14.重构 alt+shift+t  
+	重命名、移动、改变方法特性、抽取方法（将多次调用的代码抽取为方法）、抽取局部变量、内联(抽取方法的逆向)
+	匿名内部类转为嵌套内部类(选中匿名类右击重构选择Convert Anonymous class toNested class)、
+	嵌套内部类转为顶级类(选中成员内部类右击重构Refactor选择Move Type To New File)
+
+15.局部变量变为成员变量:
+	选中局部变量右击重构Refactor 选择Convert local variable to field
+
+
+
+
+
+//********************类层次重构**********************************//
+
+
+16.抽取超类
+	选中类右击重构选择Extract superclass就可以抽取出超类，现有的类继承超类
+
+17.抽取接口
+	选中类右击重构选择Extract interface就可以抽取出接口
+
+18.使用超类型生成实例
+	选择调用的类名称右击重构refactor 选择usr supertype while possible
+19.下推和上拉
+
+//********************引入重构**********************************//
+20.引入间接方法
+	选中方法右击重构选择Introduce indirection
+21.引入工厂
+	选中实现的构造函数右击选择introduce Factory 然后选择factory的类
+22.引入参数对象
+23.引入参数
+24.引入方法生成字段：

@@ -1,0 +1,4 @@
+1. DocumentRoot的目录参数示例
+	DocumentRoot D:\wwwroot
+
+2.本地运行程序时的站点URL或者wordpressURL设置为http://jingzz.sinaapp.com

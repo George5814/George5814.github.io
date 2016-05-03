@@ -1,0 +1,85 @@
+1.块状元素是其他元素的容器，宽高起作用；内联元素只能容纳文本或 其他内联元素，对宽高不起作用。
+
+2.xhtml 共有91个元素：a, abbr, b, base, body, br, dd, div, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, head, hr, html, i, img, li, link, meta, ol, p, s, script, span, strong, style, title, u, ul, acronym, address, applet, area, basefont, bdo,big, blockquote, button, caption, center, cite, code, col, colgroup, del, dfn, dir, font, frame, frameset, iframe, input, ins, isindex, kbd, label, legend, map, menu, noframes, noscript, object, optgroup, option, param, pre, q, samp, select, small, strike, sub, sup, table, tbody, td, textarea, tfoot, th, thead, tr, tt, var。
+
+3.text-indent:2em;缩进两个文字单位，只能用在块元素中
+
+4.javascript区分大小写，xhtml区分大小写，html不区分。
+
+5.
+	5.1javascript分为原始类型（数字、字符串和布尔）和对象类型。
+	类可以看作是对象类型的子类型，类包括：数组类、函数类、日期类、正则类、error类
+	5.2 分为可以拥有方法的类型和不能拥有方法的类型。
+	5.3 分为可变类型(对象和数组)和不可变类型（数字、boolean、null和undefined）
+
+6.javascript中如果for，while和if要使用空语句时要添加上注释，以便清楚告诉表明这条空语句有用而不是误操作。
+7.var在函数中声明是局部变量，在顶层代码声明则是全局变量，即全局对象的属性，但不能使用delete删除。
+如果变量没有初始值，默认初始值未undefined。
+多次声明同一个变量是可以的
+
+8.在switch中可以使用return 语句代替break。
+
+9.for循环遍历数组简单；for/in遍历对象可枚举的属性
+
+10.debugger语句，if(o == debugger ) debugger;//这行代码只是用来临时调试
+
+11."use strict" 指令而不是语句.出现在脚本代码的开始或者函数体的开始、任何实体语句之前。
+	使用"user strict" 指令说明后续的代码将会解析为严格代码。严格代码以严格模式执行。
+	严格模式和非严格模式模式的区别就是：
+		严格模式禁止使用with语句
+		严格模式所有的变量都得提前声明，否则会抛出引用错误异常。
+		严格模式下调用的函数(非方法)中this是undefined，而非严格模式中this指代全局对象。
+
+12.创建对象最简单的是使用对象直接量(花括号),内的属性和值以json格式书写
+	通过new创建对象
+
+13.继承 var o ={} //o从Object.prototype继承对象方法
+	var p = inherit(o);//p继承o和Object.prototype
+	var q = inherit(p);//q继承p、o和Object.prototype
+
+
+14.javascript的序列化(JSON.stringify())和反序列化(JSON.parse()),支持对象、数组、字符串和无穷大数字、true、false和null的序列化和反序列化。
+	 NAN、Infinity和-Infinity序列化的结果为null，日期被序列化后不能被还原。
+	 函数、RegExp、Error对象和undefined对象值不能被序列化和反序列化。JSON.stringify()只能序列化对象的可枚举属性。不能序列化的属性会被忽略掉。
+
+15.数组，创建数组最简单的方式就是在方括号中将数据元素用逗号隔开(数组直接量)。其中的数值不一定非得常量，也可以是变量或者表达式，还可以包含对象直接量和其他数组直接量。
+
+16.数组直接量中省略的值为undefined
+	可以用new Array()、new Array(10)、new Array(5,3,"111")三种方式创建数组(默认、初始为10个长度和赋初始值的数组)
+
+17.稀疏数组是包含从0开始的不连续索引的数组。通常数组的length代表数组中元素的个数，但稀疏数组的length大于数组的元素个数。
+	
+	不管是密集数组还是稀疏数组的length都别其中任何一个元素的索引大。
+	如果将数组的长度设置为比其中元素的下标值小的数时，比length数值大或等于的元素就会被删除。
+
+	a[1]=12;
+	a.push(12);都可以添加元素
+
+	delete a[1] ;删除下标为1的元素,元素被删除但数组长度不变，也就是成了稀疏数组。
+	a.pop();
+
+	shift()和unshift()是在数组的首部添加和删除元素，其他元素的索引会后移或者前移一位。
+
+18.Array.join()是String.split()的逆向操作；reverse()数组的逆序生成方法；sort()无参数默认按字母表顺序；
+	contact()方法返回一个新的数组；slice(a,b)取a和b之间的数，前闭区间
+
+19.函数可以嵌套定义
+
+20.函数在前，定义在后
+
+21.JQuery()函数的四种调用方法：
+	1.传递css选择器给$()方法；
+	2.传递element，document或者window对象给$()方法；
+	3.传递HTML文本字符串给$()方法，必须传入带有尖括号的html标签；
+	4.传递一个函数给$()方法.
+
+22.attr()可以获取和设置元素属性；
+
+23.css()可以获取和设置元素样式属性。但不可获取复合样式(如：css("font");),可以设置复合样式，还可以一次设置多个样式属性。
+
+24.命名格式采用驼峰样式或者横杠样式
+
+25.addClass()增加类(css的类样式)；
+	removeClass()删除类
+	toggleClass();逆向操作，元素有该类就删掉，元素没有该类就添加
+	hasClass()判断类是否存在。

@@ -1,0 +1,13 @@
+1.你感觉自己比较擅长的是什么？
+
+2.集合类举几个例子
+	arraylist、linkedlist、hashmap、hashset
+	list中的indexOf(Object o)是如何实现Object类型判断的
+	arraylist对象的增量实现机制
+	hashset如何实现保证值得唯一性、hashmap怎么保证key的唯一性
+	JDK1.5之后有ConcurrentHashMap
+
+3.ConcurrentHashMap的实现原理 （Doug Lea 牛人）
+  CopyOnWriteArrayList的实现原理
+
+

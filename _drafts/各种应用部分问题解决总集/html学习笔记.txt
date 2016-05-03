@@ -1,0 +1,64 @@
+1.标签：网页标签<html></html>	
+	头部标签<head></head>  
+	主题标签<title></title>  
+	标题标签	<h1></h1><h2></h2><...>
+     	换行<br>       主体<body></body>   下划线<u></u> 
+	分段<p></p>    加粗<b></b>   
+	斜体<i></i>    缩小<small></small>  放大<big></big>
+	无序列表<ul></ul>   有序列表<ol></ol>   列表项<li></li>
+
+
+标签注意：先打开的标签后关闭。
+
+2.属性：背景色（bgcolor="color"或者style="background-color:#ff0000"）<body style="background-color:33cc99" text="pink">
+
+3.链接：a代表anchor（链接）；href代表“超文本引用(hypertext reference)”	<a href="http://2345.com"><big><big><big>2345网址导航</big></big></big></a> 
+
+（2）在同一网站做链接
+		<a href="page2.htm">点击这里转到第2页</a>
+
+
+如果page2.htm被放在下一级文件夹中（比如“subfolder”），那么链接将是这样：
+<a href="subfolder/page2.htm">点击这里转到第2页</a>
+
+反过来，从page2.htm（在下级文件夹中）到page1.htm的链接将是这样：
+<a href="../page1.htm">转到第1页</a>
+
+
+“../”代表当前位置（即该链接所在文件所处的文件夹）的上一级文件夹。同理，当前位置的上上级文件夹可用“../../”表示。
+当然，如果给出完整URL也行
+（3）网页内链接
+	<** id="XXX"(属性)>
+	<a href="#XXX"></a>
+<4>添加属性target="_blank"代表在新的标签中打开
+4.添加图像
+  <img src="***" alt="名字" title="图片的简介" alt="图片简述">
+5.表格：
+	首标签<table>  尾标签</table>
+	<tr></tr>  tr=table row(行)
+	<td></td>  td=table data(数据) 
+	<th></th>  td=table head(表头)
+	<caption></caption>  代标题的表格
+	<table border="1">  ==》border="1"代表四周边框的厚度
+	（属性）align="right" 设置表格或者网页内容水平对齐方式
+		valign="top" 设置表格或者网页内容垂直对齐方式
+		colspan="2"  设置水平合并单元格
+		rowspan="3"	设置垂直合并单元格
+	表格添加背景<table bgcolor="color">或者<table >
+6.css
+（1）.插入本地背景图片
+<body align="center" style="background-image:url('F:/QQ图片/桌面壁纸1366 768/6276.jpg')"style="color:green">
+(2).插入网络背景图片
+<body align="center" style="background-image:ur('http://www.html.net/logo.png')"style="color:green">
+(3)拖到任意位置<**  style="position:absolute;top:60px;right:500px">
+ （4）插入背景音乐
+  <bgsound src="url">(只能在IE中用)
+
+7.从右至左显示<bdo dir="rtl">文本</bdo>  (rtl)控制
+8.标记删除和插入
+			<del>被删除</del><br />
+			<ins>被插入</ins><br />
+9.锚（name）
+	定位网页中或网站中某个位置，一般放在页面顶部
+10.表单》输入框、复选框、单选框、下拉菜单、用户名，密码、编辑文本等
+	

@@ -1,0 +1,32 @@
+/*****************1. 编辑界面输入汉字的解决方法*****************/
+
+在ubuntu下安装好codeblocks之后，会发现系统的ctrl + space的输入法快捷切换无法正常运行。
+这并不是codeblocks的代码编辑器的问题，而是系统的切换热键和编辑器的热键冲突的原因。
+
+编辑器的自动完成快捷键也为ctrl + space，所以必须将此热键重新设置，需要用到codeblocks的 shortcut插件。
+
+这个插件默认安装时并没有安装好，必须使用如下命令安装插件
+
+sudo apt-get install codeblocks-contrib 
+
+安装好之后，进入settings-editor-keyboard shortcut设置
+在keyboard shortcuts下有：
+menu bar -> edit ->complete code.修改下该选项的快捷键就ok了。
+
+
+
+/*****************2. 输出终端显示汉字的解决方法*****************/
+
+在环境设置里进行如下设置：
+
+把Terminal to launch console programs 那个选项改成  gnome-terminal -t $TITLE -x 
+
+原来是xterm -T $TITLE -e 
+
+gnome-terminal和xterm的参数表示方法不一样。
+
+/*****************2. 输出终端显示汉字的解决方法*****************/
+
+
+
+

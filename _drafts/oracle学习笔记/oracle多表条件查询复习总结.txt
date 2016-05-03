@@ -1,0 +1,17 @@
+
+/****where或者join与group by 、having、order by 的位置关系**********/
+
+
+	--查询一班同学平均分大于80的学号，姓名，每个人的平均成绩，按学号降序排列 
+	--join 和where语句在group by 和 having 语句之前 ，group by 语句在 order by 之前
+	--having 在group by 之后
+只有出现group by语句后才能出现having 也就是说有having必须有group by
+
+	select s.sid,s.sname,avg(g.sgrade) 
+	from student s
+	join grade g on g.sid=s.sid  and s.sclass='一班'
+	having avg(g.sgrade)>80
+	group by s.sid,s.sname  
+
+/*****使用group by 语句的参数******/
+	group by 后面跟的参数必须跟select后跟的参数（不包含聚合函数）一致或者更多

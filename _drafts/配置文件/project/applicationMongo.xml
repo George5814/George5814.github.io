@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+          xmlns:context="http://www.springframework.org/schema/context"  
+          xmlns:mongo="http://www.springframework.org/schema/data/mongo"  
+          xsi:schemaLocation="http://www.springframework.org/schema/context   
+          http://www.springframework.org/schema/context/spring-context.xsd   
+          http://www.springframework.org/schema/data/mongo   
+          http://www.springframework.org/schema/data/mongo/spring-mongo.xsd   
+          http://www.springframework.org/schema/beans   
+          http://www.springframework.org/schema/beans/spring-beans.xsd">   
+    
+<!-- 	<mongo:mongo host="172.20.8.169" port="20000"/>
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">   
+		<constructor-arg ref="mongo"/>
+		<constructor-arg name="databaseName" value="stellar"/>
+	</bean> -->
+	
+<!-- 	<mongo:mongo replica-set="172.20.8.169:20000,172.20.8.188:20000,172.20.8.202:20000"/>
+	
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">   
+		<constructor-arg ref="mongo"/>
+		<constructor-arg name="databaseName" value="stellar"/>
+	</bean> -->
+	
+    <!--  <mongo:mongo-client id="mongo"  replica-set="172.20.8.169:20000,172.20.8.188:20000,172.20.8.202:20000" credentials="liuhao:liuhao@stellar"> -->
+    <!-- 生产环境备份数库 -->
+     <mongo:mongo-client id="mongo"  replica-set="172.20.5.10:27017">
+         <mongo:client-options connections-per-host="150" threads-allowed-to-block-for-connection-multiplier="5"
+             connect-timeout="10000" max-wait-time="300000" socket-keep-alive="true" socket-timeout="300000" />
+     </mongo:mongo-client>
+ 
+     <mongo:db-factory id="mongoDbFactory" dbname="stellar" mongo-ref="mongo" />
+ 
+     <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+         <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+     </bean>
+	
+	<context:annotation-config />
+ 		
+</beans> 

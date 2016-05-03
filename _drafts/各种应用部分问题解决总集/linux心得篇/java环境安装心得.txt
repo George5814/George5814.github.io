@@ -1,0 +1,13 @@
+1,将jdk-6u13-linux-i586.bin复制到需要安装到的目录：用命令cp  oldfile  newfile 完成。一般都安装在/usr/bin或者/usr/lib下，最好新建自己的子目录
+假设文件安装在/usr/lib/jvm/sunjdk
+2,将工作目录切换到刚刚文件复制到的目录，命令行运行jdk-6u13-linux-i586.bin
+  系统会自动解压安装文件直到文件完成。
+3.在新建的子目录下会出现jdk1.6.0_13的目录，则说明安装正确。
+4.配置环境变量：
+  ctrl+alt+t打开terminal，然后输入命令vi/etc/environment打开环境变量配置文件，打开之前先用cp命令备份environment文件为environment.old
+ (1)配置path：在PATH="**"后面加上安装文件的bin路径，即PATH变为PATH="**:/usr/lib/jvm/sunjdk/jdk1.6.0_13/bin"。注意，新添加路径前必须有：，是为了把路径分开，相当于windows下的;
+(2)配置classpath：新添加CLASSPATH="/usr/lib/jvm/sunjdk/jdk1.6.0_13/lib"
+该路径为jdk的库文件路径。
+(3)配置JAVA_HOME：JAVA_HOME即java的主目录"/usr/lib/jvm/sunjdk/jdk1.6.0_13"因此，JAVA_HOME="/usr/lib/jvm/sunjdk/jdk1.6.0_13"
+将environment文件保存。至此，jdk开发环境已经配置完毕
+5.注销用户，重新登录，就可以使用java了。

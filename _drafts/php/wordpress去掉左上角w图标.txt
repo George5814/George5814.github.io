@@ -1,0 +1,12 @@
+WP主题函数库中的function.php文件，给个函数。禁用隐藏就行了。很简单：
+就在模板目录下面的function.php末尾地方插入下面函数代码：
+
+
+<?php //移除Wordpress后台顶部左上角的W图标
+function annointed_admin_bar_remove() {
+        global $wp_admin_bar;
+        /* Remove their stuff */
+        $wp_admin_bar->remove_menu('wp-logo');
+}
+add_action('wp_before_admin_bar_render', 'annointed_admin_bar_remove', 0);
+?>

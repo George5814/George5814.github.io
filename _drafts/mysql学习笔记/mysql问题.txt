@@ -1,0 +1,24 @@
+1.数据量过大时选择建立分区表
+2.删除分区
+	alter table 表名 remove partitioning
+3.字段属性为timestamp,在分区时出现异常
+ 
+Constant, random or timezone-dependent expressions in (sub)partitioning function are not allowed
+ 
+网上找了下好像是说timestamp类型分区时不起作用要改成DATETIME or DATE
+
+4.mysql的limit参数
+	limit skip,size
+	第一个参数：跳过搜索的前skip条记录，
+	第二个参数: 要查询的记录的最大数量
+	意义：获取从skip+1 开始算起的最大数量为size的记录数
+
+
+select count(DISTINCT userid) activeUsers,DATE_FORMAT(logintime,'%Y-%m-%d %H:%i:%s') date,MONTH(logintime) month,DAY(logintime) day,HOUR(logintime) hour ,MONTH(logintime) month from user_login where logintime >= ? and logintime < ? GROUP BY DAY(logintime) 
+
+2015-12-7 00:00:00(String), 2016-1-6 00:00:00(String)
+
+5.where语句中同时出现and和or时的用法
+	解决办法：将多个OR用小括号括起来再和AND进行“与”，或者将多个AND用小括号括起来再与OR进行“或”。
+	
+6.varchar类型不论是存字母还是中文，都已存储为1个字符，即一个字母和一个汉字在mysql中都是一个字符

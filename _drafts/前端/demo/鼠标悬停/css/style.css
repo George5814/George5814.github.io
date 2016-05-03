@@ -1,0 +1,104 @@
+/*Global*/
+html{
+	width: 100%;
+	height: 100%;
+	-webkittext-size-adjust:none;
+	-o-text-size-adjust:none;
+	-moz-text-size-adjust:none;
+	-ms-text-size-adjust:none;
+	text-size-adjust:none;
+
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background: #47c9af;
+	color: #74777b;
+	font-weight: 300;
+	font-size: 1.5em;
+	font-family: "Raleway","Arial";
+}
+
+ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+a:link,a:visited,a:focus{
+	text-decoration: none;
+	outline: none;
+
+}
+*,*:after,*:before{
+	/*设置后在设置pading不影响宽和高*/
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	-o-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+*:after,*:before{
+	display: block;
+	content: "";
+}
+*:after{
+	clear: both;
+}
+
+/* Navgaitor*/
+
+.nav {
+	width: 800px;
+	height: 300px;
+	margin: 200px auto;
+}
+
+.nav li{
+	display: inline-block;
+	margin: 0 1em;
+}
+.tooltip{
+	display: inline-block;
+	font-weight: 700;
+	color: rgba(0, 0, 0, 0.3);
+	padding: 0.15em 0.25em 0;
+	position: relative;
+	z-index: 999;
+}
+
+.tooltip-content{
+	/*位置定义为absolute后，自动转为块元素*/
+	position: absolute;
+	z-index: 9999;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background: #fff;
+	left: 50%;
+	margin-left: -40px;
+	bottom: 100%;
+	margin-bottom: 20px;
+	text-align: center;
+	padding-top: 25px;
+	color: #921102;
+}
+
+.tooltip-content::after{
+
+	display: block;
+	content: "";
+	width: 30px;
+	height: 20px;
+	background:url(../img/tooltip1.svg) no-repeat center center;
+	background-size: 100%;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -15px;
+	margin-top: -5px;
+}

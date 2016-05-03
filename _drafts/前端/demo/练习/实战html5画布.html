@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>canvas画布</title>
+	<meta charset="utf-8">
+<style>
+	.can{
+		width: 400px;
+		height:200px;
+		background-color: #eee;
+		border:1px solid blue;
+	}
+
+	div{
+		margin: 20px;
+	}
+	div span{
+		width: 200px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		background-color: #aaa;
+	}
+</style>
+</head>
+<body>
+	<div>
+		<span>绘制矩形：</span><canvas id="mycanvas" class="can">您的浏览器不支持canvas画布标签</canvas>
+	</div>
+	<div>
+		<span>绘制直线:</span>
+		<canvas id="mycanvas1" class="can">您的浏览器不支持canvas画布标签</canvas>
+	</div>
+
+	<div>
+		<span>绘制圆形和弧线:</span>
+		<canvas id="mycanvas3" class="can">您的浏览器不支持canvas画布标签</canvas>
+	</div>
+	<div>
+		<span>绘制三角形:</span>
+		<canvas id="mycanvas4" class="can">您的浏览器不支持canvas画布标签</canvas>
+	</div>
+	<div>
+		<span>绘制贝塞尔曲线:</span>
+		<canvas id="mycanvas5" class="can">您的浏览器不支持canvas画布标签</canvas>
+	</div>
+</body>
+<script type="text/javascript">
+	// 绘制贝塞尔曲线
+	var canvas5 = document.getElementById("mycanvas5");
+	var context5 = canvas5.getContext("2d");
+	context5.strokeStyle="dark";
+	context5.beginPath();
+	context5.moveTo(0,200);
+	context5.quadraticCurveTo(75,50,300,200);
+	context5.stroke();	
+	context5.globalCompositeOperation="source-over";
+	context5.strokeStyle="#edc";
+	context5.beginPath();
+	context5.moveTo(75,50);
+	context5.lineTo(0,200);
+	context5.moveTo(75,50);
+	context5.lineTo(300,200);
+	context5.stroke();
+
+	// 画三角形
+	var canvas4 = document.getElementById("mycanvas4");
+	var context4 = canvas4.getContext("2d");
+	context4.fillStyle ="#FFFF00";
+	context4.beginPath();
+	context4.moveTo(25,25);
+	context4.lineTo(150,25);
+	context4.lineTo(25,150);
+	context4.fill();
+	context4.fillStyle ="#0000FF";
+	context4.moveTo(25,25);
+	context4.lineTo(150,25);
+	context4.lineTo(25,150);
+	context4.lineTo(25,25);
+	context4.stroke();
+	context4.closePath();
+
+	// 画圆形
+	var canvas3 = document.getElementById("mycanvas3");
+	var context3 = canvas3.getContext("2d");
+	context3.fillStyle ="#FFFF00";
+	context3.beginPath();
+	context3.arc(150,0,50,0,Math.PI,false);
+	context3.closePath();
+	context3.fill();
+
+	for (var i =10; i >0; i--) {
+		context3.fillStyle ="#aec";
+		context3.beginPath();
+		context3.arc(150,0,50+i*10,0,Math.PI,false);
+		context3.closePath();
+		context3.stroke();
+
+	}	
+	
+	// 画直线
+	var canvas1 = document.getElementById("mycanvas1");
+	var context1 = canvas1.getContext("2d");
+	context1.moveTo(100,50);
+	context1.lineTo(200,100);
+	context1.stroke();
+
+	//测试画布
+	var canvas = document.getElementById("mycanvas");
+	var context = canvas.getContext("2d");
+	context.fillStyle = "#ff00ff";
+	context.fillRect(50,50,100,50);
+	context.strokeStyle = "#FF0";
+	context.strokeRect(50,50,100,50);
+</script>
+</html>

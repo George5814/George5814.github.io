@@ -1,0 +1,34 @@
+XXXXXXXXX$PS1=%  ==>> 将提示符修改为‘%’
+
+
+#忘记登录密码怎么办
+最简单的方法：
+ 1.使用livecd盘进入系统，打开终端;
+ 2.使用root身份打开系统所在位置的passwd文件“如盘符sda8挂载到/media/sda8”,则用cd到/media/etc/,
+ 3.用vi打开passwd，找到对应的用户名及密码，每行开始的格式为“用户名：密码：xxx:xxx:"将密码的位置上的字符删掉。
+ 4.保存重启就可以进入系统了，不需要密码。
+
+#远程登录
+方式一：vnc
+     1. 在ubuntu 安装x11vnc：
+    （1）sudo apt-get install x11vnc
+    （2）sudo x11vnc -forever -passwd ****** 
+    参数说明： 
+            -forever 表示服务一直开启，就是说可以多次连接/退出，不加此参数的话登录一 次后server自动关闭 
+            -passwd 用来设置登录密码，请将******自行替换为密码 
+执行后屏幕会显示5900端口已经被打开，此时就可以从其他地方远程登录了 。
+ 
+       2. 在windows 上安装vnc（可以从官网下载），打开vnc viewer：
+VNC Server 输入框中输入： xx.xx.xx.xx:5900 (5900是linux上vnc的端口号)
+      3.linux下安装vncviewer(客户端),在终端输入vncviewer后，输入连接的socket，然后密码，就ok了。
+
+
+#查看安装了什么软件   
+ubuntu下： dpkg -l  也可用输出重定向写入到文件
+
+
+3、清除已删除包的残余配置文件：
+终端里面输入：dpkg-l |grep ^rc|awk '{print $2}' |sudo xargs dpkg-P
+
+
+

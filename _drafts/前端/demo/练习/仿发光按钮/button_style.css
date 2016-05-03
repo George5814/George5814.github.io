@@ -1,0 +1,61 @@
+body{
+	width: 100%;
+	height: 100%;
+	background: #555;
+	margin-top: 0px;
+	margin-left: 0px;
+}
+
+.wrapper{
+	background: #333;
+	width: 400px;
+	height: 200px;
+	margin: 120px auto 0;
+	border:1px solid gray;
+	border-radius: 12px;
+	padding: 15px;
+}
+
+.wrapper .btn{
+	color: #FFF;
+	display: inline-block;
+	background: rgba(68,125,204,0.9);
+	border:0 ;
+	border-radius: 5px;
+	box-shadow: 0 0 3px 1px gray;
+	width: 100px;
+	height: 40px;
+	line-height: 25px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	text-transform:uppercase;
+	position: relative;
+	margin-top: 70px;
+	margin-left: 60px;
+	padding: 5px 15px;
+	cursor:pointer ;
+}
+
+.wrapper .btn:hover{
+	background: rgba(68,125,204,0.7);
+}
+
+.wrapper .btn:active:after{
+	content: "";
+	width: 2px;
+	height: 2px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -1px 0 0 -1px;
+	background: rgba(255,255,255,1);
+	box-shadow: 0 0 10px 5px rgba(255,255,255,0.5),
+	0 0 20px 10px rgba(255,255,255,0.5),
+	0 0 30px 15px rgba(255,255,255,0.4),
+	0 0 40px 20px rgba(255,255,255,0.4),
+	0 0 50px 25px rgba(255,255,255,0.3),
+	0 0 60px 30px rgba(255,255,255,0.3),
+	0 0 70px 35px rgba(255,255,255,0.3),
+	0 0 80px 40px rgba(255,255,255,0.2);
+}

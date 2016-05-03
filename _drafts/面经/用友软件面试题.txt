@@ -1,0 +1,17 @@
+1.什么是mvc？
+2.linux命令
+	ls 按时间排序
+	cp、mv、cat、tail等
+	crontab 定时任务命令
+3.多线程是如何实现的？继承Thread或者实现Runnable
+4.hadoop是什么，其原理，hdfs和MapReduce
+	map和reduce阶段分别做什么
+5.最近一次做的项目使用到的技术
+	在线题库系统(mybatis+springmvc+mysql+redis+zookeeper)
+	mysql读写分离、redis的使用、zookeeper使用
+	系统调优
+6.linux启动过程
+
+7.为什么离职？技术比较不错了，为什么没有offer？
+
+8.对象克隆clone

@@ -1,0 +1,43 @@
+﻿1.mybatis 中参数为字符串等单个变量时，可以查询。但传对象出错
+	-----已经解决
+  
+2.修改文件后怎样较快的部署，我现在是让重新开启服务，直接构建会报错
+3.xml文件修改后不能生效
+
+4.jquery如何获得星星的个数和其他的参数
+	--解决
+5.jquery向controller传值
+	--解决
+6. jquery ajax  获取不到数
+	--解决  
+
+/**********************************************************************/
+7./edu-tiku-core/src/main/resources/com/tes/tiku/core/persistence/writer/QuestionMapper.xml
+中：
+1014行--> 删除标识
+1085行 question.knowledge_point_code like concat('%',entry_id,'%') 的"concat"
+
+
+8.package com.tes.tiku.core.service.question.getKnowlegePointTreeList 不太明白
+	
+9./edu-tiku-ms/src/main/webapp/WEB-INF/view/question/template/questionKnowledgePoint.vm 如何产生树形结构
+	使用jquery的zTree实现，只要传递的参数符合规则该插件会自动生成树
+10.查询条件如何加载的
+		--在请求页面加载时候写在页面中的
+11.为何searchQuestion的sql语句的参数类型为map  --传递的是一个对象
+		--在传递时指定变量，可以直接通过注解的变量调用对应对象的树形，而不需要使用#号调用
+12.按关键字查询时，条件也生效
+		--多层查询，并行查询
+13.com.tes.tiku.core.service.question.QuestionServiceImpl.searchQuestion(QuestionQuery) 中的String SOLR_HighlightSimplePre = PropertiesUtils.getString("SOLR_HighlightSimplePre");
+
+14./edu-tiku-ms/src/main/webapp/WEB-INF/view/common/pageDiv.vm 中
+上一页和下一页是否可以选择性显示
+	--为了方便，可以改
+15./edu-tiku-ms/src/main/webapp/resource/js/question/questionSearch.js中调用的showStart 在哪
+	--解决  com.tes.tiku.ms.util.PageDiv
+16.logger打印中文乱码问题
+	--解决 Eclipse菜单栏 --》Run --> Run configurations --》 左侧的Apache Tomcat （选择服务器） -->右侧 common --》(中间)Encoding  设置为你的项目的编码
+
+17.@ResponseBody 有这句话返回的是json，没有返回的是页面
+	--解决
+18.ajax获得的数据怎么传到另一个页面上

@@ -1,0 +1,43 @@
+﻿约束条件:
+	unique与primary key的区别是主键不能为空,unique可以为空
+	default约束必须在check约束的前面
+
+使用sql语句和图形界面创建
+	主键（primary key）约束
+	非空（not null）约束；
+	外犍（ foreign key ）约束；
+	唯一（unique）约束； 
+	默认值（default）约束；
+	检查 (check)约束
+查看约束   select * from user_constraints
+删除约束   alter table imstudent  drop constraint instudent_sid_pk;
+禁用约束   alter table imstudent1  disable primary key
+启用约束   alter table imstudent1  enable primary key
+
+
+数据库对象:
+	数据字典:
+		数据库系统内定义好的一组表,用于描述数据库及其所有对象
+	视图:
+		--创建视图
+		create or replace view vs
+		as select sid ,sname from student
+		--设置视图为只读属性
+		with read only ;
+		--查看视图
+		select * from vs  ;
+
+	索引:
+	创建索引的原则:
+     􀂃 下述情况可以创建索引
+􀂾		 字段取值分布范围很广
+􀂾		 字段中包含大量空值
+􀂾		 字段经常出现在where 子句或连接条件中
+􀂾		 表经常被访问、数据量很大，且通常每次访问的数据量小于记录
+	    总量的2%~4%
+􀂃 	下列情况不适合创建索引
+􀂾 		表很小
+􀂾 		字段不经常出现在where子句中
+􀂾 		每次访问的数据量大于记录总数的2%~4%
+􀂾 		表经常更新
+􀂾 		被索引的字段作为表达式的的一部分被引用

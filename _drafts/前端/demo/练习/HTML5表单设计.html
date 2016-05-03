@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>构建简单的html5页面</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<form action="">
+	请输入您的邮箱地址：<input type="email" name="user_email"><br>
+	请输入数值：<input type="range" name="range1" min="1" max="100"><br>
+	请输入数值：<input type="number" name="number" min="1" max="100"><br>
+	请选择时间：<input type="datetime-local" name="time" ><br>
+	搜索框：<input type="search" name="search" ><br>
+	电话号码: <input type="tel" name="tel" ><br>
+	拾色器：<input type="color" name="color"><br>
+	
+	选择城市的list属性：<input type="text" name="url1"  autocomplete="on" list="cityList">
+	<datalist id="cityList">
+		<option label="Beijing" value="北京">北京</option>
+		<option label="Tianjin" value="天津">天津</option>
+		<option label="Shanghai" value="上海">上海</option>
+		<option label="Nanjing" >南京</option>
+		<option label="Guangzhou">广州</option>
+		<option label="Shenzhen">深圳</option>
+	</datalist>
+	<br>
+	自动获取光标：<input type="text" name="text"  autofocus><br>
+	
+	<br>
+	image类型的input元素高度和宽度<input type="image" src="images/2.jpg" width="30px" height="40px">
+	<div>
+		增长<input type="number" min=1 max=10 step=2>
+	</div>
+	<div>
+		上传多个文件<input type="file" multiple="multiple" name="img">
+	</div>
+	<div>
+		上传单个文件<input type="file"  name="img2">
+	</div>
+	<div>
+		pattern验证属性<input type="text" name="zip_code" pattern="[0-9]{6}" title="请输入六位邮编" required="required">
+	</div>
+	<div>
+		占位符：<input type="text" placeholder="请输入名称">
+	</div>
+	<div>
+		输入不能为空：<input type="text" name="zi"required="required">
+	</div>
+	<div>
+		keygen加密<keygen name="security">
+	</div>
+	<input type="submit">
+</form>
+</body>
+</html> 

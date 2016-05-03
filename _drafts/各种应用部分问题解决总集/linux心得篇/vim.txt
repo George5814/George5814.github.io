@@ -1,0 +1,27 @@
+1. 删除文件的权限是==》对文件所在目录有写权限
+2.对c编程的自动缩进;
+  打开文件 vi hello.c
+  设置缩进宽度：  ：set cindent shiftwidth=4;
+  进入编辑模式后就会按设置实现代码缩进 ;
+
+3.对整个文件进行缩进：  gg=G
+4.让对自动缩进的工作自动化： 
+  打开 ：filetype indent on;
+  关闭：filetype indent off;
+  查看检测到的文件类型：set filetype
+  
+  如果知识不想对某一类型的文件使用自动缩进，可以创建一个只含有一行的文件：" let b:did_indent = 1 " 起个名字保存起来{directory}/indent/(filetype).vim  ;
+{filetype}为不想自动缩进的文件类型，使用：set filetpye查看 ;{directory}需要知道你的运行目录，检查目录命令：set runtimepath  使用第一个逗号前面那一项即可
+
+5.自动缩进最简单的形式是打开“autoindent”,更智能的方式“smartindent”但相对于针对性的自动缩进要笨一些。
+
+6.输入模式下，减小缩进命令：CTRL+D   增加缩进：CTRL+T	
+  这两个命令不管在一行的那个位置大都是对一行的缩进。
+
+7.组合命令 
+   ">i{" 命令之后 花括号内的内容缩进一个设置的单位，     
+   “>a{” 命令之后 花括号及内容都缩进一个设置的单位; 
+
+
+
+

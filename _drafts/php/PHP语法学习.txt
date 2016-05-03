@@ -1,0 +1,30 @@
+1.  PHP写在<?php ?>内
+
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+	<?php 
+	//这是刚开始写的php学习笔记
+	//这是注释
+	/**
+	 * 这是多行注释
+	 */
+	#这是脚本方式注释
+	#每条语句以";"结尾，除非是最后一句话
+		echo "这是我的第一个PHP脚本\n";
+		/**
+		 * PHP函数和关键词小写不敏感，但是变量大小写敏感
+		 */
+		echo "我是完全小写的\n";
+		eCho "我是大小写混合的\n";
+		ECHO "我是完全大写的\n";
+		
+		$name ="test";
+		$loc ="beijing";
+		echo $name.$loc;
+	?>
+</body>
+</html>

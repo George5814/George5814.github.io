@@ -1,0 +1,39 @@
+上午：
+
+   DDL和DML语句
+	DDL:创建表、修改表结构、删除表、重命名表
+   	DML：insert update delete select 
+
+   创建表
+   添加主键：主键字段中的数据不能重复，否则会报错
+	alter table table_name
+		add constraint pk_table_name_id primary key (id);
+   添加联合主键：
+        alter table table_name
+		add constraint pk_table_name_id_gid primary key (id,gid);
+   在sql窗口中选中某部分语句点击执行即可执行该段语句
+
+	ddl语句一经执行不可撤销、有辅助提交的功能
+	dml语句需要提交的操作
+
+   DML：insert update delete 必须有commit(提交)、rollback（回滚）
+   select 中between条件查询的是闭区间的内容	
+	distinct 去掉重复值
+下午：   
+	模糊查询：%和_  like not like
+	高级查询：
+		笛卡尔积
+
+		select * from student s,lession l where s.sclass=l.sclass and s.sid=1;
+		select * from student s join lession l on s.sclass=l.sclass and sid=1;
+		
+		select * from student s 
+		join lession l on s.sclass=l.sclass and sid=1;
+		join grade g  on s.sid=g.sid and l.type=g.type
+		where  s.sid=1;
+		表有别名后就不能用原来的名字了
+
+
+
+		外连接和自连接（关键	）
+   

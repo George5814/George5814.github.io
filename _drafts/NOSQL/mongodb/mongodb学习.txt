@@ -1,0 +1,4 @@
+1.BasicDBObject -> 继承 BasicBSONObject 实现DBObject和Bson -> 继承 LinkedHashMap 实现BSONObject 接口，因此它拥有LinkedHashMap的特性
+	BasicBSONObject(final int size);初始化时使用了HashMap中对应方法初始化。
+
+2. BasicDBList  -> 继承 BasicBSONList 实现 DBObject接口 ->  继承ArrayList<Object> 实现BSONObject

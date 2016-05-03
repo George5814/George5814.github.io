@@ -1,0 +1,23 @@
+ dao:data access object 
+ eao:entity access object
+ dto:data transfer object 
+ ioc:inversion of Control 控制反转
+ gof：Gang of four
+ jstl:java standard tag library 标签库
+ javaEE:java  platform enterprise edition
+IDE:itegrity development environment
+JMS:java Message service
+JMX:java Management Extensions
+JNDI:java Naming and Directory Interface
+JDBC:java data base connectivity
+EJB:enterprise javabean
+JTA :java transaction API
+jdk: java development kit
+JRE: java runtime Environment
+J2se:java 2 platform standard edition
+J2Me:java 2 platform micro edition
+JSP:java server page
+JSF:java server Faces
+JTS:java transaction service
+MVC:model view control
+RMI :remote Method Invocation

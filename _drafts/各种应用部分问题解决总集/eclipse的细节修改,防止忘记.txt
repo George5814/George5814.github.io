@@ -1,0 +1,30 @@
+1. 修改默认的注释字体大小而不改变代码
+
+window ->preferences->General ->Appearance -> Color and Fonts ->Basic ->Text Font ->edit中将字体改为Courier New ;如果字体改的不像样子,则恢复系统字体再改
+
+2.导入java文件
+  新建项目 -> 在src文件夹 —> 右击 ->import ->file System ->在from directory后点Browser 选择所找文件夹选中就会显示文件夹下的文件
+
+
+3.ctrl+/ --> 注释/取消注释选中的部分
+
+4.更改jsp文件的编码
+
+路径在：myeclipse/myeclipse/files and editor/jsp  在右面选择encoding中选择chinese，national standard
+
+<Context path="" docbase="C:\Program Files (x86)\Apache Software Foundation\Tomcat 7.0\webapps" />
+
+
+5. *.hbm.xml文件有自动提示功能
+
+	下载这个文件 hibernate-mapping-3.0.dtd 放在本地
+	windows/perference/myeclipse/Files and Editors/XML/XML Catalog中选中user specified Entries
+	点击 add...  -》 点击filesystem -》找到您的hibernate-mapping-3.0.dtd
+	key type： URI
+	key：http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd
+
+
+5.spring导入报错问题;
+
+ 楼上说的对是spket的问题，
+右击工程，选择properties，选myeclipse，选spring，选bean，然后把configfile标签下的spring配置文件全都remove，确定就好了。等报错消失了，再进来ADD配置文件就好了~~

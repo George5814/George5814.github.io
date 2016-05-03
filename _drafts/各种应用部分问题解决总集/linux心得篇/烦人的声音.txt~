@@ -1,0 +1,7 @@
+/********错误操作时或者其他不经意时的“嘟”的警告音解决方法*******/
+             setterm -bleng 0
+
+             setterm -blength 0
+
+             xset b off
+             执行其中一行就ok了
