@@ -25,8 +25,9 @@ description:
 ### 1.1 术语说明
  
 本文档除非特殊说明，否则：
-a、class（类）统指普通的class类型、enum枚举类型、interface类型和annotation类型；
-b、comment（注释）总是指implementation comments（实现注释，/* */）。我们不使用“文档注释”这样的说法，而会直接说javadoc。
+
+- a、class（类）统指普通的class类型、enum枚举类型、interface类型和annotation类型；
+- b、comment（注释）总是指implementation comments（实现注释，/* */）。我们不使用“文档注释”这样的说法，而会直接说javadoc。
  
 其他术语说明，将在文档中需要说明的地方单独说明。
  
@@ -71,6 +72,7 @@ b、Tab字符不被用作缩进控制。
 注意：在使用unicode码转义，或者甚至是有时直接使用unicode字符的时候，添加一点说明注释将对别人读懂代码很有帮助。
  
 例子：
+
 ```java
 String unitAbbrev = "μs";	//Best: perfectly clear even without a comment.
 String unitAbbrev = "\u03bcs"; // "μs"	Allowed, but there's no reason to do this.
@@ -78,6 +80,7 @@ String unitAbbrev = "\u03bcs"; // Greek letter mu, "s"	Allowed, but awkward and 
 String unitAbbrev = "\u03bcs";	//Poor: the reader has no idea what this is.
 return '\ufeff' + content; // byte order mark	Good: use escapes for non-printable characters, and comment if necessary.
 ```
+
 **注意：不要因为担心一些程序无法正常处理ASCII字符而不使用它，从而导致代码易读性变差。如果出现这样的问题，应该由出现问题的程序去解决。**
  
  
@@ -85,9 +88,13 @@ return '\ufeff' + content; // byte order mark	Good: use escapes for non-printabl
 ## 三、源码文件结构
  
 源码文件按照先后顺序，由以下几部分组成：
+
 - a、License或者copyright声明信息。（如果需要声明）
+
 - b、包声明语句。
+
 - c、import语句。
+
 - d、class类声明（每个源码文件只能有唯一一个顶级class）。
  
 每个部分之间应该只有一行空行作为间隔。
@@ -200,9 +207,13 @@ void doNothing() {}
 不同的项目可以选择采用80个字符或者100个字符作为限制。除了以下几个特殊情况外，其他代码内容都需要遵守这个长度限制。这在4.5节会有详细解释。
  
 例外：
+
 - a、按照行长度限制，无法实现地方（例如：javadoc中超长的URL地址， 或者一个超长的JSNI方法的引用）；
+
 - b、package和import语句不受长度限制。（见3.2、3.3节）；
+
 - c、注释中的命令行指令行，将被直接复制到shell中执行的。
+
  
  
 ### 4.5 长行断行
@@ -217,9 +228,13 @@ void doNothing() {}
 #### 4.5.1 在何处断行
  
 断行的主要原则是：选择在更高一级的语法逻辑的地方断行。其他一些原则如下：
+
 - a、当一个非赋值运算的语句断行时，在运算符号之前断行。（这与Google的C++规范和JavaScrip规范等其他规范不同）。
+
 - b、当一个赋值运算语句断行时，一般在赋值符号之后断行。但是也可以在之前断行。
+
 - c、在调用函数或者构造函数需要断行时，与函数名相连的左括号要在一行。也就是在左括号之后断行。
+
 - d、逗号断行时，要和逗号隔开的前面的语句断行。也就是在逗号之后断行。
  
  
@@ -235,10 +250,14 @@ void doNothing() {}
 #### 4.6.1 垂直空白
  
 单行空行在以下情况使用：
+
 - a、类成员间需要空行隔开：例如成员变量、构造函数、成员函数、内部类、静态初始化语句块（static initializers）、实例初始化语句块（instance initializers）。
     例外：成员变量之间的空白行不是必需的。一般多个成员变量中间的空行，是为了对成员变量做逻辑上的分组。
+    
 - b、在函数内部，根据代码逻辑分组的需要，设置空白行作为间隔。
+
 - c、类的第一个成员之前，或者最后一个成员结束之后，用空行间隔。（可选）
+
 - d、本文档中其他部分介绍的需要空行的情况。（例如 3.3节中的import语句）
  
 单空行时使用多行空行是允许的，但是不要求也不鼓励。
@@ -249,16 +268,25 @@ void doNothing() {}
 除了语法、其他规则、词语分隔、注释和javadoc外，水平的ASCII空格只在以下情况出现：
  
 - a、所有保留的关键字与紧接它之后的位于同一行的左括号之间需要用空格隔开。（例如if、for、catch）
+
 - b、所有保留的关键字与在它之前的右花括号之间需要空格隔开。（例如else、catch）
+
 - c、在左花括号之前都需要空格隔开。只有两种例外：
+
+
 ```java
   @SomeAnnotation({a, b})
   String[][] x = {{"foo"}};
 ```
+
 - d、所有的二元运算符和三元运算符的两边，都需要空格隔开。
+
 - e、逗号、冒号、分号和右括号之后，需要空格隔开。
+
 - f、// 双斜线开始一行注释时。双斜线两边都应该用空格隔开。并且可使用多个空格，但是不做强制要求。
+
 - g、变量声明时，变量类型和变量名之间需要用空格隔开。
+
 - h、初始化一个数组时，花括号之间可以用空格隔开，也可以不使用。（例如：new int[] {5, 6} 和 new int[] { 5, 6 } 都可以）
  
 **注意：这一原则不影响一行开始或者结束时的空格。只针对行内部字符之间的隔开。**
@@ -271,6 +299,7 @@ void doNothing() {}
 这种对齐是被允许的，但是不会做强制要求。
  
 以下是没有水平对齐和水平对齐的例子;
+
 ```java
 private int x;   // this is fine
 private Color color;   // this too
@@ -278,6 +307,7 @@ private Color color;   // this too
 private int      x;          // permitted, but future edits
 private Color color;    // may leave it unaligned
 ```
+
 **注意：水平对齐能够增加代码的可读性，但是增加了未来维护代码的难度。考虑到维护时只需要改变一行代码，之前的对齐可以不需要改动。为了对齐，你更有可能改了一行代码，同时需要更改附近的好几行代码，而这几行代码的改动，可能又会引起一些为了保持对齐的代码改动。那原本这行改动，我们称之为“爆炸半径”。这种改动，在最坏的情况下可能会导致大量的无意义的工作，即使在最好的情况下，也会影响版本历史信息，减慢代码review的速度，引起更多merge代码冲突的情况。**
  
  
@@ -294,9 +324,11 @@ private Color color;    // may leave it unaligned
 枚举类型，如果没有函数和javadoc，处理格式是可以按照数组初始化来处理。
  
 例子：
+
 ```java
 private enum Suit { CLUBS, HEARTS, SPADES, DIAMONDS }
 ```
+
 枚举类型也是一种类（Class），因此Class类的其他格式要求，也适用于枚举类型。
  
  
@@ -353,19 +385,27 @@ private enum Suit { CLUBS, HEARTS, SPADES, DIAMONDS }
  
 Annotations应用到类、函数或者构造函数时，应紧接javadoc之后。每一行只有一个Annotations。
 Annotations所在行不受行长度限制，也不需要增加缩进。例如：
+
 ```java
 @Override
 @Nullable
 public String getNameIfPresent() { ... }
 ```
+
 例外情况：
 如果Annotations只有一个，并且不带参数。则它可以和类或方法名放在同一行。例如：
+
 ```java
 @Override public int hashCode() { ... }
 ```
+
 Annotations应用到成员变量时，也是紧接javadoc之后。不同的是，多个annotations可以放在同一行。例如：
-@Partial @Mock DataLoader loader;
- 
+
+```java
+@Partial 
+@Mock DataLoader loader;
+```
+
 对于参数或者局部变量使用Annotations的情况，没有特定的规范。
  
  
@@ -383,6 +423,7 @@ Annotations应用到成员变量时，也是紧接javadoc之后。不同的是�
 #### 4.8.7 修饰符
  
 多个类和成员变量的修饰符，按Java Lauguage Specification中介绍的先后顺序排序。具体是：
+
 ```java
 public  
 protected  
@@ -465,6 +506,7 @@ class命名一般使用名词或名词短语。interface的命名有时也可以
 类型名有两种命名方式：
  
 - a、单独一个大写字母，有时后面再跟一个数字。（例如，E、T、X、T2）。
+
 - b、像一般的class命名一样（见5.2.2节），再在最后接一个大写字母。（例如，RequestT、FooBarT）。
  
  
@@ -474,9 +516,13 @@ class命名一般使用名词或名词短语。interface的命名有时也可以
 为了统一写法，Google style给出了一种几乎可以确定为一种的写法。
  
 - a、将字符全部转换为ASCII字符，并且去掉 ' 等符号。例如，"Müller's algorithm" 被转换为 "Muellers algorithm" 。
+
 - b、将上一步转换的结果拆分成一个一个的词语。从空格处和从其他剩下的标点符号处划分。
+
     注意：一些已经是Camel case的词语，也应该在这个时候被拆分。（例如 AdWords 被拆分为 ad words）。但是例如iOS之类的词语，它其实不是一个Camel case的词语，而是人们惯例使用的一个词语，因此不用做拆分。
+
 - c、经过上面两部后，先将所有的字母转换为小写，再把每个词语的第一个字母转换为大写。
+
 - d、最后，将所有词语连在一起，形成一个标示符。
  
 **注意：词语原来的大小写规则，应该被完全忽略。**
@@ -489,6 +535,7 @@ class命名一般使用名词或名词短语。interface的命名有时也可以
  
  
 ### 6.1 @override 都应该使用
+
 ```java
 @override //annotations只要是符合语法的，都应该使用。
 ```
@@ -531,7 +578,7 @@ class命名一般使用名词或名词短语。interface的命名有时也可以
  
 #### 7.1.3 @从句
  
-所有标准的@从句，应该按照如下的顺序添加：@param、@return、@throws、@deprecated。并且这四种@从句，不应该出现在一个没有描述的Javadoc块中。
+所有标准的@从句，应该按照如下的顺序添加：`@param、@return、@throws、@deprecated`。并且这四种@从句，不应该出现在一个没有描述的Javadoc块中。
 当@从句无法在一行写完时，应该断行。延续行在第一行的@字符的位置，缩进至少4个字符单位。
  
  
@@ -540,7 +587,7 @@ class命名一般使用名词或名词短语。interface的命名有时也可以
 每个类或者成员的javadoc，都是由一个摘要片段开始的。这个片段非常重要。因为它是类或者方法在使用时唯一能看到的文本说明。
 主要摘要只是一个片段，应该是一个名词短语或者动词短语，而不应该是一个完整的句子。但是它应该像一个完整的句子一样使用标点符号。
  
-注意：一种常见的错误是以这种形式使用javadoc：/** @return the customer ID */.这是不对的。应该改为：/** Returns the customer ID. */.
+注意：一种常见的错误是以这种形式使用javadoc：`/** @return the customer ID */`.这是不对的。应该改为：/** Returns the customer ID. */.
  
  
 ### 7.3 何处应该使用Javadoc
