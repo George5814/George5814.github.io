@@ -204,9 +204,18 @@ a,a:link,a:visited{
 
 .pjaxlink-custom{
 	margin-left: 0;
+	
 }
 
 .panel-title a{
 	display: block;
 }
+
+a.list-group-item-lay.pjaxlink.pjaxlink-custom {
+    background: #fff;
+    color: #31709B;
+    margin-top: 3px;
+    border-radius: 4px;
+}
+
 
