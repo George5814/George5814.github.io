@@ -74,10 +74,10 @@ body, html {
   /*background-image: url(/public/img/body_bg.jpg);*/
 
   background-color: #1ABC9C;
-  height: 91%;
+  height: 93%;
   /*border-right: 2px solid #303030;*/
   font-color: #fff;
-  margin-top: 40px;
+  margin-top: 7%;
   width: 80%;
   overflow-x: hidden;
   overflow-y: overlay;
