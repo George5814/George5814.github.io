@@ -4,7 +4,7 @@ title: ZooKeeper集群安装配置和理论知识
 category: 技术
 tags: ZooKeeper
 keywords: 
-description: 
+description: ZooKeeper集群安装配置和理论知识
 ---
  
  
@@ -30,7 +30,9 @@ Zk能用在大型、分布式的系统。
 - e.Zk还有原子性、单系统镜像、可靠性和实效性特点。
 
 ### 4.	Zk可以用来保证数据在zk集群之间的数据的事务性的一致	(一般数据在2M以下)
- 
+
+![Zk可以用来保证数据在zk集群之间的数据的事务性的一致](/public/pic/ZooKeeper/zookeeper1.png)
+
 ### 5.	如何搭建zk集群
 
 - a.前提：
@@ -61,7 +63,8 @@ Zk能用在大型、分布式的系统。
 export ZOOKEEPER_HOME = /usr/local/zk
 ```
 
- 
+![修改环境变量](/public/pic/ZooKeeper/zookeeper2.png) 
+
 此处的`PATH = .:$ZOOKEEPER_HOME/bin:$HADOOP_HOME/bin:$JAVVA_HOME/bin:$PATH`,使环境变量生效
 
 ```cmd
@@ -87,8 +90,14 @@ export ZOOKEEPER_HOME = /usr/local/zk
 #vim zoo.cfg
 ```
 
+
+![修改datadir路径](/public/pic/ZooKeeper/zookeeper3.png) 
+
 修改第十三行的datadir路径为自己想要的路径
  
+
+![配置三个zk服务器](/public/pic/ZooKeeper/zookeeper4.png) 
+
 配置三个zk服务器
  
 其中第一个端口用来集群成员的信息交换，第二个端口是在leader挂掉时专门用来进行选举leader所用。
@@ -152,18 +161,39 @@ c)	启动zk集群服务
 #/usr/local/zk/bin/zkServer.sh status
 ```
 
+![角色状态1](/public/pic/ZooKeeper/zookeeper5.png) 
+
+
+![角色状态2](/public/pic/ZooKeeper/zookeeper6.png) 
+
+
  
  
 ### 6.	使用zookeeper
 
 在命令行中执行`/usr/local/zk/bin/zkCli.sh`
+
+![启动客户端1](/public/pic/ZooKeeper/zookeeper7.png) 
+
+
+![启动客户端2](/public/pic/ZooKeeper/zookeeper8.png) 
+
  
  
 - a.随便输入什么，回车后可以查看提示信息
+
+![查看提示信息](/public/pic/ZooKeeper/zookeeper9.png) 
+
  
 - b.试一试创建的命令：`create /test  test `,创建一个路径/test，设置数据位test
+
+![创建的命令](/public/pic/ZooKeeper/zookeeper10.png) 
+
  
 登录另一台zk服务器的客户端，执行`get /test`命令，同样会看到如上的结果，则证明机器间的数据同步成功
+
+![数据同步](/public/pic/ZooKeeper/zookeeper11.png) 
+
 
  
 ### 7.	配置zookeeper

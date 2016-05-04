@@ -1,8 +1,12 @@
 ---
 layout: post
-title: Linux 1：登陆与在线求助man page
+title: CMD 命令
 category: 技术
-tags: Linux
+tags: Windows
 keywords: 
 description: 
 ---
+
+### 
+
+
