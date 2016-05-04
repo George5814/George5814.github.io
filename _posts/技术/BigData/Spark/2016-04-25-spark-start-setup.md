@@ -8,6 +8,7 @@ description:
 ---
  
 {:toc}
+
 基于hadoop2.7.1集群
 
 系统为centos 6.4 ,64bit
