@@ -1,39 +1,18 @@
 ---
 layout: post
-title: ZooKeeper集群安装配置和理论知识
+title: ZooKeeper集群安装配置
 category: 技术
 tags: ZooKeeper
 keywords: 
-description: ZooKeeper集群安装配置和理论知识
+description: ZooKeeper集群的简单安装
 ---
  
  
 {:toc}
 
 
-### 1.	简介：zookeeper是Google的Chubby的一个开源实现，是hadoop的分布式协调服务
 
-### 2.	Zookeeper(简称zk)包含一个简单的原语集，分布式应用程序可以给予它实现同步服务，配置维护和命名服务等
-
-### 3.	Zk的设计目标
-
-- a.简单化：通过共享体系的，命名空间进行协调，与文件系统相似，有一些数据寄存器组成，被称为Znode。Zk的数据是放在内存中的，zk可以达到高吞吐量、低延迟。
-Zk能用在大型、分布式的系统。
-严格的序列访问控制意味者复杂的控制源可以用在客户端上。
-
-- b.健壮性：zk互相知道其他服务器存在。维护一个处于内存中的状态镜像，以及一个位于存储器中的交换日志和快照。只要大部分服务器可用，zk服务就可用。
-
-- c.有序性：zk为每次更新赋予一个版本号，全局有序。
-
-- d.速度优势:去读主要负载时尤其快，当读操作比写操作多时，性能会更好。
-
-- e.Zk还有原子性、单系统镜像、可靠性和实效性特点。
-
-### 4.	Zk可以用来保证数据在zk集群之间的数据的事务性的一致	(一般数据在2M以下)
-
-![Zk可以用来保证数据在zk集群之间的数据的事务性的一致](/public/pic/ZooKeeper/zookeeper1.png)
-
-### 5.	如何搭建zk集群
+### 1.	如何搭建zk集群
 
 - a.前提：
 
@@ -169,7 +148,7 @@ c)	启动zk集群服务
 
  
  
-### 6.	使用zookeeper
+### 2.	使用zookeeper
 
 在命令行中执行`/usr/local/zk/bin/zkCli.sh`
 
@@ -196,7 +175,7 @@ c)	启动zk集群服务
 
 
  
-### 7.	配置zookeeper
+### 3.	配置zookeeper
 
 Zk是通过配置文件zoo.cfg控制，各个机器上的配置文件几乎是相同的，在集群部署时非常方便。
 
@@ -226,7 +205,7 @@ Zk是通过配置文件zoo.cfg控制，各个机器上的配置文件几乎是�
 	ii.	syncLimit：
 		leader和follower之间发送消息时请求和应答的时间长度。如果follower在设置的时间内不能和leader通信，那此follower将被丢弃。
 
-### 8.	Zookeeper特性
+### 4.	Zookeeper特性
 
 Zookeeper中指向节点的路径必须使用规范的绝对路径表示，并以斜线”/”分隔，zookeeper中不允许使用相对路径。
 
@@ -263,52 +242,3 @@ Zookeeper中指向节点的路径必须使用规范的绝对路径表示，并�
 	Ids.CREATOR_ALL_ACL 节点创建者的所有权限，创建者必须通过服务器认证。
 	
 - e.zookeeper的一致性：顺序一致性(与被发送顺序一直)、原子性(要么成功要么失败)、单系统镜像(客户端连接到集群的任一服务器看到相同的zookeeper视图)、可靠性(1.客户端成功返回代码成功，否则不知道操作是否生效；2.故障恢复时，任何客户端能看到的执行成功的更新操作将不会回滚)和实时性(特定时间内，客户端看到的系统是实时的，任何系统的改变将被客户端看到，或者被客户端侦测到)
-
-### 9.	zookeeper进行leader选举 
- 
-**核心思想：**
-
-- 1.首先创建EPHEMERAL目录节点，如”/election”;
-
-- 2.每个zookeeper服务器在此目录下创建一个SEQUENCE|EPHEMERAL类型节点”如/election/n_”;
-
-- 3.zookeeper将自动为每个zookeeper服务器分配一个比前面所分配的序号要大的序号，拥有最小编号的zookeeper服务器将成为leader。
-
-	为了能在leader发生意外时，整个系统能选出leader，需要所有的follower都监视leader所对应节点，当leader故障时，leader对应的临时节点将会被删除，会触发所有监视的follower的watch，从而进行选举leader操作。
-	缺点：这样的解决方案会导致`从众效应`。
-
-**实现：**
-
-每个follower为follower集群中对应着比自己节点序号小的节点中x序号最大的节点设置一个watch，只有当follower所设置的watch被触发时，他才进行leader操作，一般将其设置为集群的下一个leader。这样很快，因为每一leader选举几乎只涉及单个leaderfollower的操作
-
-###  10.zookeeper锁服务
-
-- a.zookeeper中完全分布的锁是全局存在的。
-- b.zookeeper的锁机制(实现加锁)
-
-	i.	zk调用create()，创建路径格式为”_locknode/lock_”的节点，此节点类型为sequence(连续)和ephemeral(临时)，创建节点为临时节点，所有节点连续编号“lock-i”格式
-	
-	ii.	在创建锁节点上调用getChildren()方法，以获取锁目录下的最小编号节点，并且不设置watch。
-	
-	iii.	步骤2获取的节点是步骤1中客户端创建的节点，此客户端会获得该种类型的锁，然后退出操作。
-	
-	iv.	客户端在锁目录上调用exists()方法,并设置watch来监视锁目录下序号相对自己次小的连续临时节点的状态。
-	
-	v.	如果监视节点状态发生变化，则跳转到步骤2，继续后续操作直到退出锁竞争。
-	
-	vi.	Zookeeper解锁简单，只需在步骤1中创建的临时节点删除即可。
-	
-**PS：**
-
-- 1.一个客户端解锁后，将只可能有一个客户端获得锁，因此每个临时的连续节点对应一个客户端，并且节点间没有重叠；
-
-- 2.在zookeeper锁机制中没有轮询和超时。
-
-###  11.	BooKeeper
-
-- 副本功能。
-
-- 提供可靠的日志记录。
-BooKeeper为每份日志提供了分布式存储，并且采用了大多数概念，就是说只要集群中大多数机器可用，那么该日志一直有效。
-
-BooKeeper包含四个角色：账本(服务器)、账户(Ledger,账本中存储的一系列记录)、客户端(BooKeeper Client,允许APP在系统上进行操作，包括创建账户，写账户)、元数据存储服务(metadata storage service,存储关于账户和版本的信息) 
