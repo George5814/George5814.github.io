@@ -2,7 +2,7 @@
 layout: post
 title: 史上最全最强SpringMVC详细示例实战教程
 category: 技术
-tags:  java
+tags:  Spring
 keywords: 
 description: 
 ---
