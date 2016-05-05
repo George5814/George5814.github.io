@@ -2,7 +2,7 @@
 layout: post
 title: springmvc 的问题笔记
 category: 技术
-tags:  java
+tags:  Spring
 keywords: 
 description: 
 ---

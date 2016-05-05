@@ -2,7 +2,7 @@
 layout: post
 title: Spring MVC实现跳转的几种方式
 category: 技术
-tags:  java
+tags:  Spring
 keywords: 
 description: 
 ---
