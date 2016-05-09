@@ -45,10 +45,18 @@ locals:
   about: 关于
   newest: 最新文章
   archive: 归档
+  bookMark: 书签
+  BUG: BUG
 
 markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  
 gems:
     [jekyll-paginate]
+
 
 port:
     4001
