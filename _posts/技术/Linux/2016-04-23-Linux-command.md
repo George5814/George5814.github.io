@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 基本命令操作
+title: Linux 基本命令操作
 category: 技术
 tags: Linux
 keywords: 
