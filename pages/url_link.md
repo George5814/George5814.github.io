@@ -1,10 +1,7 @@
 ---
 layout: post
 title: 我的书签
-category: 书签
-tags: BookMark
-keywords: 
-description: 
+description: 平时使用的一些比较有用的积累
 ---
 
 {:toc}

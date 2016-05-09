@@ -1,11 +1,8 @@
 ---
 layout: post
-title: 当前模板的bug
-category: BUG
-tags: BUG
-keywords: 
-description: 
+title: 当前模板的BUG
 ---
+
 
 ## 1.目录长度过多时，目录不滚动
 
