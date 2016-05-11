@@ -37,5 +37,37 @@ sub对象默认的域并不是super的域，而是自己的域。因此为了得
 	
 ### 6.除了少许的限制，enum就是普通的类
 
+- 枚举的自定义方法必须放在枚举变量之后，否则会报错；
+
+- 枚举不能继承其他的类和枚举（因为已经默认隐含继承了java.lang.Enum），但可以实现接口；
+
+```java
+public interface IntEnum {
+	
+	int hello();
+	
+	enum IntEnum2 implements IntEnum{
+		;//一定要有
+		@Override
+		public int hello() {
+			return 0;
+		}
+	}
+	
+	enum IntEnum3 implements IntEnum{
+		;//一定要有
+		@Override
+		public int hello() {
+			return 0;
+		}
+	}
+}
+``` 
+	
+**创建接口是使得enum子类化的唯一办法**
+
+
+
+
 
 
