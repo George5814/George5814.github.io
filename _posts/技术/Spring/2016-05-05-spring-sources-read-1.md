@@ -34,8 +34,33 @@ description: 对Spring源码阅读的简单笔记
 
  
 - BeanDefinition载入
+
+[ FileSystemXmlApplicationContext(configLocations,refresh,parent)](){:title="org.springframework.context.support.FileSystemXmlApplicationContext.FileSystemXmlApplicationContext(String[], boolean, ApplicationContext)"} =>   
+  [refresh()](){:title="org.springframework.context.support.AbstractApplicationContext.refresh()"} =>  
+  [obtainFreshBeanFactory()](){:title="org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory()"} =>  
+  [refreshBeanFactory()](){:title="org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory()"} => 
+  [loadBeanDefinitions(beanFactory)](){:title="org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(DefaultListableBeanFactory)"} =>  
+  [loadBeanDefinitions(beanDefinitionReader)](){:title="org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(XmlBeanDefinitionReader)"} =>  
+  [reader.loadBeanDefinitions(configLocations)](){:title="org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(String...)"} =>  
+  [loadBeanDefinitions(locations)](){:title="org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(String...)"} =>  
+  [loadBeanDefinitions(location)](){:title="org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(String)"} =>   
+  [loadBeanDefinitions(location,null)](){:title="org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(String, Set<Resource>)"} =>  
+  [loadBeanDefinitions(resources)](){:title="org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(Resource...)"} =>  
+  [loadBeanDefinitions(resource)](){:title="org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(Resource)"} =>  
+  [loadBeanDefinitions(new EncodedResource(resource))](){:title="org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(EncodedResource)"} =>  
+  [doLoadBeanDefinitions(inputSource, encodedResource.getResource())](){:title="org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(InputSource, Resource)"} =>  
+  [registerBeanDefinitions(doc, resource)](){:title="org.springframework.beans.factory.xml.XmlBeanDefinitionReader.registerBeanDefinitions(Document, Resource)"} =>  
+  [documentReader.registerBeanDefinitions(doc, createReaderContext(resource))](){:title="org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.registerBeanDefinitions(Document, XmlReaderContext)"} =>  
+  [doRegisterBeanDefinitions(root)](){:title="org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.doRegisterBeanDefinitions(Element)"} =>  
+  [parseBeanDefinitions(root, this.delegate)](){:title="org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.parseBeanDefinitions(Element, BeanDefinitionParserDelegate)"} =>  
+  [BeanDefinitionReaderUtils.registerBeanDefinition(bdHolder, getReaderContext().getRegistry())](){:title="org.springframework.beans.factory.support.BeanDefinitionReaderUtils.registerBeanDefinition(BeanDefinitionHolder, BeanDefinitionRegistry)"} =>  
+
+**载入结束**
 	
-	参见2.refresh()步骤
+	
+	
+	
+	
 	
 - 向IOC容器注册BeanDefinition的过程
 
