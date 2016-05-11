@@ -20,6 +20,9 @@ description: 平时使用的一些比较有用的积累
 
 [http://my.oschina.net/haopeng/blog/324934](http://my.oschina.net/haopeng/blog/324934){:target="_blank"}
 
+### 1.4  详解应对平台高并发的分布式调度框架TBSchedule
+
+[http://geek.csdn.net/news/detail/65738](http://geek.csdn.net/news/detail/65738)
 
 ## 二.   博客资源
 
