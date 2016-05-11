@@ -15,31 +15,34 @@ description: 对Spring源码阅读的简单笔记
 
 **以FileSystemXmlApplicationContext的资源定义调用为例**
 
-[ FileSystemXmlApplicationContext(configLocations,refresh,parent)](){:title="org.springframework.context.support.FileSystemXmlApplicationContext.FileSystemXmlApplicationContext(String[], boolean, ApplicationContext)"} => 
-[refresh()](){:title="org.springframework.context.support.AbstractApplicationContext.refresh()"} =>
-[obtainFreshBeanFactory()](){:title="org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory()"} =>
-[refreshBeanFactory()](){:title="org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory()"} =>
-[loadBeanDefinitions(beanFactory)](){:title="org.springframework.context.support.AbstractRefreshableApplicationContext.loadBeanDefinitions(DefaultListableBeanFactory)"} =>
-[loadBeanDefinitions(beanDefinitionReader)](){:title="org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(XmlBeanDefinitionReader)"} =>
-[reader.loadBeanDefinitions(configLocations)](){:title="org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(String...)"} =>
-[loadBeanDefinitions(location)](){:title="org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(String)"} =>
-[loadBeanDefinitions(String)](){:title="org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(String, Set<Resource>)"} =>
-[resourceLoader.getResource(location)](){:title="org.springframework.core.io.ResourceLoader.getResource(String)"} =>
-[this.resourceLoader.getResource(location)](){:title="org.springframework.core.io.ResourceLoader.getResource(String)"} =>
-[getResourceByPath(location)](){:title="org.springframework.core.io.DefaultResourceLoader.getResourceByPath(String)"} =>
-[getResourceByPath(path)](){:title="org.springframework.core.io.DefaultResourceLoader.getResourceByPath(String)"} =>
-[getResourceByPath(path) ](){:title="org.springframework.context.support.FileSystemXmlApplicationContext.getResourceByPath(String)"} =>
-[FileSystemXmlApplicationContext](){:title="org.springframework.context.support.FileSystemXmlApplicationContext"} 结束
+[ FileSystemXmlApplicationContext(configLocations,refresh,parent)](){:title="org.springframework.context.support.FileSystemXmlApplicationContext.FileSystemXmlApplicationContext(String[], boolean, ApplicationContext)"} =>   
+  [refresh()](){:title="org.springframework.context.support.AbstractApplicationContext.refresh()"} =>  
+  [obtainFreshBeanFactory()](){:title="org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory()"} =>  
+  [refreshBeanFactory()](){:title="org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory()"} =>  
+  [loadBeanDefinitions(beanFactory)](){:title="org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(DefaultListableBeanFactory)"} =>  
+  [loadBeanDefinitions(beanDefinitionReader)](){:title="org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(XmlBeanDefinitionReader)"} =>  
+  [reader.loadBeanDefinitions(configLocations)](){:title="org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(String...)"} =>  
+  [loadBeanDefinitions(locations)](){:title="org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(String...)"} =>  
+  [loadBeanDefinitions(location)](){:title="org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(String)"} =>   
+  [loadBeanDefinitions(location,null)](){:title="org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(String, Set<Resource>)"} =>   
+  [resourceLoader.getResource(location)](){:title="org.springframework.context.support.GenericApplicationContext.getResource(String)"} =>  
+  [this.resourceLoader.getResource(location)](){:title="org.springframework.core.io.DefaultResourceLoader.getResource(String)"} =>   
+  [getResourceByPath(location)](){:title="org.springframework.context.support.FileSystemXmlApplicationContext.getResourceByPath(String)"} =>  
+  [FileSystemXmlApplicationContext](){:title="org.springframework.context.support.FileSystemXmlApplicationContext"} 
+  
+  **结束**
 
  
 - BeanDefinition载入
-
+	
+	参见2.refresh()步骤
+	
 - 向IOC容器注册BeanDefinition的过程
 
 
 **说明：**
 
-- 初识化过程中，通过refresh()启动整个调用
+- 初始化过程中，通过refresh()启动整个调用
 
 - 使用的IOC容器为[DefaultListableBeanFactory](){:title="org.springframework.beans.factory.support.DefaultListableBeanFactory"}
 
@@ -47,6 +50,8 @@ description: 对Spring源码阅读的简单笔记
 
 - 载入过程的启动，可以在[AbstractBeanDefinitionReader](){:title="org.springframework.beans.factory.support.AbstractBeanDefinitionReader"}中的`loadBeanDefinitions(String... locations)`中看到
 
+- 解析BeanDefinition，使用了[BeanDefinitionParserDelegate](){:title="org.springframework.beans.factory.xml.BeanDefinitionParserDelegate"}
+ 
 ## 2.refresh()步骤
 
 **待添加refresh每一步详细笔记**
