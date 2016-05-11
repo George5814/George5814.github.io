@@ -4,7 +4,7 @@ title: Spring源码阅读笔记（1）
 category: 技术
 tags:  Spring
 keywords: 
-description: 对Spring源码阅读的简单笔记
+description: IOC容器的初始化过程
 ---
 
 {:toc}
@@ -63,6 +63,14 @@ description: 对Spring源码阅读的简单笔记
 	
 	
 - 向IOC容器注册BeanDefinition的过程
+	
+紧接着BeanDefinition载入的最后一步
+
+  [BeanDefinitionReaderUtils.registerBeanDefinition(bdHolder, getReaderContext().getRegistry())](){:title="org.springframework.beans.factory.support.BeanDefinitionReaderUtils.registerBeanDefinition(BeanDefinitionHolder, BeanDefinitionRegistry)"} =>
+  [registry.registerBeanDefinition(beanName, definitionHolder.getBeanDefinition())](){:title="org.springframework.beans.factory.support.DefaultListableBeanFactory.registerBeanDefinition(String, BeanDefinition)"}
+  
+bean在经过一系列检验成功后，注册进[beanDefinitionMap](){:title="this.beanDefinitionMap.put(beanName, beanDefinition);"}
+  
 
 
 **说明：**
@@ -77,6 +85,10 @@ description: 对Spring源码阅读的简单笔记
 
 - 解析BeanDefinition，使用了[BeanDefinitionParserDelegate](){:title="org.springframework.beans.factory.xml.BeanDefinitionParserDelegate"}
  
+- 解析成功的BeanDefinition，最终存入[beanDefinitionMap](){:title="org.springframework.beans.factory.support.DefaultListableBeanFactory.beanDefinitionMap"}中，类型为`java.util.concurrent.ConcurrentHashMap`。
+
+
+
 ## 2.refresh()步骤
 
 **待添加refresh每一步详细笔记**
@@ -259,6 +271,11 @@ ResolvableType.clearCache();
 CachedIntrospectionResults.clearClassLoader(getClassLoader());
 ```
 
-## 其他
+### 总结：
+	
+	初始化过程主要完成了在IOC容器中建立BeanDefinition的数据映射，并没有IOC容器对Bean的依赖关系进行注入。
+	
 
-- 依赖注入一般发生在应用第一次通过getBean()向容器索取Bean的时候
+**依赖注入一般发生在应用第一次通过getBean()向容器索取Bean的时候**
+
+**下一篇的[Spring源码阅读笔记（2）](/2016/05/11/spring-sources-read-2.html){:title="IOC容器的依赖注入"  :target="_blank"}中将会详细讲解**
