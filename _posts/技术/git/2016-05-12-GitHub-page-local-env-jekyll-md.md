@@ -82,7 +82,9 @@ description: 搭建使用Github page作为博客的本地运行环境
 
 `cacert.pem`[下载位置](https://curl.haxx.se/ca/cacert.pem){:target="_blank"}，保存在`C:\RailsInstaller`目录下，文件名为`cacert.pem`。
 
-`cacert.pem`[网盘下载位置](http://pan.baidu.com/s/1pLSrGlt){:target="_blank"}
+`cacert.pem`[网盘下载位置](http://pan.baidu.com/s/1pLSrGlt){:target="_blank"};
+
+`cacert.pem`[当前下载位置](/public/file/cacert.pem){:target="_blank"};
 
 查看证书是否已经添加进环境变量
 
