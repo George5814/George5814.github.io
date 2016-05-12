@@ -276,6 +276,4 @@ CachedIntrospectionResults.clearClassLoader(getClassLoader());
 	初始化过程主要完成了在IOC容器中建立BeanDefinition的数据映射，并没有IOC容器对Bean的依赖关系进行注入。
 	
 
-**依赖注入一般发生在应用第一次通过getBean()向容器索取Bean的时候**
-
 **下一篇的[Spring源码阅读笔记（2）](/2016/05/11/spring-sources-read-2.html){:title="IOC容器的依赖注入"  :target="_blank"}中将会详细讲解**
