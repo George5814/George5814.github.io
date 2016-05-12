@@ -11,6 +11,34 @@ description: IOC容器的依赖注入
 
 上一篇的[Spring源码阅读笔记（1）](/2016/05/05/spring-sources-read-1.html){:title="IOC容器的依赖注入"}简单讲解了IOC容器的初始化过程，接下来讲解IOC容器的依赖注入。
 
+**依赖注入一般发生在应用第一次通过getBean()向容器索取Bean的时候，但也可以在BeanDefinition中控制lazy-init属性实现Bean的预实例化，即完成依赖注入的过程，在初始化时完成。**
 
+## 1.IOC容器依赖注入Bean实例化过程
 
-## 1.IOC容器依赖注入
+从`org.springframework.beans.factory.support.AbstractBeanFactory.getBean(String)`开始
+
+[doGetBean(name, null, null, false)](){:title="org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(String, Class<T>, Object[], boolean)"} =>  
+[createBean(beanName, mbd, args)](){:title="org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(String, RootBeanDefinition, Object[])"} =>  
+[doCreateBean(beanName, mbdToUse, args)](){:title="org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(String, RootBeanDefinition, Object[])"} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>  
+[](){:title=""} =>   
+
