@@ -48,7 +48,9 @@ locals:
   bookMark: 书签
   BUG: BUG
 
+# markdown解析器
 markdown: kramdown
+
 highlighter: rouge
 
 kramdown:
@@ -57,6 +59,12 @@ kramdown:
 gems:
     [jekyll-paginate]
 
-
+# 端口号
 port:
     4001
+
+# 文章生成地址
+destination: _deploy
+
+#为相关文章生成索引
+#lsi: true

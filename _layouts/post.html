@@ -7,7 +7,8 @@ layout: base
   <div class="col-md-13 aside3-title">
     <br>
     <h2 id="#identifier">{{ page.title }}</h2>
-    <span style="display: block;margin-left: 40%"> ----{{ page.date | date:"%Y年%m月%d日" }}</span>
+    <span style="display: block;margin-left: 40%"> {{ page.date | date:"%Y年%m月%d日" }}</span>
+    <span style="display: block;margin-left: 40%"> 当前文章共有{{ page.content | number_of_words }}字</span>
     <div class="post-desc">{{ page.description }}</div>
   </div>
   <div class="col-md-13 aside3-content">
@@ -16,6 +17,7 @@ layout: base
       {{ content }}
     </div>
     <hr>
+    	<!--引入代码片段-->
     {% include duoshuo.html %}
   </div>
   <!-- 目录 -->

@@ -144,6 +144,11 @@ description: 平时使用的一些比较有用的积累
 [http://ocr.wdku.net](http://ocr.wdku.net)
 
 
+### 7.9  Jekyll 教程
+
+[http://jekyll.bootcss.com/](http://jekyll.bootcss.com/)
+
+
 
 
 

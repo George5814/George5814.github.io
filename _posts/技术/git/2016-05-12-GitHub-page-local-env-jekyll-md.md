@@ -7,6 +7,8 @@ keywords:
 description: 搭建使用Github page作为博客的本地运行环境
 ---
 
+{:toc}
+
 ### 1.安装git、tortoisegit，注册github账号，添加ssh公钥证书。
 
 当前这些步骤保证能通过git向github提交和修改项目
