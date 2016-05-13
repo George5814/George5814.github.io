@@ -18,6 +18,8 @@ comments: false
     <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; 
     	<!--归档页面显示的链接-->
       <a class="pjaxlink" href="{{ post.url }}">{{ post.title }}</a>
+      <!--显示摘要-->
+      <!--{{ post.excerpt }}-->
     </li>
   
     {% if forloop.last %}
