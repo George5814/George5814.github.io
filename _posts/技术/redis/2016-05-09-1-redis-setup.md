@@ -118,6 +118,8 @@ Installation successful!
 ```
 
 可以通过`/etc/init.d/redis_<portnumber> start/stop`来启动和关闭redis服务
+ 
+**在windows下使用java客户端连接(无密码)，如果连接不上就关闭linux下的防火墙`#service iptables stop`**
 
 
 

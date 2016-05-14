@@ -24,8 +24,8 @@ gavatar: /public/img/dog.png
 favicon: /public/img/dog.png
 
 # disqus 设置
-disqus:
-  shortname: jingzz
+#disqus:
+#  shortname: jingzz
 
 #多说 设置 
 duoshuo:
