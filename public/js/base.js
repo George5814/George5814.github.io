@@ -98,7 +98,7 @@ function contentEffects(){
         current.attr("id", "title" + i);
         tag = current.prop('tagName').substr(-1);
         //添加div的目录元素
-        $("#nav").append("<div><a id='link" + i + "' href='#title" +i + "'>" + current.html() + "</a></div>");
+        $("#nav").append("<div style='margin-left:"+15*(tag-1)+"px'><a id='link" + i + "' href='#title" +i + "'>" + current.html() + "</a></div>");
     }); 
     $("pre").addClass("prettyprint");
     prettyPrint(); 
