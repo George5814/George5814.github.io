@@ -11,9 +11,12 @@ description:
 
 ### 1.下载kafka
 
-对应scala-2.10.x版本：[ kafka_2.10-0.9.0.1.tgz](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.9.0.1/kafka_2.10-0.9.0.1.tgz){:target="_blank"}
+对应[scala-2.10.x](http://www.scala-lang.org/download/all.html){:target="_blank"}版本：
+[ kafka_2.10-0.9.0.1.tgz](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.9.0.1/kafka_2.10-0.9.0.1.tgz){:target="_blank"}
 
-对应scala-2.11.x版本：[ kafka_2.11-0.9.0.1.tgz](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.9.0.1/kafka_2.11-0.9.0.1.tgz){:target="_blank"}
+
+对应[scala-2.11.x](http://www.scala-lang.org/download/all.html){:target="_blank"}版本：
+[ kafka_2.11-0.9.0.1.tgz](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.9.0.1/kafka_2.11-0.9.0.1.tgz){:target="_blank"}
 
 ### 2.通过winscp将软件复制到VM的centos系统中
 
