@@ -1,0 +1,1 @@
+start jekyll s -w --incremental
