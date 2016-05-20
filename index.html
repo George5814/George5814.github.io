@@ -24,7 +24,7 @@ titlename: 首页
       <div class="panel-heading">{{ site.locals.newest }}</div>
       {% for post in paginator.posts %}
         <a  href='{{ post.url }}' class="list-group-item pjaxlink clearfix">
-      	<span style="display: inline-block; width: 50px;height: 50px;background-image: url({{ site.url }}/public/img/dog.png);"></span>
+      	<span style="display: inline-block; width: 48px;height: 48px;margin-bottom: -16px;background-image: url({{ site.url }}/public/img/dog.png);"></span>
           <span style="margin-left: 10px;font-size: 24px;">
           	{{post.title}}
           </span>
