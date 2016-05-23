@@ -228,3 +228,21 @@ a.list-group-item-lay.pjaxlink.pjaxlink-custom {
 	margin-left: 0px;
 }
 
+#pageNo{
+	
+	display: inline-block;
+	/*background: #31B0D5;*/
+	width: 36px;
+	height: 36px;
+	line-height: 18px;
+	padding: 12px;
+	font-size: 18px;
+	border: 1px solid #16A085;
+	margin:10px auto;
+	margin-left: 11px;
+	
+}
+
+a:hover,a:visited{
+	cursor: pointer;
+}

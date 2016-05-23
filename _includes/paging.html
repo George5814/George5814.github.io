@@ -1,0 +1,15 @@
+ <!--变量赋值-->
+  {% assign num = site.posts.size | divided_by:paginator.posts.size %}
+  {% assign modu = site.posts.size | modulo:paginator.posts.size %}
+  <!--分页页码循环-->
+  {% for index in (1..num)  %}
+      {% if index == 1 %}
+       <a id="pageNo" href="{{size.url}}/">{{ index }}</a>
+      {% elsif index == num and  modu > 0 %}
+       <a id="pageNo" href="{{size.url}}/page{{index}}">{{ index}}</a>
+       <a id="pageNo" href="{{size.url}}/page{{index | plus:1}}">{{ index | plus:1 }}</a>
+      {% elsif index > 1 and index < num %}
+       <a id="pageNo" href="{{size.url}}/page{{index}}">{{ index }}</a>
+      {% else %}
+      {% endif %}
+  {% endfor %}
