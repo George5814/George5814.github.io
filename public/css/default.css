@@ -13,8 +13,8 @@
 
 #loveHeart {
 	/*float: left;*/
-	width: 121.4em;
-	height: 121.4em;
+	width: 73em;
+	height: 71em;
 	position: absolute;
 }
 
@@ -49,7 +49,7 @@
 #loveu {
 	padding: 5px;
 	font-size: 22px;
-	margin-top: 80px;
+	margin-top: 40px;
 	margin-right: 120px;
 	text-align: right;
 	display: none
@@ -67,11 +67,13 @@
 
 #code {
 	float: left;
-	width: 440px;
-	height: 400px;
+	width: 800px;
+	height: 100px;
 	color: #333;
 	font-family: "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", "sans-serif";
-	font-size: 12px
+	font-size: 24px;
+	margin: 0 auto;
+	line-height: 40px;
 }
 
 #code .string {

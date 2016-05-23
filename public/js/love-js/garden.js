@@ -176,7 +176,7 @@
 	    Garden.randomInt = function (min, max) {
 	        return Math.floor(Math.random() * (max - min + 1)) + min;
 	    };
-	    Garden.circle = 2 * Math.PI;
+	    Garden.circle = Math.PI;
 	    Garden.degrad = function (angle) {
 	        return Garden.circle / 360 * angle;
 	    };
