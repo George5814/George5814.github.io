@@ -17,11 +17,12 @@ $(function () {
     gardenCtx.globalCompositeOperation = "lighter";
     garden = new Garden(gardenCtx, gardenCanvas);
 	
-	$("#content").css("width", $loveHeart.width());
-	$("#content").css("height", Math.max($loveHeart.height(), $("#code").height()));
-	$("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2, 10));
-	$("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
-
+	$("#content").css("width", $loveHeart.width() + 100);
+	$("#content").css("height", Math.max($loveHeart.height() + 100 , $("#code").height() + 100));
+//	$("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2, 10));
+//	$("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
+	$("#content").css("margin-top","5%");
+	$("#content").css("margin-left","5%");
     // renderLoop
     setInterval(function () {
         garden.render();
