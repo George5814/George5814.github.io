@@ -63,6 +63,11 @@ gems:
 # 端口号
 port:
     4001
+    
+#host:
+#    10.2.104.35
+    
+
 
 # 文章生成地址
 destination: _deploy
