@@ -21,7 +21,7 @@ titlename: 首页
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-primary">
-      <div class="panel-heading">{{ site.locals.newest }}</div>
+      <div class="panel-heading">{{ site.locals.newest }} ({{ paginator.posts.size }})条 </div>
       {% for post in paginator.posts %}
         <a  href='{{ post.url }}' class="list-group-item pjaxlink clearfix">
       	<span style="display: inline-block; width: 48px;height: 48px;margin-bottom: -16px;background-image: url({{ site.url }}/public/img/dog.png);"></span>
@@ -31,6 +31,8 @@ titlename: 首页
           <span class="badge">{{ post.date | date:"%Y年%m月%d日" }}</span>
         </a>
       {% endfor %}
+      <!--引入分页模板-->
+      {% include paging.html %}
     </div>
   </div>
   {% for cate in site.cates %}
