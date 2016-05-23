@@ -6,8 +6,8 @@ var clientHeight = $(window).height();
 $(function () {
     // setup garden
 	$loveHeart = $("#loveHeart");
-	var offsetX = $loveHeart.width() / 2;
-	var offsetY = $loveHeart.height() / 2 - 55;
+	$loveHeart.width($loveHeart.width() - 100);
+	$loveHeart.height($loveHeart.height()- 200);
     $garden = $("#garden");
     gardenCanvas = $garden[0];
 	gardenCanvas.width = $("#loveHeart").width();
@@ -17,7 +17,7 @@ $(function () {
     gardenCtx.globalCompositeOperation = "lighter";
     garden = new Garden(gardenCtx, gardenCanvas);
 	
-	$("#content").css("width", $loveHeart.width() + $("#code").width());
+	$("#content").css("width", $loveHeart.width());
 	$("#content").css("height", Math.max($loveHeart.height(), $("#code").height()));
 	$("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2, 10));
 	$("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
@@ -36,10 +36,16 @@ $(window).resize(function() {
     }
 });
 
+/* 画心形点 */
 function getHeartPoint(angle) {
+	
+	var offsetX = $("#loveHeart").width() / 2 - 72;
+	var offsetY = $("#loveHeart").height() / 2;
+	console.log("offsetX:"+offsetX+",offsetY:"+offsetY)
 	var t = angle / Math.PI;
-	var x = 36 * (16 * Math.pow(Math.sin(t), 3));
-	var y = - 36 * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+	var x = 18 * (16 * Math.pow(Math.sin(t), 3));
+	var y = - 18 * (12 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+	console.log("X:"+x+",y:"+y)
 	return new Array(offsetX + x, offsetY + y);
 }
 
@@ -126,14 +132,14 @@ function adjustWordsPosition() {
 	$('#words').css("position", "absolute");
 /*	$('#words').css("top", $("#garden").position().top * 2);
 	$('#words').css("left", $("#garden").position().left * 2);*/
-	$('#words').css("top", "50%");
-	$('#words').css("left", "40%");
+	$('#words').css("top", "59%");
+	$('#words').css("left", "6%");
 }
 
 function adjustCodePosition() {
 //	$('#code').css("margin-top", ($("#garden").height() - $("#code").height()) / 2);
-	$('#code').css("top", "30%");
-	$('#code').css("left", "40%");
+	/*$('#code').css("top", "30%");
+	$('#code').css("left", "40%");*/
 }
 
 function showLoveU() {

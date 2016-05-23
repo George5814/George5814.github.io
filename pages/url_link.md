@@ -38,6 +38,10 @@ description: 平时使用的一些比较有用的积累
 ### 2.3 如何阅读Java源码 阅读java的真实体会
 
 [http://www.hulian.top/zixun/post/4771.html](http://www.hulian.top/zixun/post/4771.html){:target="_blank"}
+
+### 2.4 liquid用法笔记
+
+[http://blog.csdn.net/dont27/article/details/38097581](http://blog.csdn.net/dont27/article/details/38097581  "liquid用法笔记"){:target="_blank"}
  
 
 ## 三.  Eclipse相关

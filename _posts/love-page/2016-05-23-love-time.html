@@ -10,10 +10,10 @@
 }
 </style>
 
-<link href="css/default.css" type="text/css" rel="stylesheet">
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/garden.js"></script>
-<script type="text/javascript" src="js/functions.js"></script>
+<link href="{{size.url}}/public/css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="{{size.url}}/public/js/love-js/jquery.js"></script>
+<script type="text/javascript" src="{{size.url}}/public/js/love-js/garden.js"></script>
+<script type="text/javascript" src="{{size.url}}/public/js/love-js/functions.js"></script>
 
 </head>
 
@@ -22,12 +22,13 @@
 <div id="mainDiv">
 	<div id="content">
 		<div id="loveHeart">
-			<canvas id="garden"></canvas>
 			<div id="code">
-				2015-10-29 0:09:25 ~ <?php echo date('Y-m-d H:i:s',time()) ?><br>
-				女生姓名:<span class="keyword"></span>滕如云<br />
-				男生姓名:<span class="keyword"></span>荆中志<br />
+				<div id="ourloveTimeInterval"></div>
+				女生姓名:<span class="keyword">滕如云</span><br />
+				男生姓名:<span class="keyword">荆中志</span><br />
+				我们在一起了！！
 			</div>
+			<canvas id="garden"></canvas>
 			<div id="words">
 				<div id="messages">
 					亲爱的，这是我们相爱在一起的时光。
@@ -43,8 +44,9 @@
 </div>
 
 <script type="text/javascript">
-var offsetX = $("#loveHeart").width() / 2;
-var offsetY = $("#loveHeart").height() / 2 - 55;
+
+$("#ourloveTimeInterval").text("时间：2015-10-29 00:09:25 ~ " + getNowFormatDate());
+
 var together = new Date();
 /* 2015年10月29日 */
 together.setFullYear(2015, 9, 29);
@@ -70,6 +72,35 @@ if (!document.createElement('canvas').getContext) {
 	}, 500);
 	adjustCodePosition();
 	$("#code").typewriter();
+}
+
+function getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    if (hour >= 0 && hour <= 9) {
+        hour = "0" + hour;
+    }
+    if (minute >= 0 && minute <= 9) {
+        minute = "0" + minute;
+    }
+    if (second >= 0 && second <= 9) {
+        second = "0" + second;
+    }
+    var currentdate = (date.getYear()+1900) + seperator1 + month + seperator1 + strDate
+            + " " + hour+ seperator2 + minute + seperator2 + second;
+    return currentdate;
 }
 </script>
 <div style="text-align:center;clear:both">
