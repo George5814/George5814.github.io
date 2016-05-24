@@ -15,7 +15,7 @@ layout: base
     <div class="row">
       {% for book in page.books %}
         <div class="col-md-12">
-          <div class="panel panel-primary">
+          <div class="panel panel-primary panel-custom">
             <div class="panel-heading">{{ book.title }}</div>
             <div class="panel-body">
               <div class="row">
@@ -30,7 +30,7 @@ layout: base
                       <tr><td>语言</td><td>{{ book.language }}</td></tr>
                       <tr>
                         <td>链接</td><td>
-                        <a href="{{ book.link }}" title="{{ book.link }}">图书链接</a>
+                        <a href="{{ book.link }}" title="{{ book.link }}" target="_blank">图书链接</a>
                       </td></tr>
                       <tr>
                         <td>状态</td>
