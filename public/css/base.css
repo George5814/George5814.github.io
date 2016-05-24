@@ -267,3 +267,6 @@ a:hover,a:visited{
   background-color: #CDF1EB
   
 }
+.panel-heading-custom{
+	font-weight: bold;
+}
