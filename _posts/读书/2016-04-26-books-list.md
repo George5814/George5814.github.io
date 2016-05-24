@@ -1,28 +1,37 @@
 ---
-layout: post
+layout: book
 title: 书籍清单
 category: 阅读
-tags: BookMark
+tags: BookList
 keywords: 
 description: 读书，让人生更饱满
+books: 
+    - title: 重构 改善既有代码设计
+      status: 在读
+      author: Martin Fowler
+      publisher: 人民邮电出版社
+      language: 中文
+      link: https://book.douban.com/subject/1229923/
+      cover: https://img3.doubanio.com/lpic/s1669771.jpg
+      description: 
+      
+    - title: Spring 技术内幕 深入解析Spring架构与设计原理
+      status: 在读
+      author: 计文柯
+      publisher: 机械工业出版社
+      language: 中文
+      link: https://book.douban.com/subject/10470970/
+      cover: https://img1.doubanio.com/lpic/s28047189.jpg
+      description: 
+      
+    - title: Spring源码深度解析
+      status: 在读
+      author: 郝佳
+      publisher: 人民邮电出版社
+      language: 中文
+      link: https://book.douban.com/subject/25866350/
+      cover: https://img3.doubanio.com/lpic/s28047190.jpg
+      description: 
 ---
 
-{:toc}
 
-## 待读图书
-
-### 《黑客与画家》
-
-- 作者：格雷厄姆
-
-- 知乎评论：[如何评价《黑客与画家》？](http://www.zhihu.com/question/20524485){:target="_blank"}
-
-- PDF版本：[百度网盘](http://pan.baidu.com/s/1eS0iYCq){:target="_blank"}
-	
-### 《围城》
-
-- 作者：钱钟书 
-
-- 知乎评论：[你从《围城》中读出了什么？](https://www.zhihu.com/question/19594412){:target="_blank"}
-
-- PDF版本：[百度网盘](http://pan.baidu.com/s/1dEKT7tJ){:target="_blank"}

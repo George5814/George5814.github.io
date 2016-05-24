@@ -246,3 +246,24 @@ a.list-group-item-lay.pjaxlink.pjaxlink-custom {
 a:hover,a:visited{
 	cursor: pointer;
 }
+
+.post-tags{
+	text-align: left;
+}
+
+.post-tags span{
+	color: #036CB4;
+	
+	font-weight: bold;
+}
+
+.panel-custom{
+	box-shadow: 8px 5px 1px rgba(0, 0, 0, 0.1);
+	
+}
+
+.panel-custom:hover{
+  cursor: pointer;
+  background-color: #CDF1EB
+  
+}
