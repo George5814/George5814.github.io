@@ -85,3 +85,79 @@ yarn节点：
 	
 Yarn的RM接收到我们客户提交的	MapReduce程序后，交给某个NodeManger，启动某个进程MRAppMaster[MRAppMaster分配任务]，MRAppMaster会通过RM获得被分配任务节点位置，然后将任务分配给指定节点	
 
+
+
+**namenode  格式化(集群格式化)**
+
+`hdfs namenode -format -clusterId  hadoop-cluster-jingzz`
+
+不同节点上格式化NameNode必须有相同的clusterId:`hadoop-cluster-jingzz`
+
+成功格式化后显示一些配置信息
+
+```
+************************************************************/
+16/05/25 07:19:05 INFO namenode.NameNode: registered UNIX signal handlers for [TERM, HUP, INT]
+16/05/25 07:19:05 INFO namenode.NameNode: createNameNode [-format, -clusterId, hadoop-cluster-jingzz]
+16/05/25 07:19:06 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Formatting using clusterid: hadoop-cluster-jingzz
+16/05/25 07:19:07 INFO namenode.FSNamesystem: No KeyProvider found.
+16/05/25 07:19:07 INFO namenode.FSNamesystem: fsLock is fair:true
+16/05/25 07:19:07 INFO blockmanagement.DatanodeManager: dfs.block.invalidate.limit=1000
+16/05/25 07:19:07 INFO blockmanagement.DatanodeManager: dfs.namenode.datanode.registration.ip-hostname-check=true
+16/05/25 07:19:07 INFO blockmanagement.BlockManager: dfs.namenode.startup.delay.block.deletion.sec is set to 000:00:00:00.000
+16/05/25 07:19:07 INFO blockmanagement.BlockManager: The block deletion will start around 2016 May 25 07:19:07
+16/05/25 07:19:07 INFO util.GSet: Computing capacity for map BlocksMap
+16/05/25 07:19:07 INFO util.GSet: VM type       = 64-bit
+16/05/25 07:19:07 INFO util.GSet: 2.0% max memory 966.7 MB = 19.3 MB
+16/05/25 07:19:07 INFO util.GSet: capacity      = 2^21 = 2097152 entries
+16/05/25 07:19:07 INFO blockmanagement.BlockManager: dfs.block.access.token.enable=false
+16/05/25 07:19:07 INFO blockmanagement.BlockManager: defaultReplication         = 3
+16/05/25 07:19:07 INFO blockmanagement.BlockManager: maxReplication             = 512
+16/05/25 07:19:07 INFO blockmanagement.BlockManager: minReplication             = 1
+16/05/25 07:19:07 INFO blockmanagement.BlockManager: maxReplicationStreams      = 2
+16/05/25 07:19:07 INFO blockmanagement.BlockManager: shouldCheckForEnoughRacks  = false
+16/05/25 07:19:07 INFO blockmanagement.BlockManager: replicationRecheckInterval = 3000
+16/05/25 07:19:07 INFO blockmanagement.BlockManager: encryptDataTransfer        = false
+16/05/25 07:19:07 INFO blockmanagement.BlockManager: maxNumBlocksToLog          = 1000
+16/05/25 07:19:07 INFO namenode.FSNamesystem: fsOwner             = root (auth:SIMPLE)
+16/05/25 07:19:07 INFO namenode.FSNamesystem: supergroup          = supergroup
+16/05/25 07:19:07 INFO namenode.FSNamesystem: isPermissionEnabled = false
+16/05/25 07:19:07 INFO namenode.FSNamesystem: Determined nameservice ID: ns2
+16/05/25 07:19:07 INFO namenode.FSNamesystem: HA Enabled: false
+16/05/25 07:19:07 INFO namenode.FSNamesystem: Append Enabled: true
+16/05/25 07:19:08 INFO util.GSet: Computing capacity for map INodeMap
+16/05/25 07:19:08 INFO util.GSet: VM type       = 64-bit
+16/05/25 07:19:08 INFO util.GSet: 1.0% max memory 966.7 MB = 9.7 MB
+16/05/25 07:19:08 INFO util.GSet: capacity      = 2^20 = 1048576 entries
+16/05/25 07:19:08 INFO namenode.FSDirectory: ACLs enabled? false
+16/05/25 07:19:08 INFO namenode.FSDirectory: XAttrs enabled? true
+16/05/25 07:19:08 INFO namenode.FSDirectory: Maximum size of an xattr: 16384
+16/05/25 07:19:08 INFO namenode.NameNode: Caching file names occuring more than 10 times
+16/05/25 07:19:08 INFO util.GSet: Computing capacity for map cachedBlocks
+16/05/25 07:19:08 INFO util.GSet: VM type       = 64-bit
+16/05/25 07:19:08 INFO util.GSet: 0.25% max memory 966.7 MB = 2.4 MB
+16/05/25 07:19:08 INFO util.GSet: capacity      = 2^18 = 262144 entries
+16/05/25 07:19:08 INFO namenode.FSNamesystem: dfs.namenode.safemode.threshold-pct = 0.9990000128746033
+16/05/25 07:19:08 INFO namenode.FSNamesystem: dfs.namenode.safemode.min.datanodes = 0
+16/05/25 07:19:08 INFO namenode.FSNamesystem: dfs.namenode.safemode.extension     = 30000
+16/05/25 07:19:08 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.top.window.num.buckets = 10
+16/05/25 07:19:08 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.top.num.users = 10
+16/05/25 07:19:08 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.top.windows.minutes = 1,5,25
+16/05/25 07:19:08 INFO namenode.FSNamesystem: Retry cache on namenode is enabled
+16/05/25 07:19:08 INFO namenode.FSNamesystem: Retry cache will use 0.03 of total heap and retry cache entry expiry time is 600000 millis
+16/05/25 07:19:08 INFO util.GSet: Computing capacity for map NameNodeRetryCache
+16/05/25 07:19:08 INFO util.GSet: VM type       = 64-bit
+16/05/25 07:19:08 INFO util.GSet: 0.029999999329447746% max memory 966.7 MB = 297.0 KB
+16/05/25 07:19:08 INFO util.GSet: capacity      = 2^15 = 32768 entries
+Re-format filesystem in Storage Directory /root/hadoop/dfs/nn/name ? (Y or N) y
+Re-format filesystem in Storage Directory /root/hadoop/dfs/nn/edits ? (Y or N) y
+16/05/25 07:19:09 INFO namenode.FSImage: Allocated new BlockPoolId: BP-1177085153-192.168.31.102-1464185949838
+16/05/25 07:19:09 INFO common.Storage: Storage directory /root/hadoop/dfs/nn/name has been successfully formatted.
+16/05/25 07:19:09 INFO common.Storage: Storage directory /root/hadoop/dfs/nn/edits has been successfully formatted.
+16/05/25 07:19:10 INFO namenode.NNStorageRetentionManager: Going to retain 1 images with txid >= 0
+16/05/25 07:19:10 INFO util.ExitUtil: Exiting with status 0
+16/05/25 07:19:10 INFO namenode.NameNode: SHUTDOWN_MSG: 
+/************************************************************
+SHUTDOWN_MSG: Shutting down NameNode at h2s1/192.168.31.102
+```
