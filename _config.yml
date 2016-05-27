@@ -52,15 +52,10 @@ locals:
 # markdown解析器
 markdown: kramdown
 
-markdown_ext:  markdown,mkd,mkdn,md
-
 highlighter: rouge
 
 kramdown:
   input: GFM
-  syntax_highlighter: rouge
-  coderay:
-    coderay_line_numbers:  nil
   
 gems:
     [jekyll-paginate]
