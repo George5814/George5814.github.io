@@ -149,3 +149,105 @@ appendonly yes
 ![redis实例集群示意图](/public/pic/redis/redis-setup-cluster.png "redis实例集群示意图")
 
 这表示集群中的 16384 个槽都有至少一个主节点在处理， 集群运作正常。
+
+
+### 4.集群操作
+
+#### 4.1 添加新的节点
+
+|实例名称        |  端口号 |所在位置                     |
+|-------    |--------|------------------|
+|redis      |    6379|h2s1:/usr/local/redis|
+
+`./redis-trib.rb add-node h2s1:6379 127.0.0.1:6379`：将节点`h2s1:6379`添加到所在集群`127.0.0.1:6379`。
+
+**注：**
+
+- 新节点`h2s1:6379`不能有数据
+
+- 新节点`h2s1:6379`实例必须已经启动
+
+
+![redis集群添加新的节点](/public/pic/redis/redis-server-cluster-newnode-2.png "redis集群添加新的节点")
+
+#### 4.1 删除节点
+
+`./redis-trib.rb  del-node h2s1:6379 16c85b6ec209b703b90d81019606c1c021ab0a1e`:删除节点需要host:port nodeId,即被删除节点的host,port和生成的集群中唯一标识节点id。
+
+节点id可以通过检查节点的命令`./redis-trib.rb  check host:port`查看
+
+被删除的节点会被下线，而不仅仅是移除集群。如果要重新加入，需要重新启动该节点
+
+![redis集群删除节点](/public/pic/redis/redis-server-cluster-delnode.png "redis集群删除节点")
+
+#### 4.2 检查节点
+
+`./redis-trib.rb  check  h2s1:6379`:检查节点，很长的一段字符串就是节点的id,如示例图中的`1dda781d73f38b1abed11beba610b155387e2a8d`
+
+![redis集群检查节点](/public/pic/redis/redis-server-cluster-check-node.png "redis集群检查节点")
+
+#### 4.3  查看节点信息
+
+`./redis-trib.rb  info  h2s1:6379`:查看指定节点信息，包括有多少key，多少槽，有多少的从节点以及每个槽上平均有多少key
+
+![redis集群查看节点信息](/public/pic/redis/redis-server-cluster-info-node.png "redis集群检查节点")
+
+#### 4.4 修复集群
+
+`./redis-trib.rb  fix   127.0.0.1:6379`:修复`127.0.0.1:6379`所在集群
+
+![redis集群修复](/public/pic/redis/redis-server-cluster-fix-node.png "redis集群修复")
+
+#### 4.5 集群简单操作
+
+可以看出，我从任何一个节点都可以访问到集群其他节点的数据
+
+![redis集群简单操作](/public/pic/redis/redis-server-oper-1.png "redis集群简单操作")
+
+
+#### 4.6 集群reshard
+
+` ./redis-trib.rb  reshard    127.0.0.1:6379`:host和port指定节点所在集群
+
+![redis集群reshard](/public/pic/redis/redis-server-cluster-reshard-node-1.png "redis集群reshard")
+
+`Source node #1:`我选择的all
+
+![redis集群reshard](/public/pic/redis/redis-server-cluster-reshard-node-2.png "redis集群reshard")
+
+询问是否继续reshard计划：我选的的`yes`
+
+执行移动操作：
+
+![redis集群reshard](/public/pic/redis/redis-server-cluster-reshard-node-3.png "redis集群reshard")
+
+已经成功移动完成
+
+#### 4.7 集群rebalance
+
+`./redis-trib.rb  rebalance     h2s1:6379`:因集群中三个主节点的槽数量差别较大，因此重新分配槽的数量以达到集群的平衡。
+
+![redis集群重新平衡](/public/pic/redis/redis-server-cluster-rebalance-node.png "redis集群重新平衡")
+
+
+#### 4.8 集群执行命令
+
+`./redis-trib.rb  call 127.0.0.1:6379  set name "jingzz"`:在集群上执行set和get命令
+
+即在6379端口的节点上的命令被存储在了6579节点上。
+
+![redis集群执行命令](/public/pic/redis/redis-server-cluster-call-cmd.png "redis集群执行命令")
+
+
+**注意点：**
+
+1. redis默认配置如下：
+
+```
+bind 127.0.0.1 
+protected-mode yes
+```
+
+如果想要连接外部host，需要注释掉bind或指定ip，将protected-mode（保护模式设置为no），重启集群。
+
+![redis集群调整配置](/public/pic/redis/redis-server-cluster-note-pointer.png "redis集群调整配置")
