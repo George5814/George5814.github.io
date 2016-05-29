@@ -1,6 +1,6 @@
 ---
 layout: post
-title: redis server 和 scripting命令操作
+title: redis 8：redis server 和 scripting命令操作
 category: 技术
 tags:  Redis
 keywords: 

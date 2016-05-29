@@ -1,10 +1,10 @@
 ---
 layout: post
-title: redis安装笔记
+title: redis 1：redis单机安装笔记
 category: 技术
 tags:  Redis
 keywords: 
-description: 
+description: 单机安装笔记
 ---
 
 {:toc}

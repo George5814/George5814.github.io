@@ -1,6 +1,6 @@
 ---
 layout: post
-title: redis transaction 和 connection命令操作
+title: redis 7：redis transaction 和 connection命令操作
 category: 技术
 tags:  Redis
 keywords: 

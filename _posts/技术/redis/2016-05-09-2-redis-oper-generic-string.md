@@ -1,6 +1,6 @@
 ---
 layout: post
-title: redis 一般命令操作
+title: redis 2：redis 一般命令操作
 category: 技术
 tags:  Redis
 keywords: 

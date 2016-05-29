@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Redis list命令操作
+title: redis 3：Redis list命令操作
 category: 技术
 tags:  Redis
 keywords: 

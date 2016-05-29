@@ -1,6 +1,6 @@
 ---
 layout: post
-title: redis hash 命令操作
+title: redis 6：redis hash 命令操作
 category: 技术
 tags:  Redis
 keywords: 

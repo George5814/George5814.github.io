@@ -1,6 +1,6 @@
 ---
 layout: post
-title: redis sorted_set 命令操作
+title: redis 5：redis sorted_set 命令操作
 category: 技术
 tags:  Redis
 keywords: 
