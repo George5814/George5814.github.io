@@ -1,6 +1,6 @@
 ---
 layout: post
-title: redis set命令操作
+title: redis 4：redis set命令操作
 category: 技术
 tags:  Redis
 keywords: 

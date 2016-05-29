@@ -1,14 +1,17 @@
 ---
 layout: post
-title: redis安装笔记-redis实例集群安装
+title: redis 9：redis实例集群安装
 category: 技术
 tags:  Redis
 keywords: 
-description:  在VMware虚拟机中安装redis集群安装，CentOS6.4系统。同一台机器上不同redis实例集群
+description:  在VMware虚拟机中安装redis集群安装，CentOS6.4系统。同一台机器上不同redis实例集群以及不同机器上redis实例集群
 ---
 
 {:toc}
 
+[Redis 集群规范](http://www.redis.cn/topics/cluster-spec.html "Redis 集群规范"){:target="_blank"}
+
+[Redis Cluster Specification](http://redis.io/topics/cluster-spec "Redis Cluster Specification"){:target="_blank"}
 
 ### 1. 下载/编译/安装`redis3.2.0`版本
 
@@ -163,49 +166,65 @@ appendonly yes
 
 **注：**
 
+- `redis-trib.rb`默认是在`redis-3.2.0/src`下
+
 - 新节点`h2s1:6379`不能有数据
 
 - 新节点`h2s1:6379`实例必须已经启动
 
+- 默认添加为主节点
+
 
 ![redis集群添加新的节点](/public/pic/redis/redis-server-cluster-newnode-2.png "redis集群添加新的节点")
 
-#### 4.1 删除节点
+添加节点为slave节点，所属的master节点自动选择：
 
-`./redis-trib.rb  del-node h2s1:6379 16c85b6ec209b703b90d81019606c1c021ab0a1e`:删除节点需要host:port nodeId,即被删除节点的host,port和生成的集群中唯一标识节点id。
+`redis-trib.rb add-node --slave new-node-host:port cluster-node-ip:port `
+
+![redis集群添加新的节点](/public/pic/redis/redis-server-cluster-newnode-3.png "redis集群添加新的slave节点")
+
+添加节点为slave节点，指定所属的master节点：
+
+`redis-trib.rb add-node --slave --master-id masterid   new-node-host:port cluster-node-ip:port `
+
+![redis集群添加新的节点](/public/pic/redis/redis-server-cluster-newnode-4.png "redis集群添加新的slave节点")
+
+#### 4.2 删除节点
+
+`./redis-trib.rb  del-node h2s1:6379 16c85b6ec209b703b90d81019606c1c021ab0a1e`:删除节点所在集群任一host:port, nodeId:即被删除节点在集群中id。
 
 节点id可以通过检查节点的命令`./redis-trib.rb  check host:port`查看
 
-被删除的节点会被下线，而不仅仅是移除集群。如果要重新加入，需要重新启动该节点
+被删除的节点会被下线，而不仅仅是移除集群。如果要重新加入，需要重新启动该节点。而且该节点的appendonly.aof和nodes.conf要删除，启动实例时重新生成。
 
 ![redis集群删除节点](/public/pic/redis/redis-server-cluster-delnode.png "redis集群删除节点")
 
-#### 4.2 检查节点
+#### 4.3 检查节点
 
 `./redis-trib.rb  check  h2s1:6379`:检查节点，很长的一段字符串就是节点的id,如示例图中的`1dda781d73f38b1abed11beba610b155387e2a8d`
 
 ![redis集群检查节点](/public/pic/redis/redis-server-cluster-check-node.png "redis集群检查节点")
 
-#### 4.3  查看节点信息
+#### 4.4  查看节点信息
 
 `./redis-trib.rb  info  h2s1:6379`:查看指定节点信息，包括有多少key，多少槽，有多少的从节点以及每个槽上平均有多少key
 
 ![redis集群查看节点信息](/public/pic/redis/redis-server-cluster-info-node.png "redis集群检查节点")
 
-#### 4.4 修复集群
+#### 4.5 修复集群
 
 `./redis-trib.rb  fix   127.0.0.1:6379`:修复`127.0.0.1:6379`所在集群
 
 ![redis集群修复](/public/pic/redis/redis-server-cluster-fix-node.png "redis集群修复")
 
-#### 4.5 集群简单操作
+#### 4.6 集群简单操作
 
 可以看出，我从任何一个节点都可以访问到集群其他节点的数据
 
 ![redis集群简单操作](/public/pic/redis/redis-server-oper-1.png "redis集群简单操作")
 
 
-#### 4.6 集群reshard
+#### 4.7 集群重新分片
 
 ` ./redis-trib.rb  reshard    127.0.0.1:6379`:host和port指定节点所在集群
 
@@ -223,14 +242,14 @@ appendonly yes
 
 已经成功移动完成
 
-#### 4.7 集群rebalance
+#### 4.8 集群重新平衡
 
 `./redis-trib.rb  rebalance     h2s1:6379`:因集群中三个主节点的槽数量差别较大，因此重新分配槽的数量以达到集群的平衡。
 
 ![redis集群重新平衡](/public/pic/redis/redis-server-cluster-rebalance-node.png "redis集群重新平衡")
 
 
-#### 4.8 集群执行命令
+#### 4.9 集群执行命令
 
 `./redis-trib.rb  call 127.0.0.1:6379  set name "jingzz"`:在集群上执行set和get命令
 

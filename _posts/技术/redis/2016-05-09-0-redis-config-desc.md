@@ -1,6 +1,6 @@
 ---
 layout: post
-title: redis配置属性描述
+title: redis 0：redis配置属性描述
 category: 技术
 tags:  Redis
 keywords: 
