@@ -2,7 +2,7 @@
 layout: post
 title: Kafka初步使用
 category: 技术	
-tags:  kafka
+tags:  Kafka
 keywords: 
 description: 
 ---

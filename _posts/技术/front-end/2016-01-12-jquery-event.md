@@ -2,7 +2,7 @@
 layout: post
 title: jQuery 部分知识点片段
 category: 前端
-tags:  javascript
+tags:  Javascript
 keywords: 
 description: 
 ---

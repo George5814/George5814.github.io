@@ -2,7 +2,7 @@
 layout: post
 title: java知识点札记
 category: 技术
-tags: java
+tags: Java
 keywords: 
 description: 
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: 前端定位
 category: 技术
-tags:  javascript
+tags:  Javascript
 keywords: 
 description: 
 ---

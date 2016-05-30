@@ -2,7 +2,7 @@
 layout: post
 title: 创建ajax简单过程
 category: 技术
-tags:  javascript
+tags:  Javascript
 keywords: 
 description: 
 ---

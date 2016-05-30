@@ -2,7 +2,7 @@
 layout: post
 title: LinkedIn的Kafka生态系统
 category: 业闻	
-tags:  kafka
+tags:  Kafka
 keywords: 
 description: 原文地址:https://engineering.linkedin.com/blog/2016/04/kafka-ecosystem-at-linkedin,<br>转载译文：http://geek.csdn.net/news/detail/71406
 ---

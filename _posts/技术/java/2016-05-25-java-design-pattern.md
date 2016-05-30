@@ -2,7 +2,7 @@
 layout: post
 title: java设计模式
 category: 技术
-tags: java
+tags: Java
 keywords: 
 description: 不定期更新
 ---
