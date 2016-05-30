@@ -1,6 +1,6 @@
  <!--变量赋值-->
-  {% assign num = site.posts.size | divided_by:paginator.posts.size %}
-  {% assign modu = site.posts.size | modulo:paginator.posts.size %}
+  {% assign num = site.posts.size | divided_by:site.paginate %}
+  {% assign modu = site.posts.size | modulo:site.paginate %}
   <!--分页页码循环-->
   {% for index in (1..num)  %}
       {% if index == 1 %}
