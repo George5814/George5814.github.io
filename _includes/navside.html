@@ -37,10 +37,26 @@
               </div>
             </div>
           {% endfor %}      
+          
+          <!-- 文章标签 -->
+          
+          <!--{% capture posts %}
+					  {% for post in site.posts %}
+					    |{{ post.title }}#{{ post.url }}
+					  {% endfor %}
+					{% endcapture %}
+					{% assign sortedposts = posts | split: '|' | sort %}
+					{% for post in sortedposts %}
+					    {% assign postitems = post | split: '#' %}
+					    <a href={{ postitems[1] }}">{{ postitems[0] }}</a><br>
+					{% endfor %}-->
           <div class="tab-pane tab-pane-custom" id="tags">
             <div class="panel-group panel-group-custom" id="accordion">
               <!--<h2 class="center">{{ site.locals.tags }}</h2>-->
-              {% for tag in site.tags %} 
+              
+              <!--按照标签的字母排序-->
+              {% assign sortedTags = site.tags | sort %}
+              {% for tag in sortedTags %} 
                 <div class="panel panel-info">
                   <div class="panel-heading">
                     <h4 class="panel-title">
