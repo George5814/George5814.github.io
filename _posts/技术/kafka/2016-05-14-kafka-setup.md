@@ -2,7 +2,7 @@
 layout: post
 title: Kafka集群安装
 category: 技术	
-tags:  kafka
+tags:  Kafka
 keywords: 
 description: 
 ---

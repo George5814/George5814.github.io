@@ -2,7 +2,7 @@
 layout: post
 title: 启动QQ临时会话
 category: 技巧	
-tags:  other
+tags:  Other
 keywords: 
 description: 
 ---

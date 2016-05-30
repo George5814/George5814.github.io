@@ -2,7 +2,7 @@
 layout: post
 title: (转)分布式发布订阅消息系统 Kafka 架构设计
 category: 技术	
-tags:  kafka
+tags:  Kafka
 keywords: 
 description: 
 ---

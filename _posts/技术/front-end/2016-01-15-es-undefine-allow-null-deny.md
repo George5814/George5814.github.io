@@ -2,7 +2,7 @@
 layout: post
 title: 由ES规范知undefined可以被赋值，而null不可以
 category: 前端
-tags:  javascript
+tags:  Javascript
 keywords: 
 description: 
 ---

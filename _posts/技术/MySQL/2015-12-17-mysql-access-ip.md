@@ -2,7 +2,7 @@
 layout: post
 title: 设置MYSQL允许通过IP访问
 category: 技术
-tags:  MySQL
+tags:  Mysql
 keywords: 
 description: 
 ---

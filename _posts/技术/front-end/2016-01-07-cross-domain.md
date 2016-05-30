@@ -2,7 +2,7 @@
 layout: post
 title: 如何解决跨域问题
 category: 技术
-tags:  javascript
+tags:  Javascript
 keywords: 
 description: 
 ---

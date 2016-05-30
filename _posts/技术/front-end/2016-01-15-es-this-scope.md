@@ -2,7 +2,7 @@
 layout: post
 title: 由ES规范知：深入理解this
 category: 前端
-tags:  javascript
+tags:  Javascript
 keywords: 
 description: 
 ---
