@@ -4,7 +4,7 @@ title: Spring 零星笔记
 category: 技术
 tags:  Spring
 keywords: 
-description: 
+description: 不定期更新
 ---
 
 {:toc}
@@ -348,7 +348,16 @@ public String  msgFlowAnal(@PathVariable("flag") int flag,HttpServletRequest req
 
 
 
+### 11.注解使用属性文件中的值
 
+```
+@Value("${name}")
+private String name;
+```
+
+`@Value()`:为属性赋值
+
+`${name}` :占位符，获取配置文件中对应属性name的值
       
 
 
