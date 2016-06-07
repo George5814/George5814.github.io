@@ -254,6 +254,12 @@ string
 	summary: Set a key's time to live in milliseconds
 	
 	since: 2.6.0
+	
+### 23.清空redis
+
+```
+>flushdb
+```
 
 ## Redis的String类型的命令操作 
 
