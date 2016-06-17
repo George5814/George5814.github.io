@@ -66,4 +66,15 @@ description:
 
     第一次单击弹出提示框，其他时候单击无反应
 
-## 7.其他jQuery事件代码片段在以后不定期更新
+## 7.设置元素属性
+
+```js
+$("textarea").attr('readonly',false);
+$("textarea").attr('readonly',true);
+```
+
+## 8.切换属性
+
+```js
+$(this).toggleClass("hidden");
+```
