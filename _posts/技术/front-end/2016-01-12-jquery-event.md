@@ -78,3 +78,12 @@ $("textarea").attr('readonly',true);
 ```js
 $(this).toggleClass("hidden");
 ```
+
+
+## 8.解析Unicode编码的字符
+
+```js
+window.decodeURIComponent("\u65e0\u6570\u636e")
+```
+
+结果为：`无数据`
