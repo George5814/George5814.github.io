@@ -7,7 +7,7 @@ keywords:
 description: 读书，让人生更饱满
 books: 
     - title: 重构 改善既有代码设计
-      status: 在读(进度:[6%])
+      status: 在读  (进度:6%)
       author: Martin Fowler
       publisher: 人民邮电出版社
       language: 中文
@@ -16,7 +16,7 @@ books:
       description: 
       
     - title: Spring 技术内幕 深入解析Spring架构与设计原理
-      status: 在读(进度:[15%])
+      status: 在读 (进度:15%)
       author: 计文柯
       publisher: 机械工业出版社
       language: 中文
