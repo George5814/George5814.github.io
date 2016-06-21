@@ -35,11 +35,11 @@ layout: base
                       <tr>
                         <td>状态</td>
                         <td>
-                          {% if book.status == '已读' %}
+                          {% if book.status contains '已读' %}
                             <span class="label label-success">{{ book.status }}</span>
-                          {% elsif book.status == '在读' %}
+                          {% elsif book.status contains  '在读' %}
                             <span class="label label-info">{{ book.status }}</span>
-                          {% elsif book.status == '未读' %}
+                          {% elsif book.status contains  '未读' %}
                             <span class="label label-default">{{ book.status }}</span>
                           {% endif %}
                         </td></tr>
