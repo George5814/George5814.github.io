@@ -78,6 +78,11 @@ n 为数字，若 n 为 .，表示从当前行开始到最后一行
 ：%s/vivian/sky/g（等同于 ：g/vivian/s//sky/g） 替换每一行中所有 vivian 为 sky 
 ```
 
+### 27 `ctrl + s`: 阻断向终端输出
+
+
+### 27 `ctrl + q`: 恢复向终端输出
+
 
 
 
