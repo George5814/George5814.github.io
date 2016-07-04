@@ -232,7 +232,7 @@ export HADOOP_PREFIX
 	|mapreduce.framework.name|yarn|执行框架设置为Hadoop YARN|
 	|mapreduce.map.memory.mb|1536|映射(map)的大资源限制|
 	|mapreduce.map.java.opts|-Xmx1024M|映射(map)的子JVM的大堆规模限制|
-	|mapreduce.reduce.memory.mb|3072|归约(reduce)的|
+	|mapreduce.reduce.memory.mb|3072|归约(reduce)的大资源限制|
 	|mapreduce.reduce.java.opts|-Xmx2560M|归约(reduce)的子JVM的大堆规模限制|
 	|mapreduce.task.io.sort.mb|512|数据排序效率的高内存限制|
 	|mapreduce.task.io.sort.factor|100|文件排序时更多的流一次合并|
