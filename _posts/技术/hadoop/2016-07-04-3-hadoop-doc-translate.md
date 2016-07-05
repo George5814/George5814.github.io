@@ -257,5 +257,171 @@ export HADOOP_PREFIX
 	
 ### 监控NodeManager的健康状态
 
+Hadoop提供了一种机制，管理员可以通过配置NodeManager定期运行管理员提供的脚本来检测节点是否健康。
 
-## 未完明日再续
+通过执行任何他们在脚本中选择的检查点，管理员可以检测节点是否处于健康状态。如果脚本发现节点处于非健康状态，它会向标准输出打印一条以`ERROR`开头的一行记录。NodeManager定期产生脚本并且将其检出。
+如上所述，如果脚本检出中包含了`ERROR`,该节点的状态会被报告为`unhealthy `,节点将会被ResourceManager加入黑名单。该节点将不会被分配任务。然而，NodeManager会继续运行脚本，因此如果该节点又变成`healthy`状态，它会被自动从ResourceManager的node黑名单中移除。
+节点的健康是随着脚本的输出变化的，如果它是`unhealthy`,可以在管理员的ResourceManager的WEB页面中获得。节点健康的时间也会显示在web界面上。
+
+接下来的参数可以用来控制在`etc/hadoop/yarn-site.xml`中的节点健康状态的监控脚本。
+
+		
+---
+
+|参数|值 |备注|
+|--|--|--|
+|yarn.nodemanager.health-checker.script.path|节点健康检测脚本路径|检查节点的健康状态|
+|yarn.nodemanager.health-checker.script.opts|脚本的操作选项|脚本检查节点健康状态的选项|
+|yarn.nodemanager.health-checker.script.interval-ms|间隔时间(单位：ms)|运行健康脚本的时间间隔|
+|yarn.nodemanager.health-checker.script.timeout-ms|脚本执行超时时间(单位：ms)|健康脚本执行的超时时间|
+
+
+---
+
+如果只是一些本地磁盘坏了，健康检查脚本不应当给出`ERROR`信息。NodeManager可以周期性检查本地磁盘的健康（特别是检查` nodemanager-local-dirs`和`nodemanager-log-dirs`的指定位置），并且在达到的坏目录的数量阀值(基于在`yarn.nodemanager.disk-health-checker.min-healthy-disks`配置属性里设置的值)后，整个节点会被标记为`unhealthy`，该信息也会被发送到ResourceManager。
+启动磁盘或者在启动磁盘中的故障是有健康检查脚本确定的。
+
+### 从文件
+
+ 文件`etc/hadoop/slaves`中存在所有的从节点的`hostname`或者ip的列表，每个一行。Helper脚本将会使用`etc/hadoop/slaves`文件一次性在许多主机上运行命令。该文件不用于任何基于java的Hadoop配置。为了使用该设计，运行Hadoop的用户的ssh必须被信任(即免密码登录)。
+ 
+
+### Hadoop 机架感知
+
+许多Hadoop组件是机架感知和利用网络拓扑的性能和安全性。通过调用管理员配置模块，Hadoop的守护进程获取集群中从节点的机架信息。
+可以查看[Rack Awareness](sdfdsf)文档获取更多具体信息。
+
+**强烈推荐在启动HDFS之前配置机架感知能力**
+
+### 日志
+
+Hadoop通过apache的通用日志框架使用[log4j](http://logging.apache.org/log4j/2.x/)记录日志。
+编辑`etc/hadoop/log4j.properties`文件自定义Hadoop守护进程的日志配置(日志格式等等)。
+
+### 操作Hadoop集群
+
+一旦所有必须的配置完成后，分发文件到所有机器的`HADOOP_CONF_DIR`目录。在所有机器上应该是相同的目录。
+
+一般情况下，推荐HDFS和YARN以不同的用户身份运行。在大多数配置中，HDFS使用'hdfs'账户执行，YARN通常使用'yarn'账户执行。
+
+
+
+#### Hadoop启动
+
+为了启动Hadoop集群，你需要同时启动HDFS集群和YARN集群。
+
+第一次使用HDFS，必须先格式化，格式化新的分布式文件系统如HDFS：
+
+```
+$ $HADOOP_PREFIX/bin/hdfs namenode -format <cluster_name>
+```
+
+在指定作为NameNode的HDFS节点上使用如下命令启动HDFS的NameNode
+
+```
+$ $HADOOP_PREFIX/sbin/hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start namenode
+```
+
+在指定作为DataNode的HDFS节点上使用如下命令启动HDFS的DataNode
+
+```
+$ $HADOOP_PREFIX/sbin/hadoop-daemons.sh --config $HADOOP_CONF_DIR --script hdfs start datanode
+```
+
+如果`etc/hadoop/slaves`和ssh免密码登录设置成功。所有的HDFS进程可以使用一个公用脚本启动。
+
+```
+$ $HADOOP_PREFIX/sbin/start-dfs.sh
+```
+
+在指定作为ResourceManager的YARN节点上使用如下命令启动YARN
+
+```
+$ $HADOOP_YARN_HOME/sbin/yarn-daemon.sh --config $HADOOP_CONF_DIR start resourcemanager
+```
+
+在指定作为NodeManager的YARN节点上使用如下命令运行脚本
+
+```
+$ $HADOOP_YARN_HOME/sbin/yarn-daemons.sh --config $HADOOP_CONF_DIR start nodemanager
+```
+
+启动一个单独的`WebAppProxy`代理服务器。在作为`WebAppProxy`的YARN节点上运行如下命令，如果有多个服务器作为负载均衡，那么应该在每个机器上运行该脚本。
+
+```
+$ $HADOOP_YARN_HOME/sbin/yarn-daemon.sh --config $HADOOP_CONF_DIR start proxyserver
+```
+
+
+如果`etc/hadoop/slaves`和ssh免密码登录设置成功。所有的YARN进程可以使用一个公用脚本启动。
+
+```
+$ $HADOOP_PREFIX/sbin/start-yarn.sh
+```
+
+使用以下命令，在设置作为mapred的机器上启动MapReduce的JobHistory服务器
+
+```
+$ $HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh --config $HADOOP_CONF_DIR start historyserver
+```
+
+#### Hadoop停止
+
+在设计为NameNode的HDFS节点上执行如下命令停止NameNode
+
+```
+$ $HADOOP_PREFIX/sbin/hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs stop namenode
+```
+
+在设计为DataNode的HDFS节点上执行如下命令停止DataNode
+
+```
+$ $HADOOP_PREFIX/sbin/hadoop-daemons.sh --config $HADOOP_CONF_DIR --script hdfs stop datanode
+```
+
+如果`etc/hadoop/slaves`和ssh免密码登录设置成功。所有的HDFS进程可以使用一个公用脚本停止。
+
+```
+$ $HADOOP_PREFIX/sbin/stop-dfs.sh
+```
+
+在设计为ResourceManager的YARN节点上停止ResourceManager
+
+```
+$ $HADOOP_YARN_HOME/sbin/yarn-daemon.sh --config $HADOOP_CONF_DIR stop resourcemanager
+```
+
+
+在设计为NodeManager的YARN节点上停止NodeManager
+
+```
+$ $HADOOP_YARN_HOME/sbin/yarn-daemons.sh --config $HADOOP_CONF_DIR stop nodemanager
+```
+
+如果`etc/hadoop/slaves`和ssh免密码登录设置成功。所有的YARN进程可以使用一个公用脚本停止。
+
+```
+$ $HADOOP_PREFIX/sbin/stop-yarn.sh
+```
+
+在设计为`WebAppProxy`的YARN节点上停掉`WebAppProxy`服务器。如果由多个用于负载均衡的服务器，需要在每个机器上运行该命令
+
+```
+$ $HADOOP_YARN_HOME/sbin/yarn-daemon.sh --config $HADOOP_CONF_DIR stop proxyserver
+```
+
+在Mapred的节点上停掉MapReduce JobHistory 服务器
+
+```
+$ $HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh --config $HADOOP_CONF_DIR stop historyserver
+```
+
+### WEB 接口
+
+一旦Hadoop集群启动，运行如下描述的各组件的WEB界面
+
+|守护进程|web接口|备注|
+|--|--|--|
+|NameNode|http://nn_host:port/|默认端口为50070|
+|ResourceManager|http://rm_host:port/|默认端口为8088|
+|MapReduce JobHistory server|http://jns_host:port/|默认端口为19888|
