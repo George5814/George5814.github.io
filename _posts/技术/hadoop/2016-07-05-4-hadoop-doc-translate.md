@@ -110,3 +110,76 @@ description:
 ```
 user:///,jceks://file/tmp/test.jceks,jceks://hdfs@nn1.example.com/my/path/test.jceks
 ```
+
+指明当前用户的凭证文件应该经由用户提供者咨询,其存在于`/tmp/test.jceks`的本地文件是java的秘钥库提供者。该文件在HDFS中在`nn1.example.com/my/path/test.jceks`,也是java的秘钥库提供者的存储地。
+
+当使用凭据命令时，他往往是为一个特定的凭据存储提供商提供一个密码或秘钥。为了明确指明那个提供商存储将被使用，需要用`-provider`选项。否则给定一个多提供商的路径，第一个非瞬态提供商将会被使用。这也可能是或可能不是你想要的。
+
+**举例：**`hadoop credential list -provider jceks://file/tmp/test.jceks`
+
+#### distcp
+
+递归复制文件或目录。更多信息请看[Hadoop DistCp 向导](http://hadoop.apache.org/docs/r2.7.2/hadoop-distcp/DistCp.html)
+
+#### fs
+
+该命令记录在[文件系统shell向导](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-common/FileSystemShell.html)。
+在HDFS使用时，这是一个`hdfs dfs`的同义词。
+
+#### jar
+
+**用法：**`hadoop jar <jar> [mainClass] args...`
+
+运行一个jar文件
+
+使用[yarn jar](http://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/YarnCommands.html#jar)来启动YARN的应用程序。
+
+#### key
+
+通过key提供商管理key
+
+#### trace
+
+查看和修改Hadoop追踪设置。请看[追踪向导](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-common/Tracing.html)。
+
+#### version
+
+**用法：**`hadoop version`
+
+打印Hadoop的版本信息
+
+#### CLASSNAME
+
+
+**用法：**`hadoop CLASSNAME`
+
+运行名称为CLASSNAME的类
+
+
+### 管理员命令
+
+该命令集合对Hadoop集群的管理员非常有用
+
+#### daemonlog
+
+在守护进程中为合法的类名设置或打印日志等级。
+
+**用法：**
+
+```
+hadoop daemonlog -getlevel <host:httpport> <classname>
+hadoop daemonlog -setlevel <host:httpport> <classname> <level>
+```
+
+
+---
+
+|||
+|----|----|
+|-getlevel host:httpport classname|从运行在`host:port`上的守护进程中打印合格的类名标识的日志等级。此命令内部连接到`http://<host:httpport>/logLevel?log=<classname>`|
+|-setlevel host:httpport classname level|从运行在`host:port`上的守护进程中设置合格的类名标识的日志等级。此命令内部连接到`http://<host:httpport>/logLevel?log=<classname>&level=<level>`|
+
+---
+
+**举例：**`$ bin/hadoop daemonlog -setlevel 127.0.0.1:50070 org.apache.hadoop.hdfs.server.namenode.NameNode DEBUG`
+
