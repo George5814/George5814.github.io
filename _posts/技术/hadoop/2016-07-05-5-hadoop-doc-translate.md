@@ -427,40 +427,20 @@ hadoop fs -getfattr -R -n user.myAttr /dir
 		
 
 	
-### getfattr
+### getmerge
 
-**用法：**` hadoop fs -getfattr [-R] -n name | -d [-e en] <path>`
+**用法：**`hadoop fs -getmerge [-nl] <src> <localdst>`
 
-显示文件或目录的扩展属性名和值
+将源目录和目标目录作为输入，将在src目录的文件关联到目标本地文件。
+选项`-nl` 可以在每个文件的最后添加新的一行。
 
-**选项：**
-
-- -R 
-
-	递归所有文件和目录的属性列表
-	
-- -n name 
-	
-	存储命名的扩展属性值
-	
-- -d 
-	
-	结合路径名存储所有的扩展属性值
-
-- e encoding 
-	
-	检索后的编码。合法的编码是`text`,`hex`,`base64`。编码为text字符串的在双引号`""`内，编码为十六进制的和base64的前缀各为0x和0s。
-
-- path 
-	
-	文件或目录
 	
 **举例：**
 
 ```
-hadoop fs -getfattr -d /file
+hadoop fs -getmerge -nl /src /opt/output.txt
 
-hadoop fs -getfattr -R -n user.myAttr /dir
+hadoop fs -getmerge -nl /src/file1.txt /src/file2.txt /output.txt
 ```
 
 
@@ -469,91 +449,202 @@ hadoop fs -getfattr -R -n user.myAttr /dir
 	成功：0
 	失败：非0
 		
+### help
+
+**用法：**`hadoop fs -help`
+
+显示该帮助文档
 
 	
-### getfattr
+### ls
 
-**用法：**` hadoop fs -getfattr [-R] -n name | -d [-e en] <path>`
-
-显示文件或目录的扩展属性名和值
+**用法：**`hadoop fs -ls [-d] [-h] [-R] <args>`
 
 **选项：**
 
 - -R 
 
-	递归所有文件和目录的属性列表
+	递归显示所有子目录列表
 	
-- -n name 
+- -h 
 	
-	存储命名的扩展属性值
+	文件大小格式化为易读数据
 	
 - -d 
 	
-	结合路径名存储所有的扩展属性值
+	将目录作为纯文件
+	
 
-- e encoding 
+`ls`的文件返回的状态格式化为:`权限`,`复制数量`,`所有者id`,`所在组id`,`文件大小`,`修改日期 `,`修改时间`,`文件名称`。
 	
-	检索后的编码。合法的编码是`text`,`hex`,`base64`。编码为text字符串的在双引号`""`内，编码为十六进制的和base64的前缀各为0x和0s。
+`ls`的目录返回的状态格式化为：`权限`,`所有者id`,`所在组id`,`修改日期 `,`修改时间`,`目录名称`。	
 
-- path 
-	
-	文件或目录
-	
+同一个目录中的文件默认是按照文件名称排序的。
+
 **举例：**
 
 ```
-hadoop fs -getfattr -d /file
-
-hadoop fs -getfattr -R -n user.myAttr /dir
+hadoop fs -ls /user/hadoop/file1
 ```
 
 
 **错误码：**
 
 	成功：0
-	失败：非0
+	失败：-1
 		
 
 	
-### getfattr
+### lsr
 
-**用法：**` hadoop fs -getfattr [-R] -n name | -d [-e en] <path>`
+**用法：**`hadoop fs -lsr <args>`
 
-显示文件或目录的扩展属性名和值
+递归显示目录，文件及所有子目录的文件。
+
+**过期：**已经被`hadoop fs -ls -R`代替
+
+	
+### mkdir
+
+**用法：**`hadoop fs -mkdir [-p] <paths>`
+
+将url作为参数并且创建目录
 
 **选项：**
 
-- -R 
+- -p 
 
-	递归所有文件和目录的属性列表
-	
-- -n name 
-	
-	存储命名的扩展属性值
-	
-- -d 
-	
-	结合路径名存储所有的扩展属性值
-
-- e encoding 
-	
-	检索后的编码。合法的编码是`text`,`hex`,`base64`。编码为text字符串的在双引号`""`内，编码为十六进制的和base64的前缀各为0x和0s。
-
-- path 
-	
-	文件或目录
+	与unix系统的`mkdir -p`类似，在创建目录时如果父目录不存在就会先创建父目录
 	
 **举例：**
 
 ```
-hadoop fs -getfattr -d /file
+hadoop fs -mkdir /user/hadoop/dir1 /user/hadoop/dir2
 
-hadoop fs -getfattr -R -n user.myAttr /dir
+hadoop fs -mkdir hdfs://nn1.example.com/user/hadoop/dir  hdfs://nn2.example.com/user/hadoop/dir
 ```
 
 
 **错误码：**
 
 	成功：0
-	失败：非0
-		
+	失败：-1
+	
+	
+### moveFromLocal
+
+**用法：**`hadoop fs -moveFromLocal <localsrc> <dst>`
+
+与`put`命令相似，除了源路径本地文件或目录在它被复制后会删除。
+	
+### moveToLocal
+
+**用法：**`hadoop fs -moveToLocal [-crc] <src> <dst>`
+
+显示"尚未实现"信息
+	
+### mv
+
+**用法：**`hadoop fs -mv URI [URI ...] <dest>`
+
+将文件从源位置移动到目标位置。该命令允许多个源，但目标位置必须是目录。
+
+跨文件系统移动文件是不允许的。
+
+**举例：**
+
+```
+hadoop fs -mv /user/hadoop/file1 /user/hadoop/file2
+
+hadoop fs -mv hdfs://nn.example.com/file1 hdfs://nn.example.com/file2 hdfs://nn.example.com/file3 hdfs://nn.example.com/dir1
+```
+
+
+**错误码：**
+
+	成功：0
+	失败：-1
+	
+	
+### put
+
+**用法：**`hadoop fs -put <localsrc> ... <dst>`
+
+将本地文件系统的一个或多个文件复制到目标文件系统。也可以从标准输入读入并写到目标文件系统
+
+	
+**举例：**
+
+```
+hadoop fs -put localfile /user/hadoop/hadoopfile
+
+hadoop fs -put localfile1 localfile2 /user/hadoop/hadoopdir
+
+hadoop fs -put localfile hdfs://nn.example.com/hadoop/hadoopfile
+
+##Reads the input from stdin
+hadoop fs -put - hdfs://nn.example.com/hadoop/hadoopfile 
+```
+
+
+**错误码：**
+
+	成功：0
+	失败：-1
+
+### renameSnapshot
+
+请看[HDFS快照向导](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsSnapshots.html)
+	
+### rm
+
+**用法：**`hadoop fs -rm [-f] [-r |-R] [-skipTrash] URI [URI ...]`
+
+删除参数中指定的文件集合
+
+**选项：**
+
+- -R
+- -r 
+
+	递归目录及其下的所有文件和目录
+	
+- -f  
+	
+	不显示判断信息或者在文件不存在时也不提示
+	
+- -skipTrash 
+	
+	忽略垃圾，如果启用。会立即删除指定文件。在目录超出配额删除文件时会很有用。
+
+**举例：**
+
+```
+hadoop fs -rm hdfs://nn.example.com/file /user/hadoop/emptydir
+```
+
+
+**错误码：**
+
+	成功：0
+	失败：-1
+	
+	
+### rmdir
+
+**用法：**`hadoop fs -rmdir [--ignore-fail-on-non-empty] URI [URI ...]`
+
+删除一个目录
+
+**选项：**
+
+- --ignore-fail-on-non-empty 
+
+	在使用通配符时，如果目录中还有文件不提示失败
+	
+**举例：**
+
+```
+hadoop fs -rmdir /user/hadoop/emptydir
+```
+
