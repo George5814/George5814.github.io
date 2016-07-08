@@ -107,3 +107,20 @@ $(".partner-mid a").hover(function(e){
 	})
 },10)
 ```
+
+## 禁用和启动input[type=file]的文件选择功能
+
+对`<input type="file" id="myfile"/>`
+
+禁用
+
+```
+$("#myfile").attr('disabled','disabled');
+```
+
+启用
+
+```
+$("#myfile").attr('disabled',true);
+
+```
