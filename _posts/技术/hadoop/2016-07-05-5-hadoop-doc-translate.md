@@ -648,3 +648,283 @@ hadoop fs -rm hdfs://nn.example.com/file /user/hadoop/emptydir
 hadoop fs -rmdir /user/hadoop/emptydir
 ```
 
+
+	
+### rmr
+
+**用法：**` hadoop fs -rmr [-skipTrash] URI [URI ...]`
+
+递归删除
+
+**已经过期**，被`hadoop fs -rm -r`替代
+
+
+	
+### setfacl
+
+**用法：**`hadoop fs -setfacl [-R] [-b |-k -m |-x <acl_spec> <path>] |[--set <acl_spec> <path>]`
+
+设置文件或者目录的访问控制列表
+
+**选项：**
+
+-  -b
+	
+	删除所有除了基本的ACL的记录。该记录保留对`user`,`group`,`other`权限位的兼容性。
+
+-  -k
+
+	删除默认的ACL
+	
+-  -R
+
+	支持递归操作
+	
+-  -m
+
+	修改ACL，新的记录将会被添加到ACL，并且存在的记录也会保存。
+
+-  -x
+
+	删除指定的ACL记录，其他的记录仍然保留。
+	
+-  --set
+
+	完全替换ACL，丢弃所有已存在的记录。ACL的记录列表必须包含对`user`,`group`,`other`的权限位兼容的记录。
+
+-  acl_spec
+
+	逗号分隔的ACL记录列表
+	
+
+- path
+
+	要修改的文件或目录的路径
+	
+**举例：**
+
+```
+hadoop fs -setfacl -m user:hadoop:rw- /file
+hadoop fs -setfacl -x user:hadoop /file
+hadoop fs -setfacl -b /file
+hadoop fs -setfacl -k /dir
+hadoop fs -setfacl --set user::rw-,user:hadoop:rw-,group::r--,other::r-- /file
+hadoop fs -setfacl -R -m user:hadoop:r-x /dir
+hadoop fs -setfacl -m default:user:hadoop:r-x /dir
+```
+
+**错误码：**
+
+	成功：0
+	失败：非0
+	
+	
+
+	
+### setfattr
+
+**用法：**`hadoop fs -setfattr -n name [-v value] | -x name <path>`
+
+为文件或目录设置扩展舒心的名称和值
+
+**选项：**
+
+- -n
+
+- -v value
+
+	扩展属性值。该值有三种不同的编码方法。
+	如果参数是双引号括起来的，那么值是双引号中的string值。
+	如果参数前缀是0x或0X，那么是个十六进制的数。
+	如果参数以0s或0S开头，那么是base64编码。
+
+- -x name
+
+	移除扩展属性
+
+- path
+
+	文件或目录的路径
+
+
+	
+**举例：**
+
+```
+hadoop fs -setfattr -n user.myAttr -v myValue /file
+hadoop fs -setfattr -n user.noValue /file
+hadoop fs -setfattr -x user.myAttr /file
+```
+
+**错误码：**
+
+	成功：0
+	失败：非0
+	
+	
+
+	
+### setrep
+
+**用法：**`hadoop fs -setrep [-R] [-w] <numReplicas> <path>`
+
+改变文件的备份因子。如果目录经是一个目录，那该命令递归改变该目录树内的所有文件的备份因子。
+
+**选项：**
+
+- -w
+
+	在需要等待备份完成的时候设置该参数。可以设置一个非常长的时间。
+	
+
+- -R
+
+	该标识为向后兼容性。未生效。
+
+	
+	
+**举例：**
+
+```
+hadoop fs -setrep -w 3 /user/hadoop/dir1
+```
+
+**错误码：**
+
+	成功：0
+	失败：-1
+	
+
+	
+### stat
+
+**用法：**`hadoop fs -stat [format] <path> ...`
+
+按照指定的格式显示对`path`路径下的文件或目录的统计。格式化参数为：`%b`块、`%F`类型、`%g`所有者的组名、`%n`名称、`%o`块大小、`%r`备份、`%u`所有者的用户名、`%y,%Y`修改时间。
+`%y`显示UTC时间"yyyy-MM-dd HH:mm:ss",`%Y`显示自UTC1970/01/01的毫秒数。如果没有指定格式参数，默认为`%y`
+
+**举例：**
+
+```
+hadoop fs -stat "%F %u:%g %b %y %n" /file
+```
+
+**错误码：**
+
+	成功：0
+	失败：-1
+	
+
+	
+### tail
+
+**用法：**`hadoop fs -tail [-f] URI`
+
+在标准输出中显示文件最后1K字节的内容
+
+**选项：**
+
+- -f
+
+	当文件增加时，将追加的数据显示出来,与unix类似。
+	
+**举例：**
+
+```
+hadoop fs -tail pathname
+```
+
+**错误码：**
+
+	成功：0
+	失败：-1
+	
+	
+### test
+
+**用法：**`hadoop fs -test -[defsz] URI`
+
+在标准输出中显示文件最后1K字节的内容
+
+**选项：**
+
+- -d
+
+	路径是一个目录，返回0
+
+- -e
+
+	路径存在，返回0
+
+- -f
+
+	路径是文件，返回0
+
+- -s
+
+	路径不为空，返回0
+
+- -z
+
+	文件大小为0，返回0
+	
+**举例：**
+
+```
+hadoop fs -test -e filename
+```
+
+	
+### text
+
+**用法：**`hadoop fs -text <src>`
+
+需要一个源文件，并以文本格式输出文件。文件允许格式为zip和TextRecordInputStream
+	
+	
+### touchz
+
+**用法：**` hadoop fs -touchz URI [URI ...]`
+
+创建一个空文件
+
+	
+**举例：**
+
+```
+hadoop fs -touchz pathname
+```
+
+**错误码：**
+
+	成功：0
+	失败：-1
+	
+	
+### truncate
+
+**用法：**`hadoop fs -truncate [-w] <length> <paths>`
+
+截断指定文件模式指定的长度匹配的所有文件。
+
+**选项：**
+
+- -w
+
+	该命令等待块恢复完成。如果必要，没有`-w`文件可能仍会在恢复中的同时保留非关闭一段时间。
+	在这段时间内，文件不能被重新追加。
+	
+**举例：**
+
+```
+hadoop fs -truncate 55 /user/hadoop/file1 /user/hadoop/file2
+hadoop fs -truncate -w 127 hdfs://nn1.example.com/user/hadoop/file1
+```
+
+	
+### usage
+
+**用法：**`hadoop fs -usage command`
+
+显示单个命令的帮助信息
+
