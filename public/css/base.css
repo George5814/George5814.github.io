@@ -226,10 +226,7 @@ a.list-group-item-lay.pjaxlink.pjaxlink-custom {
 }
 
 .page-desc{
-	height: 60px;
-	display: inline-block;
-	position: relative;
-  top: -15px;
+	vertical-align: top;
 }
 #nav div{
 	margin-left: 0px;
