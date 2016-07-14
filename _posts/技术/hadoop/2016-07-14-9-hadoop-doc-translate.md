@@ -4,7 +4,7 @@ title: 9.hadoop-2.7.2官网文档翻译-Hadoop命令行微型集群
 category: 技术
 tags:  Hadoop
 keywords: 
-description: Hadoop文件系统的规范。官网地址为：http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-common/CLIMiniCluster.html
+description: Hadoop命令行微型集群。官网地址为：http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-common/CLIMiniCluster.html
 ---
 
 {:toc}
