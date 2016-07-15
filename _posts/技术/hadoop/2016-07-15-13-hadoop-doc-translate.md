@@ -214,20 +214,20 @@ web控制台和客户端之间的数据传输受SSL保护。
 
 |文件系统|路径|用户:组|权限|
 |--|--|--|--|
-|local|dfs.namenode.name.dir|hdfs:hadoop|	drwx------|
-|local|dfs.datanode.data.dir|hdfs:hadoop|	drwx------|
-|local|	$HADOOP_LOG_DIR|hdfs:hadoop|drwxrwxr-x|
-|local|	$YARN_LOG_DIR|yarn:hadoop|drwxrwxr-x|
-|local|yarn.nodemanager.local-dirs|yarn:hadoop|drwxr-xr-x|
-|local|	yarn.nodemanager.log-dirs|yarn:hadoop|drwxr-xr-x|
-|local|container-executor|root:hadoop|--Sr-s--*|
-|local|conf/container-executor.cfg|root:hadoop|r-------*|
-|hdfs|/|hdfs:hadoop|drwxr-xr-x|
-|hdfs|/tmp|hdfs:hadoop|drwxrwxrwxt|
-|hdfs|/user|hdfs:hadoop|drwxr-xr-x|
-|hdfs|	yarn.nodemanager.remote-app-log-dir|yarn:hadoop|drwxrwxrwxt|
-|hdfs|mapreduce.jobhistory.intermediate-done-dir|	mapred:hadoop|drwxrwxrwxt|
-|hdfs|mapreduce.jobhistory.done-dir|	mapred:hadoop|	drwxr-x---|
+|local|dfs.namenode.name.dir|hdfs:hadoop|	`drwx------`|
+|local|dfs.datanode.data.dir|hdfs:hadoop|	`drwx------`|
+|local|	$HADOOP_LOG_DIR|hdfs:hadoop|`drwxrwxr-x`|
+|local|	$YARN_LOG_DIR|yarn:hadoop|`drwxrwxr-x`|
+|local|yarn.nodemanager.local-dirs|yarn:hadoop|`drwxr-xr-x`|
+|local|	yarn.nodemanager.log-dirs|yarn:hadoop|`drwxr-xr-x`|
+|local|container-executor|root:hadoop|`--Sr-s--*`|
+|local|conf/container-executor.cfg|root:hadoop|`r-------*`|
+|hdfs|/|hdfs:hadoop|`drwxr-xr-x`|
+|hdfs|/tmp|hdfs:hadoop|`drwxrwxrwxt`|
+|hdfs|/user|hdfs:hadoop|`drwxr-xr-x`|
+|hdfs|	yarn.nodemanager.remote-app-log-dir|yarn:hadoop|`drwxrwxrwxt`|
+|hdfs|mapreduce.jobhistory.intermediate-done-dir|	mapred:hadoop|`drwxrwxrwxt`|
+|hdfs|mapreduce.jobhistory.done-dir|	mapred:hadoop|	`drwxr-x---`|
 
 
 ### 通用配置
@@ -381,10 +381,10 @@ web控制台和客户端之间的数据传输受SSL保护。
 
 |文件系统|路径|用户：组|权限|
 |--|--|--|--|
-|local|container-executor|root:hadoop|--Sr-s--*|
-|local|conf/container-executor.cfg|root:hadoop|r-------*|
-|local|yarn.nodemanager.local-dirs|yarn:hadoop|drwxr-xr-x|
-|local|yarn.nodemanager.log-dirs|yarn:hadoop|drwxr-xr-x|
+|local|container-executor|root:hadoop|`--Sr-s--*`|
+|local|conf/container-executor.cfg|root:hadoop|`r-------*`|
+|local|yarn.nodemanager.local-dirs|yarn:hadoop|`drwxr-xr-x`|
+|local|yarn.nodemanager.log-dirs|yarn:hadoop|`drwxr-xr-x`|
 
 ---
 
