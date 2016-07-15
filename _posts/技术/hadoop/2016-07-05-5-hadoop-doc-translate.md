@@ -239,12 +239,12 @@ HDFS文件或目录如`/parent/child`可以指定为	` hdfs://namenodehost/paren
 
 ### createSnapshot 
 
-请看[HDFS 快照向导](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsSnapshots.html)
+请看[HDFS 快照指南](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsSnapshots.html)
 
 
 ### deleteSnapshot 
 
-请看[HDFS 快照向导](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsSnapshots.html)
+请看[HDFS 快照指南](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsSnapshots.html)
 
 ### df
 
@@ -294,7 +294,7 @@ HDFS文件或目录如`/parent/child`可以指定为	` hdfs://namenodehost/paren
 
 清空垃圾
 
-更多信息参考[Hadoop架构向导](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)中
+更多信息参考[Hadoop架构指南](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)中
 
 **选项：**
 
@@ -594,7 +594,7 @@ hadoop fs -put - hdfs://nn.example.com/hadoop/hadoopfile
 
 ### renameSnapshot
 
-请看[HDFS快照向导](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsSnapshots.html)
+请看[HDFS快照指南](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsSnapshots.html)
 	
 ### rm
 

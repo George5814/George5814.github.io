@@ -1,17 +1,17 @@
 ---
 layout: post
-title: 10.hadoop-2.7.2官网文档翻译-原生库向导
+title: 10.hadoop-2.7.2官网文档翻译-原生库指南
 category: 技术
 tags:  Hadoop
 keywords: 
-description: Hadoop原生库向导。官网地址为：http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-common/NativeLibraries.html
+description: Hadoop原生库指南。官网地址为：http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-common/NativeLibraries.html
 ---
 
 {:toc}
 
 ### 概览
 
-该向导描述了原生的Hadoop库和原生共享库的一小部分讨论。
+该指南描述了原生的Hadoop库和原生共享库的一小部分讨论。
 
 注意:依赖你的环境，属于`原生库`可能为你需要编译的所有`*.so`，属于`原生压缩`指的是所有你需要编译并特别是明确要压缩的`*.so`。然而，目前该文档仅仅称呼原生Hadoop库`libhadoop.so`.
 针对libHDFS库`libhdfs.so`的文档在[这里](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/LibHdfs.html){:target="_blank"}

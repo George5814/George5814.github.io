@@ -158,7 +158,7 @@ Hadoop使用`hadoop.security.auth_to_local`（与[kerberos配置文件（krb5.co
 
 尽管HDFS上文件被关联到所有人和组，Hadoop自己没有定义组。将用户映射到组是被OS或者LDAP完成的。
 
-可以通过指定映射程序的名字作为`hadoop.security.group.mapping`的值来改变映射的方式。详情请看[HDFS权限向导](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html){:target="_blank"}
+可以通过指定映射程序的名字作为`hadoop.security.group.mapping`的值来改变映射的方式。详情请看[HDFS权限指南](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html){:target="_blank"}
 
 事实上，你需要在Hadoop安全模式中用LDAP使用kerberos管理SSO环境。
 
