@@ -221,9 +221,13 @@ a.list-group-item-lay.pjaxlink.pjaxlink-custom {
 }
 
 .post-desc{
-	
+	font-size: 20px;
+  text-align: left;
 }
 
+.page-desc{
+	vertical-align: top;
+}
 #nav div{
 	margin-left: 0px;
 }
@@ -249,6 +253,8 @@ a:hover,a:visited{
 
 .post-tags{
 	text-align: left;
+	font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .post-tags span{
@@ -269,4 +275,10 @@ a:hover,a:visited{
 }
 .panel-heading-custom{
 	font-weight: bold;
+}
+
+.page-description{
+  display: inline-block;
+  width: 80%;
+  height: 60px;
 }
