@@ -9,7 +9,7 @@ description: 安全模式中的Hadoop。官网地址为：http://hadoop.apache.o
 
 {:toc}
 
-### 介绍
+## 介绍
 
 该文档描述了怎样配置Hadoop安全模式的认证。
 
@@ -22,13 +22,13 @@ Hadoop的安全特性包括：
 [数据保密](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-common/SecureMode.html#Data_confidentiality){:target="_blank"}
 
 
-### 认证
+## 认证
 
-#### 最终用户账户
+### 最终用户账户
 
 当服务等级认证开始时，使用处于安全模式的Hadoop的最终用户需要被Kerberos认证。最简单认证的方式使用Kerberos的命令`kinit`。
 
-#### Hadoop守护进程的用户账户
+### Hadoop守护进程的用户账户
 
 确保HDFS和YARN进程运行在不同的*nix用户，比如`hdfs`和`yarn`。确保MapReduce JobHistory server运行不同的用户如`mapred`。
 
@@ -41,7 +41,7 @@ Hadoop的安全特性包括：
 |mapred:hadoop|MapReduce JobHistory server|
 
 
-### Hadoop守护进程和用户的Kerberos负责人
+## Hadoop守护进程和用户的Kerberos负责人
 
 为了在Hadoop安全模式中运行Hadoop服务守护进程，Kerberos负责人是必须的，每个服务都会根据适当的权限读取保存在keytab文件内的认证信息
 
@@ -49,7 +49,7 @@ HTTP的web控制台应该被另一个主要的RPC提供服务。
 
 下面会展示Hadoop服务认证的例子
 
-### HDFS 
+## HDFS 
 
 NameNode主机上的NameNode keytab文件应该如下这样：
 
@@ -95,7 +95,7 @@ KVNO Timestamp         Principal
    4 07/18/11 21:08:09 host/full.qualified.domain.name@REALM.TLD (ArcFour with HMAC/md5)
 ```
 
-### YARN 
+## YARN 
 
 ResourceManager主机上的ResourceManager  keytab文件应该如下这样：
 
@@ -127,7 +127,7 @@ KVNO Timestamp         Principal
 ```
 
 
-### MapReduce JobHistory server
+## MapReduce JobHistory server
 
 MapReduce JobHistory Server 主机上的MapReduce JobHistory Server  keytab文件应该如下这样：
 
@@ -143,7 +143,7 @@ KVNO Timestamp         Principal
    4 07/18/11 21:08:09 host/full.qualified.domain.name@REALM.TLD (ArcFour with HMAC/md5)
 ```
 
-#### kerberos负责人到系统用户账户的映射
+### kerberos负责人到系统用户账户的映射
 
 Hadoop使用`hadoop.security.auth_to_local`（与[kerberos配置文件（krb5.conf）](http://web.mit.edu/Kerberos/krb5-latest/doc/admin/conf_files/krb5_conf.html){:target="_blank"}的`auth_to_local`一样的方式）指定的规则将kerberos负责人映射到系统用户账户。
 此外，Hadoop的`auth_to_local`映射支持`/L`标志，那小写字母返回的名字。
@@ -154,7 +154,7 @@ Hadoop使用`hadoop.security.auth_to_local`（与[kerberos配置文件（krb5.co
 自定义规则可以使用` hadoop kerbname`命令测试。该命令允许你指定一个负责人，并支持Hadoop当前`auth_to_local`的规则集。
 
 
-#### 将用户映射到组
+### 将用户映射到组
 
 尽管HDFS上文件被关联到所有人和组，Hadoop自己没有定义组。将用户映射到组是被OS或者LDAP完成的。
 
@@ -162,12 +162,12 @@ Hadoop使用`hadoop.security.auth_to_local`（与[kerberos配置文件（krb5.co
 
 事实上，你需要在Hadoop安全模式中用LDAP使用kerberos管理SSO环境。
 
-#### 代理用户
+### 代理用户
 
 一些产品如`Apache Oozie`代表最终用户访问Hadoop的服务需要可以模仿最终用户才行。详情请看[代理用户文档]({% post_url 2016-07-14-11-hadoop-doc-translate %}){:target="_blank"}
 
 
-#### 安全的DataNode
+### 安全的DataNode
 
 因为DataNode的数据传输协议没有使用Hadoop的RPC框架，DataNode会使用`dfs.datanode.address`和`dfs.datanode.http.address`指定的特有端口验证她自己。该验证基于假设攻击者不能获得root特权。’
 
@@ -185,14 +185,14 @@ Hadoop使用`hadoop.security.auth_to_local`（与[kerberos配置文件（krb5.co
 最后，每个单独的DataNode可以通过更改配置并重启来迁移。在迁移期间，暂时允许一部分DataNode运行root验证，一部分DataNode运行SASL验证的混合状态，因为HDFS客户端启用了SASL，两种方式都能连接。
 
 
-### 数据保密性
+## 数据保密性
 
 
-#### RPC数据加密
+### RPC数据加密
 
 Hadoop服务端和客户端间的数据传输。在`core-site.xml`中将`hadoop.rpc.protection`设置为`privacy`,可以激活数据加密。
 
-#### 块数据传输上的数据加密
+### 块数据传输上的数据加密
 
 需要将`hdfs-site.xml`中的`dfs.encrypt.data.transfer`设置为`true`，为了激活DataNode上数据传输协议的数据加密。
 
@@ -202,13 +202,13 @@ Hadoop服务端和客户端间的数据传输。在`core-site.xml`中将`hadoop.
 
 AES提供最大的加密强度和最佳的性能。此时，3DES和RC4在Hadoop集群中更常用。
 
-### HTTP上的数据加密
+## HTTP上的数据加密
 
 web控制台和客户端之间的数据传输受SSL保护。
 
 **配置**
 
-#### 允许HDFS和本地文件系统路径
+### 允许HDFS和本地文件系统路径
 
 下表中列举了HDFS和本地文件系统中多种路径和推荐的权限：
 
@@ -230,7 +230,7 @@ web控制台和客户端之间的数据传输受SSL保护。
 |hdfs|mapreduce.jobhistory.done-dir|	mapred:hadoop|	drwxr-x---|
 
 
-#### 通用配置
+### 通用配置
 
 为了启用Hadoop上的RPC验证，将`hadoop.security.authentication`属性值设置为`kerberos`,并设置适当的下面列出的安全相关设置
 
@@ -247,7 +247,7 @@ web控制台和客户端之间的数据传输受SSL保护。
 
 ---
 
-#### NameNode
+### NameNode
 
 |参数|值|备注|
 |--|--|--|
@@ -262,7 +262,7 @@ web控制台和客户端之间的数据传输受SSL保护。
 
 ---
 
-####  Secondary NameNode
+###  Secondary NameNode
 
 |参数|值|备注|
 |--|--|--|
@@ -275,7 +275,7 @@ web控制台和客户端之间的数据传输受SSL保护。
 
 ---
 
-#### DataNode
+### DataNode
 
 |参数|值|备注|
 |--|--|--|
@@ -294,7 +294,7 @@ web控制台和客户端之间的数据传输受SSL保护。
 
 ---
 
-#### WebHDFS
+### WebHDFS
 
 |参数|值|备注|
 |--|--|--|
@@ -304,7 +304,7 @@ web控制台和客户端之间的数据传输受SSL保护。
 
 ---
 
-#### ResourceManager
+### ResourceManager
 
 |参数|值|备注|
 |--|--|--|
@@ -313,7 +313,7 @@ web控制台和客户端之间的数据传输受SSL保护。
 
 --- 
 
-#### NodeManager
+### NodeManager
 
 |参数|值|备注|
 |--|--|--|
@@ -326,7 +326,7 @@ web控制台和客户端之间的数据传输受SSL保护。
 ---
 
 
-#### Configuration for WebAppProxy
+### Configuration for WebAppProxy
 
 `WebAppProxy`提供了应用程序暴露的web应用和最终用户间的代理。如果启用了安全模式，在用户进入潜在的不安全的web应用时会有提醒。使用代理的认证和授权被其他的特定web应用管理。
 
@@ -338,7 +338,7 @@ web控制台和客户端之间的数据传输受SSL保护。
 
 ---
 
-#### LinuxContainerExecutor
+### LinuxContainerExecutor
 
 `ContainerExecutor`被YARN框架使用来定义任何容器的启动和控制。
 
@@ -388,7 +388,7 @@ web控制台和客户端之间的数据传输受SSL保护。
 
 ---
 
-#### MapReduce JobHistory Server
+### MapReduce JobHistory Server
 
 |参数|值|备注|
 |--|--|--|
