@@ -16,9 +16,9 @@ body, html {
 .aside {
   height: 100%;
  /*margin-right: -9%;*/
-	width: 20%;
-	background: #FFF
+	background: #FFF;
 }
+
 /* 左侧导航栏 */
 .aside1 {
   /*background-color: #1f2c39;*/
@@ -95,7 +95,6 @@ div ::-webkit-scrollbar{
   overflow-y: auto;
   background-color: #fff;
   overflow-x: hidden;
-
   /*background-image: url(/public/img/bg_lines1.jpg);*/
  margin-right: -9%;
 }
@@ -281,4 +280,43 @@ a:hover,a:visited{
   display: inline-block;
   width: 80%;
   height: 60px;
+}
+
+
+#content_table{
+	position:absolute;
+	right:20px;
+	top:120px;
+	display:none;
+	max-width: 50%;
+}
+
+@media only screen and (min-width: 1000px){
+	.aside {
+		width: 20%;
+	}
+}
+
+@media only screen and (min-width: 100px) and (max-width: 1000px) {
+	.aside {
+		max-width: 100%;
+	}
+}
+
+@media only screen and (min-width: 100px) and (max-width: 1000px) {
+	#content_table{
+		min-width:20%;
+	}
+	
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1600px) {
+	#content_table{
+		max-width:20%;
+	}
+}
+@media only screen and (min-width: 1600px) {
+	#content_table{
+		max-width:20%;
+	}
 }
