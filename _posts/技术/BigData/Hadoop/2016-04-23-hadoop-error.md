@@ -61,3 +61,20 @@ java.lang.NoClassDefFoundError: org/apache/hadoop/security/authorize/RefreshAuth
 
 
 ![hadoop RPC访问地址](/public/img/posts/hadoop/hadoop-error-3.png)
+
+
+### 3.寻找主机出现错误
+
+**错误提示**
+
+![hadoop 的NameNode访问不到主机](/public/pic/hadoop/not-connect-host.png)
+
+**错误原因**
+	
+	hosts文件中配置的ip<-->有错误
+	
+
+**解决办法**
+
+	修改ip为正确的值
+	

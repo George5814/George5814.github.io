@@ -80,10 +80,47 @@ $(this).toggleClass("hidden");
 ```
 
 
-## 8.解析Unicode编码的字符
+## 9.解析Unicode编码的字符
 
 ```js
 window.decodeURIComponent("\u65e0\u6570\u636e")
 ```
 
 结果为：`无数据`
+
+
+## 禁止animate的动画效果积累多次执行
+
+在执行前先用stop停止掉正在执行的动画效果，然后重新开始执行动画。
+
+```
+$(".partner-mid a").hover(function(e){
+	$(this).find("span").stop().animate({
+		height:"86px",
+		"font-size":"18px",
+		"line-height":"86px",
+	},500)
+}
+,function(){
+	$(this).find("span").stop().animate({
+		height:"0px"
+	})
+},10)
+```
+
+## 禁用和启动input[type=file]的文件选择功能
+
+对`<input type="file" id="myfile"/>`
+
+禁用
+
+```
+$("#myfile").attr('disabled','disabled');
+```
+
+启用
+
+```
+$("#myfile").attr('disabled',true);
+
+```
