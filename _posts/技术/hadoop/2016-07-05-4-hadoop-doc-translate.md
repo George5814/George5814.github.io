@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4.hadoop-2.7.2官网文档翻译-Hadoop命令向导
+title: 4.hadoop-2.7.2官网文档翻译-Hadoop命令指南
 category: 技术
 tags:  Hadoop
 keywords: 
@@ -51,7 +51,7 @@ description:
 
 -	archive
 
-	创建一个Hadoop archive，更多信息可以查看[Hadoop文档向导](sdfds)
+	创建一个Hadoop archive，更多信息可以查看[Hadoop文档指南](sdfds)
 
 - checknative
 
@@ -119,11 +119,11 @@ user:///,jceks://file/tmp/test.jceks,jceks://hdfs@nn1.example.com/my/path/test.j
 
 #### distcp
 
-递归复制文件或目录。更多信息请看[Hadoop DistCp 向导](http://hadoop.apache.org/docs/r2.7.2/hadoop-distcp/DistCp.html)
+递归复制文件或目录。更多信息请看[Hadoop DistCp 指南](http://hadoop.apache.org/docs/r2.7.2/hadoop-distcp/DistCp.html)
 
 #### fs
 
-该命令记录在[文件系统shell向导](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-common/FileSystemShell.html)。
+该命令记录在[文件系统shell指南](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-common/FileSystemShell.html)。
 在HDFS使用时，这是一个`hdfs dfs`的同义词。
 
 #### jar
@@ -140,7 +140,7 @@ user:///,jceks://file/tmp/test.jceks,jceks://hdfs@nn1.example.com/my/path/test.j
 
 #### trace
 
-查看和修改Hadoop追踪设置。请看[追踪向导](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-common/Tracing.html)。
+查看和修改Hadoop追踪设置。请看[追踪指南](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-common/Tracing.html)。
 
 #### version
 
