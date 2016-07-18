@@ -321,3 +321,8 @@ a:hover,a:visited{
 		max-width:20%;
 	}
 }
+
+th, td {
+    padding: 10px;
+    border: 1px solid #000;
+}
