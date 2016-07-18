@@ -326,3 +326,7 @@ th, td {
     padding: 10px;
     border: 1px solid #000;
 }
+
+a.list-group-item-lay.pjaxlink.pjaxlink-custom:hover {
+    background: #f5f5f5;
+}
