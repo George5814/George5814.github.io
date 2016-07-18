@@ -238,7 +238,7 @@ a.list-group-item-lay.pjaxlink.pjaxlink-custom {
 	/*background: #31B0D5;*/
 	width: 36px;
 	height: 36px;
-	line-height: 18px;
+	line-height: 12px;
 	padding: 12px;
 	font-size: 18px;
 	border: 1px solid #16A085;
@@ -329,4 +329,10 @@ th, td {
 
 a.list-group-item-lay.pjaxlink.pjaxlink-custom:hover {
     background: #f5f5f5;
+}
+
+/*标记分页*/
+a.curpage {
+    border-width: 0;
+    color: #000;
 }
