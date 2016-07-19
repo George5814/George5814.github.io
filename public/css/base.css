@@ -336,3 +336,20 @@ a.curpage {
     border-width: 0;
     color: #000;
 }
+
+h4, .h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+h3{
+    padding: 4px 4px 4px 10px;
+    color: #666;
+    background-color: #ccc;
+    font-weight: bold;
+    font-size: 18px;
+    background-image: url(../images/h3.jpg);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
