@@ -96,20 +96,111 @@ Hadoop包括了多种类shell命令可以与HDFS和Hadoop支持的其他文件�
 
 ## Secondary NameNode
 
+NameNode存储对文件系统的修改会作为日志追加到原生文件系统的文件上，edits。在NameNode启动时，会从镜像文件，fsimage，中读取HDFS的状态，然后支持从edits日志文件编辑。然后将新的HDFS状态写入到fsimage，并使用空的edits文件开始正常操作。因为NameNode仅在启动时合并fsimage和edits文件，因此在一个非常繁忙的集群中，edits文件有可能会变得非常大。另一个影响是非常大的edits文件会在NameNode下次启动时耗费更长的时间。
+
+而Secondary NameNode会周期性的合并fsimage和edits日志文件并保持edits日志大小在一个限定值内。它通常和主NameNode运行在不同的机器上因为它的内存需求和主NameNode一样。
+
+Secondary NameNode检查点进程的开始被下面两个配置参数控制：
+
+- `dfs.namenode.checkpoint.period`,间隔默认值为1小时，并可指定两个连续检查点之间的最大延时时间。
+
+- `dfs.namenode.checkpoint.txns`，默认设置为一百万，定义了NameNode上非检查点的交易数量，这会强制一个紧急检查点，即使检查点的间隔还没有达到。
+
+**译者注：**即如果没有达到指定量，则按正常的检查点周期合并。如果达到指定量，则紧急启动检查点合并。
+
+
+Secondary NameNode 在目录，结构与主NameNode目录相同，中存储最新的检查点。因此在必要时，检查点镜像总会准备好被主NameNode读取。
+
+命令用法请参考[secondary namenode](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html#secondarynamenode){:target="_blank"}
 
 ## 检查点节点
 
+NameNode使用两个文件保存它的命名空间：fsimage-命名空间最近的检查点，edits-从最近检查点后的更改日志。
+在NameNode启动时，会合并faimage和edits更改日志来提供并更新文件系统元数据。NameNode会使用新的HDFS状态覆盖fsimage,并开始新的edits变更日志。
+
+检查点节点周期性创建命名空间的检查点。从NameNode瞎子啊fsimage和edits，并在本地合并，将新的image回传到激活的NameNode。检查点和对应的NameNode通常运行在冉的机器上，因为它需要和NameNode一样的内存。检查点节点子啊配置文件中指定的节点上使用命令`bin/hdfs namenode -checkpoint`启动。
+
+检查点(备份)节点的位置和其附带的web接口通过`dfs.namenode.backup.address`和`dfs.namenode.backup.http-address`配置变量来配置。
+
+检查点节点的检查点进程启动手下面两个配置参数控制：
+
+
+- `dfs.namenode.checkpoint.period`,间隔默认值为1小时，并可指定两个连续检查点之间的最大延时时间。
+
+- `dfs.namenode.checkpoint.txns`，默认设置为一百万，定义了NameNode上非检查点的交易数量，这会强制一个紧急检查点，即使检查点的间隔还没有达到。
+
+检查点节点在目录，结构与主NameNode目录相同，中存储最新的检查点。因此在必要时，检查点镜像总会准备好被主NameNode读取。
+
+可以在集群的配置文件中指定多个检查点节点。
+
+命令用法请参考[namenode](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html#namenode){:target="_blank"}
 
 ## 备份节点
 
-## 入口检查点
+备份节点提供了和检查点节点相同的检查指示功能，比如在保持在内存中，总是同步复制激活NameNode状态的文件系统命名空间等方面。随着从NameNode接收文件系统edits的更改日志流并存储在磁盘上。备份节点也支持将哪些edits用到他自己的内存中的命名空间的副本中，从而创建命名空间的备份。
+
+备份节点不需要从激活的NameNode中下载fsimage和edits文件来创建检查点。同时需要检查点节点或者Secondary NameNode，因为它已经具有了内存中的命名空间状态的最新状态。
+备份节点检查点进程更有效，因为只需要将命名空间保存到本地的fsimage文件并重置edits。
+
+因为备份节点要在内存中保存命名空间的副本，因此需要和NameNode一样的内存。
+
+NameNode支持一次一个备份节点。如果备份节点正在使用中，那没有检查点节点会被注册。未来会支持同时多个备份节点。
+
+备份节点与检查点节点使用同样的方式配置，使用`bin/hdfs namenode -backup`命令启动。
+
+备份(检查点)节点的位置和其附带的web接口通过`dfs.namenode.backup.address`和`dfs.namenode.backup.http-address`配置变量来配置。
+
+备份节点的使用提供了非持久化存储运行NameNode的一个选择，会委派所有的持久化命名空间状态到备份节点的责任。
+为了这样做，使用`-importCheckpoint`选项启动NameNode，同时使用NameNode配置的`dfs.namenode.edits.dir`指定edits类型非持久性存储目录。
+
+查看完整的创建备份节点和检查点节点背后的动机请看[ HADOOP-4539](https://issues.apache.org/jira/browse/HADOOP-4539){:target="_blank"}
+
+命令用法请参考[namenode](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html#namenode){:target="_blank"}
+
+## 导入检查点
+
+如果所有其他的image和edits文件丢失了，最新的检查点可以被导入到NameNode。为了那样做应该：
+
+- 创建在`dfs.namenode.name.dir`配置变量中指定的空目录。
+
+- 在配置变量`dfs.namenode.checkpoint.dir`指定检查点目录的位置。
+
+- 使用`-importCheckpoint`选项启动NameNode。
+
+NameNode会上传`dfs.namenode.checkpoint.dir`指定目录的检查点并保存到`dfs.namenode.name.dir`设置的NameNode目录中。如果在`dfs.namenode.name.dir`中包含有一个逻辑镜像，NameNode将会失败。
+NameNode会校验`dfs.namenode.checkpoint.dir`内镜像的一致性，但不会对它做修改。
+
+
+命令用法请参考[namenode](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html#namenode){:target="_blank"}
 
 ## 平衡器
 
+HDFS的数据可能并不总是被均匀地放置在DataNode上，一个常见的原因是新DataNode添加到现有的集群中。在放置新的块（一个文件存储的数据作为一系列的块）时，NameNode在选择DataNode接受这些块执勤啊会考虑各种参数。
+一些考虑因素是：
+
+- 策略保持在同一个节点上的一个块的副本作为写块的节点。
+
+- 需要将块的不同副本传播到机架上，可能会导致集群遭遇整个机架丢失。
+
+-  HDFS的数据均匀的扩散到集群中的DataNode上。
+
+因多重竞争的考虑，数据不可能均匀的放置在DataNode上。HDFS为管理员提供了一个工具来分析块定位并重新平衡DataNode上的数据。
+一个简单的平衡器的管理员指南可以从[HADOOP-1652](https://issues.apache.org/jira/browse/HADOOP-1652){:target="_blank"}获得。
+
+命令用法请见[平衡器](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html#balancer){:target="_blank"}
+
 ## 机架感知
 
+通常特别大的Hadoop集群会安装在多个机架上，并且同一机架上不同节点间的网络通信量肯定不跨机架的网络通信量更让人满意。
+此外，NameNode会尝试将块的多个副本放置在多个机架上以提高容错性。通过配置变量`net.topology.script.file.name`,Hadoop会让集群管理员决定一个节点属于哪一个机架。
+当该脚本配置完成后，每个节点运行该脚本决定他们自己的机架id。默认安装假定所有的节点属于同一个机架。该特性和配置更深层的描述在[HADOOP-692](https://issues.apache.org/jira/browse/HADOOP-692){:target="_blank"}中的pdf内。
 
 ## 安全模式
+
+在启动NameNode从fsimage和edits日志文件加载文件系统状态期间。NameNode会等待DataNode报告他们自己的块，因此尽管集群中存在足够的副本，但也不要过早的启动块的副本。在该时间段内，NameNode处于安全模式中。
+NameNode的安全模式本质上是对HDFS集群的只读模式，它不允许对文件系统或块的任何修改。正常情况下，在DataNode报告完它们的大部分文件系统块可用时，NameNode会自动退出安全模式。
+
+如果需要，可以明确的使用命令`bin/hdfs dfsadmin -safemode`，将HDFS置于安全模式中。
 
 
 ## fsck
