@@ -33,9 +33,11 @@ description:
     <servlet-name>springmvc</servlet-name>
     <url-pattern>/</url-pattern>
 </servlet-mapping>
-```　　
 
-### 3.在src下添加springmvc-servlet.xml配置文件
+```
+
+
+###  3.在src下添加springmvc-servlet.xml配置文件
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -231,10 +233,12 @@ public String showPerson(Map<String,Object> map){
 ```java
 //pass the parameters to front-end using ajax
 @RequestMapping("/getPerson")
-public void getPerson(String name,PrintWriter pw){
-    pw.write("hello,"+name);        
+@ResponseBody
+public String getPerson(String name,PrintWriter pw){
+    return "hello,"+name;        
 }
 @RequestMapping("/name")
+@ResponseBody
 public String sayHello(){
     return "name";
 }
@@ -347,8 +351,8 @@ public class RestController {
         return "/hello";
     }
      
-    @RequestMapping(value="/user/{id}",method=RequestMethod.DELETE)
-    public String delete(@PathVariable("id") Integer id){
+    @RequestMapping(value="/user/{id:.+}",method=RequestMethod.DELETE)
+    public String delete(@PathVariable("id") String id){
         System.out.println("delete"+id);
         return "/hello";
     }
@@ -427,6 +431,7 @@ public class jsonController {
 ```JAVA
 @ExceptionHandler
 public ModelAndView exceptionHandler(Exception ex){
+
     ModelAndView mv = new ModelAndView("error");
     mv.addObject("exception", ex);
     System.out.println("in testExceptionHandler");
@@ -435,6 +440,7 @@ public ModelAndView exceptionHandler(Exception ex){
     
 @RequestMapping("/error")
 public String error(){
+
     int i = 5/0;
     return "hello";
 }
@@ -445,6 +451,7 @@ public String error(){
 ```JAVA
 @ControllerAdvice
 public class testControllerAdvice {
+
     @ExceptionHandler
     public ModelAndView exceptionHandler(Exception ex){
         ModelAndView mv = new ModelAndView("error");
@@ -537,29 +544,38 @@ public class MyInterceptor implements HandlerInterceptor {
 
 ```JAVA
 public class User {
+
     public int getId() {
         return id;
     }
+    
     public void setId(int id) {
         this.id = id;
     }
+    
     public String getName() {
         return name;
     }
+    
     public void setName(String name) {
         this.name = name;
     }
+    
     public Date getBirth() {
         return birth;
     }
+    
     public void setBirth(Date birth) {
         this.birth = birth;
     }
+    
     @Override
     public String toString() {
         return "User [id=" + id + ", name=" + name + ", birth=" + birth + "]";
-    }    
+    }  
+      
     private int id;
+    
     @NotEmpty
     private String name;
  
@@ -591,6 +607,7 @@ public class User {
 @Controller
 @RequestMapping("/form")
 public class formController {
+
     @RequestMapping(value="/add",method=RequestMethod.POST)    
     public String add(@Valid User u,BindingResult br){
         if(br.getErrorCount()>0){            
@@ -614,7 +631,7 @@ public class formController {
 
 - 2.@Valid 表示按照在实体上标记的注解验证参数
 
-- 3.返回到原页面错误信息回回显，表单也会回显
+- 3.返回到原页面错误信息会回显，表单也会回显
 
 ### 5.错误信息自定义
 
@@ -681,28 +698,36 @@ password=password
 
 ```JAVA
 public class User {
+
     public int getId() {
         return id;
     }
+    
     public void setId(int id) {
         this.id = id;
     }
+    
     public String getName() {
         return name;
     }
+    
     public void setName(String name) {
         this.name = name;
     }
+    
     public Date getBirth() {
         return birth;
     }
+    
     public void setBirth(Date birth) {
         this.birth = birth;
     }
+    
     @Override
     public String toString() {
         return "User [id=" + id + ", name=" + name + ", birth=" + birth + "]";
-    }    
+    }  
+      
     private int id;
     @NotEmpty
     private String name;
@@ -719,6 +744,7 @@ public class User {
 ```JAVA
 @Component
 public class UserService {
+
     public UserService(){
         System.out.println("UserService Constructor...\n\n\n\n\n\n");
     }
@@ -735,6 +761,7 @@ public class UserService {
 @Controller
 @RequestMapping("/integrate")
 public class UserController {
+
     @Autowired
     private UserService userService;
      
