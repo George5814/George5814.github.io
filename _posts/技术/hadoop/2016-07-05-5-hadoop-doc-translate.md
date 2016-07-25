@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 5.hadoop-2.7.2官网文档翻译-文件系统命令
+title: 05.hadoop-2.7.2官网文档翻译-文件系统命令
 category: 技术
 tags:  Hadoop
 keywords: 

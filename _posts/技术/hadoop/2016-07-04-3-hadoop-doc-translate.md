@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 3.hadoop-2.7.2官网文档翻译-集群安装
+title: 03.hadoop-2.7.2官网文档翻译-集群安装
 category: 技术
 tags:  Hadoop
 keywords: 
