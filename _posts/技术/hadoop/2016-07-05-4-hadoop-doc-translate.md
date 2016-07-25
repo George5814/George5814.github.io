@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4.hadoop-2.7.2官网文档翻译-Hadoop命令指南
+title: 04.hadoop-2.7.2官网文档翻译-Hadoop命令指南
 category: 技术
 tags:  Hadoop
 keywords: 

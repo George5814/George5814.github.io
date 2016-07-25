@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 1.hadoop-2.7.2官网文档翻译-概述
+title: 01.hadoop-2.7.2官网文档翻译-概述
 category: 技术
 tags:  Hadoop
 keywords: 

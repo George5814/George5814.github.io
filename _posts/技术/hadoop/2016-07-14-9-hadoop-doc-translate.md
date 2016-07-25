@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 9.hadoop-2.7.2官网文档翻译-Hadoop命令行微型集群
+title: 09.hadoop-2.7.2官网文档翻译-Hadoop命令行微型集群
 category: 技术
 tags:  Hadoop
 keywords: 

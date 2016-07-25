@@ -205,100 +205,110 @@ NameNode的安全模式本质上是对HDFS集群的只读模式，它不允许�
 
 ## fsck
 
+HDFS支持`fsck`命令检查各种矛盾。它被设计来报告多个文件的问题，比如，文件或副本块中丢失块。不像原生文件系统生的传统`fsck`工具，该命令不纠正它所检测到的错误。通常NameNode自动校正大部分可恢复的故障。
+默认情况下，`fsck`会忽略打开的文件但是提供了一个选项来选择报告期间的所有文件。HDFS的`fsck`命令不是一个Hadoop的shell命令。它以`bin/hdfs fsck`方式运行。对于命令用法请看[fsck](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html#fsck){:target="_blank"}。
+fsck命令可以运行在完整的文件系统或文件的子集上。
+
+
 
 ## fetchdt
+
+HDFS支持`fetchdt`来获取委派token并将其存储在本地文件系统的文件中，该token可以用于从非安全的客户端访问安全的服务器（如NameNode）。
+用RPC或HTTPS(在kerberos上)获取token，因此在运行前（运行kinit获取tickets）需要暂存kerberos的票证。
+HDFS的`fetchdt`命令不是Hadoop的shell命令。可以以`bin/hdfs fetchdt DTfile`方式运行。在你获取到token后，你可以再不适用kerberos的ticker情况下运行HDFS命令。 环境变量`HADOOP_TOKEN_FILE_LOCATION`来设置授权token的文件。
+命令用法请参考[fetchdt](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html#fetchdt){:target="_blank"}
 
 
 ## 恢复模式
 
+通常，你会配置多个元数据存储位置。然而，如果一个存储位置终端了，你可以从其他的存储位置的其中一个读取元数据。
+
+然而，如果唯一的存储位置终端了你该怎么办呢？这种情况下，指定NameNode启动模式为恢复模式，它允许你恢复大部分的数据。
+
+你可以使用命令`namenode -recover`启动NameNode为恢复模式。
+
+当处于恢复模式时，NameNode会在命令行下交互提示你在可能采取的行动，你可以恢复你的数据。
+
+如果不想要提示，你可以使用`-force`选项，该选项会强制恢复模式总是选择第一个选项，通常，这会是最主要的选择。
+
+因为恢复模式会造成你丢失数据，在使用它之前，你应该总是备份你的edit日志和fsimage。
 
 ## 升级和回滚
 
+当升级存在的就能时，就像任何软件升级，可能会有新的bug或不兼容的改变影响现存的应用，而且也不易及早发现。在任何非平凡的HDFS安装，它不是一个松散的任何数据的选项，别说从无到有重启HDFS。
+
+HDFS允许管理员回退到Hadoop早期版本并将集群的状态回滚到升级之前。HDFS的设计在[Hadoop升级](http://wiki.apache.org/hadoop/Hadoop_Upgrade){:target="_blank"}的wiki文档中有详细描述。
+HDFS可以同时有一个这样的备份。在升级前，管理员需要使用命令`bin/hadoop dfsadmin -finalizeUpgrade`删除已存在的备份。
+接下来简要介绍典型的升级程序：
+
+- 在升级Hadoop软件之前，如果存在备份，则清理掉.`dfsadmin -upgradeProgress`状态可以告诉用户使用集群需要被清理。
+
+- 停止集群并且部署新版本的Hadoop。
+
+- 使用`-upgrade`选项运行新版本（`bin/start-dfs.sh -upgrade`）。
+
+- 大部分时间，集群都会很好的工作。一旦新的HDFS工作良好（也许在操作几天后），清理升级。注意直到集群完成，删除在升级前存在的文件然后释放DataNode上真正的内存空间。
+
+- 如果需要回退到先前的版本，
+
+	- 停掉集群，部署先前版本的Hadoop。
+	
+	- 在NameNode上运行回滚命令(`bin/hdfs namenode -rollback`) 
+	
+	- 使用`rollback`选项启动集群。
+	
+
+在升级到一个新版HDFS时，必须重命名或删除在新版HDFS中预留的任何路径。如果在升级过程中NameNode遭遇了预留路径。它会打印如下信息：
+
+```
+/.reserved is a reserved path and .snapshot is a reserved path component in this version of HDFS. Please rollback and delete or rename this path, or upgrade with the -renameReserved [key-value pairs] option to automatically rename these paths during upgrade.
+```
+
+指定` -upgrade -renameReserved [optional key-value pairs]`会使得NameNode在启动时自动重命名任何预留路径。比如，重命名所有命名为.snapshot路径为.my-snapshot和.reserved为.myreserved。用户要指定`-upgrade -renameReserved .snapshot=.my-snapshot,.reserved=.my-reserved`。
+
+如果没有`-renameReserved`的k-v键值对被指定。NameNode会使用`.<LAYOUT-VERSION>.UPGRADE_RENAMED`为预留路径添加后缀。如，`.snapshot.-51.UPGRADE_RENAMED`
+
+这有些该重命名进程的警告，如果可能的话，在升级前，推荐执行命令`hdfs dfsadmin -saveNamespace`。这是因为数据不一致可能会导致编辑日志操作引用到自动重命名的文件的目的地。
 
 ## DataNode热插拔驱动器
 
+DataNode支持热插拔驱动。用户可以在没有关闭DataNode情况下，关闭或替换HDFS数据列。下面简要教书了典型的热插拔步骤：
+
+- 如果是新的存储目录，用户应该将其格式化然后适当的安装它们。
+
+- 用户更新DataNode配置`dfs.datanode.data.dir`来反映要在使用中的数据卷目录。
+
+- 用户运行`dfsadmin -reconfig datanode HOST:PORT start`启动配置进程。用户可以使用`dfsadmin -reconfig datanode HOST:PORT status`查询配置任务的运行状态。
+
+- 一旦配置的任务完成，用户可以改下载被移除的数据卷目录并从磁盘上物理删除。
+
 ## 文件权限和安全
+
+文件权限设置与其他家族平台,像linux，类似。当前，安全限制在单文件权限。启动NameNode的用户在HDFS被作为超级用户处理。未来的HDFS版本会支持像kerberos的用户认证和数据传输加密那样的网络认证协议。
+详细讨论请看权限指南。
 
 
 ## 可伸缩性
 
+Hadoop当前支持运行上千节点的集群。[PowerBy](http://wiki.apache.org/hadoop/PoweredBy){:target="_blank"}文档列出了部署超大Hadoop集群的组织。
+每个集群的HDFS有一个NameNode。当前NameNode可获得的总内存是主要的可扩展限制。在非常大的集群中，增加存储在HDFS文件平均大小可以随着团簇尺寸的增加而不增加内存需求的NameNode。
+默认配置不适合非常大的集群。[FAQ](http://wiki.apache.org/hadoop/FAQ){:target="_blank"}文档列出了超大Hadoop集群的配置优化
+
 ## 相关文档
 
+用户指南是在HDFS上工作的一个好的开始。当用户指南继续完善。这将是Hadoop和HDFS的非常健康的文档。下面列出了未来泰索的开始点：
 
+- [Hadoop站点](http://hadoop.apache.org/){:target="_blank"}:Hadoop站点的主页。
 
+- [Hadoop wiki](http://wiki.apache.org/hadoop/FrontPage){:target="_blank"}:Hadoop wiki的文档，不像作为Hadoop源码树的一部分的正式文档。Hadoop wiki是由Hadoop社区定期编辑。
 
+- [FAQ](http://wiki.apache.org/hadoop/FAQ){:target="_blank"}:FAQ页面。
 
+- [Hadoop的java API](http://hadoop.apache.org/docs/r2.7.2/api/index.html){:target="_blank"}:
 
+- Hadoop用户邮件列表：在Hadoop.apache.org中的用户。
 
+- 浏览[hdfs-default.xml](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml){:target="_blank"}:包含对大部分配置变量的简要描述。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [Hadoop命令指南]({% post_url 2016-07-25-19-hadoop-doc-translate %}){:target="_blank"}:Hadoop命令用法。
 

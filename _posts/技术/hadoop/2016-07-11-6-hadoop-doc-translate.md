@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 6.hadoop-2.7.2官网文档翻译-Hadoop的兼容性
+title: 06.hadoop-2.7.2官网文档翻译-Hadoop的兼容性
 category: 技术
 tags:  Hadoop
 keywords: 

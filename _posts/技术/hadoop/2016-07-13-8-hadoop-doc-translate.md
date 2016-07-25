@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 8.hadoop-2.7.2官网文档翻译-文件系统规范
+title: 08.hadoop-2.7.2官网文档翻译-文件系统规范
 category: 技术
 tags:  Hadoop
 keywords: 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 7.hadoop-2.7.2官网文档翻译-Hadoop接口类别
+title: 07.hadoop-2.7.2官网文档翻译-Hadoop接口类别
 category: 技术
 tags:  Hadoop
 keywords: 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 2.hadoop-2.7.2官网文档翻译-单节点集群安装
+title: 02.hadoop-2.7.2官网文档翻译-单节点集群安装
 category: 技术
 tags:  Hadoop
 keywords: 
