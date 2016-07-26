@@ -177,3 +177,9 @@ log4j.logger.org.springframework=INFO
 ```
 
 需要声明的是：只要log4j.properties添加在`src/main/resources`下，就不需要在web.xml中进行配置了，因为容器默认会读取该目录下的log4j.properties文件。
+
+参考博客：
+
+- [spring中的日志依赖](http://spring.io/blog/2009/12/04/logging-dependencies-in-spring){:target="_blank"}
+
+- [log4j.properties配置详解与实例-全部测试通过](http://blog.sina.com.cn/s/blog_5ed94d710101go3u.html){:target="_blank"}
