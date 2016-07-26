@@ -353,3 +353,7 @@ h3{
     background-repeat: no-repeat;
     background-position: left bottom;
 }
+
+a.pageNo.curpage:hover {
+    text-decoration: initial;
+}
