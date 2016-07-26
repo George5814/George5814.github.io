@@ -8,9 +8,9 @@
   <!--分页页码循环-->
   {% for index in (1..num)  %}
   	  {% if index == curPage and index != num  %} <!--是当前页且不是最大页码(不算mod的情况下)-->
-  	  	<a class="pageNo curpage" href="{{size.url}}/page{curPage}">{{ index }}</a>
+  	  	<a class="pageNo curpage">{{ index }}</a>
   	  {% elsif index == curPage and index == num and  modu > 0 %}<!--是当前页且不是最大页码(算mod的情况下)-->
-  	  	<a class="pageNo curpage" href="{{size.url}}/page{curPage}">{{ index }}</a>
+  	  	<a class="pageNo curpage">{{ index }}</a>
   	  	<a class="pageNo" href="{{size.url}}/page{{index | plus:1}}">{{ index | plus:1 }}</a>
   	  {% elsif index == 1 and index == curPage %}
   	  	<a class="pageNo curpage" href="{{size.url}}/">{{ index }}</a>
@@ -19,7 +19,7 @@
       {% elsif index == num and  modu > 0 %}
        <a class="pageNo" href="{{size.url}}/page{{index}}">{{ index}}</a>
         {% if curPage == extEndPage %}
-        	<a class="pageNo curpage" href="{{size.url}}/page{curPage}">{{ curPage }}</a>
+        	<a class="pageNo curpage">{{ curPage }}</a>
         {% else %}
        		<a class="pageNo" href="{{size.url}}/page{{index | plus:1}}">{{ index | plus:1 }}</a>
       	{% endif %}
