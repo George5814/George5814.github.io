@@ -56,6 +56,11 @@ highlighter: rouge
 
 kramdown:
   input: GFM
+  extensions:
+    - autolink
+    - footnotes
+    - smart
+  syntax_highlighter: rouge
   
 gems:
     [jekyll-paginate]

@@ -28,7 +28,7 @@ Hadoop有一个选项的解析框架，采用解析通用选项以及运行类�
 
 Hadoop集群的用户使用的命令
 
-### classpath
+### classpath 
 
 **用法:**`hdfs classpath`
 
@@ -36,28 +36,54 @@ Hadoop集群的用户使用的命令
 
 
 
-### dfs
+### dfs 
 
 **用法:**`hdfs dfs [COMMAND [COMMAND_OPTIONS]]`
 
-显示获取Hadoop的jar和需要的库的类路径
+在Hadoop支持的文件系统上运行文件系统命令，许多`COMMAND_OPTIONS`可以在[文件系统shell指南]({% post_url 2016-07-05-5-hadoop-doc-translate %}){:target="_blank"}中找到。
+
+
+### fetchdt
+
+**用法:**` hdfs fetchdt [--webservice <namenode_http_addr>] <path>`
+
+|命令选项|描述|
+|---|---|
+|--webservice https_address|使用http协议替代RPC|
+|fileName|存储token的文件名|
+
+从NameNode获取授权token，可以查看[fetchdt]({% post_url 2016-07-20-18-hadoop-doc-translate %}#title13){:target="_blank"}
 
 
 
-### classpath
+### fsck
 
-**用法:**`hdfs classpath`
+**用法:**
 
-显示获取Hadoop的jar和需要的库的类路径
+```bash
+hdfs fsck <path>
+          [-list-corruptfileblocks |
+          [-move | -delete | -openforwrite]
+          [-files [-blocks [-locations | -racks]]]
+          [-includeSnapshots]
+          [-storagepolicies] [-blockId <blk_Id>]
+```
 
-
-
-### classpath
-
-**用法:**`hdfs classpath`
-
-显示获取Hadoop的jar和需要的库的类路径
-
+|命令选项|描述|
+|---|---|
+|path||
+|-delete||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
 
 
 ### classpath
