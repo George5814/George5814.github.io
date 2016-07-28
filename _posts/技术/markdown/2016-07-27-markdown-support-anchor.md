@@ -2,7 +2,7 @@
 layout: post
 title: markdown在jekyll中支持的一些操作
 category: 技术
-tags:  Hadoop
+tags:  Markdown
 keywords: 
 description: 该文档描述了一些在jekyll中使用markdown的用法，不完全标准的符合markdown规范。
 ---
