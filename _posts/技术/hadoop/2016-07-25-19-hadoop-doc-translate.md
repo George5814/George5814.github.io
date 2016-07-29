@@ -45,7 +45,7 @@ Hadoop集群的用户使用的命令
 
 ### fetchdt
 
-**用法:**` hdfs fetchdt [--webservice <namenode_http_addr>] <path>`
+**用法:**` hdfs fetchdt [--webservice &lt namenode_http_addr&gt ] &lt path&gt `
 
 |命令选项|描述|
 |---|---|
@@ -61,12 +61,12 @@ Hadoop集群的用户使用的命令
 **用法:**
 
 ```bash
-hdfs fsck <path>
+hdfs fsck &lt path&gt 
           [-list-corruptfileblocks |
           [-move | -delete | -openforwrite]
           [-files [-blocks [-locations | -racks]]]
           [-includeSnapshots]
-          [-storagepolicies] [-blockId <blk_Id>]
+          [-storagepolicies] [-blockId &lt blk_Id&gt ]
 ```
 
 |命令选项|描述|
@@ -144,7 +144,7 @@ hdfs fsck <path>
 
 丢弃来自于某个服务的JMX信息
 
-### oev
+### oev(offline edits viewer)
 
 
 
@@ -162,42 +162,360 @@ hdfs fsck <path>
 |命令选项|描述|
 |---|---|
 |-f,--fix-txids|在输入时重新编号传输的id，这样就没有缺失或非法的传输id了|
-|-h,--help|显示用法信息或退出|
+|-h,--help|显示用法信息并退出|
 |-r,--ecover|当读取二进制的edits日志时，使用恢复模式。这将让你选择跳过edits日志的损坏的部分。|
 |-p,--processor arg|选择适合image文件的处理类型，当前支持的是二进制（Hadoop用户的原生二进制格式）、xml（默认，xml格式）和stats（显示edits文件的统计信息）|
 |-v,--verbose|更多冗长的输出，打印输入和输出文件名。对于写文件的处理器，也显示在屏幕上。在巨大的image文件时该操作将会增加处理的时间，默认为false|
 
 Hadoop离线edits查看器。
 
-### classpath
+### oiv(offline image viewer)
 
-**用法:**`hdfs classpath`
-
-显示获取Hadoop的jar和需要的库的类路径
+**用法:**`hdfs oiv [OPTIONS] -i INPUT_FILE`
 
 
+**必选的命令行参数**
 
-### classpath
+|命令选项|描述|
+|---|---|
+|-i,--inputFile arg|要处理的edits文件，扩展名为xml意味着是xml格式，任何其他的文件名都意味着是二进制格式|
 
-**用法:**`hdfs classpath`
+**可选的命令行参数**
 
-显示获取Hadoop的jar和需要的库的类路径
+|命令选项|描述|
+|---|---|
+|-h,--help|显示用法信息并退出|
+|-o,--outputFile arg|输出文件的名称。如果指定文件存在，会被覆盖。格式文件可以使用`-p`选项定义。|
+|-p,--processor arg|选择适合image文件的处理类型，当前支持的是二进制（Hadoop用户的原生二进制格式）、xml（默认，xml格式）和stats（显示edits文件的统计信息）|
+
+Hadoop离线镜像查看器查看较新的镜像文件。
+
+### oiv_legacy
+
+**用法:**` hdfs oiv_legacy [OPTIONS] -i INPUT_FILE -o OUTPUT_FILE`
+
+|命令选项|描述|
+|---|---|
+|-h,--help|显示用法信息并退出|
+|-i,--inputFile arg|要处理的edits文件，扩展名为xml意味着是xml格式，任何其他的文件名都意味着是二进制格式|
+|-o,--outputFile arg|输出文件的名称。如果指定文件存在，会被覆盖。格式文件可以使用`-p`选项定义。|
+
+对于Hadoop较老版本的Hadoop离线镜像查看器
+
+### snapshotDiff
+
+**用法:**` hdfs snapshotDiff &lt path&gt  &lt fromSnapshot&gt  &lt toSnapshot&gt `
+
+判断Hadoop快照间的不用。更多信息请看[hadoop 快照文档](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsSnapshots.html#Get_Snapshots_Difference_Report){:target="_blank"}
 
 
 
-### classpath
+### version
 
-**用法:**`hdfs classpath`
+**用法:**` hdfs version`
 
-显示获取Hadoop的jar和需要的库的类路径
+显示Hadoop的版本。
+
+
+## 管理员命令
+
+对Hadoop集群的管理员有用的命令
+
+
+### balancer（均衡器）
+
+**用法：**
+
+```bash
+    hdfs balancer
+          [-threshold &lt threshold&gt ]
+          [-policy &lt policy&gt ]
+          [-exclude [-f &lt hosts-file&gt  | &lt comma-separated list of hosts&gt ]]
+          [-include [-f &lt hosts-file&gt  | &lt comma-separated list of hosts&gt ]]
+          [-idleiterations &lt idleiterations&gt ]
+```
+
+
+|命令选项|描述|
+|---|---|
+|-policy &lt policy&gt |DataNode（默认）：如果每个DataNode都均衡了，那集群就均衡了。  blockpool：如果每个块池中的每个DataNode都均衡了，那么集群也就均衡了。|
+|-threshold &lt threshold&gt | 临界值，磁盘容量的百分比。会覆盖默认的临界值|
+|-exclude -f &lt hosts-file&gt  \ &lt comma-separated list of hosts &gt|从均衡器中移除指定的需要均衡的DataNode|
+|-include -f &lt hosts-file&gt  \  &lt comma-separated list of hosts &gt|均衡器中只包含指定的需要被均衡的DataNode|
+|-idleiterations &lt iterations&gt |退出前最大的空闲迭代数量，会覆盖默认的空闲迭代(5)|
+
+运行集群均衡的功能。管理员可以简单的按`ctrl+c`停止均衡进程。更多详细信息请看[均衡器]({% post_url 2016-07-20-18-hadoop-doc-translate %}#title10){:target="_blank"}
+
+**注意：**`blockpool`策略比`DataNode`上的策略更为严格。
+
+### cacheadmin
+
+**用法：**`hdfs cacheadmin -addDirective -path &lt path&gt  -pool &lt pool-name&gt  [-force] [-replication &lt replication&gt ] [-ttl &lt time-to-live&gt ]`
+
+更多信息请看[HDFS 缓存管理文档](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/CentralizedCacheManagement.html#cacheadmin_command-line_interface){:target="_blank"}
+
+
+### crypto
+
+**用法：**
+
+```bash
+  hdfs crypto -createZone -keyName &lt keyName&gt  -path &lt path&gt 
+  hdfs crypto -help &lt command-name&gt 
+  hdfs crypto -listZones
+
+```
+
+更多信息请看[HDFS透明加密文档](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/TransparentEncryption.html#crypto_command-line_interface){:target="_blank"}
 
 
 
-### classpath
+### datanode
 
-**用法:**`hdfs classpath`
+**用法：**`hdfs datanode [-regular | -rollback | -rollingupgrace rollback]`
 
-显示获取Hadoop的jar和需要的库的类路径
 
+
+|命令选项|描述|
+|---|---|
+|-regular|正常的DataNode启动(默认)|
+|-rollback|将DataNode回滚到之前的版本。在停止DataNode和部署旧版Hadoop时使用|
+|-rollingupgrade rollback|回滚滚动升级的操作|
+
+运行HDFSDataNode
+
+### dfsadmin
+
+**用法：**
+
+```
+    hdfs dfsadmin [GENERIC_OPTIONS]
+          [-report [-live] [-dead] [-decommissioning]]
+          [-safemode enter | leave | get | wait]
+          [-saveNamespace]
+          [-rollEdits]
+          [-restoreFailedStorage true |false |check]
+          [-refreshNodes]
+          [-setQuota &lt quota&gt  &lt dirname&gt ...&lt dirname&gt ]
+          [-clrQuota &lt dirname&gt ...&lt dirname&gt ]
+          [-setSpaceQuota &lt quota&gt  &lt dirname&gt ...&lt dirname&gt ]
+          [-clrSpaceQuota &lt dirname&gt ...&lt dirname&gt ]
+          [-setStoragePolicy &lt path&gt  &lt policyName&gt ]
+          [-getStoragePolicy &lt path&gt ]
+          [-finalizeUpgrade]
+          [-rollingUpgrade [&lt query&gt  |&lt prepare&gt  |&lt finalize&gt ]]
+          [-metasave filename]
+          [-refreshServiceAcl]
+          [-refreshUserToGroupsMappings]
+          [-refreshSuperUserGroupsConfiguration]
+          [-refreshCallQueue]
+          [-refresh &lt host:ipc_port&gt  &lt key&gt  [arg1..argn]]
+          [-reconfig &lt datanode |...&gt  &lt host:ipc_port&gt  &lt start |status&gt ]
+          [-printTopology]
+          [-refreshNamenodes datanodehost:port]
+          [-deleteBlockPool datanode-host:port blockpoolId [force]]
+          [-setBalancerBandwidth &lt bandwidth in bytes per second&gt ]
+          [-allowSnapshot &lt snapshotDir&gt ]
+          [-disallowSnapshot &lt snapshotDir&gt ]
+          [-fetchImage &lt local directory&gt ]
+          [-shutdownDatanode &lt datanode_host:ipc_port&gt  [upgrade]]
+          [-getDatanodeInfo &lt datanode_host:ipc_port&gt ]
+          [-triggerBlockReport [-incremental] &lt datanode_host:ipc_port&gt ]
+          [-help [cmd]]
+```
+
+
+
+|命令选项|描述|
+|---|---|
+|-report [-live] [-dead] [-decommissioning]|基本文件系统信息和统计嘻嘻报告。选项flags可能用来过滤显示的DataNode列表 |
+|-report [-live] [-dead] [-decommissioning]|安全模式维护命令。安全模式是NameNode的一种状态。 1.不接受命名空间的改变（只读）；2，不会副本和删除块；在NameNode启动时，自动进入安全模式，并在配置的最小百分比的块满足最小复制条件时自动离开安全模式。安全模式也可以手动进入，而且也能手动关闭|
+|-saveNamespace|将当前的命名空间保存在存储目录中，并充值edits日志。需要安全模式|
+|-rollEdits|在激活的NameNode上滚动edits日志|
+|-restoreFailedStorage true/false/check|该选项会自动开/关来尝试恢复失败的存储副本，如果失败的存储又可以访问了，系统将会在检查点期间尝试恢复edits或者fsimage。“check”选项将会返回当前的设置|
+|-refreshNodes|重新读取hosts和排除文件来更新允许连接到NameNode上和那些退役或重新启用的DataNode的集合。|
+|-setQuota &lt quota&gt  &lt dirname&gt …&lt dirname&gt |详情请看[HDFS配额指南 ](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsQuotaAdminGuide.html#Administrative_Commands){:target="_blank"}|
+|-clrQuota &lt dirname&gt …&lt dirname&gt |详情请看[HDFS配额指南 ](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsQuotaAdminGuide.html#Administrative_Commands){:target="_blank"}|
+|-setSpaceQuota &lt quota&gt  &lt dirname&gt …&lt dirname&gt |详情请看[HDFS配额指南 ](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsQuotaAdminGuide.html#Administrative_Commands){:target="_blank"}|
+|-clrSpaceQuota &lt dirname&gt …&lt dirname&gt |详情请看[HDFS配额指南 ](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsQuotaAdminGuide.html#Administrative_Commands){:target="_blank"}|
+|-setStoragePolicy &lt path&gt  &lt policyName&gt |设置文件或目录的存储策略|
+|-getStoragePolicy &lt path&gt |获取文件或目录的存储策略|
+|-finalizeUpgrade|完成HDFS的升级。在NameNode删除它们以前版本的工作目录后，DataNode会做同样的操作。|
+|-rollingUpgrade [&lt query&gt /&lt prepare&gt /&lt finalize&gt ]|详情请看[滚动升级文档](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsRollingUpgrade.html#dfsadmin_-rollingUpgrade){:atrget="_blank"}|
+|-metasave filename|将NameNode主数据结构保存到`hadoop.log.dir`属性指定的目录中的文件。如果文件filename存在会被覆盖。每个线面的情况文件filename都会保存一行：1.DataNode到NameNode的心跳；2.等待被复制的块；3.当前被复制的块；4.等待被删除的块|
+|-refreshServiceAcl|重新加载服务级别的认证策略文件|
+|-refreshUserToGroupsMappings|刷新用户到组的映射|
+|-refreshSuperUserGroupsConfiguration|刷新超级用户代理组的映射|
+|-refreshCallQueue|从配置中重新加载call队列|
+|-refresh &lt host:ipc_port&gt  &lt key&gt  [arg1..argn]||
+|-reconfig &lt datanode /…&gt  &lt host:ipc_port&gt  &lt start/status&gt ||
+|-printTopology||
+|-refreshNamenodes datanodehost:port||
+|-deleteBlockPool datanode-host:port blockpoolId [force]||
+|-setBalancerBandwidth &lt bandwidth in bytes per second&gt ||
+|-allowSnapshot &lt snapshotDir&gt ||
+|-disallowSnapshot &lt snapshotDir&gt ||
+|-fetchImage &lt local directory&gt ||
+|-shutdownDatanode &lt datanode_host:ipc_port&gt  [upgrade]||
+|-getDatanodeInfo &lt datanode_host:ipc_port&gt ||
+|-triggerBlockReport [-incremental] &lt datanode_host:ipc_port&gt ||
+|-help [cmd]||
+
+运行HDFS dfsadmin 客户端
+
+
+### balancer（均衡器）
+
+**用法：**``
+
+
+
+|命令选项|描述|
+|---|---|
+|||
+
+
+
+### balancer（均衡器）
+
+**用法：**``
+
+
+
+|命令选项|描述|
+|---|---|
+|||
+
+
+
+### balancer（均衡器）
+
+**用法：**``
+
+
+
+|命令选项|描述|
+|---|---|
+|||
+
+
+
+### balancer（均衡器）
+
+**用法：**``
+
+
+
+|命令选项|描述|
+|---|---|
+|||
+
+
+
+### balancer（均衡器）
+
+**用法：**``
+
+
+
+|命令选项|描述|
+|---|---|
+|||
+
+
+
+### balancer（均衡器）
+
+**用法：**``
+
+
+
+|命令选项|描述|
+|---|---|
+|||
+
+
+
+### balancer（均衡器）
+
+**用法：**``
+
+
+
+|命令选项|描述|
+|---|---|
+|||
+
+
+
+### balancer（均衡器）
+
+**用法：**``
+
+
+
+|命令选项|描述|
+|---|---|
+|||
+
+
+
+### balancer（均衡器）
+
+**用法：**``
+
+
+
+|命令选项|描述|
+|---|---|
+|||
+
+
+
+### balancer（均衡器）
+
+**用法：**``
+
+
+
+|命令选项|描述|
+|---|---|
+|||
+
+
+
+### balancer（均衡器）
+
+**用法：**``
+
+
+
+|命令选项|描述|
+|---|---|
+|||
+
+
+
+### balancer（均衡器）
+
+**用法：**``
+
+
+
+|命令选项|描述|
+|---|---|
+|||
+
+
+
+### balancer（均衡器）
+
+**用法：**``
+
+
+
+|命令选项|描述|
+|---|---|
+|||
 
 
