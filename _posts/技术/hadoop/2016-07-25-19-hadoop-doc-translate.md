@@ -347,13 +347,13 @@ Hadoop离线镜像查看器查看较新的镜像文件。
 |-refreshUserToGroupsMappings|刷新用户到组的映射|
 |-refreshSuperUserGroupsConfiguration|刷新超级用户代理组的映射|
 |-refreshCallQueue|从配置中重新加载call队列|
-|-refresh &lt host:ipc_port&gt  &lt key&gt  [arg1..argn]||
-|-reconfig &lt datanode /…&gt  &lt host:ipc_port&gt  &lt start/status&gt ||
-|-printTopology||
-|-refreshNamenodes datanodehost:port||
-|-deleteBlockPool datanode-host:port blockpoolId [force]||
-|-setBalancerBandwidth &lt bandwidth in bytes per second&gt ||
-|-allowSnapshot &lt snapshotDir&gt ||
+|-refresh &lt host:ipc_port&gt  &lt key&gt  [arg1..argn]|触发参数key指定的在“host:ipc_port”上的资源运行时刷新服务。后面的所有其他参数将会被发送到该主机|
+|-reconfig &lt datanode /…&gt  &lt host:ipc_port&gt  &lt start/status&gt |开启配置或者获取运行中的配置的状态。第二个参数指定node的类型，只支持DataNode的配置|
+|-printTopology|打印架构树，并且它们的节点会被NameNode报告|
+|-refreshNamenodes datanodehost:port|对于给定的DataNode，重新加载配置文件，停止被删除的块池服务，并启动新的块池服务。|
+|-deleteBlockPool datanode-host:port blockpoolId [force]|如果force被设置，给定的DataNode上的块池id的块池目录会连带内容被删除。否则只有在目录为空时删除。如果DataNode的块池仍然在服务中，该命令会失败。参考`refreshNamenodes`来关闭DataNode上的某个块池服务。|
+|-setBalancerBandwidth &lt bandwidth in bytes per second&gt |改变每个DataNode使用HDFS块平衡的网络带宽。`bandwidth`是每个DataNode每秒使用的最大字节数。该值会覆盖`dfs.balance.bandwidthPerSec`参数。**注意：**新值不会持久化到DataNode中。|
+|-allowSnapshot &lt snapshotDir&gt |  |
 |-disallowSnapshot &lt snapshotDir&gt ||
 |-fetchImage &lt local directory&gt ||
 |-shutdownDatanode &lt datanode_host:ipc_port&gt  [upgrade]||
