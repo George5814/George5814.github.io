@@ -353,169 +353,186 @@ Hadoop离线镜像查看器查看较新的镜像文件。
 |-refreshNamenodes datanodehost:port|对于给定的DataNode，重新加载配置文件，停止被删除的块池服务，并启动新的块池服务。|
 |-deleteBlockPool datanode-host:port blockpoolId [force]|如果force被设置，给定的DataNode上的块池id的块池目录会连带内容被删除。否则只有在目录为空时删除。如果DataNode的块池仍然在服务中，该命令会失败。参考`refreshNamenodes`来关闭DataNode上的某个块池服务。|
 |-setBalancerBandwidth &lt bandwidth in bytes per second&gt |改变每个DataNode使用HDFS块平衡的网络带宽。`bandwidth`是每个DataNode每秒使用的最大字节数。该值会覆盖`dfs.balance.bandwidthPerSec`参数。**注意：**新值不会持久化到DataNode中。|
-|-allowSnapshot &lt snapshotDir&gt |  |
-|-disallowSnapshot &lt snapshotDir&gt ||
-|-fetchImage &lt local directory&gt ||
-|-shutdownDatanode &lt datanode_host:ipc_port&gt  [upgrade]||
-|-getDatanodeInfo &lt datanode_host:ipc_port&gt ||
-|-triggerBlockReport [-incremental] &lt datanode_host:ipc_port&gt ||
-|-help [cmd]||
+|-allowSnapshot &lt snapshotDir&gt | 允许目录快照被创建。如果操作成功完成，目录将会变成可快照的|
+|-disallowSnapshot &lt snapshotDir&gt |不允许目录快照被创创建。在禁用快照之前，所有的目录快照都必须被删除。详情请看[HDFS 快照文档](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsSnapshots.html){:target="_blank"}|
+|-fetchImage &lt local directory&gt |从NameNode上下载最近的fsimage，并将他们保存在指定的本地目录中。|
+|-shutdownDatanode &lt datanode_host:ipc_port&gt  [upgrade]|向给定的DataNode提交关闭请求。详情请看[滚动升级文档](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsRollingUpgrade.html#dfsadmin_-shutdownDatanode){:target=+_blank}|
+|-getDatanodeInfo &lt datanode_host:ipc_port&gt |获取给定的DataNode信息。详情请看[滚动升级文档](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsRollingUpgrade.html#dfsadmin_-shutdownDatanode){:target=+_blank}|
+|-triggerBlockReport [-incremental] &lt datanode_host:ipc_port&gt |触发对给定的DataNode的块报告。如果‘incremental’被指定。将会被覆盖，将会是完整的块报告。|
+|-help [cmd]|显示给定命令的帮助信息，如果没有指定会显示所有命令的信息。|
 
 运行HDFS dfsadmin 客户端
 
 
-### balancer（均衡器）
+### haadmin
 
-**用法：**``
+**用法：**
 
+```
+    hdfs haadmin -checkHealth <serviceId>
+    hdfs haadmin -failover [--forcefence] [--forceactive] <serviceId> <serviceId>
+    hdfs haadmin -getServiceState <serviceId>
+    hdfs haadmin -help <command>
+    hdfs haadmin -transitionToActive <serviceId> [--forceactive]
+    hdfs haadmin -transitionToStandby <serviceId>
 
-
-|命令选项|描述|
-|---|---|
-|||
-
-
-
-### balancer（均衡器）
-
-**用法：**``
+```
 
 
 
 |命令选项|描述|
 |---|---|
-|||
+|-checkHealth|检查给定NameNode的健康状态|
+|-failover|启动两个节点的故障转移|
+|-getServiceState|判断给定的NameNode是激活还是备用|
+|-transitionToActive|将给定NameNode的状态转变为激活|
+|-transitionToStandby|将给定NameNode的状态转变为备用|
+
+更多信息请查看[ HDFS HA with NFS ](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithNFS.html#Administrative_commands){:target="_blank"}或者[ HDFS HA with QJM ](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html#Administrative_commands){:target="_blank"}。
 
 
+### journalnode
 
-### balancer（均衡器）
-
-**用法：**``
-
+**用法：**`hdfs journalnode`
 
 
-|命令选项|描述|
-|---|---|
-|||
+该命令启动一个journalnode节点，请参考[ HDFS HA with QJM ](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html#Administrative_commands){:target="_blank"}
 
 
+### mover
 
-### balancer（均衡器）
-
-**用法：**``
-
-
-
-|命令选项|描述|
-|---|---|
-|||
-
-
-
-### balancer（均衡器）
-
-**用法：**``
+**用法：**`hdfs mover [-p <files/dirs> | -f <local file name>]`
 
 
 
 |命令选项|描述|
 |---|---|
-|||
+|-f <local file>|指定一个本地文件来包含要迁移的HDFS文件和目录的列表。|
+|-p <files/dirs>|指定要迁移的HDFS文件或目录的空格分隔的列表|
 
+运行数据迁移功能,详情请看[mover](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/ArchivalStorage.html#Mover_-_A_New_Data_Migration_Tool){:target="_blank"}
 
+**注意：**`-p`和`-f`选项省略时，默认路径是root目录
 
-### balancer（均衡器）
+### namenode（均衡器）
 
-**用法：**``
+**用法：**
 
+```
+  hdfs namenode [-backup] |
+          [-checkpoint] |
+          [-format [-clusterid cid ] [-force] [-nonInteractive] ] |
+          [-upgrade [-clusterid cid] [-renameReserved<k-v pairs>] ] |
+          [-upgradeOnly [-clusterid cid] [-renameReserved<k-v pairs>] ] |
+          [-rollback] |
+          [-rollingUpgrade <downgrade |rollback> ] |
+          [-finalize] |
+          [-importCheckpoint] |
+          [-initializeSharedEdits] |
+          [-bootstrapStandby] |
+          [-recover [-force] ] |
+          [-metadataVersion ]
 
-
-|命令选项|描述|
-|---|---|
-|||
-
-
-
-### balancer（均衡器）
-
-**用法：**``
-
-
-
-|命令选项|描述|
-|---|---|
-|||
-
-
-
-### balancer（均衡器）
-
-**用法：**``
+```
 
 
 
 |命令选项|描述|
 |---|---|
-|||
+|-backup|启动备份节点|
+|-checkpoint|启动检查点节点|
+|-format [-clusterid cid] [-force] [-nonInteractive]|格式化指定的纳闷，如果启动NameNode，格式化然后将其关闭。'-force'选项在name目录存在时也会强制格式化。' -nonInteractive'选项在Name目录存在时会终端操作，除非指定'-force'选项。|
+|-upgrade [-clusterid cid] [-renameReserved <k-v pairs>]|在部署了新版本的Hadoop后，NameNode应该使用升级选项启动。|
+|-upgradeOnly [-clusterid cid] [-renameReserved <k-v pairs>]|升级指定的NameNode然后将其关闭。|
+|-rollback|将NameNode回滚到以前的版本。该命令在停止集群并部署了旧的Hadoop版本后使用。|
+|-rollingUpgrade &lt downgrade/rollback/started &gt|详情请看[滚动升级](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsRollingUpgrade.html#NameNode_Startup_Options){:target="_blank"}|
+|-finalize|该选项将会删文件系统以前的状态，最近的升级将会成为固定态。回滚操作将不可用。完成后会关闭NameNode|
+|-importCheckpoint|从一个检查点目录加载镜像并将其保存在当前一个点上。检查点目录是从`fs.checkpoint.dir`属性读取。|
+|-initializeSharedEdits|格式化一个新的分享edits目录并在足够的edit日志段中赋值。因此备用NameNode可以启动。|
+|-bootstrapStandby|允许备用NameNode存储目录自助的从激活的NameNode上复制最新的命名空间快照。该命令在第一次配置高可用集群时使用。|
+|-recover [-force]|从中断的文件系统上回复丢失的元数据。详情请看[HDFS用户指南]({% post_url 2016-07-20-18-hadoop-doc-translate %}#title15){:target="_blank"}|
+|-metadataVersion|核实配置目录存在，然后打印出软件和镜像的元数据版本。|
+
+运行NameNode，更多关于升级，回滚和完成清理的信息请看[HDFS用户指南]({% post_url 2016-07-20-18-hadoop-doc-translate %}#title16){:target="_blank"}
+
+### nfs3
+
+**用法：**`hdfs nfs3`
+
+该命令会启用NFS3网关，请看[ HDFS NFS3 服务](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsNfsGateway.html#Start_and_stop_NFS_gateway_service){:target="_blank"}
 
 
 
-### balancer（均衡器）
+### portmap
 
-**用法：**``
+**用法：**`hdfs portmap`
 
-
-
-|命令选项|描述|
-|---|---|
-|||
+该命令启用RPC的端口映射，请看[ HDFS NFS3 服务](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/HdfsNfsGateway.html#Start_and_stop_NFS_gateway_service){:target="_blank"}
 
 
+### secondarynamenode
 
-### balancer（均衡器）
-
-**用法：**``
-
-
-
-|命令选项|描述|
-|---|---|
-|||
-
-
-
-### balancer（均衡器）
-
-**用法：**``
-
-
-
-|命令选项|描述|
-|---|---|
-|||
-
-
-
-### balancer（均衡器）
-
-**用法：**``
+**用法：**`hdfs secondarynamenode [-checkpoint [force]] | [-format] | [-geteditsize]`
 
 
 
 |命令选项|描述|
 |---|---|
-|||
+|-checkpoint [force]|如果edits日志大小超过`fs.checkpoint.size`设置大小，将会为SecondaryNameNode设置检查点。如果使用了`force`,检查点将不考虑edit日志大小。|
+|-format|在启动时格式化本地存储|
+|-geteditsize|打印NameNode上未经检查点处理的数值|
+
+运行HDFS的Secondary的NameNode。请看[HDFS用户指南]({% post_url 2016-07-20-18-hadoop-doc-translate %}#title6){:target="_blank"}
+
+### storagepolicies
+
+**用法：**`hdfs storagepolicies`
+
+列出所有的存储策略，更多信息请看[HDFS存储策略文档](http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-hdfs/ArchivalStorage.html){:target="_blank"}
 
 
 
-### balancer（均衡器）
+### zkfc
 
-**用法：**``
+**用法：**`hdfs zkfc [-formatZK [-force] [-nonInteractive]]`
 
 
 
 |命令选项|描述|
 |---|---|
-|||
+|-formatZK|格式化ZooKeeper实例|
+|-h|显示帮助信息|
 
+
+
+## Debug 命令
+
+该命令对帮助管理员调试HDFS问题很有用，向校验块文件和调用恢复权。
+
+### verify
+
+**用法：**`hdfs debug verify [-meta <metadata-file>] [-block <block-file>]`
+
+
+
+|命令选项|描述|
+|---|---|
+|-block block-file|可选项，指定本地文件系统的数据节点上的块文件的绝对路径。|
+|-meta metadata-file|本地文件系统的数据节点的元数据文件的绝对路径。|
+
+验证HDFS元数据和块文件。如果指定了块文件，会校验元数据文件内的校验和是否与块文件匹配。
+
+### recoverLease
+
+**用法：**`hdfs debug recoverLease [-path <path>] [-retries <num-retries>]`
+
+
+
+|命令选项|描述|
+|---|---|
+|[-path path]|恢复租约的HDFS路径|
+|[-retries num-retries]|客户端尝试调用`recoverLease`的次数。默认次数为1|
+
+
+恢复指定路径上的租约。路径必须在HDFS文件系统中存在。默认重试的次数为1。
 
