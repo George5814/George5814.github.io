@@ -333,39 +333,191 @@ Usage: haadmin
 
 ### 组件
 
+自动故障切换在HDFS中增加两个新组建：ZooKeeper仲裁和ZKFC(ZKFailoverController)进程。
+
+ZooKeeper是维持少量协调数据、通知客户端数据的变化和监控客户端失败的高可用服务。自动HDFS故障转移的实现需要依赖ZooKeeper：
+
+- **失败检查：** - 集群汇总每一个Namenode机器都在ZooKeeper中保持一个持久化的session。如果机器崩溃了，ZooKeeper的session将会失效，会通知其他的Namenode应该触发故障转移。
+
+- **活跃Namenode选举** - ZooKeeper提供了一种简单的机制来实执行选举一个节点作为活跃节点。如果当前活跃Namenode崩溃了，另一个Namenode可能会在ZooKeeper的指示下获得排它锁，它就会成为下一个活跃节点。
+
+ZKFC是一个新的组件，ZooKeeper客户端可以用它监控和管理Namenode的状态。每个运行Namenode的机器也运行ZKFC，并且ZFKC负责：
+
+- **健康监测 ** - ZKFC会基于健康检查的命令周期性的ping他本地的Namenode节点。只要节点即时相应它的健康状态，ZFKC认为该节点是健康的。
+如果节点崩溃、冻结或者进入了不健康状态，健康监测会将其标记为不健康。
+
+- **基于ZooKeeper的选举** - 如果本地Namenode是健康的，并且ZFKC没有发现其他节点正在持有znode的锁，他会尝试请求该锁。
+如果成功了，它就赢得了选举，然后会负责运行故障转移将它本地的Namenode置为活跃状态。故障转移的过程和上面描述的手动故障转移类似，如果必要，先前的活跃节点是被回避的，并且将本地Namenode转换为活跃状态。
+
+更多自动故障转移的详细设计请在apache的HDFS的JIRA上看设计文档【HDFS-2185】
 
 ### 部署ZooKeeper
 
+典型的部署，ZooKeeper守护进程被配置为运行三个或五个几点。因此ZooKeeper自身轻量级的资源需求，可以将ZooKeeper分布在HDFS的Namenode和备份节点的机器上。
+许多操作者选择部署第三个ZooKeeper节点在YRAN ResourceManager节点上。
+
+从HDFS元数据更好的性能和隔离的考虑，建议配置ZooKeeper节点将他们的数据存储在不同的磁盘上。
+
+ZooKeeper的安装不在本文讨论范围内。我们假定你已经安装了ZooKeeper集群并运行着三个或更多的几点，并且已经使用ZK的客户端执行正确的操作。
 
 ### 你开始之前
 
+在你开始配置自动故障转移之前，你应该先关闭你的集群。在集群工作时，目前不能讲手动故障转移设置转换为自动故障转移设置。
 
 ### 配置自动故障转移
 
+配置自动故障转移需要在你的配置中添加两个新的参数：
+
+在`hdfs-site.xml`文件中添加：
+
+```xml
+ <property>
+   <name>dfs.ha.automatic-failover.enabled</name>
+   <value>true</value>
+ </property>
+
+```
+
+指定集群应该设置自动故障转移。需要在你的`core-site.xml`中添加：
+
+```xml
+ <property>
+   <name>ha.zookeeper.quorum</name>
+   <value>zk1.example.com:2181,zk2.example.com:2181,zk3.example.com:2181</value>
+ </property>
+```
+
+该 host-port列表对应运行的ZooKeeper服务。
+
+与文档中所描述的参数一样，这些设置可以配置每一个命令服务的，基于后缀的配置key和命名服务的id。
+比如，在一个启用了联邦的集群中，通过设置`dfs.ha.automatic-failover.enabled.my-nameservice-id`你可以明确的只在一个命名服务商启用自动故障转移。
+
+这也有一些其他的配置参数可以被设置用来控制自动故障转移的行为。然而，对于大部分的安装这些不是必须的。详细信息请看指定文档的配置key
 
 
 ### 在ZooKeeper中初始化HA状态
 
+在配置key已经添加成功后，接下来就是在ZooKeeper中初始化请求状态。你可以从Namenode中的一个主机上运行如下命令：
+
+```bash
+[hdfs]$ $HADOOP_PREFIX/bin/hdfs zkfc -formatZK
+```
+
+这会在ZooKeeper中创建一个znode，自动故障转移系统会在里面存储他自己的数据。
 
 ### 使用`start-dfs.sh`启动集群
 
+因此自动故障转移配置中启用，`start-dfs.sh`脚本现在会在运行Namenode上的任何一台机器上自动启动ZKFC守护进程。当ZFKC启动时，他们会自动选择一个Namenode是活跃的。
 
 ### 手动启动集群
 
+如果你在你的集群上手动管理服务，你需要在运行Namenode的每台机器上手动启动ZKFC守护进程。你可以通过运行`[hdfs]$ $HADOOP_PREFIX/sbin/hadoop-daemon.sh --script $HADOOP_PREFIX/bin/hdfs start zkfc`来启动守护进程。
 
 
 ### 安全访问ZooKeeper
 
+如果你正在运行着安全的集群，你可能想去确保存储在ZooKeeper中的信息是否也是安全的。这会阻止恶意的客户端修改ZooKeeper中的元数据或潜在触发一个非故障迁移。
+
+为了ZooKeeper中的信息是安全的，首先要在你的`core-site.xml`文件中添加如下配置:
+
+```xml
+ <property>
+   <name>ha.zookeeper.auth</name>
+   <value>@/path/to/zk-auth.txt</value>
+ </property>
+ <property>
+   <name>ha.zookeeper.acl</name>
+   <value>@/path/to/zk-acl.txt</value>
+ </property>
+```
+
+在这些值中，请注意`@`字符 -这指定的配置不是内联的，而是指向磁盘上的一个文件。
+
+第一个配置文件指定ZooKeeper认证列表，和使用ZK客户端同样的格式。例如，你可能像这样指定：`digest:hdfs-zkfcs:mypassword`
+
+`hdfs-zkfcs`对ZooKeeper是唯一的用户名，并且`mypassword`使用一些独特的字符串作为密码。
+
+接下来，生成一个ZooKeeper的ACL对应于该认证，可以使用如下的命令
+
+```bash
+[hdfs]$ java -cp $ZK_HOME/lib/*:$ZK_HOME/zookeeper-3.4.2.jar org.apache.zookeeper.server.auth.DigestAuthenticationProvider hdfs-zkfcs:mypassword
+output: hdfs-zkfcs:mypassword->hdfs-zkfcs:P/OQvnYyU/nF/mGYvB/xurX8dYs=
+```
+
+复制output中的"->"后的字符串并粘贴到文件`zk-acls.txt`中，前置字符串"digest:"。
+比如：`digest:hdfs-zkfcs:vlUvLnd8MlacsE80rDuu6ONESbM=:rwcda`
+
+为了使得这些ACL生效，你应该重新运行`zkfc -formatZK `命令。
+
+做完之后，你可以从ZK的命令行验证ACL。像下面这样:
+
+```zookeeper
+[zk: localhost:2181(CONNECTED) 1] getAcl /hadoop-ha
+'digest,'hdfs-zkfcs:vlUvLnd8MlacsE80rDuu6ONESbM=
+: cdrwa
+```
 
 ### 验证自动故障转移
 
+一旦自动故障转移被启用，你应该测试它的操作。为了这样做，首先定位活跃的Namenode。通过访问Namenode的web页面，每个节点在页面的顶端报告它的状态，定位哪个节点是活跃的。
+
+一旦你找到了活跃Namenode，你可以在那个节点上制造失败。比如：使用`kill -9 <pid of nn>`命令模拟JVM崩溃。或者你可以关闭机器电源或者切断网络来模拟不同种类的供应中断。
+在触发了你想要测试的供应中断后，另一个Namenode应该在几秒内自动成为活跃节点。请求检测失败和触发故障转移的时间量依靠配置`ha.zookeeper.session-timeout.ms`去设置，但默认值是5s。
+
+如果测试不成，你可能有错误配置。为了进一步诊断问题，检查zkfc守护进程的日志和Namenode守护进程日志
 
 ## 自动失效转移问答
 
+- 以任何特定的顺序启动ZKFC和Namenode守护进程重要吗？
+
+	不是的，在任何给定的节点上你可以在它负责的Namenode之前或之后启动ZKFC。
+	
+- 我应该在什么地方放置额外的监控？
+
+	你应该在运行Namenode的每个主机上添加监控来确保ZKFC保持运行。在一些ZooKeeper失败的类型，比如，ZKFC可能出现异常退出，并且应该重启确保系统可以自动故障转移。
+	
+	另外，你应该监控在ZooKeeper仲裁中的每一个服务。如果ZooKeeper崩溃，自动故障转移不会受影响。
+	
+
+- 如果ZooKeeper死掉会发生什么？
+
+	如果ZooKeeper集群崩溃，将不会触发自动故障转移。然而，HDFS将会不受影响继续运行。当ZooKeeper重启后，HDFS将会重新连接。
+	
+
+- 我可以指定我的Namenode中的一个作为主或首选吗？
+
+	不可以，目前这是不支持的。第一个启动起来的Namenode会成为活跃状态。你可以以指定顺序启动集群，就是你首选的节点先启动。
+
+- 当自动故障转移被配置后，我怎样才能开始一个手动故障转移？
+
+	即使自动故障转移被配置，你也可以用相同的命令`hdfs haadmin`命令启动一个手动故障转移。它将执行一个协调的故障转移。
+	
+	
 
 ## 启用高可用的HDFS的升级/最终/回滚
 
+当在HDFS版本间切换时，有时新的软件可以简单的被安装并且集群重启。然而，有时升级HDFS版本可能会需要改变磁盘上的数据。在这种情况下，在安装新软件后必须使用HDFS的升级/完成/回滚的能力。
+该过程在HA的环境中将会更加复杂，因此Namenode依赖的磁盘上的元数据定义为分布式。对应连个HA的NN。并且journalnodes QJM被用于共享编辑存储。
+该文档端描述了在HA设置中使用HDFS的升级/完成/回滚能力的过程。
 
+**为了执行HA的升级**，必须按如下操作：
 
+1. 正常关闭所有的Namenode，并且安装新软件。
 
+1. 启动JNs。注意，当执行升级，回滚或完成操作时，保证所有的JNs运行是**非常关键的**。如果任何JNs在这些操作的运行时间死掉，操作都会失败。
+
+1. 使用`-upgrade`标识启动Namenode中的一个。
+
+1. 在启动中，在HA设置中，该Namenode将不会像通常一样进入备用状态。该Namenode将会立即进入活跃状态，执行他自己本地存储目录的升级也执行共享编辑日志的升级。
+
+1. 在这一点上，HA对中的另一个Namenode将会与已经升级的Namenode不同步的。为了使得它同步，并再次拥有高可用设置，你应该通过运行Namenode的`-bootstrapStandby`标识，重启该Namenode。
+使用`-upgrade`标识启动第二个Namenode会报错。
+
+注意：如果在完成或回滚升级前的任何时候你想要重启Namenode，你应该想正常一样启动Namenode。就像没有任何指定的启动标识。
+
+**为了完成高可用升级**，在Namenode在运行并有一个是活跃状态时，操作者将会使用`hdfs dfsadmin -finalizeUpgrade`命令。
+这时，活跃的Namenode将会执行完成共享日志，包含以前的文件系统状态的Namenode整个本地存储目录将会删除它本地的状态。
+
+**为了升级的执行回滚**，两个Namenode都应该先被关闭。操作者应该在他们开始升级程序的Namenode上执行回滚命令，这会在本地目录，共性日志，NFS或JNs其中一个上执行回滚命令。
+过后，该Namenode应该被启动并且操作者在另一个Namenode上运行`-bootstrapStandby`来使得连个Namenode同步回滚文件系统的状态。
 
