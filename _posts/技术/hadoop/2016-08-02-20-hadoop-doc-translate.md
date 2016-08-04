@@ -89,23 +89,23 @@ HDFS的高可用功能，解决了上述问题，通过在同一集群中提供�
 	
 	**注意：**如果你也使用HDFS联邦，该配置的设置应该也包含其他命名服务的列表，HA或其他，以逗号分隔的列表。
 	
-	```xml
-	<property>
-	  <name>dfs.nameservices</name>
-	  <value>mycluster</value>
-	</property>
-	```
+```xml
+<property>
+  <name>dfs.nameservices</name>
+  <value>mycluster</value>
+</property>
+```
 
 - `dfs.ha.namenodes.[nameservice ID] `命名服务中每个NameNode的唯一标识。
 
 	使用逗号分隔的`NameNode ID`列表配置。这将被DataNode用于判定集群中所有的NameNode。比如，如果你之前使用"mycluster"作为`nameservice ID`,并且你想要使用"nn1"和"nn2"作为NameNode的特定id，你需要做出这样的配置：
 	
-	```
-	<property>
-	  <name>dfs.ha.namenodes.mycluster</name>
-	  <value>nn1,nn2</value>
-	</property>
-	```
+```
+<property>
+  <name>dfs.ha.namenodes.mycluster</name>
+  <value>nn1,nn2</value>
+</property>
+```
 	
 	**注意：**当前，每个命名服务中只允许最多配置两个NameNode。
 
@@ -113,16 +113,17 @@ HDFS的高可用功能，解决了上述问题，通过在同一集群中提供�
 
 	与上面的`PRC-address`类似，设置两个NameNode的HTTP服务器的地址用来监听。例如：
 	
-	```XML
-	<property>
-	  <name>dfs.namenode.http-address.mycluster.nn1</name>
-	  <value>machine1.example.com:50070</value>
-	</property>
-	<property>
-	  <name>dfs.namenode.http-address.mycluster.nn2</name>
-	  <value>machine2.example.com:50070</value>
-	</property>
-	```
+```XML
+<property>
+  <name>dfs.namenode.http-address.mycluster.nn1</name>
+  <value>machine1.example.com:50070</value>
+</property>
+<property>
+  <name>dfs.namenode.http-address.mycluster.nn2</name>
+  <value>machine2.example.com:50070</value>
+</property>
+
+```
 	
 	**注意：**如果开启的Hadoop的安全特性，应该为每个NameNode设置`https-address`
 	
@@ -137,24 +138,24 @@ HDFS的高可用功能，解决了上述问题，通过在同一集群中提供�
 	
 	举例来说，如果该集群的JournalNode运行在机器“node1.example.com”,“node2.example.com”和“node3.example.com”上，并且命名服务id是“mycluster”，那么你要使用下面设置的值（JournalNode默认端口时8485）。
 	
-	```xml
-	<property>
-	  <name>dfs.namenode.shared.edits.dir</name>
-	  <value>qjournal://node1.example.com:8485;node2.example.com:8485;node3.example.com:8485/mycluster</value>
-	</property>
-	```
+```xml
+<property>
+  <name>dfs.namenode.shared.edits.dir</name>
+  <value>qjournal://node1.example.com:8485;node2.example.com:8485;node3.example.com:8485/mycluster</value>
+</property>
+```
 	
 
 - `dfs.client.failover.proxy.provider.[nameservice ID]` -HDFS客户端用于连接活跃NameNode的java类
 
 	配置java类的名称，用于DFS客户端判定哪个NameNode当前是活跃的和哪一个NameNode当前正在为客户端请求服务。当前的唯一实现是`ConfiguredFailoverProxyProvider`,因此，除非你使用自定义的一个，否则使用这个。例如：
 	
-	```xml
-	<property>
-	  <name>dfs.client.failover.proxy.provider.mycluster</name>
-	  <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
-	</property>
-	```
+```xml
+<property>
+  <name>dfs.client.failover.proxy.provider.mycluster</name>
+  <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+</property>
+```
 	
 - `dfs.ha.fencing.methods` -用于在故障转移期间回避活跃NameNode的java类或者脚本的列表
 
@@ -172,93 +173,93 @@ HDFS的高可用功能，解决了上述问题，通过在同一集群中提供�
 	`sshfence`操作SSH连接到目标节点，并使用*fuser*干掉监听在服务的TCP端口的进程。为了使得该回避选项生效，必须免密码SSH连接到目标节点。一次，必须配置`dfs.ha.fencing.ssh.private-key-files`选项，以逗号分隔的SSH私钥文件列表。
 	比如：
 	
-	```xml
-	    <property>
-	      <name>dfs.ha.fencing.methods</name>
-	      <value>sshfence</value>
-	    </property>
+```xml
+    <property>
+      <name>dfs.ha.fencing.methods</name>
+      <value>sshfence</value>
+    </property>
+
+    <property>
+      <name>dfs.ha.fencing.ssh.private-key-files</name>
+      <value>/home/exampleuser/.ssh/id_rsa</value>
+    </property>
+```
 	
-	    <property>
-	      <name>dfs.ha.fencing.ssh.private-key-files</name>
-	      <value>/home/exampleuser/.ssh/id_rsa</value>
-	    </property>
-	```
+可选的，也可以配置标准的用户名或密码来验证SSH，也可以为SSH配置超时时间，单位毫秒，在超出时间后，认为该回避方法是失败的。可能会配置如下：
 	
-	可选的，也可以配置费标准的用户名或密码来验证SSH，也可以为SSH配置超时时间，单位毫秒，在超出时间后，认为该回避方法是失败的。可能会配置如下：
+```xml
+    <property>
+      <name>dfs.ha.fencing.methods</name>
+      <value>sshfence([[username][:port]])</value>
+    </property>
+    <property>
+      <name>dfs.ha.fencing.ssh.connect-timeout</name>
+      <value>30000</value>
+    </property>
+```
 	
-	```xml
-	    <property>
-	      <name>dfs.ha.fencing.methods</name>
-	      <value>sshfence([[username][:port]])</value>
-	    </property>
-	    <property>
-	      <name>dfs.ha.fencing.ssh.connect-timeout</name>
-	      <value>30000</value>
-	    </property>
-	```
+**shell** - 随便运行一个shell命令来回避活跃NameNode
+
+该*shell*回避方法运行随便一个shell命令。可以配置如下：
 	
-	**shell** - 随便运行一个shell命令来回避活跃NameNode
+```xml
+    <property>
+      <name>dfs.ha.fencing.methods</name>
+      <value>shell(/path/to/my/script.sh arg1 arg2 ...)</value>
+    </property>
+```
 	
-	该*shell*回避方法运行随便一个shell命令。可以配置如下：
+'('和')'内的字符串时正确的bash shell命令，可能不包括任何关闭的圆括号。
+
+该命令将运行环境设置为包含所有当前Hadoop的配置变量，在配置的key中使用'_'来替代任何的'.'字符。该配置使用的是已经在任何NameNode指定配置改进的一般格式 - 比如`dfs_namenode_rpc-address`将包含目标节点的RPC地址，甚至通过该配置可以指定变量` dfs.namenode.rpc-address.ns1.nn1`。
+
+另外，参照目标节点的下面的变量也可以使用：
+
+|变量|描述|
+|---|---|
+|$target_host|要回避的节点的主机名|
+|$target_port|要回避的节点的IPC端口|
+|$target_address|以上两个，合并为host:port|
+|$target_nameserviceid|要回避的NameNode节点的命名服务的id|
+|$target_namenodeid|要回避的NameNode节点的namenode id|
+
+这些环境变量也可能被shell命令替换。比如：
 	
-	```xml
-	    <property>
-	      <name>dfs.ha.fencing.methods</name>
-	      <value>shell(/path/to/my/script.sh arg1 arg2 ...)</value>
-	    </property>
-	```
-	
-	'('和')'内的字符串时正确的bash shell命令，可能不包括任何关闭的圆括号。
-	
-	该命令将运行环境设置为包含所有当前Hadoop的配置变量，在配置的key中使用'_'来替代任何的'.'字符。该配置使用的是已经在任何NameNode指定配置改进的一般格式 - 比如`dfs_namenode_rpc-address`将包含目标节点的RPC地址，甚至通过该配置可以指定变量` dfs.namenode.rpc-address.ns1.nn1`。
-	
-	另外，参照目标节点的下面的变量也可以使用：
-	
-	|变量|描述|
-	|---|---|
-	|$target_host|要回避的节点的主机名|
-	|$target_port|要回避的节点的IPC端口|
-	|$target_address|以上两个，合并为host:port|
-	|$target_nameserviceid|要回避的NameNode节点的命名服务的id|
-	|$target_namenodeid|要回避的NameNode节点的namenode id|
-	
-	这些环境变量也可能被shell命令替换。比如：
-	
-	```xml
-	    <property>
-	      <name>dfs.ha.fencing.methods</name>
-	      <value>shell(/path/to/my/script.sh --nameservice=$target_nameserviceid $target_host:$target_port)</value>
-	    </property>
-	```
-	
-	如果shell命令返回退出码0，那回避被判定成功。如果返回其他退出码，回避不成功，然后将会尝试列表中下一个回避方法。
-	
-	**注意：**此回避方法未实现任何超时操作，如果必须超时。应该在shell脚本自身被实现（比如，fork一个子shell在指定时间秒内杀死它的父shell）
-	
+```xml
+    <property>
+      <name>dfs.ha.fencing.methods</name>
+      <value>shell(/path/to/my/script.sh --nameservice=$target_nameserviceid $target_host:$target_port)</value>
+    </property>
+```
+
+如果shell命令返回退出码0，那回避被判定成功。如果返回其他退出码，回避不成功，然后将会尝试列表中下一个回避方法。
+
+**注意：**此回避方法未实现任何超时操作，如果必须超时。应该在shell脚本自身被实现（比如，fork一个子shell在指定时间秒内杀死它的父shell）
+
 
 - `fs.defaultFS` - 在什么都没给定情况下，Hadoop的FS客户端使用的默认路径前缀
 	
-	可选的，你可能现在使用新的高可用的逻辑URI为Hadoop客户端配置默认的路径。如果你早起使用"mycluster"作为命名服务的id，这将是你的HDFS路径的权威部分的值。
-	在`core-site.xml`中，可能会向下面这样配置：
-	
-	```xml
-		<name>fs.defaultFS</name>
-		<value>hdfs://mycluster</value>
-	```
+可选的，你可能现在使用新的高可用的逻辑URI为Hadoop客户端配置默认的路径。如果你早起使用"mycluster"作为命名服务的id，这将是你的HDFS路径的权威部分的值。
+在`core-site.xml`中，可能会向下面这样配置：
+
+```xml
+	<name>fs.defaultFS</name>
+	<value>hdfs://mycluster</value>
+```
 	
 
 - `dfs.journalnode.edits.dir` - JournalNode守护进程将会将它的本地状态存储的路径
 	
-	这是JNs存储的edits和其他本地状态的JournalNode机器上的绝对路径。该配置中你可能只需要使用一个路径。
-	通过运行多个分隔的JournalNode为该数据提供冗余，或者在本地的RAID中配置该目录。
-	比如：
-	
-	```xml
-	<property>
-	  <name>dfs.journalnode.edits.dir</name>
-	  <value>/path/to/journal/node/local/data</value>
-	</property>
-	```
+这是JNs存储的edits和其他本地状态的JournalNode机器上的绝对路径。该配置中你可能只需要使用一个路径。
+通过运行多个分隔的JournalNode为该数据提供冗余，或者在本地的RAID中配置该目录。
+比如：
+
+```xml
+<property>
+  <name>dfs.journalnode.edits.dir</name>
+  <value>/path/to/journal/node/local/data</value>
+</property>
+```
 	
 
 
