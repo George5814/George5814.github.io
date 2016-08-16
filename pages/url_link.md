@@ -22,7 +22,17 @@ description: 平时使用的一些比较有用的积累
 
 ### 1.4  详解应对平台高并发的分布式调度框架TBSchedule
 
-[http://geek.csdn.net/news/detail/65738](http://geek.csdn.net/news/detail/65738)
+[http://geek.csdn.net/news/detail/65738](http://geek.csdn.net/news/detail/65738){:target="_blank"}
+
+### 1.5 Mybatis 中文手册
+
+[http://www.mybatis.org/mybatis-3/zh/](http://www.mybatis.org/mybatis-3/zh/){:target="_blank"}
+
+
+### 1.6 Mybatis-spring 中文手册
+
+[http://www.mybatis.org/spring/zh/index.html](http://www.mybatis.org/spring/zh/index.html){:target="_blank"}
+
 
 ## 二.   博客资源
 

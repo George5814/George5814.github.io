@@ -20,3 +20,9 @@ description: 当前包括IOC注入创建Bean，IOC类图，DispatcherServlet初�
 ## DispatcherServlet初始化图
 
 ![DispatcherServlet初始化图](/public/pic/spring/DispatcherServlet-invoke-order.png)
+
+
+## 资源定位的处理类
+
+![资源定位的处理类](/public/pic/spring/resource-location.png)
+
