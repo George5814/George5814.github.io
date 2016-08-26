@@ -35,8 +35,9 @@ description:
 	
 ### 2. 错误：dubbo javassist.ClassPath
 
-	在dubbo启动的过程中报错误：java.lang.ClassNotFoundException: javassist.ClassPath，调试发现代码：Class<?> clazz = Class.forName(line, true, classLoader)执行加载类com.alibaba.dubbo.common.compiler.support.JavassistCompiler时报：java.lang.NoClassDefFoundError: javassist/ClassPath，这个错误最后被加工最终变成上边的错误。可是查看项目下发现依赖的包javassist-3.18.1-GA.jar命名存在，打开这些jar包，其中的javassist.ClassPath的确存在啊，于是我换了个版本javassist-3.18.2-GA.jar程序跑起来了。那么到底是怎么回事呢？。
-	其实就是因为JavassistCompile使用了类javassist.ClassPath。经过一点点的比较，最后发现 javassist-3.18.1-GA.jar这个包是有问题的，因为其MAINFEST.FM文件是打不开的，解压以后也报各种Class文件格式错误，看来应该是这个问题了，时间紧张也不打算深入验证了，总之当大家出现这种问题时，也算是一种可能问题吧，希望能为大家解决问题提供线索
+在dubbo启动的过程中报错误：`java.lang.ClassNotFoundException: javassist.ClassPath`，
+调试发现代码：`Class<?> clazz = Class.forName(line, true, classLoader)`执行加载类`com.alibaba.dubbo.common.compiler.support.JavassistCompiler`时报：`java.lang.NoClassDefFoundError: javassist/ClassPath`，这个错误最后被加工最终变成上边的错误。可是查看项目下发现依赖的包javassist-3.18.1-GA.jar命名存在，打开这些jar包，其中的javassist.ClassPath的确存在啊，于是我换了个版本javassist-3.18.2-GA.jar程序跑起来了。那么到底是怎么回事呢？。
+其实就是因为JavassistCompile使用了类`javassist.ClassPath`。经过一点点的比较，最后发现 javassist-3.18.1-GA.jar这个包是有问题的，因为其MAINFEST.FM文件是打不开的，解压以后也报各种Class文件格式错误，看来应该是这个问题了，时间紧张也不打算深入验证了，总之当大家出现这种问题时，也算是一种可能问题吧，希望能为大家解决问题提供线索
 
 **解决办法：**
 
