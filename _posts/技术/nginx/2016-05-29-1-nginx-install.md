@@ -54,7 +54,7 @@ make install #安装到prefix指定位置
 ```
 #add nginx env  var
 export NGINX_HOME=/usr/local/nginx
-export PATH=$PATH:$NGINX_HOME/bin
+export PATH=$PATH:$NGINX_HOME/sbin
 ```
 
 使得profile的修改生效：`source /etc/profie`
@@ -64,8 +64,32 @@ export PATH=$PATH:$NGINX_HOME/bin
 
 #### 2.1 启动基本的nginx
 
-无环境变量：`/usr/local/nginx`，或设置了环境变量`nginx`
+无环境变量：`/usr/local/nginx/sbin/nginx`，或设置了环境变量`nginx`
 
 #### 2.2 停止nginx服务
 
-无环境变量：`/usr/local/nginx -s stop`，或设置了环境变量`nginx -s stop`
+无环境变量：`/usr/local/nginx/sbin/nginx -s stop`，或设置了环境变量`nginx -s stop`
+
+#### 2.3 优雅退出nginx
+
+无环境变量：`/usr/local/nginx/sbin/nginx -s quit`，或设置了环境变量`nginx -s quit`
+
+优雅退出nginx就是指nginx主进程会等待worker进程完成当前用户请求的处理。
+
+#### 2.4 重新加载配置
+
+无环境变量：`/usr/local/nginx/sbin/nginx -s reload `，或设置了环境变量`nginx -s reload `
+
+更改配置后，必须执行重新加载配置的命令或者重启nginx。
+
+在主进程受到reload信号，会检查配置文件语法并尝试加载该配置。如果成功，会启动新的worker进程，并发送消息通知原来的worker进程关闭。
+如果失败，主进程会回滚，仍以原来配置工作。当原来的worker进程受到消息要求关闭时，会停止接收新的连接，在处理完当前已经接收到的请求后退出进程。
+
+#### 2.3 重新打开日志文件
+
+无环境变量：`/usr/local/nginx/sbin/nginx -s reopen `，或设置了环境变量`nginx -s reopen `
+
+
+#### 2.4 查看nginx运行的进程列表
+
+`ps -ax | grep nginx`
