@@ -192,7 +192,7 @@ public enum SyncType implements EsnBaseEnum {
 
 ```xml
  <if test="type != null" >
-    #{type, typeHandler=com.yonyou.esn.palmyy.common.EnumValueTypeHandler},
+    #{type, typeHandler=com.test.common.EnumValueTypeHandler},
   </if>
 ```
 
