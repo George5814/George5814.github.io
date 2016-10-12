@@ -203,3 +203,22 @@ aspectjweaver包的版本过低。
 </dependency> 
 </dependencies>
 ```
+
+
+
+
+### 5.错误：Invalid classpath publish/export dependency /brief-comm. Project entries not supported
+
+**错误提示**
+
+**错误原因：**
+
+暂时不知
+
+**解决办法**
+
+在eclipse -> {project} -> 属性 -> Deployment Assembly ->右侧将引入的项目删除并重新添加。
+
+**在eclipse中将引入其他模块的项目部署到tomcat中，需要在Deployment Assembly处添加引入的项目。**
+
+
