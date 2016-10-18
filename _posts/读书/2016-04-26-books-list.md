@@ -34,12 +34,21 @@ books:
       description: 
       
     - title: Effective java 中文版（第2版）
-      status: 在读(进度:10%)
+      status: 在读(进度:15%)
       author: Joshua Bloch / 俞黎敏 (译者)
       publisher: 机械工业出版社
       language: 中文
       link: https://book.douban.com/subject/3360807/
       cover: https://img3.doubanio.com/lpic/s3479802.jpg
+      description: 
+      
+    - title: 浪潮只掉
+      status: 在读(进度:25%)
+      author: 吴军 
+      publisher: 电子工业出版社
+      language: 中文
+      link: https://book.douban.com/subject/6709783/
+      cover: https://img3.doubanio.com/lpic/s6807265.jpg
       description: 
 ---
 
