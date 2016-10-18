@@ -42,7 +42,7 @@ books:
       cover: https://img3.doubanio.com/lpic/s3479802.jpg
       description: 
       
-    - title: 浪潮只掉
+    - title: 浪潮之巅
       status: 在读(进度:25%)
       author: 吴军 
       publisher: 电子工业出版社
