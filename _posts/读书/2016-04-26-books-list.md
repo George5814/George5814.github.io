@@ -13,7 +13,7 @@ books:
       publisher: 人民邮电出版社
       language: 中文
       link: http://www.ptpress.com.cn/Book.aspx?id=43340
-      cover: https://img3.doubanio.com/view/url_subject_photo/medium/public/p4195506.jpg
+      cover: /public/img/spring-action-4.jpg
       description:
        
     - title: 重构 改善既有代码设计
