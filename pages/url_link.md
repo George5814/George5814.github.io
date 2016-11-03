@@ -193,6 +193,9 @@ description: 平时使用的一些比较有用的积累
 
 [http://www.cnblogs.com/tinyphp/p/3217457.html](http://www.cnblogs.com/tinyphp/p/3217457.html){:target="_blank"}
 
+### 9.2 配置putty私钥登录
+
+[http://www.linuxidc.com/Linux/2015-03/114944.htm](http://www.linuxidc.com/Linux/2015-03/114944.htm){:target="_blank"}
 
 ##　十. GitHub repertories
 

@@ -117,5 +117,12 @@ windows  ->  preferences  ->  general  ->  editors  ->  text editors  ->  spelli
 该值的修改也可以在tomcat目录下的`server.xml`中看到，但当清除掉当前项目**esn-palmyy-plugin**后，该配置会自动删除。
 
 
+## 16.在eclipse中执行maven的update后部署中丢失了maven的lib库
 
 
+
+这是因为M2E-WTP版本过低导致的eclipse的一个bug，更新到M2E-WTP1.2.0版本就可以解决问题了。
+
+**1.2.0版本中的一个显著特点就是保持部署装配时的配置**
+
+eclipse中直接安装新软件的链接:<http://download.eclipse.org/m2e-wtp/releases/mars/1.2>
