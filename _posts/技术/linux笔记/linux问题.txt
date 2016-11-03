@@ -1,0 +1,80 @@
+1.切换桌面模式和命令行模式
+	位置：  /etc/inittab
+
+2.解压war包和zip包到指定目录
+	unzip src.war -d /root/path/target
+
+	war 是zip压缩格式，因此可以使用zip压缩工具进行操作
+
+3. tail 的man手册
+	tail：输出文件的最后部分
+	语法：
+		tail [OPTION]... [FILE]...
+	描述：
+		将文件的最后十行输出到标准输出(屏幕)。
+
+	参数说明：
+		-c 2K
+			输出最后2K字节的数据
+		-f 
+			输出追加在文件最后的数据
+		-n 200 
+			输出最后的200行数据
+		-q 
+			不输出所给文件的标题
+		--retry 
+			如果文件不可获得，保持尝试去打开它状态
+		--help 
+			显示帮助文档
+4.ps的man手册
+	ps:显示当前进程的快照
+	语法：
+		 ps [options]
+	描述：
+		ps显示选择的活跃进程的信息。如果想要重复更新进程的信息，使用top命令
+		不同类型的参数选项可以自由混搭，但可能会出席那冲突
+	注意：
+		“ps -aux”和“ps aux”不同。POSIX 和 UNIX标准需要“ps - aux”打印所有的用户为“x”的进程信息，所有信息选择“-a” 选项。如果用户“x”不存在，ps会终端命令使用“ps aux” 替代，并打印警告
+
+	例子：
+		使用标准语法查看系统上的每一个进程：
+          ps -e
+          ps -ef
+          ps -eF
+          ps -ely
+
+        使用BSD语法查看系统上的每一个进程：
+          ps ax
+          ps axu
+
+         显示进程树：
+          ps -ejH
+          ps axjf
+        获取线程的信息：
+          ps -eLf
+          ps axms
+
+        获取安全信息
+          ps -eo euser,ruser,suser,fuser,f,comm,label
+          ps axZ
+          ps -eM
+        查看每一个作为root用户运行的进程:
+          ps -U root -u root u
+
+        查看每一个进程，显示为用户自定义格式：
+          ps -eo pid,tid,class,rtprio,ni,pri,psr,pcpu,stat,wchan:14,comm
+          ps axo stat,euid,ruid,tty,tpgid,sess,pgrp,ppid,pid,pcpu,comm
+          ps -Ao pid,tt,user,fname,tmout,f,wchan
+        只打印syslogd进程id信息:
+          ps -C syslogd -o pid=
+
+        只打印PID为42的进程名称:
+          ps -p 42 -o comm=
+    单一进程选择：
+    	a BSD风格
+    	-A     选择所有的进程。 与 -e完全相同。
+    	-a     选择所有的进程除了两个session，并且进程跟一个终端没有关联的
+
+5.过滤空行
+
+	grep "^$" /etc/rc.local
