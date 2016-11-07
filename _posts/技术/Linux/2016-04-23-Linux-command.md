@@ -11,14 +11,21 @@ description:  不定时更新
 
 ### 修改主机名
 
-```
-#vim /etc/sysconfig/network //长期修改，重启后有效
+```bash
+## 长期修改，重启后有效
+vim /etc/sysconfig/network 
 
-#hostname xxx //临时修改
+#临时修改
+hostname xxx 
 ```
 
 ### 使得修改的环境变量生效
 
-```
-#source /etc/profile
+```bash
+## 使得系统环境变量生效
+source /etc/profile
+
+## 使得root用户下的环境变量生效
+source /root/.bash_profile
+
 ```
