@@ -53,6 +53,13 @@ description: 平时使用的一些比较有用的积累
 
 [http://blog.csdn.net/dont27/article/details/38097581](http://blog.csdn.net/dont27/article/details/38097581  "liquid用法笔记"){:target="_blank"}
  
+### Nginx配置问题
+
+[http://blog.csdn.net/tjcyjd/article/details/50695922](http://blog.csdn.net/tjcyjd/article/details/50695922){:target="_blank"}
+
+### Spring MVC 系列文章
+
+[http://jinnianshilongnian.iteye.com/blog/1594806](http://jinnianshilongnian.iteye.com/blog/1594806){:target="_blank"}
 
 ## 三.  Eclipse相关
 
