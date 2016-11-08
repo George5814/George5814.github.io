@@ -2,7 +2,7 @@
 layout: post
 title: vim编辑神器的进阶命令
 category: 技术
-tags: Linux
+tags: Vim
 keywords: 
 description: vim的编辑命令
 ---
