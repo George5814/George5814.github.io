@@ -85,6 +85,12 @@ $ git push <remote> :<branch/tag-name>  #删除远程分支或标签
 $ git push --tags                       #上传所有标签
 ```
 
+### 远程回滚
+
+```
+$ git push -f origin develop  # 强制将远程回滚到和本地版本，需要先将本地库回滚到指定版本
+```
+
 
 
 ###	资料链接
