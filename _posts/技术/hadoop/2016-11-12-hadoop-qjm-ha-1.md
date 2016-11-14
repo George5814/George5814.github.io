@@ -517,5 +517,3 @@ h2m1: starting zkfc, logging to /usr/local/hadoop271/logs/hadoop-root-zkfc-h2m1.
 
 暂时的解决办法，在第一次使用`start-dfs.sh`启动时，NN会报错。
 那就在报错的NN节点上再次执行`start-dfs.sh`命令。
-
-2. 
