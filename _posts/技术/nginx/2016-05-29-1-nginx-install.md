@@ -66,6 +66,9 @@ export PATH=$PATH:$NGINX_HOME/sbin
 
 无环境变量：`/usr/local/nginx/sbin/nginx`，或设置了环境变量`nginx`
 
+windows 环境下：
+`nginx.exe`或`start nginx.exe #该命令会以服务方式启动`
+
 #### 2.2 停止nginx服务
 
 无环境变量：`/usr/local/nginx/sbin/nginx -s stop`，或设置了环境变量`nginx -s stop`
