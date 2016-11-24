@@ -75,6 +75,7 @@ description: 平时使用的一些比较有用的积累
 
 [搜索maven依赖](http://search.maven.org/){:target="_blank"}
 
+
 ### 3.3 Eclipse ADT 插件
 
 [https://marketplace.eclipse.org/content/android-development-tools-eclipse](https://marketplace.eclipse.org/content/android-development-tools-eclipse){:target="_blank"}
@@ -83,6 +84,9 @@ description: 平时使用的一些比较有用的积累
 
 [http://blog.csdn.net/zhoudaxia/article/details/5271250/](http://blog.csdn.net/zhoudaxia/article/details/5271250/){:target="_blank"}
 
+### 3.5 maven 打完整可运行的jar包
+
+[http://blog.csdn.net/xiao__gui/article/details/47341385](http://blog.csdn.net/xiao__gui/article/details/47341385){:target="_blank"}
 
 ## 四.  MongoDB相关
 
