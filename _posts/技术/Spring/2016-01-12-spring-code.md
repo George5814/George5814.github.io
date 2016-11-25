@@ -95,7 +95,7 @@ description: 不定期更新
 	
 使用".html"的好处：
 
- 1.用户不能通过URL直接指导我们采用的那种服务端技术；
+ 1.用户不能通过URL直接知道我们采用的那种服务端技术；
  
  2.".html"是静态网页的后缀，也可以骗过搜索引擎。
  
@@ -268,7 +268,7 @@ $("#createProject").on('click',function(){
 
 **注意：任何方式的调度配置都需要首先引入`spring-context-4.1.7.RELEASE.jar`和`spring-task-4.1.7.RELEASE.jar`**
 
-**注意：spring主配置文件中应该有配置`<context:component-scan base-package="cn.jingzztech.prac" />`,以便spring扫描注解**
+**注意：spring主配置文件中应该有配置如`<context:component-scan base-package="cn.followtry" />`,以便spring扫描注解**
 
 #### 8.1 注解+配置方式任务调度
 
@@ -318,7 +318,7 @@ public class QuartzTest {
 	<bean id="quartzTest" class="cn.jingzztech.prac.quartz.QuartzTest" />
 ```
 
-这样就会将`cn.jingzztech.prac.quartz.QuartzTest.springTaskSchedule2`设置为调度方法，按照指定cron调度
+这样就会将`cn.followtry.quartz.QuartzTest.springTaskSchedule2`设置为调度方法，按照指定cron调度
 
 
 **这种方式可以通过配置动态的决定开启哪些调度和关闭哪些调度，灵活度大**  
@@ -328,7 +328,7 @@ public class QuartzTest {
 解决办法：
 
 ```java
-@RequestMapping 中添加 produces = "plain/text; charset=UTF-8"  解决@ResponseBody乱码问题
+@RequestMapping 中添加 produces = MediaType.APPLICATION_JSON_VALUE或者produces = "plain/text; charset=UTF-8"，解决@ResponseBody乱码问题
 
 @RequestMapping(value = "/msgFlowAnal/{flag}", produces = MediaType.APPLICATION_JSON_VALUE)
 @ResponseBody
