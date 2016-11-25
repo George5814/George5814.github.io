@@ -26,8 +26,6 @@ description: Spring的统一异常处理机制介绍
 新建类继承`org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver`类，
 也可以实现`org.springframework.web.servlet.HandlerExceptionResolver`接口。
 
-该方式不止是拦截异常，也可以根据自己的需要拦截请求，权限验证，参数验证，登录验证等多种情景，灵活度高。
-
 代码示例如下：
 
 ```java
