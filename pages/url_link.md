@@ -43,6 +43,10 @@ description: 平时使用的一些比较有用的积累
 ### 2.2 深入解读Quartz的原理
 
 [http://lavasoft.blog.51cto.com/62575/181907/](http://lavasoft.blog.51cto.com/62575/181907/){:target="_blank"}
+
+**Quartz官方学习指南**
+
+[http://www.quartz-scheduler.org/documentation/quartz-2.2.x/tutorials/](http://www.quartz-scheduler.org/documentation/quartz-2.2.x/tutorials/){:target="_blank"}
  
 
 ### 2.3 如何阅读Java源码 阅读java的真实体会
