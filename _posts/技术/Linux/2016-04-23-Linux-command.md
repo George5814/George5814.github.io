@@ -36,6 +36,12 @@ source /root/.bash_profile
 unzip -d /path sourceFile
 ```
 
+### 解压tar文件
+
+```bash
+tar -xvf package-name.tar
+```
+
 ### 查看指定模糊名称的进程
 
 ```bash
