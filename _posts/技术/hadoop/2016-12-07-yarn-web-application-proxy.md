@@ -4,7 +4,7 @@ title: YARN上的web应用代理
 category: 技术
 tags:  Hadoop
 keywords: 
-description: YARN架构简述
+description: YARN上的web应用代理
 ---
 
 {:toc}

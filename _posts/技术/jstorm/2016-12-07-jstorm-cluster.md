@@ -68,7 +68,11 @@ storm.local.dir: "%JSTORM_HOME%/data"
 ```
 scp -rp /usr/local/jstorm211/  root@h2s1:/usr/local/;
 scp -rp /usr/local/jstorm211/  root@h2s2:/usr/local/;
+scp -rp /etc/profile  root@h2s2:/etc;
+scp -rp /etc/profile  root@h2s1:/etc;
 ```
+
+在每个被复制的机器上`h2s2`,`h2s1`上执行`source /et/profile`。
 
 ### 启动jstorm集群
 
@@ -80,6 +84,7 @@ scp -rp /usr/local/jstorm211/  root@h2s2:/usr/local/;
 ### 预置环境
 
 - tomcat8
+	
 	tomcat7及以上版本，笔者使用的是tomcat8
 
 ### 配置环境
