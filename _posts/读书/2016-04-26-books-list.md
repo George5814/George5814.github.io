@@ -26,7 +26,7 @@ books:
       description: 
       
     - title: Spring 技术内幕 深入解析Spring架构与设计原理
-      status: 在读 (进度:20%)
+      status: 在读 (进度:40%)
       author: 计文柯
       publisher: 机械工业出版社
       language: 中文
@@ -53,12 +53,21 @@ books:
       description: 
       
     - title: 浪潮之巅
-      status: 在读(进度:25%)
+      status: 已读
       author: 吴军 
       publisher: 电子工业出版社
       language: 中文
       link: https://book.douban.com/subject/6709783/
       cover: https://img3.doubanio.com/lpic/s6807265.jpg
+      description: 
+            
+    - title: 大型网站技术架构-核心原理与案例分析
+      status: 在读(进度:15%)
+      author: 李智慧 
+      publisher: 电子工业出版社
+      language: 中文
+      link: https://book.douban.com/subject/25723064/
+      cover: https://img3.doubanio.com/lpic/s27250675.jpg
       description: 
 ---
 

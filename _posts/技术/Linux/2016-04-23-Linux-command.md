@@ -75,3 +75,9 @@ shutdown -r +30 ‘The system will be reboot’    #再过30分钟关机，并�
 shutdown -k now ‘The system will be reboot’    #仅发出警告，系统并不会真正关机
 ```
 
+### 切换视图界面
+
+- 手工切换：`init 3`，进入纯文本模式；`init 5`，进入图形界面模式
+
+- 快捷键：`ctrl+alt+(F1~F6)`，运行文本模式的控制台，但图形界面还是在运行中（占用内存）
+
