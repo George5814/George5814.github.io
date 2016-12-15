@@ -28,7 +28,7 @@ description:   windows下Eclipse远程调试运行MR程序
 将Linux上成功配置了YARN集群的相同hadoop版本（hadoop2.7.2）下载一份到开发机器win7上,
 下载[hadoop2.6(x64)V0.2](http://files.cnblogs.com/files/longshiyVip/hadoop2.6%28x64%29V0.2.zip)
 或者[hadoop.dll、winutils.exe](http://download.csdn.net/detail/luoyepiaoxin/8860033)
-或者[github上的项目](https://github.com/SweetInk/hadoop-common-2.7.1-bin)
+或者[github上的项目](https://github.com/SweetInk/hadoop-common-2.7.1-bin)将其bin目录下文件或直接文件覆盖到Hadoop2.7.2（windows开发调试环境）的bin下
 
 配置`HADOOP_HOME`和`PATH`两个系统环境变量。为了避免不生效，重启电脑。
 如果还是会报错：找不到`/tmp/hadoop-yarn/staging/JING/.staging/job_1481726235168_0009/job.splitmetainfo`，

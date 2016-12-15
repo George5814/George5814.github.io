@@ -9,6 +9,19 @@ description: 该MapReduce是基于MR的新API开发，基于hadoop2.7环境运�
 
 {:toc}
 
+## 概述
+
+进行MapReduce开发暂且认为分为8步，依次为：
+
+1. 获取输入输出路径参数
+1. 删除已经存在输出目录
+1. 根据系统类型进行configuration的配置
+1. 获取Job实例
+1. 为Job配置Jar,MapperClass,CombinerClas,ReducerClass
+1. 为Job配置输出的key和value类型
+1. 设置文件格式化
+1. 提交Job并等待完成
+
 ## 准备环境
 
 - hadoop2.7.2 集群环境（三个节点，h2m1,h2s1,h2s2）
