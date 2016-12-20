@@ -153,7 +153,14 @@ scp /etc/profile  root@h2s2:/etc/
 
 1. 启动YARN集群（可选，如果只用到HDFS可以不用启动YARN）
 
-1. 启动HBase.sh (在主节点上执行`start-hbase.sh`脚本)  
+1. 启动HBase集群(在主节点上执行`start-hbase.sh`脚本)  
+	
+	进程启动顺序：
+	- HQuorumPeer(可以使用zookeeper进程)
+	- HMaster
+	- HRegionServer
+	- HMaster（备用HMaster）
+	
 
 
 
@@ -164,3 +171,25 @@ scp /etc/profile  root@h2s2:/etc/
 - 通过命令行每台机器上执行`jps`,主节点含有`QuorumPeerMain`，`HRegionServer`和`HMaster`,从节点含有`QuorumPeerMain`，`HRegionServer`。
 
 - 通过web UI,[访问HMaster服务](http://h2m1:16010/);访问HRegionServer从节点:<http://h2m1:16030/>,<http://h2s1:16030/>,<http://h2s2:16030/>，并都能正常打开页面，表明HBase集群启动成功。
+
+
+## HMaster从节点
+
+可以在其他机器上启动HMaster的从节点，上限为9个，即总共10个HMaster节点。
+
+- 在其他从节点主机上上启动的HMaster可以作为备用HMaster。
+
+- 在`${HBASE_HOME}/conf`下创建backup-masters,添加上作为备用HMaster节点的主机名或ip。
+这样在启动HBase集群时就会启动备用HMaster节点。
+
+- `local-master-backup.sh`在HMaster同一节点上启动备用HMaster
+
+	```sh
+	# 在HMaster主机上启动三个备用HMaster，端口分别为主HMaster端口向后偏移2,3,4个位置。即16012，16013,16014
+	local-master-backup.sh start 2 3 4
+	```
+
+该方式在物理主机（A）崩溃时，A上的所有备用节点也会失效。
+
+
+

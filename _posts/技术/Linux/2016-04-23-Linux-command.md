@@ -81,3 +81,25 @@ shutdown -k now ‘The system will be reboot’    #仅发出警告，系统并�
 
 - 快捷键：`ctrl+alt+(F1~F6)`，运行文本模式的控制台，但图形界面还是在运行中（占用内存）
 
+### 查看内存
+
+```
+free
+```
+
+### 更改系统编码为中文Utf-8
+
+修改文件`/etc/sysconfig/i18n`下的LANG 为
+
+```
+LANG="zh_CN.UTF-8"
+```
+
+
+### 根据端口号查进程id
+
+`lsof -Pnl +M -i4 | grep 9083`
+
+### 查看端口号占用情况
+
+`netstat -tnlp | grep 9083`
