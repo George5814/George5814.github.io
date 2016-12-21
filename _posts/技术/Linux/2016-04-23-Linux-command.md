@@ -103,3 +103,15 @@ LANG="zh_CN.UTF-8"
 ### 查看端口号占用情况
 
 `netstat -tnlp | grep 9083`
+
+
+### 同步时间
+
+```sh
+#同步网络服务器的时间
+ntpdate 1.cn.pool.ntp.org;
+# 将时间写入bios内
+clock -w;
+# 读取硬件中的时间
+hwclock -r
+```
