@@ -29,9 +29,9 @@ ssh h2s1 "ntpdate 1.cn.pool.ntp.org;clock -w;hwclock -r"
 ssh h2s2 "ntpdate 1.cn.pool.ntp.org;clock -w;hwclock -r"
 
 echo "显示当前时间:"
-ssh h2m1 "date";
-ssh h2s1 "date";
-ssh h2s2 "date"; 
+ssh h2m1 "echo 'h2m1时间：'`date`";
+ssh h2s1 "echo 'h2s1时间：'`date`";
+ssh h2s2 "echo 'h2s2时间：'`date`";
 ```
 
 

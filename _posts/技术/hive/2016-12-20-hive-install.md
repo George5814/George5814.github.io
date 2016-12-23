@@ -140,6 +140,9 @@ mysql>update user set host = '%' where user = 'root' limit 1;
 即在hive2.x版本中，MapReduce作为计算框架已经过期了，推荐使用tez或者spark作为计算框架。
 
 
+表信息存储在mysql的hive数据库的`TBLS`表中。
+
+
 
 ## 产生的错误信息
 
@@ -152,8 +155,29 @@ mysql>update user set host = '%' where user = 'root' limit 1;
 |`java.lang.RuntimeException: The root scratch dir: /tmp/hive on HDFS should be writable. Current permissions are: rwx--x--x`|当前用户没有写权限|更改目录权限：`hadoop fs -chmod 777 /tmp/hive`|
 |`${system:java.io.tmpdir%7D/$%7Bsystem:user.name%7D`|没有指定本地存储的临时目录|指定配置：`" <property><name>system:java.io.tmpdir</name><value>/usr/local/hive211/tmp</value></property><property><name>system:user.name</name><value>hive</value></property>"`|
 |`message:One or more instances could not be made persistent`||执行`${HIVE_HOME}/bin/schematool -dbType mysql -initSchema`|
+|Attempt to do update or delete using transaction manager that does not support these operations||查看该文章：<https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions#HiveTransactions-NewConfigurationParametersforTransactions>|
+|Attempt to do update or delete on table default.t1 that does not use an AcidOutputFormat or is not bucketed|目前只有ORCFileformat支持AcidOutputFormat，默认格式为TextInputFormat，不仅如此建表时必须指定参数('transactional' = true)|直接在创建表时指定桶和转换。如：`create table test(id int ,name string )clustered by (id) into 2 buckets stored as orc TBLPROPERTIES('transactional'='true');`|
+
 
 ## 执行示例
+
+### 查看所有数据库
+
+```
+hive>show databases;
+```
+
+### 应用指定数据库
+
+```
+hive>use dbName;
+```
+
+### 查看所有表
+
+```
+hive>show tables;
+```
 
 ### 创建表
 
@@ -182,5 +206,90 @@ hive> select a,b from t1;
 该操作也会启动MR任务
 
 ```
-select count(a) from t1;
+hive> select count(a) from t1;
 ```
+
+
+### 删除表
+
+将MySql中指定表的描述删除，将HDFS上存储的表对应的数据删除；
+
+```
+hive>drop table t1;
+```
+
+### 重命名表
+
+将test表重命名为t1。
+
+```
+hive> alter table test rename to t1;
+```
+
+
+
+## 示例配置
+
+成功执行增删改查和ACID操作后的配置为:
+
+```xml
+
+  <!-- 应用mysql相关配置-->
+ <property>
+        <name>javax.jdo.option.ConnectionURL</name>
+        <value>jdbc:mysql://h2m1:3306/hive?createDatabaseIfNotExist=true</value>
+  </property>
+  <property>
+        <name>javax.jdo.option.ConnectionDriverName</name>
+        <value>com.mysql.jdbc.Driver</value>
+  </property>
+  <property>
+        <name>javax.jdo.option.ConnectionUserName</name>
+        <value>root</value>
+  </property>
+  <property>
+        <name>javax.jdo.option.ConnectionPassword</name>
+        <value>root</value>
+  </property>
+  
+  <!-- 允许自动创建表 -->
+  <property>
+        <name>datanucleus.schema.autoCreateTables</name>
+        <value>true</value>
+  </property>
+
+   <!-- 指定临时目录和用户 -->
+  <property>
+        <name>system:java.io.tmpdir</name>
+        <value>/usr/local/hive211/tmp</value>
+  </property>
+  <property>
+        <name>system:user.name</name>
+        <value>hive</value>
+  </property>
+  <property>
+        <name>hive.support.concurrency</name>
+        <value>true</value>
+  </property>
+  <property>
+        <name>hive.exec.dynamic.partition.mode</name>
+        <value>nonstrict</value>
+  </property>
+  <property>
+        <name>hive.txn.manager</name>
+        <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
+  </property>
+  <property>
+        <name>hive.compactor.initiator.on</name>
+        <value>true</value>
+  </property>
+  <property>
+        <name>hive.compactor.worker.threads</name>
+        <value>2</value>
+  </property>
+
+```
+
+
+参考文献：
+> 1.Hive的ACID特性参考文章：<https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions>
