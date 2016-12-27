@@ -61,35 +61,50 @@ export PATH=:$PATH:$JAVA_HOME/bin:$SCALA_HOME/bin:$KAFKA_HOME/bin:$ZOOKEEPER_HOM
 
 ### 4.安装ZooKeeper集群并启动
 
+ 本教程认为已经成功安装Zookeeper集群并成功启动。
+ 
+ 本教程启动的ZK集群为:`h2m1:2181`,`h2s1:2181`,`h2s2:2181`。
 
 ### 5.配置kafka
 
 修改server.properties
 
-```bash
-broker.id=1  #集群中每个broker的id，必须为集群内唯一的正整数作为id
 
-# 其他使用默认设置
+设置broker的id，集群中每个broker的id都不能相同
+
+```bash
+broker.id=1  #集群中每个broker的id，每个节点都不能相同，类似于zookeeper的myid，必须为集群内唯一的正整数作为id
+
 ```
 
 ![kafka server 配置](/public/pic/kafka/kafka-setup-3.png "kafka server 配置")
 
+日志存储位置配置
+
+```sh
+log.dirs=/usr/local/kafka/kafka-logs
+```
+
+使用外部ZK集群
+
+```sh
+zookeeper.connect=h2m1:2181,h2s1:2181,h2s2:2181
+```
+
 ### 6.将kafka及配置复制到其他机器组成集群
 
-将`kafka`整个目录复制到其他机器,将`/etc/profile`复制到其他机器并使得环境变量生效
+将`kafka`整个目录复制到其他机器,将`/etc/profile`复制到其他机器并使得环境变量生效。
 
 ```bash
 scp -r ./kafka/ host:/usr/local/
 scp /etc/profile host:/etc/
-source /etc/profile ## 每台机器上执行一遍
+source /etc/profile ## 每台kafka节点机器上执行一遍
 ```
 
 修改broker的id
 
 ```bash
-broker.id=1  #修改为当前集群没使用过的整数
-
-# 其他使用默认设置
+broker.id=2  #修改为当前集群没使用过的整数
 ```
 
 ### 7.启动和停止kafka集群
@@ -97,7 +112,7 @@ broker.id=1  #修改为当前集群没使用过的整数
 集群的每个节点机器都要启动
 
 ```
-kafka-server-start.sh /usr/local/kafka/config/server.properties 
+kafka-server-start.sh  -daemon /usr/local/kafka/config/server.properties 
 ```
 
 ![kafka server 启动](/public/pic/kafka/kafka-setup-4.png "kafka server 启动")

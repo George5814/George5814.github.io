@@ -134,11 +134,29 @@ mysql>update user set host = '%' where user = 'root' limit 1;
 
 后台启动：`hive --service metastore & `
 
-启动：`hive --service hiveserver2 & `
-
 启动`hive`会提示：`Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. tez, spark) or using Hive 1.X releases`
 即在hive2.x版本中，MapReduce作为计算框架已经过期了，推荐使用tez或者spark作为计算框架。
 
+#### 启动hiveserver2服务，可以通过web页面访问
+
+修改配置
+
+```xml
+<property>
+	<name>hive.server2.webui.host</name>
+	<value>h2m1</value>
+	<description>The host address the HiveServer2 WebUI will listen on</description>
+</property>
+<property>
+	<name>hive.server2.webui.port</name>
+	<value>10002</value>
+	<description>The port the HiveServer2 WebUI will listen on. This can beset to 0 or a negative integer to disable the web UI</description>
+</property>
+```
+
+启动：`hive --service hiveserver2 & `
+
+浏览器访问：<http://h2m1:10002>
 
 表信息存储在mysql的hive数据库的`TBLS`表中。
 
