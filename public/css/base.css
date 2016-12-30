@@ -149,6 +149,8 @@ blockquote p {
 a{
 	text-decoration: none;
 	cursor: pointer;
+	display: block;
+    word-wrap: break-word;
 }
 
 #return-top{
@@ -325,6 +327,7 @@ a:hover,a:visited{
 th, td {
     padding: 10px;
     border: 1px solid #000;
+    word-break: break-word;
 }
 
 a.list-group-item-lay.pjaxlink.pjaxlink-custom:hover {
