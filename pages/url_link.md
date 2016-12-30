@@ -6,7 +6,15 @@ description: 平时使用的一些比较有用的积累
 
 {:toc}
 
+## 需要关注的技术名人
+
+[Trinea](http://www.trinea.cn/)
+
+[江南白衣](http://calvin1978.blogcn.com/)
+
+
 ## 一.  java 相关技术
+
 
 ### 1.1  Flink 中文文档
 
@@ -268,9 +276,6 @@ description: 平时使用的一些比较有用的积累
 
 [https://github.com/justjavac/free-programming-books-zh_CN](https://github.com/justjavac/free-programming-books-zh_CN)
 
-## 需要关注的Github名人
-
-[Trinea](http://www.trinea.cn/)
 
 
 

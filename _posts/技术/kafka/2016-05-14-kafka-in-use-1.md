@@ -41,3 +41,15 @@ kafka-console-consumer.sh --zookeeper localhost:2181 --topic test2 --from-beginn
 kafka 接收消息(集群中其他节点)：
 
 ![kafka 接收消息](/public/pic/kafka/kafka-in-use-4.png "kafka 接收消息")
+
+
+### 3.查看topic的状态
+
+`kafka-topics.sh --describe --zookeeper h2m1:2181,h2s1:2181,h2s2:2181 --topic test`
+
+
+### 4.查看kafka服务器版本
+
+通过查看kafka安装目录下的lib目录中kafka的jar名称中的版本。客户端和服务端的版本不相同可能会报错。
+
+<http://stackoverflow.com/questions/27606065/how-to-find-the-kafka-version-in-Linux>
