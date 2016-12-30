@@ -330,6 +330,10 @@ th, td {
     word-break: break-word;
 }
 
+span{
+	word-break: break-word;
+}
+
 a.list-group-item-lay.pjaxlink.pjaxlink-custom:hover {
     background: #f5f5f5;
 }
