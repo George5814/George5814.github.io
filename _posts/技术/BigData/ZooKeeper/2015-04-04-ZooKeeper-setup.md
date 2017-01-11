@@ -80,6 +80,7 @@ export ZOOKEEPER_HOME = /usr/local/zk
 配置三个zk服务器
  
 其中第一个端口用来集群成员的信息交换，第二个端口是在leader挂掉时专门用来进行选举leader所用。
+
 创建文件夹data 
 
 ```cmd
@@ -179,66 +180,84 @@ c)	启动zk集群服务
 
 Zk是通过配置文件zoo.cfg控制，各个机器上的配置文件几乎是相同的，在集群部署时非常方便。
 
-- a.最低配置：
+- 最低配置：
 
-	i.	clientPort：监听客户端连接的端口
+	- clientPort：监听客户端连接的端口
 	
-	ii.	dataDir：存储内存中数据库快照的位置
+	- dataDir：存储内存中数据库快照的位置
 	
-	iii.	tickTime：基本事件单元，毫秒单位，控制心跳和超时，默认为tickTime的两倍
+	- tickTime：基本事件单元（毫秒/单位），控制心跳和会话超时，默认最小会话超时为tickTime的两倍
 	
-- b.高级配置：
+- 高级配置：
 
-	i.	dataLogDir：事务日志写入” dataLogDir”指定的目录，而不是dataDir指定的目录。
+	- dataLogDir：事务日志写入” dataLogDir”指定的目录，而不是dataDir指定的目录。日志使用的是Log4j
 	
-	ii.	maxClientCnxns：限制连接到zk的客户端数量，限制并发连接的数量，通过IP区分客户端。设置为0或不设置会取消并发连接的控制。
+	- maxClientCnxns：限制连接到zk的客户端数量，限制并发连接的数量，通过IP区分客户端。设置为0或不设置会取消并发连接的控制。
 	
-	iii.	minSessionTimeout 和maxSessionTimeout
+	- minSessionTimeout 和maxSessionTimeout
 	 
 最小会话超时时间和最大会话超时时间，默认最小为tickTime的两倍。最大为20倍。
 
-- c.集群配置：
+- 集群配置：
 
-	i.	initLimit
-		允许follower连接并同步到leader的初始化连接时间，以tickTime的倍数表示，当时间超过tickTime的指定倍数时会失败。
-		
-	ii.	syncLimit：
-		leader和follower之间发送消息时请求和应答的时间长度。如果follower在设置的时间内不能和leader通信，那此follower将被丢弃。
+	- **initLimit**
+	
+	允许follower连接并同步到leader的初始化连接时间，以tickTime的倍数表示，当时间超过tickTime的指定倍数时会失败。
+	
+
+   - **syncLimit**
+	
+	leader和follower之间发送消息时请求和应答的时间长度。如果follower在设置的时间内不能和leader通信，那此follower将被丢弃。
 
 ### 4.	Zookeeper特性
 
 Zookeeper中指向节点的路径必须使用规范的绝对路径表示，并以斜线”/”分隔，zookeeper中不允许使用相对路径。
 
-- a.Znode：zk目录树中每个节点对应一个znode，每个znode维护者属性结构，包含版本号、时间戳等状态，跟linux的iNode节点作用类似。
 
-	**Znode的主要特征：**
+- **Znode的主要特征：**
+
+	- Watches：设置watch(监视器)，节点发生改变时，会触发watch对应操作，会向客户端发送且只一个通知，因为watch只能被触发一次。
 	
-		i.	Watches：设置watch(监视器)，节点发生改变时，会触发watch对应操作，会向客户端发送且只一个通知，因为watch只能被触发一次。
-		
-		ii.	数据访问：zk中每个节点存储的数据需要被原子性操作，每个节点都有ACL，限定了特定用户对目标节点可以执行的操作。
-		
-		iii.	临时节点：节点分为临时节点和永久节点，节点类型在创建时确定，不能被改变。Zk临时节点的生命周期依赖创建他们的会话，会话结束临时节点结束。临时节点不能有子节点。永久节点不依赖会话，只能在客户端执行删除操作删除。
-		
-		iv.	顺序节点：创建Znode时，用户可在请求zk路径结尾添加递增计数。
-		
-- b.Zookeeper中的时间
+	-	数据访问：zk中每个节点存储的数据需要被原子性操作，每个节点都有ACL，限定了特定用户对目标节点可以执行的操作。
+	
+	-	临时节点：节点分为临时节点和永久节点，节点类型在创建时确定，不能被改变。Zk临时节点的生命周期依赖创建他们的会话，会话结束临时节点结束。临时节点不能有子节点。永久节点不依赖会话，只能在客户端执行删除操作删除。
+	
+	-	顺序节点：创建Znode时，用户可在请求zk路径结尾添加递增计数。
+	
 
-	i.	Zxid:每一个操作都会使节点收到zxid格式的时间戳，全局有序。每个节点维护三个zxid：cZxid、mZxid、pZxid。
 
-	ii.	版本号：对节点每个操作会使该节点版本号增加，三个版本号：dataVersion(节点数据版本号)、cversion(子节点版本号)、aclVersion(节点所拥有的ACL版本号)
+- Znode：zk目录树中每个节点对应一个znode，每个znode维护者属性结构，包含版本号、时间戳等状态，跟linux的iNode节点作用类似。
 
-- c.Zookeeper watches：zk可以为所有的读操作设置watch，包括(exists()、getChildren()、getData()).watch是一次性触发器。Watch事件将被异步发送到客户端，并且zk为watch提供了有序的一致性保证。
+		
+- Zookeeper中的时间
+
+	-	Zxid:
+		
+		每一个操作都会使节点收到zxid格式的时间戳，全局有序。每个节点维护三个zxid：cZxid、mZxid、pZxid。
+
+	-	版本号：
+		
+		对节点每个操作会使该节点版本号增加，三个版本号：dataVersion(节点数据版本号)、cversion(子节点版本号)、aclVersion(节点所拥有的ACL版本号)
+
+- Zookeeper watches：zk可以为所有的读操作设置watch，包括(exists()、getChildren()、getData()).watch是一次性触发器。Watch事件将被异步发送到客户端，并且zk为watch提供了有序的一致性保证。
 
 	Zookeeper的watch分为两类：数据watch和子watch。exists()和getData()负责设置数据watch，getChildren()负责设置子watch。Create()和delete()触发znode的数据watch和子watch
 	Watch由客户端所连接的zookeeper服务器在本地维护，非常容易设置、管理和分派。
 	当客户端连接新的服务器时，任何会话事件都可能触发watch，当从服务器断开连接时，watch不会被接收，但当客户端重新连接时，先前注册的watch会被重新注册。
 	
-- d.Zookeeper ACL
+- Zookeeper ACL
 
-	Ids.OPEN_ACL_UNSAFE 对所有的ACL都完全开放
+	- Ids.OPEN_ACL_UNSAFE
+		
+		对所有的ACL都完全开放
 	
-	Ids.READ_ACL_UNSAFE 对任何应用程序都只有读权限
+	- Ids.READ_ACL_UNSAFE
 	
-	Ids.CREATOR_ALL_ACL 节点创建者的所有权限，创建者必须通过服务器认证。
+		对任何应用程序都只有读权限
 	
-- e.zookeeper的一致性：顺序一致性(与被发送顺序一直)、原子性(要么成功要么失败)、单系统镜像(客户端连接到集群的任一服务器看到相同的zookeeper视图)、可靠性(1.客户端成功返回代码成功，否则不知道操作是否生效；2.故障恢复时，任何客户端能看到的执行成功的更新操作将不会回滚)和实时性(特定时间内，客户端看到的系统是实时的，任何系统的改变将被客户端看到，或者被客户端侦测到)
+	- Ids.CREATOR_ALL_ACL
+		
+		节点创建者的所有权限，创建者必须通过服务器认证。
+	
+- zookeeper的一致性	
+	顺序一致性(与被发送顺序一直)、原子性(要么成功要么失败)、单系统镜像(客户端连接到集群的任一服务器看到相同的zookeeper视图)、可靠性(1.客户端成功返回代码成功，否则不知道操作是否生效；2.故障恢复时，任何客户端能看到的执行成功的更新操作将不会回滚)和实时性(特定时间内，客户端看到的系统是实时的，任何系统的改变将被客户端看到，或者被客户端侦测到)
