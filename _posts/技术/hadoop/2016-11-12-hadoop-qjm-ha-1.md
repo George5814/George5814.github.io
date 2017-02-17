@@ -175,7 +175,7 @@ qjournal://*host1:port1*;*host2:port2*;*host3:port3*/*journalId*
 
 在每台机器上执行`hadoop-daemon.sh start journalnode`,以便journalnode进程都已经启动。
 
-1. 如果你建立新的HDFS集群， 你因该在每个NN上运行格式化命令`hdfs namenode -format  -clusterId hadoop-cluster-jingzz`
+1. 如果你建立新的HDFS集群， 你应该在每个NN上运行格式化命令`hdfs namenode -format  -clusterId hadoop-cluster-jingzz`
 
 ```
 16/11/13 01:37:31 INFO namenode.NameNode: STARTUP_MSG: 
@@ -259,6 +259,8 @@ SHUTDOWN_MSG: Shutting down NameNode at h2m1/192.168.31.101
 
 在未格式化的NN上执行`hdfs namenode -bootstrapStandby`命令。
 运行该命令会确保通过`dfs.namenode.shared.edits.dir`配置的JournalNode包含足够的edits协定以便启动两个NN。
+
+**注意：**在新的HA集群中，第一个NN使用format命令格式化后，第二个NN不能再格式化了，而是需要使用`scp`命令将第一个NN节点上的data目录复制到第二个NN节点的相同位置。否则会报错`Initialization failed for Block pool`，因为格式化了两次。会导致第二个NN启动不起来。DN无法连接到NN上并一直在重试，直到最终失败。
 
 3. 如果要将一个非HA的NN转到HA，要执行`hdfs namenode -initializeSharedEdits`,会使用本地NN编辑目录的编辑数据初始化JournalNodes
 
