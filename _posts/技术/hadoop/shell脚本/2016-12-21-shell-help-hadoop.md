@@ -23,15 +23,22 @@ description:  不定期更新
 
 ```sh
 #!/usr/bin/env bash
+# Author:followtry
+#Date & Time: 2017-02-28 15:15:31
+#Description:
+#       更新指定机器的时间
+echo "输入参数为$*"
+for host in $*; 
+do
+        ssh ${host} "ntpdate 1.cn.pool.ntp.org;clock -w;hwclock -r"
+done
 
-ssh h2m1 "ntpdate 1.cn.pool.ntp.org;clock -w;hwclock -r"
-ssh h2s1 "ntpdate 1.cn.pool.ntp.org;clock -w;hwclock -r"
-ssh h2s2 "ntpdate 1.cn.pool.ntp.org;clock -w;hwclock -r"
-
+# 显示当前时间
 echo "显示当前时间:"
-ssh h2m1 "echo 'h2m1时间：'`date`";
-ssh h2s1 "echo 'h2s1时间：'`date`";
-ssh h2s2 "echo 'h2s2时间：'`date`";
+for host in $*; 
+do
+        ssh ${host} "echo ${host}当前时间：`date`";
+done
 ```
 
 
