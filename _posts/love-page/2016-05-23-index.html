@@ -1,0 +1,534 @@
+﻿<!DOCTYPE HTML >
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>我爱云云</title>
+
+		<style type="text/css">
+			html {
+				overflow:hidden; 
+				-ms-touch-action:none;
+				-ms-content-zooming:none;
+			}
+			body {
+				position:absolute;
+				margin:0px;
+				padding:0px;
+				background:#EEE;
+				width:100%;
+				height:100%;
+			}
+			#canvas {
+				position:absolute;
+				width: 100%;
+				height: 100%;
+				/*background:#897 url repeat-x;//#897*/
+				background-size:100% 50%;
+				z-index: 100;
+			
+			}
+		</style>
+
+		<script type="text/javascript" src="/public/js/love-js/ge1doot.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 三维坐标系：
+			 * 					y
+			 * 					↑
+			 * 					|
+			 * 					|
+			 *					| 
+			 * 					|
+			 * 			   (0,0)●------------------------→ x
+			 *                ↙
+			 *              ↙       
+			 *            ↙
+			 *          ↙
+			 *         Z
+			 */
+			
+			"use strict";
+			
+			(function () {
+				/* ==== definitions ==== */
+				var diapo = [], layers = [], ctx, pointer, scr, camera, light, fps = 0, quality = [1,2],
+				// ---- poly constructor ----
+				//多边形构造器
+				Poly = function (parent, face) {
+					this.parent = parent;
+					this.ctx    = ctx;
+					this.color  = face.fill || false;
+					this.points = [];
+					if (!face.img) {
+						// ---- create points ----
+						for (var i = 0; i < 4; i++) {
+							this.points[i] = new ge1doot.transform3D.Point(
+								parent.pc.x + (face.x[i] * parent.normalZ) + (face.z[i] * parent.normalX),
+								parent.pc.y +  face.y[i],
+								parent.pc.z + (face.x[i] * parent.normalX) + (-face.z[i] * parent.normalZ)
+							);
+							
+						}
+						this.points[3].next = false;
+					}
+				},
+				// ---- diapo constructor ----
+				Diapo = function (path, img, structure) {
+					//path + img.img 组合之后的图片路径
+					// ---- create image ----
+					//创建图像对象img
+					this.img = new ge1doot.transform3D.Image(
+						this, path + img.img, 1, {//回调方法
+							isLoaded: function(img) {
+								img.parent.isLoaded = true;
+								img.parent.loaded(img);
+							}
+						}
+					);
+					this.visible  = false;
+					this.normalX  = img.nx;
+					this.normalZ  = img.nz;
+					console.log("x="+img.img);
+					console.log("x="+this.normalX+",z="+this.normalZ);
+					// ---- point center ----
+					//设置点中心的位置，也就是整个3D幕布点中心的位置
+					/*
+					 * x方向：加数值1000则3D幕布整体向右移动1000，也就是相当于视角偏左边
+					 * 		  减数值1000则3D幕布整体向左移动1000，也就是相当于视角偏右边
+					 * y方向：加数值1000则3D幕布整体向上移动1000，也就相当于视角从下向上看
+					 * 		  减数值1000则3D幕布整体向下移动1000，也就相当于视角从上向下看
+					 * z方向：加数值1000则3D幕布整体向后移动1000，也就是初始时的离正前方的展区更远
+					 * 		  减数值1000则3D幕布整体向前移动1000，也就是初始时的离正前方的展区更近
+					 * 
+					 * 什么都不加相当于视角在上下左右前后的正中间
+					 */
+					this.pc = new ge1doot.transform3D.Point(img.x, img.y, img.z);
+					// ---- target positions ----
+					this.tx = img.x + (img.nx * Math.sqrt(camera.focalLength) * 20);
+					this.tz = img.z - (img.nz * Math.sqrt(camera.focalLength) * 20);
+					console.log("x1="+this.tx+",z1="+this.tz);
+					// ---- create polygons ----
+					this.poly = [];
+					for (var i = -1, p; p = structure[++i];) {
+//						alert(i+"="+p.img);
+						layers[i] = (p.img === true ? 1 : 2);
+						this.poly.push(
+							new Poly(this, p)
+						);
+					}
+				},
+				// ---- init section ----//ge1doot的回调方法
+				init = function (json) {
+					// draw poly primitive
+					Poly.prototype.drawPoly = ge1doot.transform3D.drawPoly;
+					// ---- init screen ----
+					//使用画布作为屏幕
+					scr = new ge1doot.Screen({
+						container: "canvas"
+					});
+					//canvas 2D上下文(画布)
+					ctx = scr.ctx;
+					scr.resize();
+					// ---- init pointer ----
+					pointer = new ge1doot.Pointer({
+						tap: function () {
+							console.dir("=="+camera.over);
+							if (camera.over) {
+								if (camera.over === camera.target.elem) {
+									console.log("离开展框，回到中间");
+									// ---- return to the center ----
+									camera.target.x = 0;
+									camera.target.z = 0;
+									camera.target.elem = false;
+								} else {
+									console.log("走向展框");
+									// ---- goto diapo ----
+									camera.target.elem = camera.over;
+									camera.target.x = camera.over.tx;
+									camera.target.z = camera.over.tz;
+									// ---- adapt tesselation level to distance ----
+									for (var i = 0, d; d = diapo[i++];) {
+										var dx = camera.target.x - d.pc.x;
+										var dz = camera.target.z - d.pc.z;
+										//判断距离
+										var dist = Math.sqrt(dx * dx + dz * dz);
+										var lev = (dist > 1500) ? quality[0] : quality[1];
+										d.img.setLevel(lev);
+									}
+								}
+							}
+						}
+					});
+					// ---- init camera ----
+					camera = new ge1doot.transform3D.Camera({
+						focalLength: Math.sqrt(scr.width) * 10,
+						easeTranslation: 0.025,
+						easeRotation: 0.06,
+						disableRz: true
+					}, {//自定义移动方法
+						move: function () {
+							this.over = false;
+							// ---- rotation ----
+							if (pointer.isDraging) {
+								this.target.elem = false;
+								//控制左右拖动
+								this.target.ry = -pointer.Xi * 0.01;
+								//控制 上下拖动
+			//					this.target.rx = (pointer.Y - scr.height * 0.5) / (scr.height * 0.5);
+								//设置背景色位置 模拟天花板
+								var can = document.getElementById("canvas");
+//								can.style.backgroundImage = "#ff0 url(w../../../../sns_im_mobile/YonyouIM/assets/img/face/smile_1f600.png)";
+							} else {
+								
+								if (this.target.elem) {
+									this.target.ry = Math.atan2(
+										this.target.elem.pc.x - this.x,
+										this.target.elem.pc.z - this.z
+									);
+								}
+							}
+							this.target.rx *= 0.9;
+						}
+					});
+					camera.z  = -10000;
+					camera.py = 0;
+					// ---- create images ----
+					for (var i = 0, img; img = json.imgdata[i++];) {
+						diapo.push(
+							new Diapo(
+								json.options.imagesPath, 
+								img, 
+								json.structure
+							)
+						);
+					}	
+					// ---- start engine ---- >>>
+					setInterval(function() {
+						quality = (fps > 50) ? [2,3] : [1,2];
+						fps = 0;
+					}, 300);
+					run();
+				},
+				// ---- main loop 主要的轮询方法----
+				run = function () {
+					// ---- clear screen ----
+					ctx.clearRect(0, 0, scr.width, scr.height);
+					//scr.width=1680;scr.height=881
+					// ---- camera ----
+					camera.move();
+					// ---- draw layers ----
+					for (var k = -1, l; l = layers[++k];) {
+						light = false;
+						for (var i = 0, d; d = diapo[i++];) {
+							(l === 1 && d.draw()) || 
+							(d.visible && d.poly[k].draw());
+						}
+					}
+					// ---- cursor ----
+					// 指向相册
+					if (camera.over && !pointer.isDraging) {
+						scr.setCursor("pointer");
+					} else {//指向其他空白处
+						scr.setCursor("move");
+					}
+					// ---- loop ----
+					fps++;
+					requestAnimFrame(run);
+				};
+				/* ==== prototypes ==== */
+				Poly.prototype.draw = function () {
+					// ---- color light ----
+					var c = this.color;
+					if (c.light || !light) {
+						var s = c.light ? this.parent.light : 1;
+						// ---- rgba color ----
+						light = "rgba(" + 
+							Math.round(c.r * s) + "," +
+							Math.round(c.g * s) + "," + 
+							Math.round(c.b * s) + "," + (c.a || 1) + ")";
+						ctx.fillStyle = light;
+					}
+					// ---- paint poly ----
+					if (!c.light || this.parent.light < 1) {
+						// ---- projection ----
+						for (
+							var i = 0; 
+							this.points[i++].projection();
+						);
+						this.drawPoly();
+						ctx.fill();
+					}
+				}
+				/* ==== image onload 加载图片 ==== */
+				Diapo.prototype.loaded = function (img) {
+					// ---- create points ----
+//					var d = [-1,1,1,-1,1,1,-1,-1];
+					var d = [-1,1,1,-1,1,1,-1,-1];
+					var w = img.texture.width  * 0.5;
+					var h = img.texture.height * 0.5;
+					for (var i = 0; i < 4; i++) {
+						img.points[i] = new ge1doot.transform3D.Point(
+							//图片的x,y,z参数
+							this.pc.x + (w * this.normalZ * d[i]),
+							this.pc.y + (h * d[i + 4]),
+							this.pc.z + (w * this.normalX * d[i])
+						);
+					}
+				}
+				/* ==== images draw ==== */
+				Diapo.prototype.draw = function () {
+					// ---- visibility ----
+					this.pc.projection();
+					if (this.pc.Z > -(camera.focalLength >> 1) && this.img.transform3D(true)) {
+						// ---- light ----
+						this.light = 0.5 + Math.abs(this.normalZ * camera.cosY - this.normalX * camera.sinY) * 0.6;
+						// ---- draw image ----
+						this.visible = true;
+						this.img.draw();
+						// ---- test pointer inside ----
+						if (pointer.hasMoved || pointer.isDown) {
+							if (
+								this.img.isPointerInside(
+									pointer.X,
+									pointer.Y
+								)
+							) camera.over = this;
+						}
+					} else this.visible = false;
+					return true;
+				}
+				return {
+					// --- load data ----
+					/**
+					 * data为下面的对象{
+					 * 	imgdata:[],
+					 *  structure:[],
+					 *  options:{}
+					 * }
+					 */
+					load : function (data) {
+						window.addEventListener('load', function () {
+							ge1doot.loadJS("/public/js/love-js/imageTransform3D.js",init, data);
+						}, false);
+					}
+				}
+			})().load({
+				imgdata:[
+					/**
+					 * 对象内每个属性的含义
+					 * img:图像路径
+					 * x:横坐标 
+					 * y:纵坐标 距离地面的高度(含后面的背景)
+					 * z:竖坐标 与图像的距离
+					 * nx:图像向左侧身
+					 * nz:图像重叠在后面
+					 */ 
+					// north
+					{img:'1.jpg', x:-2000, y:0, z:2500, nx:0, nz:1},
+					{img:'2.jpg', x:-1000, y:0, z:2500, nx:0, nz:1},
+					{img:'3.jpg', x:0,     y:0, z:2500, nx:0, nz:1},
+					{img:'4.jpg', x:1000,  y:0, z:2500, nx:0, nz:1},
+					{img:'5.jpg', x:2000,  y:0, z:2500, nx:0, nz:1},
+					
+					// east
+					{img:'6.jpg', x:2500,  y:0, z:2000, nx:-1, nz:0},
+					{img:'7.jpg', x:2500,  y:0, z:1000, nx:-1, nz:0},
+					{img:'8.jpg', x:2500,  y:0, z:0, nx:-1, nz:0},
+					{img:'9.jpg', x:2500,  y:0, z:-1000, nx:-1, nz:0},
+					{img:'10.jpg', x:2500,  y:0, z:-2000, nx:-1, nz:0},
+					
+			
+					
+					// south
+					{img:'11.jpg', x:2000,  y:0, z:-2500, nx:0, nz:-1},
+					{img:'12.jpg', x:1000,  y:0, z:-2500, nx:0, nz:-1},
+					{img:'13.jpg', x:0,     y:0, z:-2500, nx:0, nz:-1},
+					{img:'14.jpg', x:-1000, y:0, z:-2500, nx:0, nz:-1},
+					{img:'15.jpg', x:-2000, y:0, z:-2500, nx:0, nz:-1},
+					
+					
+					
+					// west
+					{img:'16.jpg', x:-2500, y:0, z:-2000, nx:1, nz:0},
+					{img:'17.jpg', x:-2500, y:0, z:-1000, nx:1, nz:0},
+					{img:'18.jpg', x:-2500, y:0, z:0, nx:1, nz:0},
+					{img:'19.jpg', x:-2500, y:0, z:1000, nx:1, nz:0},
+					{img:'20.jpg', x:-2500, y:0, z:2000, nx:1, nz:0}
+					
+				],
+				structure:[
+					{	//wall 
+						// wall //fill: {r:255, g:142, b:238, light:0},
+						//左面墙壁 x[近上,,,近下]
+						fill: {r:192, g:198, b:170, light:0},
+						x: [-1000,-500,-500,-1000],
+						z: [-500,-500,-500,-500],
+						y: [800,800,-800,-800]
+					},{
+						// wall 
+						fill: {r:192, g:198, b:170, light:0},
+						x: [-501,2,2,-500],
+						z: [-500,-500,-500,-500],
+						y: [800,800,-800,-800]
+					},{
+						// wall 
+						fill: {r:192, g:198, b:170, light:0},
+						x: [0,502,502,0],
+						z: [-500,-500,-500,-500],
+						y: [800,800,-800,-800]
+					},{
+						// wall  
+						fill: {r:192, g:198, b:170, light:0},
+						x: [500,1000,1000,490],
+						z: [-500,-500,-500,-500],
+						y: [800,800,-800,-800]
+					},{
+						// shadow
+						fill: {r:100, g:100, b:100, a:0.2},
+						x: [-420,420,420,-420],
+						z: [-500,-500,-500,-500],
+						y: [150, 150,-320,-320]
+					},{
+						// shadow
+						fill: {r:100, g:100, b:100, a:0.2},
+						x: [-20,20,20,-20],
+						z: [-500,-500,-500,-500],
+						y: [250, 250,150,150]
+					},{
+						// shadow
+						fill: {r:0, g:0, b:0, a:0.2},
+						x: [-20,20,20,-20],
+						z: [-500,-500,-500,-500],
+						y: [-320, -320,-500,-500]
+					},{
+						// shadow
+						fill: {r:0, g:0, b:0, a:0.2},
+						x: [-20,20,10,-10],
+						z: [-500,-500,-100,-100],
+						y: [-500, -500,-500,-500]
+					},{
+						// base 基座
+						fill: {r:32, g:32, b:32},
+						//[左后角，右后角，右前角，左前角]
+						x: [-100,100,100,-100],
+						//[左向里，右向里，右向外，左向外]
+						z: [-150,-150,-50,-50],
+						y: [-700,-700,-700,-700]
+					},{
+						// support 竖杆
+						fill: {r:16, g:16, b:16},
+						x: [-10,10,10,-10],
+						z: [-100,-100,-100,-100],
+						//前两个是竖杆向上高度，后两个是竖杆向下高度。方向只跟正负数值有关，正值为上，负值为下
+						y: [400,400,-700,-700]
+					},{
+						// frame 展板 左边侧面
+						fill: {r:255, g:255, b:255},
+						x: [-320,-320,-320,-320],
+						z: [0,-20,-20,0],
+						y: [-190,-190,190,190]
+					},{
+						// frame 展板右边侧面
+						fill: {r:255, g:255, b:255},
+						x: [320,320,320,320],
+						z: [0,-20,-20,0],
+						y: [-190,-190,190,190]
+					},
+					{img:true},
+					{
+						// ceilingLight 天花板灯
+						fill: {r:253, g:184, b:115},
+						x: [-50,50,50,-50],
+						z: [450,450,550,550],
+						y: [650,650,650,650]
+					},{
+						// groundLight  地灯
+						fill: {r:253, g:184, b:115},
+						x: [-50,50,50,-50],
+						z: [250,250,350,350],
+						y: [-650,-650,-650,-650] //设置地灯的垂直位置(为地面上)
+					}
+				],
+				options:{
+					//图片加载的父路径,所有需要加载的图片都在该目录下面
+					imagesPath: "/public/pic/love/"
+				}
+			});
+		</script>
+		<script type="text/javascript">
+			var it = 0;
+			    var mytext;
+			    function initialize() {
+			        mytext = $("#typing").text();
+			        var myheight = $("#typing").offsetHeight;
+			        $("#typing").text("");
+			        $("#typing").css("height", myheight);
+			        $("#typing").show();
+			        typeit();
+			}
+			var t;
+			    function typeit() {
+			        $("#typing").append(mytext.charAt(it));
+			        if (it < mytext.length - 1) {
+			            it++
+			            t = setTimeout("typeit()", 100);
+			        }
+			        else
+			            clearTimeout(t);
+			    }
+			    $(document).ready(function () {
+			        initialize();
+			    });
+		</script>
+		
+		<style>
+			.I,.love,.you{
+				position: absolute;
+				color: red;
+				font-size: 60px;
+				left: 40%;
+				font-weight: bold;
+				text-align: center;
+				background: #eca;
+				padding: 5px;
+				border-radius: 25px;
+				text-decoration: blink;
+			}
+			.I{
+				left:0px;
+				bottom: 0px;
+				font-size: 20px;
+			}
+			#backImg{
+				width: 100%;
+				height: 50%;
+				background-image: url(/public/img/bk.png);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div style="text-align:center;clear:both;">
+			<!-- <script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+<script src="/follow.js" type="text/javascript"></script> -->
+		</div>
+		<!--<div class="you">我和老婆在一起</div>-->
+		<audio src="/public/mp3/多远都要在一起.mp3" autoplay="autoplay" loop="-1"></audio>
+		<canvas id="canvas" >360浏览器不行的话，下个chrome浏览器试试！！</canvas>
+		<div><img src="bk.png" id="backImg"/></div>
+		<!-- <div class="I">
+	待解决问题：
+		歌词的逐字显示;
+		界面背景色设置;
+		图片选取宽长高矮的;
+		图片按拍摄时间排序;
+		文字在canvas前面显示;
+		点击图片时，显示图片简介,离开图片时，简介自动隐藏；
+		显示欢迎语句，可以使用过滤镜实现;
+		画展效果(天花板为暗色，图画周围为亮色);
+		最好能有倒影;
+</div> -->
+	</body>
+</html>
