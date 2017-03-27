@@ -115,3 +115,7 @@ clock -w;
 # 读取硬件中的时间
 hwclock -r
 ```
+
+### 查找并删除指定目录及其下所有文件
+
+`find . -type d -name "target" | xargs rm -r`
