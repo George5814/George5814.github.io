@@ -116,6 +116,10 @@ clock -w;
 hwclock -r
 ```
 
-### 查找并删除指定目录及其下所有文件
+### 查找指定目录并将其及其内文件删除
 
-`find . -type d -name "target" | xargs rm -r`
+```
+# 在当前名录查找名为target的目录并将其删除
+ find . -type d  -name "target"  | xargs rm -r
+
+```
