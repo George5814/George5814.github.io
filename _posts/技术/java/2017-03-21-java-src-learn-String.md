@@ -199,39 +199,102 @@ String commaSeparatedNumbers = numbers.stream()
       内部存储char数组的长度；
 
 
-- ``
+- `public int lastIndexOf(int ch, int fromIndex)`
 
 
-- ``
+      如果ch小于最小的增补码位置，则从后向前遍历，直到找到第一个匹配的字符，并返回所在位置。
+      否则，调用`lastIndexOfSupplementary(ch, fromIndex)`方法。
 
 
-- ``
+- `public int lastIndexOf(String str, int fromIndex)`
+
+      内部调用`static int lastIndexOf(char[] source, int sourceOffset, int sourceCount, char[] target, int targetOffset, int targetCount,int fromIndex)`,
+      如果fromIndex小于0，直接返回-1；如果fromIndex大于(rightIndex=sourceCount-targetCount)，fromIndexw设置为rightIndex;如果targetCount等于0，直接返回fromIndex;
+
+      核心：
+      预置条件：最后一个字符strLastChar，向前查找的字符限制位置min，开始匹配的字符位置(i=min+fromIndex)，
+      获取到最后一个字符strLastChar，然后从后向前匹配当前字符是否与strLastChar相等，不相等则一直向前遍历；否则通过内部while循环遍历其他的字符是否匹配，如果不匹配则使用goto语句跳转到外部while从新的位置再次执行查找与strLastChar匹配的字符。重复上面的操作，直到完全匹配返回第一个字符的位置或者没有匹配到返回-1。
+
+```java
+//核心代码
+int strLastIndex = targetOffset + targetCount - 1;
+char strLastChar = target[strLastIndex];
+int min = sourceOffset + targetCount - 1;
+int i = min + fromIndex;
+
+startSearchForLastChar:
+      while (true) {
+            while (i >= min && source[i] != strLastChar) {
+                  i--;
+            }
+            if (i < min) {
+                  return -1;
+            }
+            int j = i - 1;
+            int start = j - (targetCount - 1);
+            int k = strLastIndex - 1;
+
+            while (j > start) {
+                  if (source[j--] != target[k--]) {
+                        i--;
+                        continue startSearchForLastChar;
+                  }
+            }
+      return start - sourceOffset + 1;
+}
+```
 
 
-- ``
+- `public boolean matches(String regex)`
+
+      内部调用`Pattern.matches(regex, this)`查找字符串中是否有符合正则表达式的内容。
 
 
-- ``
+- `public boolean regionMatches(boolean ignoreCase, int toffset, String other, int ooffset, int len)`
+
+      while循环匹配每个字符，先对原字符进行相等判断，不相等时都转为大写进行判断，还不相等时都转为小写判断，如果还不相等直接返回false，否则遍历other字符串的其他字符。如果所有字符都匹配成功则返回true。
 
 
-- ``
+- `public String[] split(String regex, int limit)`
+
+      内部实现使用的正则表达式。
 
 
-- ``
+- `public boolean startsWith(String prefix, int toffset)`
+
+      从指定位置开始匹配每个字符，只要发现有字符不匹配立即返回false。
 
 
-- ``
+- `public String substring(int beginIndex, int endIndex)`
+
+      如果beginIndex=0,endIndex=value.length,直接返回this，因为字符串不需要截取；否则调用String构造方法创建新的对象。
 
 
+- `public CharSequence subSequence(int beginIndex, int endIndex)`
 
+      调用`substring(int beginIndex, int endIndex)`方法。
 
-- `public int length()`
+- `public String toLowerCase()`
 
-      返回的String内部存储结构char数组的长度
+      内部调用`public String toLowerCase(Locale locale)`,通过unicode的code point方式转换，并最终生成新的String对象返回。
 
-- `public boolean isEmpty()`
+- `public String toString()`
 
-      判断char数组的长度是否等于0，等于0则为空，返回true，否则返回false；
+      返回this。
+
+- `public String toUpperCase()`
+
+      内部调用`public String toUpperCase(Locale locale)`,通过unicode的code point方式转换，并最终生成新的String对象返回。
+
+- `public char[] toCharArray() `
+
+      调用`System.arraycopy()`生成新的char数组。
+
+- `public String trim()`
+
+      检查字符串前后各部位空字符的位置，以该两个位置为区间，调用`subString()`创建新的String对象；或者前后没有空字符，直接返回this。
+
+- `private int lastIndexOfSupplementary(int ch, int fromIndex)`
 
 
 ## 特别声明
