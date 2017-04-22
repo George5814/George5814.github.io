@@ -9,7 +9,7 @@ description: 当前包括IOC注入创建Bean，IOC类图，DispatcherServlet初�
 
 ## IOC类图
 
-![IOC类图](/public/pic/spring/IOC-class-model.png)
+![IOC类图](http://omsz9j1wp.bkt.clouddn.com/ioc-class-model.jpg)
 
 ## IOC注入创建Bean
 
