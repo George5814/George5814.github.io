@@ -133,7 +133,7 @@ blockquote p {
 }
 /* 其他配置 */
 .center {
-  text-align: center;
+  /*text-align: center;*/
 }
 .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
   color: #fff;
