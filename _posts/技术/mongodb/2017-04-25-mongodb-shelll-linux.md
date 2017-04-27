@@ -4,7 +4,7 @@ title: Mongodb 学习之shell命令操作（二）
 category: 技术
 tags: MongoDB
 keywords: 
-description: 
+description: 不定期更新
 ---
 
 
@@ -104,7 +104,7 @@ description:
  
 ### 16	--rest  开启简单的rest API    
  
-.
+![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-15-1.png)
 
 ### 17	--clusterAuthMode arg 集群权限的权限模式，包括keyFile,sendKeyFile,sendX509,x509
  
