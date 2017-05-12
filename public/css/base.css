@@ -92,6 +92,14 @@ body, html {
   /*padding-right: 30px;*/
 }
 
+/*背景音乐台*/
+.bgm-post {
+    font-color: #fff;
+    margin-right: 3%;
+    float: right;
+    margin-top: -3%;
+}
+
 div ::-webkit-scrollbar{
 	width: 0px;
 }
