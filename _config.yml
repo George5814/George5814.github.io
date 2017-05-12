@@ -7,7 +7,7 @@ paginate_path: "page:num"
 author: 
   name: 荆中志
   email: zhongzhijing@126.com
-  link: http://jingzztech.cn/
+  link: http://followtry.cn/
   weibo: http://weibo.com/jingzhongzhi
   github: http://github.com/george5814
   csdn: http://blog.csdn.net/kisssun0608
@@ -67,7 +67,7 @@ gems:
 
 # 端口号
 port:
-    4001
+    80
     
 #host:
 #    10.2.104.35
