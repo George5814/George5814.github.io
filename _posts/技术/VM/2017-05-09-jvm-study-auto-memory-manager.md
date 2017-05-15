@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 初学JVM之问答式记住java自动内存管理
+title: 1 初学JVM之问答式记住java自动内存管理
 category: 技术
 tags: VM
 keywords: 

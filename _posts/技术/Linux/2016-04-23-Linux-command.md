@@ -123,3 +123,9 @@ hwclock -r
  find . -type d  -name "target"  | xargs rm -r
 
 ```
+
+### 查看文件指定行区间的内容
+
+```shell
+cat -n "文件路径" | tail -n +5 | head -n 6
+```
