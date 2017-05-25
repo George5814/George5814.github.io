@@ -38,7 +38,7 @@ description:   windows下Eclipse远程调试运行MR程序
 
 ### 使用maven创建项目 并编写MR程序
 
-Mapper和Reducer代码参考：<http://followtry.cn/2016/12/14/start-first-MR-V2-wordcount.html>
+Mapper和Reducer代码参考：[编写MR程序]({% post_url 2016-12-14-start-first-MR-V2-wordcount %}){:title="编写MR程序"  :target="_blank"} 
 
 ### 完整本地调试的主Job类
 
