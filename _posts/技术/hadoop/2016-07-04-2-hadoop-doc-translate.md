@@ -150,16 +150,16 @@ $ chmod 0600 ~/.ssh/authorized_keys
 	
 1. 检验输出文件：复制HDFS中output目录下的文件到本地文件系统，并检验他们
 
-	```
-	$ bin/hdfs dfs -get output output
-	$ cat output/*
-	```
+```
+$ bin/hdfs dfs -get output output
+$ cat output/*
+```
 	
-	或者直接在HDFS上查看output文件
-	
-	```
-	 $ bin/hdfs dfs -cat output/*
-	```
+或者直接在HDFS上查看output文件
+
+```
+$ bin/hdfs dfs -cat output/*
+```
 	
 1. 操作完成后，停止HDFS的进程
 
@@ -168,45 +168,45 @@ $ chmod 0600 ~/.ssh/authorized_keys
 
 1. 单点上的YARN
 
-	通过设置几个参数，并在运行ResourceManager 和NodeManager 的进程的条件下，可以伪分布式模式的YARN上运行MapReduce任务
+通过设置几个参数，并在运行ResourceManager 和NodeManager 的进程的条件下，可以伪分布式模式的YARN上运行MapReduce任务
 
- 	下面假定上文中的1. ~ 4. 步骤已经成功执行
- 	
- 	1.配置参数，修改`etc/hadoop/mapred-site.xml`
- 	
-		```
-		<configuration>
-		    <property>
-		        <name>mapreduce.framework.name</name>
-		        <value>yarn</value>
-		    </property>
-		</configuration>
-		```
-	
+下面假定上文中的1. ~ 4. 步骤已经成功执行
 
-	修改`etc/hadoop/yarn-site.xml`
-	
-	```
-	<configuration>
-	    <property>
-	        <name>yarn.nodemanager.aux-services</name>
-	        <value>mapreduce_shuffle</value>
-	    </property>
-	</configuration>
-	```
-
-	2.启动YARN，ResourceManager进程和NodeManager 进程
-	
-		` $ sbin/start-yarn.sh`
+ 1. 配置参数，修改`etc/hadoop/mapred-site.xml`
  	
- 	3.在浏览器中查看ResourceManager，默认值为
+```xml
+<configuration>
+	<property>
+		<name>mapreduce.framework.name</name>
+		<value>yarn</value>
+	</property>
+</configuration>
+```
+
+
+修改`etc/hadoop/yarn-site.xml`
+
+```xml
+<configuration>
+	<property>
+		<name>yarn.nodemanager.aux-services</name>
+		<value>mapreduce_shuffle</value>
+	</property>
+</configuration>
+```
+
+2. 启动YARN，ResourceManager进程和NodeManager 进程
+
+	` $ sbin/start-yarn.sh`
+
+3. 在浏览器中查看ResourceManager，默认值为
 
 
 	- ResourceManager： http://localhost:8088/
-	
-	4.运行Mapreduce任务
-	
-	5.当完成操作后，停止yarn进程
+
+4. 运行Mapreduce任务
+
+5. 当完成操作后，停止yarn进程
 	
 	`$ sbin/stop-yarn.sh`
 	
