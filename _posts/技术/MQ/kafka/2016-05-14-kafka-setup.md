@@ -35,7 +35,7 @@ description:
 ```
 
 
-![kafka所在目录](/public/pic/kafka/kafka-setup-1.png)
+![kafka所在目录](http://omsz9j1wp.bkt.clouddn.com/image/kafka/kafka-setup-1.png)
 
 ### 4.添加kafka环境变量并生效
 
@@ -51,7 +51,7 @@ export PATH=:$PATH:$JAVA_HOME/bin:$SCALA_HOME/bin:$KAFKA_HOME/bin:$ZOOKEEPER_HOM
 ```
 
 
-![kafka环境变量](/public/pic/kafka/kafka-setup-2.png)
+![kafka环境变量](http://omsz9j1wp.bkt.clouddn.com/image/kafka/kafka-setup-2.png) 
 
 使得修改后的环境变量生效
 
@@ -77,7 +77,7 @@ broker.id=1  #集群中每个broker的id，每个节点都不能相同，类似�
 
 ```
 
-![kafka server 配置](/public/pic/kafka/kafka-setup-3.png "kafka server 配置")
+![kafka server 配置](http://omsz9j1wp.bkt.clouddn.com/image/kafka/kafka-setup-3.png "kafka server 配置")
 
 日志存储位置配置
 
@@ -115,7 +115,7 @@ broker.id=2  #修改为当前集群没使用过的整数
 kafka-server-start.sh  -daemon /usr/local/kafka/config/server.properties 
 ```
 
-![kafka server 启动](/public/pic/kafka/kafka-setup-4.png "kafka server 启动")
+![kafka server 启动](http://omsz9j1wp.bkt.clouddn.com/image/kafka/kafka-setup-4.png "kafka server 启动")
 
 
 停止kafka的一个节点机器
@@ -126,11 +126,11 @@ kafka-server-start.sh  -daemon /usr/local/kafka/config/server.properties
 
 被停止节点从kafka集群中移除
  
-![kafka server 被停止节点](/public/pic/kafka/kafka-setup-5.png "kafka server 被停止节点")
+![kafka server 被停止节点](http://omsz9j1wp.bkt.clouddn.com/image/kafka/kafka-setup-5.png "kafka server 被停止节点")
 
 kafka集群未被停止节点重新选择leader
 
-![kafka server 未被停止节点](/public/pic/kafka/kafka-setup-6.png "kafka server 未被停止节点")
+![kafka server 未被停止节点](http://omsz9j1wp.bkt.clouddn.com/image/kafka/kafka-setup-6.png "kafka server 未被停止节点")
 
 
 

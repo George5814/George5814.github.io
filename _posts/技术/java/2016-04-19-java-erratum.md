@@ -146,9 +146,9 @@ java.lang.NoSuchMethodError: com.google.common.collect.Maps.newConcurrentMap()Lj
 	
 	如同时引入了`guava-19.0.jar`和`google-collect-snapshot-20080530.jar`就会导致该问题。
 
-![guava-19.0.jar包](/public/pic/error/google-error-1.png)
+![guava-19.0.jar包](http://omsz9j1wp.bkt.clouddn.com/image/error/google-error-1.png)
 
-![google-collect-snapshot-20080530.jar包](/public/pic/error/google-error-2.png)
+![google-collect-snapshot-20080530.jar包](http://omsz9j1wp.bkt.clouddn.com/image/error/google-error-2.png)
 	
 **解决办法：**
 

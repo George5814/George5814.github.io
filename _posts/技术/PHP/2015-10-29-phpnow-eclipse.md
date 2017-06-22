@@ -32,7 +32,7 @@ description:
 
 百度网盘：[http://pan.baidu.com/s/1i32a5Op](http://pan.baidu.com/s/1i32a5Op)
 
-![](/public/img/posts/phpnow-eclipse-1.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-1.png) 
 
 将PHPnow-1.5.6和ZendDebugger解压后备用。
 
@@ -45,7 +45,7 @@ description:
 #### b).使用PHPnow的脚本文件自动安装：
 
 
-![](/public/img/posts/phpnow-eclipse-2.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-2.png)
 
 
 
@@ -54,7 +54,7 @@ description:
 #### d).安装成功后，截图如下:
 
 
-![](/public/img/posts/phpnow-eclipse-3.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-3.png)
 
 
 
@@ -63,7 +63,7 @@ description:
 打开ZendDebugger目录，将图中红框目录下的文件ZendDebugger.dll复制到D:\ PHPnow-1.5.6。就如同上图中红框的内容。
 
 
-![](/public/img/posts/phpnow-eclipse-4.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-4.png)
 
 
 
@@ -72,7 +72,7 @@ description:
 将ZendDebugger目录下的Dummy.php复制到PHPnow-1.5.6的默认web根目录。
 
 
-![](/public/img/posts/phpnow-eclipse-5.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-5.png)
 
 
 
@@ -81,7 +81,7 @@ description:
 D:\PHPnow-1.5.6\php-5.2.14-Win32 下的php-apache2handler.ini，将文件最后的[zend],修改为 
 
 
-![](/public/img/posts/phpnow-eclipse-6.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-6.png)
 
 
 
@@ -92,17 +92,17 @@ D:\PHPnow-1.5.6\php-5.2.14-Win32 下的php-apache2handler.ini，将文件最后�
 win+R | services.msc | Apache_pn |左侧的启动
 
 
-![](/public/img/posts/phpnow-eclipse-7.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-7.png)
 
 
 
 浏览器访问localhost
 
 
-![](/public/img/posts/phpnow-eclipse-8.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-8.png)
 
 
-![](/public/img/posts/phpnow-eclipse-9.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-9.png)
 
 
 
@@ -113,10 +113,10 @@ win+R | services.msc | Apache_pn |左侧的启动
 #### a)Window | Preferences |PHP |PHP Excuteables | 右侧|Add
 
 
-![](/public/img/posts/phpnow-eclipse-10.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-10.png)
 
 
-![](/public/img/posts/phpnow-eclipse-11.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-11.png)
 
 
 
@@ -125,17 +125,17 @@ win+R | services.msc | Apache_pn |左侧的启动
 #### b)点Next
 
 
-![](/public/img/posts/phpnow-eclipse-12.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-12.png)
 
 
 
 #### c)测试ZendDebugger是否能连接成功
 
 
-![](/public/img/posts/phpnow-eclipse-13.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-13.png)
 
 
-![](/public/img/posts/phpnow-eclipse-14.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-14.png)
 
 
 
@@ -146,7 +146,7 @@ win+R | services.msc | Apache_pn |左侧的启动
 ### 5.创建PHP project
 
 
-![](/public/img/posts/phpnow-eclipse-15.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-15.png)
 
 
 
@@ -157,10 +157,10 @@ win+R | services.msc | Apache_pn |左侧的启动
 #### a)配置如截图
 
 
-![](/public/img/posts/phpnow-eclipse-16.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-16.png)
 
 
-![](/public/img/posts/phpnow-eclipse-17.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-17.png)
 
 
 
@@ -171,7 +171,7 @@ win+R | services.msc | Apache_pn |左侧的启动
 #### c)Apply| debug。使用Eclipse内部浏览器访问页面。
 
 
-![](/public/img/posts/phpnow-eclipse-18.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-18.png)
 
 
 
@@ -180,7 +180,7 @@ win+R | services.msc | Apache_pn |左侧的启动
 #### a)配置虚拟目录：
 
 
-![](/public/img/posts/phpnow-eclipse-19.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-19.png)
 
 
 
@@ -195,10 +195,10 @@ alias / "D:/dev_tools/workspace_php/"
 现在创建项目就可以将位置指定到设置的物理路径(如：`D:/dev_tools/workspace_php/`)中了。
 
 
-![](/public/img/posts/phpnow-eclipse-20.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-20.png)
 
 
-![](/public/img/posts/phpnow-eclipse-21.png)
+![](http://omsz9j1wp.bkt.clouddn.com/image/phpnow/phpnow-eclipse-21.png)
 
 
 

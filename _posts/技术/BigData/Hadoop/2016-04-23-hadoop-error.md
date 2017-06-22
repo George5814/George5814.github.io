@@ -36,7 +36,7 @@ Incorrect configuration: namenode address dfs.namenode.servicerpc-address or dfs
 
 **解决后运行截图**
 	
-![hadoop RPC访问地址](/public/img/posts/hadoop/hadoop-error-1.png)
+![hadoop RPC访问地址](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/hadoop-error-1.png)
 
 
 ### 2.配置hadoop集群时出现错误
@@ -57,17 +57,17 @@ java.lang.NoClassDefFoundError: org/apache/hadoop/security/authorize/RefreshAuth
 
 **解决后运行截图**
 
-![hadoop RPC访问地址](/public/img/posts/hadoop/hadoop-error-2.png)
+![hadoop RPC访问地址](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/hadoop-error-2.png)
 
 
-![hadoop RPC访问地址](/public/img/posts/hadoop/hadoop-error-3.png)
+![hadoop RPC访问地址](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/hadoop-error-3.png)
 
 
 ### 3.寻找主机出现错误
 
 **错误提示**
 
-![hadoop 的NameNode访问不到主机](/public/pic/hadoop/not-connect-host.png)
+![hadoop 的NameNode访问不到主机](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/not-connect-host.png)
 
 **错误原因**
 	

@@ -12,19 +12,19 @@ description:
 根据Hadoop官网的相关介绍和实际使用中的软件集，将Hadoop生态圈的主要软件工具简单介绍下，拓展对整个Hadoop生态圈的了解。
 这是Hadoop生态从Google的三篇论文开始的发展历程，现已经发展成为一个生态体系，并还在蓬勃发展中....
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-1.png)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-1.png)
 
 这是官网上的Hadoop生态图，包含了大部分常用到的Hadoop相关工具软件
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-2.jpg)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-2.jpg)
 
 这是以体系从下到上的布局展示的Hadoop生态系统图，言明了各工具软件在体系中所处的位置
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-3.jpg)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-3.jpg)
 
 这张图是Hadoop在系统中核心组件与系统的依赖关系
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-4.png)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-4.png)
 
 
 下面就是简单介绍Hadoop生态圈中的一些工具
@@ -97,7 +97,7 @@ description:
 
 ### Ambari监控页面：
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-5.jpg)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-5.jpg)
 
 官网原文：
 
@@ -234,7 +234,7 @@ description:
 
 ### Cassandra的安装配置入门
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-6.gif)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-6.gif)
 
 
 官方原文：
@@ -262,7 +262,7 @@ Chukwa：
 Chukwa在百度的应用实践
 Chukwa架构图：
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-7.jpg)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-7.jpg)
 
 官方原文：
 
@@ -286,7 +286,7 @@ HBase：
 	HBase入门篇
 	HBase的体系结构图
 	
-![Hadoop生态](/public/img/posts/hadoop-escosystem-8.png)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-8.png)
 
 官方原文：
 
@@ -342,7 +342,7 @@ HBase：
 
 hive原理图
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-9.jpg)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-9.jpg)
 
 官方原文：
 
@@ -362,7 +362,7 @@ hive原理图
 
 ### mahout算法适用场景
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-10.jpg)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-10.jpg)
 
 官方原文：
 
@@ -447,20 +447,20 @@ hive原理图
 	到处运行：spark运行在Hadoop、Mesos、独立运行或者运行在云上，他可以获得多样化的数据源包括HDFS、Cassandra、HBase、S3。你可以容易的运行Spark使用它的独立集群模式，在EC2上，或者运行在Hadoop的YARN或者Apache的Mesos上。它可以从HDFS，HBase，Cassandra和任何Hadoop数据源。
 	快速
 	
-![Hadoop生态](/public/img/posts/hadoop-escosystem-11.png)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-11.png)
 
 通用性
 
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-12.png)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-12.png)
 
 可到处运行
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-13.png)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-13.png)
 
 易于编程
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-14.png)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-14.png)
 
 
 
@@ -470,11 +470,11 @@ hive原理图
 
 ## Tez:
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-15.png)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-15.png)
 
 上图展示的流程包含多个MR任务，每个任务都将中间结果存储到HDFS上——前一个步骤中的reducer为下一个步骤中的mapper提供数据。
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-16.png)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-16.png)
 
 该图表展示了使用Tez时的流程，仅在一个任务中就能完成同样的处理过程，任务之间不需要访问HDFS
 
@@ -540,7 +540,7 @@ hive原理图
 
 ### ZooKeeper理论知识和集群安装配置
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-17.png)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-17.png)
 
 官方原文：
 
@@ -565,7 +565,7 @@ hive原理图
 
 ### sqoop工作流程：
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-18.jpg)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-18.jpg)
 
 官方原文：
 
@@ -589,7 +589,7 @@ hive原理图
 
 ### flume工作流程：
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-19.png)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-19.png)
 
 官方原文：
 
@@ -614,7 +614,7 @@ Flume提供对数据进行简单处理，并写到各种数据接受方（可定
 
 Impala的原理图
 
-![Hadoop生态](/public/img/posts/hadoop-escosystem-20.jpg)
+![Hadoop生态](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-escosystem-20.jpg)
 
 Impala架构分析
 

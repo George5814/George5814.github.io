@@ -13,7 +13,7 @@ description: HDFS的Federation之路
 
 ## 背景
 
-![federation-background.gif](/public/pic/hadoop/federation-background.gif)
+![federation-background.gif](http://omsz9j1wp.bkt.clouddn.com/image//hadoop/federation-background.gif)
 
 HDFS 有两个主要的层：
 
@@ -48,7 +48,7 @@ DN集群作为所有NN节点公共的块存储使用。每个DN会在集群中�
 用户可能会用`ViewFS`来创建更加个性化的NS视图。`VIewFS`就像linux/unix系统中的客户端注册表。
 
 
-![federation-background.gif](/public/pic/hadoop/federation.gif)
+![federation-background.gif](http://omsz9j1wp.bkt.clouddn.com/image//hadoop/federation.gif)
 
 **块池**
 

@@ -44,12 +44,12 @@ description:
 
 下面的示意图所示是在LinkedIn中部署后各系统形成的拓扑结构。
 
-![kafka 在LinkedIn中部署后各系统形成的拓扑结构](/public/pic/kafka/kafka-topology-1.png "kafka 在LinkedIn中部署后各系统形成的拓扑结构"){:target="_blank"}
+![kafka 在LinkedIn中部署后各系统形成的拓扑结构](http://omsz9j1wp.bkt.clouddn.com/image/kafka/kafka-topology-1.png "kafka 在LinkedIn中部署后各系统形成的拓扑结构"){:target="_blank"}
 
 要注意的是，一个单个的Kafka集群系统用于处理来自各种不同来源的所有活动数据。它同时为在线和离线的数据使用者提供了一个单个的数据管道，在线活动和异步处理之间形成了一个缓冲区层。我们还使用kafka，把所有数据复制（replicate）到另外一个不同的数据中心去做离线处理。
 我们并不想让一个单个的Kafka集群系统跨越多个数据中心，而是想让Kafka支持多数据中心的数据流拓扑结构。这是通过在集群之间进行镜像或“同步”实现的。这个功能非常简单，镜像集群只是作为源集群的数据使用者的角色运行。这意味着，一个单个的集群就能够将来自多个数据中心的数据集中到一个位置。下面所示是可用于支持批量装载（batch loads）的多数据中心拓扑结构的一个例子：
 
-![可用于支持批量装载（batch loads）的多数据中心拓扑结构的一个例子](/public/pic/kafka/kafka-topology-2.png "可用于支持批量装载（batch loads）的多数据中心拓扑结构的一个例子"){:target="_blank"}
+![可用于支持批量装载（batch loads）的多数据中心拓扑结构的一个例子](http://omsz9j1wp.bkt.clouddn.com/image/kafka/kafka-topology-2.png "可用于支持批量装载（batch loads）的多数据中心拓扑结构的一个例子"){:target="_blank"}
 
 
 请注意，在图中上面部分的两个集群之间不存在通信连接，两者可能大小不同，具有不同数量的节点。下面部分中的这个单个的集群可以镜像任意数量的源集群。要了解镜像功能使用方面的更多细节，请访问[这里](https://cwiki.apache.org/confluence/display/KAFKA/Kafka+mirroring ){:target="_blank"}.
@@ -411,7 +411,7 @@ payload        : n bytes
 
 将消息的偏移量作为消息的可不常见。我们原先的想法是使用由生产者产生的GUID作为消息id，然后在每个代理上作一个从GUID到偏移量的映射。但是，既然使用者必须为每个服务器维护一个ID，那么GUID所具有的全局唯一性就失去了价值。更有甚者，维护将从一个随机数到偏移量的映射关系带来的复杂性，使得我们必须使用一种重量级的索引结构，而且这种结构还必须与磁盘保持同步，这样我们还就必须使用一种完全持久化的、需随机访问的数据结构。如此一来，为了简化查询结构，我们就决定使用一个简单的依分区的原子计数器（atomic counter），这个计数器可以同分区id以及节点id结合起来唯一的指定一条消息；这种方法使得查询结构简化不少，尽管每次在处理使用者请求时仍有可能会涉及多次磁盘寻道操作。然而，一旦我们决定使用计数器，跳向直接使用偏移量作为id就非常自然了，毕竟两者都是分区内具有唯一性的、单调增加的整数。既然偏移量是在使用者API中并不会体现出来，所以这个决策最终还是属于一个实现细节，进而我们就选择了这种更加高效的方式。
 
-![更加高效的方式](/public/pic/kafka/kafka-topology-3.png "更加高效的方式"){:target="_blank"}
+![更加高效的方式](http://omsz9j1wp.bkt.clouddn.com/image/kafka/kafka-topology-3.png "更加高效的方式"){:target="_blank"}
 
 
 #### 写操作

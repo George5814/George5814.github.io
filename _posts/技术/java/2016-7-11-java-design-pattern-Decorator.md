@@ -31,7 +31,7 @@ Decorator 设计模式正如毛胚房的装修，不会改变原毛胚房的基�
 
 **图 1.Decorator 模式类图**
 
-![Decorator模式类图](/public/pic/java/decorator-001.png)
+![Decorator模式类图](http://omsz9j1wp.bkt.clouddn.com/image/java/decorator-001.png)
 
 Room.java 是房屋的接口类，定义了房子的基本功能：
 
@@ -172,7 +172,7 @@ FlooredDecorator(new BlankRoom()));
 
 **图 2.TestClient 执行结果**
 
-![执行结果](/public/pic/java/decorator-002.png)
+![执行结果](http://omsz9j1wp.bkt.clouddn.com/image/java/decorator-002.png) 
 
 可以看出，我们可以随意组合 RoomDecorator 子类形成不同的装修风格和装修工序，灵活，简便，这就是 Decorator 设计模式的魅力所在！在上面的 TestClient 代码中，尤其要注意是如何通过层层封装（wrapper）的方式创建 paintedAndFlooredRoom 等对象的。
 
@@ -266,7 +266,7 @@ BufferedInputStream bis = new BufferedInputStream(new FileInputStream("filename"
 
 **图 3.Java IO 中的 Decorator 模式**
 
-![执行结果](/public/pic/java/decorator-003.png)
+![执行结果](http://omsz9j1wp.bkt.clouddn.com/image/java/decorator-003.png)
 
 
 ####　基于传统方案实现一个 Java IO 的 Decorator

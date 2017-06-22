@@ -34,7 +34,7 @@ description:   windows下Eclipse远程调试运行MR程序
 如果还是会报错：找不到`/tmp/hadoop-yarn/staging/JING/.staging/job_1481726235168_0009/job.splitmetainfo`，
 那就在Eclipse中项目属性中也配置以上的环境变量。
 
-![配置eclipse中的环境变量](/public/pic/hadoop/hadoop-debug-eclipse-env-setup.png)
+![配置eclipse中的环境变量](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-debug-eclipse-env-setup.png)
 
 ### 使用maven创建项目 并编写MR程序
 
@@ -187,7 +187,7 @@ public class DebugConfUtil {
 
 项目右击 --> Run As --> Run Configurations --> Arguments --> 在下面空白框内设置input和output两个实际的参数 --> Run 。
 
-![参数配置](/public/pic/hadoop/hadoop-debug-eclipse-args-setup.png)
+![参数配置](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/hadoop-debug-eclipse-args-setup.png)
 
 这样就可以在本地调试MapReduce程序了。
 

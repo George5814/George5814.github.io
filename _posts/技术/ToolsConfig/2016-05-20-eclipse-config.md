@@ -98,13 +98,13 @@ windows  ->  preferences  ->  general  ->  editors  ->  text editors  ->  spelli
 
 可能是因为配置了Eclipse中context的名称与项目名称不同导致
 
-![Eclipse中配置的context名称为esn-palmyy](/public/pic/other/eclipse-tomcat-1.png)
+![Eclipse中配置的context名称为esn-palmyy](http://omsz9j1wp.bkt.clouddn.com/image/other/eclipse-tomcat-1.png) 
 
 因项目名称为**esn-palmyy-plugin**，而context中设置为**esn-palmyy**。
 
 故而一套代码会在tomcat中展现为两个项目部署的样子
 
-![tomcat的管理台显示的项目名称](/public/pic/other/eclipse-tomcat-2.png)
+![tomcat的管理台显示的项目名称](http://omsz9j1wp.bkt.clouddn.com/image/other/eclipse-tomcat-2.png)
 
 因此，在启动时会根据这两个名字**esn-palmyy-plugin**和**esn-palmyy**将同一套代码部署两遍。
 
@@ -112,7 +112,7 @@ windows  ->  preferences  ->  general  ->  editors  ->  text editors  ->  spelli
 
 而该修改是修改的在Eclipse中配置的tomcat的`server.xml`的值
 
-![tomcat的server.xml的配置](/public/pic/other/eclipse-tomcat-3.png)
+![tomcat的server.xml的配置](http://omsz9j1wp.bkt.clouddn.com/image/other/eclipse-tomcat-3.png) 
 
 该值的修改也可以在tomcat目录下的`server.xml`中看到，但当清除掉当前项目**esn-palmyy-plugin**后，该配置会自动删除。
 

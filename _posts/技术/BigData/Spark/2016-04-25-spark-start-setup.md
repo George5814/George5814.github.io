@@ -111,15 +111,15 @@ slaves内添加，每个机器的ip或者在hosts文件中对应的hostname，�
 
 启动命令：`start-dfs.sh`
 
-![启动namenode和datanode集群](/public/img/posts/hadoop/spark-start-setup-1.png)
+![启动namenode和datanode集群](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/spark-start-setup-1.png)
 
 启动yarn集群：`start-yarn.sh`
 
-![启动yarn集群](/public/img/posts/hadoop/spark-start-setup-2.png)
+![启动yarn集群](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/spark-start-setup-2.png)
 
 进程查看：`#jps`
 
-![进程查看](/public/img/posts/hadoop/spark-start-setup-3.png)
+![进程查看](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/spark-start-setup-3.png)
 
 ### 5.启动spark集群
 
@@ -129,21 +129,21 @@ slaves内添加，每个机器的ip或者在hosts文件中对应的hostname，�
 
 启动命令：`#start-spark-all.sh`
 
-![启动spark集群](/public/img/posts/hadoop/spark-start-setup-4.png)
+![启动spark集群](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/spark-start-setup-4.png)
 
 进程查看：`jps`
 
-![进程查看](/public/img/posts/hadoop/spark-start-setup-5.png)
+![进程查看](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/spark-start-setup-5.png)
 
 WebUI验证：
 
 Master URL：[http://h2m1:7777/](http://h2m1:7777/)
 
-![UI查看](/public/img/posts/hadoop/spark-start-setup-6.png)
+![UI查看](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/spark-start-setup-6.png)
 
 Worker URL:[http://h2m1:8081](http://h2m1:8081)
 
-![UI查看](/public/img/posts/hadoop/spark-start-setup-7.png)
+![UI查看](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/spark-start-setup-7.png)
 
 
 
