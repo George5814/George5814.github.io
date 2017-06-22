@@ -49,6 +49,7 @@ $ git blame <file>           #以列表方式查看指定文件的提交历史
 ```
 $ git reset --hard HEAD      #撤销工作目录中所有未提交文件的修改内容
 $ git checkout HEAD <file>   #撤销指定的未提交文件的修改内容
+$ git checkout -- readme.txt #丢弃工作区指定文件的修改
 $ git revert <commit>        #撤销指定的提交
 $ git log --before="1 days"  #退回到之前1天的版本 
 ```
@@ -63,6 +64,7 @@ $ git branch -d <branch>       #删除本地分支
 $ git tag                      #列出所有本地标签
 $ git tag <tagname>            #基于最新提交创建标签
 $ git tag -d <tagname>         #删除标签
+$ git checkout origin/remoteName -b localName #将远程分支拉取到本地分支（没有则自动创建）
 ```
 
 ###	合并与衍合
@@ -90,6 +92,7 @@ $ git push --tags                       #上传所有标签
 ```
 $ git push -f origin develop  # 强制将远程回滚到和本地版本，需要先将本地库回滚到指定版本
 ```
+
 
 
 

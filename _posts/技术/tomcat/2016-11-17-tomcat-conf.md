@@ -22,3 +22,7 @@ window启动tomcat服务
 ```cmd
 net start <service_name>
 ```
+
+### 远程调试
+
+修改catalina.sh中的jpda的host:port,然后使用`catalina.sh jpda start` 就可以启用远程调试
