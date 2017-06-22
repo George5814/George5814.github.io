@@ -16,7 +16,7 @@ description: 不定期更新
 
 `-c` ：代表集群cluster的意思
 
-![查看cluster节点信息](/public/pic/redis/redis-cmd-cluster-info.png "查看cluster节点信息")
+![查看cluster节点信息](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-cmd-cluster-info.png "查看cluster节点信息")
 
 详细含义：
 
@@ -35,7 +35,7 @@ description: 不定期更新
 
 `redis-cli -c -h host -p port cluster slaves master_id`
 
-![查看指定主节点的从节点信息](/public/pic/redis/redis-cmd-cluster-slave.png "查看指定主节点的从节点信息")
+![查看指定主节点的从节点信息](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-cmd-cluster-slave.png "查看指定主节点的从节点信息")
 
 详细含义：
 
@@ -54,7 +54,7 @@ description: 不定期更新
 
 `redis-cli -c -h h2s1 -p 6379 cluster keyslot key`
 
-![查看cluster节点信息](/public/pic/redis/redis-cmd-cluster-keyslot.png "查看cluster节点信息")
+![查看cluster节点信息](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-cmd-cluster-keyslot.png "查看cluster节点信息")
 
 
 

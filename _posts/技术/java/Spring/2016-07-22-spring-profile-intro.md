@@ -73,7 +73,7 @@ jdbc.password=esn_palmyy
 
 以上只是简单的数据库连接的配置。其他配置文件中的内容与其相同，但该机制中需要将不同配置文件中修改为不同的参数值。
 
-![各环境的配置文件](/public/pic/spring/spring-profile-1.png)
+![各环境的配置文件](http://omsz9j1wp.bkt.clouddn.com/image/spring/spring-profile-1.png)
 
 在spring的主配置文件`applicationContext.xml`中使用`<import resource="classpath*:datasource-profile.xml" />`引入该配置，这样spring的profile的配置就简单的完成了。
 **但是怎样在web项目启动时怎么指定使用的profile呢？请往下看。**
