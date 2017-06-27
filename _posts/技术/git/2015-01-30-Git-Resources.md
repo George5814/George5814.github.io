@@ -42,6 +42,8 @@ $ git commit --amend               #修改最后一次改动
 $ git log                    #查看提交历史
 $ git log -p <file>          #查看指定文件的提交历史
 $ git blame <file>           #以列表方式查看指定文件的提交历史
+$ git diff --cached <filename> #查看本地已经add但是没有commit的文件修改情况
+$ git diff <filename> #查看变更但是没有add的修改情况
 ```
 
 ###	撤销
