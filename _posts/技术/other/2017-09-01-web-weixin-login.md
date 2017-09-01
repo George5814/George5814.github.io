@@ -9,7 +9,10 @@ description:
 
 ## 网页版微信扫码登录流程
 
-### 1. 先打开<https://wx.qq.com/>显示出页面，这时候会加载一堆的html，js等资源。
+### 1. 请求页面
+
+先打开<https://wx.qq.com/>显示出页面，这时候会加载一堆的html，js等资源。
+
 
 ### 2. 获取会话UUID
  
