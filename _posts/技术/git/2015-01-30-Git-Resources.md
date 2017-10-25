@@ -74,6 +74,7 @@ $ git checkout origin/remoteName -b localName #将远程分支拉取到本地分
 ```
 $ git merge <branch>        #合并指定分支到当前分支
 $ git rebase <branch>       #衍合指定分支到当前分支
+$ git cherry-pick <commitId> #将其他分支的指定commit合并到当前分支
 ```
 
 ###	远程操作
