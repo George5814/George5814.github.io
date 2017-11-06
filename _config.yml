@@ -62,7 +62,7 @@ kramdown:
     - smart
   syntax_highlighter: rouge
   
-gems:
+plugins:
     [jekyll-paginate]
 
 # 端口号
