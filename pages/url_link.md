@@ -42,6 +42,11 @@ description: 平时使用的一些比较有用的积累
 [http://www.mybatis.org/spring/zh/index.html](http://www.mybatis.org/spring/zh/index.html){:target="_blank"}
 
 
+### 1.7 Mybatis-generator 手册
+
+[http://www.mybatis.org/generator/index.html](http://www.mybatis.org/generator/index.html){:target="_blank"}
+
+
 ## 二.   博客资源
 
 ### 2.1 我的CSDN博客
