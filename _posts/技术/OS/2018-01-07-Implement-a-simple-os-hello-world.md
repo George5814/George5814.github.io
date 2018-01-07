@@ -58,15 +58,10 @@ dw 0aa55h
 
 - 编译代码生成boot.bin文件
     - nasm boot.asm -o boot.bin
-- 创建空的软盘镜像文件diska.img
-    - dd if=/dev/zero of=diska.img bs=512 count=2880
 - 制作一个包含boot.bin的镜像文件boot.img
     - dd if=boot.bin of=boot.img bs=512 count=1
-- 将diska.img文件中1个扇区后面的数据复制到boot.img后面
-    - dd if=diska.img of=boot.img skip=1 seek=1 bs=512 count=2879
 
-
-做好了大小为1.44M的包含如上引导代码的镜像文件boot.img。
+做好了大小为512B的包含如上引导代码的镜像文件boot.img。
 
 ### 安装VirtualBox最新版
 
