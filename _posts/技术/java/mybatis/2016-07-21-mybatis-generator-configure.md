@@ -4,7 +4,7 @@ title: mybatis-generator反向生成
 category: 技术
 tags:  Mybatis
 keywords: 
-description: 
+description: update:2018-02-01
 ---
 
 {:toc}
@@ -56,7 +56,7 @@ CREATE TABLE `test` (
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-	<!-- mysql驱动jar包的位置 -->
+	<!-- mysql驱动jar包的位置,如果在pom.xml文件的插件mybatis-generator-maven-plugin中已经配置了依赖，则该处的classPathEntry可以省略 -->
     <classPathEntry location="D:\dev_tools\dev_libs\.m2\repository\mysql\mysql-connector-java\5.1.37\mysql-connector-java-5.1.37.jar" />
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <!-- 去除自动生成的注释 -->
@@ -111,6 +111,27 @@ CREATE TABLE `test` (
 
 如上配置文件所示，Mybatis自动生成的一般配置就完成了。
 
+**注意：配置文件中标签必须按照顺序来编写，否则在生成代码时会报错** 
+
+- 错误内容：
+
+    XML Parser Error on line 23: 元素类型为 "context" 匹配 "(property*,plugin*,commentGenerator?,(connectionFactory|jdbcConnection),javaTypeResolver?,javaModelGenerator,sqlMapGenerator?,javaClientGenerator?,table+)"。
+
+- 标签的配置顺序如下
+
+```xml
+<context>
+    <commentGenerator/>
+    <property/>
+    <jdbcConnection/>或者<connectionFactory/>
+    <javaTypeResolver/>
+    <javaModelGenerator/>
+    <sqlMapGenerator/>
+    <javaClientGenerator/>
+    <table/>
+</context>
+```
+
 ### 在`pom.xml`中添加Mybatis生成插件的依赖
 
 ```xml
@@ -130,10 +151,19 @@ CREATE TABLE `test` (
 			<groupId>org.mybatis.generator</groupId>
 			<artifactId>mybatis-generator-maven-plugin</artifactId>
 			<version>1.3.2</version>
-			<configuration>
-				<verbose>true</verbose>
-				<overwrite>true</overwrite>
-			</configuration>
+             <configuration>
+                    <verbose>true</verbose>
+                    <overwrite>true</overwrite>
+                    <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
+                </configuration>
+                <dependencies>
+                    <!-- jdbc 依赖 -->
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>5.1.36</version>
+                    </dependency>
+                </dependencies>
 		</plugin>
 	</plugins>
 </build>
