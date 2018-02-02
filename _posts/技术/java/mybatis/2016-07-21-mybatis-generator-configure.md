@@ -111,11 +111,28 @@ CREATE TABLE `test` (
 
 如上配置文件所示，Mybatis自动生成的一般配置就完成了。
 
-**注意：配置文件中标签必须按照顺序来编写，否则在生成代码时会报错** 
+**注意：配置文件中标签必须按照顺序来编写，否则在生成代码时会报错。** 
+
+- 原因
+
+按顺序排序是由文件<http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd>定义的，其中有内容为
+
+```DTD
+<!-- 按property，plugin，commentGenerator ...等顺序编写子标签 -->
+<!ELEMENT context (property*, plugin*, commentGenerator?, jdbcConnection, javaTypeResolver?,
+                         javaModelGenerator, sqlMapGenerator?, javaClientGenerator?, table+)>
+```
+
+这句话意思是context标签下的元素必须按照以上顺序编写，而如上的设置方式是根据DTD文件定义设置的。
+
+dtd的修饰符号：
+
+![dtd的修饰符号](http://omsz9j1wp.bkt.clouddn.com/image/mybatis/dtd-definition.jpg)
+
 
 - 错误内容：
 
-    XML Parser Error on line 23: 元素类型为 "context" 匹配 "(property*,plugin*,commentGenerator?,(connectionFactory|jdbcConnection),javaTypeResolver?,javaModelGenerator,sqlMapGenerator?,javaClientGenerator?,table+)"。
+    XML Parser Error on line 23: 元素类型为 "context" 匹配 "(property*,plugin*,commentGenerator?,(connectionFactory \|jdbcConnection),javaTypeResolver?,javaModelGenerator,sqlMapGenerator?,javaClientGenerator?,table+)"。
 
 - 标签的配置顺序如下
 
@@ -131,6 +148,10 @@ CREATE TABLE `test` (
     <table/>
 </context>
 ```
+
+
+
+
 
 ### 在`pom.xml`中添加Mybatis生成插件的依赖
 
@@ -171,4 +192,6 @@ CREATE TABLE `test` (
 
 ## 生成代码
 
-在项目的根目录（即`pom.xml`文件所在目录），通过执行maven命令`start mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate`在指定位置生成java代码和`*mapper.xml`sql映射文件。
+在项目的根目录（即`pom.xml`文件所在目录），通过执行maven命令`mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate`在指定位置生成java代码和`*mapper.xml`sql映射文件。
+
+一个`generatorConfig.xml`配置文件可以配置多个`<context>`标签，但必须设置id属性，并且设置唯一id值，在生成代码的命令中，可以通过指定context集合（逗号分隔）对指定的context的配置生成代码。命令为`mvn mybatis-generator:generate -Dmybatis.generator.contexts=contextId1,contextId2`
