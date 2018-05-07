@@ -2,7 +2,7 @@
 layout: post
 title: SnappyData学习博客和官网文章
 category: 技术
-tags: Spark
+tags: SnappyData
 keywords: 
 description: 
 ---
