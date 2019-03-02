@@ -19,17 +19,17 @@ description:
 
 第一个界面如下图，然后全部选择Next，直到安装完成。
 
-![squirrel1](http://omsz9j1wp.bkt.clouddn.com/image/snappydata/Squirrel_1.png)
+![squirrel1](//raw.githubusercontent.com/George5814/blog-pic/master/image/snappydata/Squirrel_1.png)
 
-![squirrel1](http://omsz9j1wp.bkt.clouddn.com/image/snappydata/Squirrel_2.png)
+![squirrel1](//raw.githubusercontent.com/George5814/blog-pic/master/image/snappydata/Squirrel_2.png)
 
-![squirrel1](http://omsz9j1wp.bkt.clouddn.com/image/snappydata/Squirrel_3.png)
+![squirrel1](//raw.githubusercontent.com/George5814/blog-pic/master/image/snappydata/Squirrel_3.png)
 
-![squirrel1](http://omsz9j1wp.bkt.clouddn.com/image/snappydata/Squirrel_4.png)
+![squirrel1](//raw.githubusercontent.com/George5814/blog-pic/master/image/snappydata/Squirrel_4.png)
 
-![squirrel1](http://omsz9j1wp.bkt.clouddn.com/image/snappydata/Squirrel_5.png)
+![squirrel1](//raw.githubusercontent.com/George5814/blog-pic/master/image/snappydata/Squirrel_5.png)
 
-![squirrel1](http://omsz9j1wp.bkt.clouddn.com/image/snappydata/Squirrel_6.png)
+![squirrel1](//raw.githubusercontent.com/George5814/blog-pic/master/image/snappydata/Squirrel_6.png)
 
 
 # 配置修改
@@ -45,16 +45,16 @@ description:
 
 ## 双击打开Squirrel-sql后，配置SnappyData的驱动如图
 
-![配置SnappyData驱动](http://omsz9j1wp.bkt.clouddn.com/image/snappydata/Squirrel_7.png)
+![配置SnappyData驱动](//raw.githubusercontent.com/George5814/blog-pic/master/image/snappydata/Squirrel_7.png)
 
 
 ## 创建新的SnappyData会话
 
-![squirrel1](http://omsz9j1wp.bkt.clouddn.com/image/snappydata/Squirrel_8.png)
+![squirrel1](//raw.githubusercontent.com/George5814/blog-pic/master/image/snappydata/Squirrel_8.png)
 
 连接上SnappyData服务后的界面，更多功能就需要自主探索了。理论上JDBC接口规范支持的功能应该是都支持的。
 
-![Squirrel操作界面](http://omsz9j1wp.bkt.clouddn.com/image/snappydata/Squirrel_9.png)
+![Squirrel操作界面](//raw.githubusercontent.com/George5814/blog-pic/master/image/snappydata/Squirrel_9.png)
 
 
 

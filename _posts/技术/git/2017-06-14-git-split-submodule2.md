@@ -26,7 +26,7 @@ description: 将子模块从原项目中分理出来作为独立项目，同时�
 
 - 多模块项目：父模块A下有三个子模块(B,C,D)
 
-![多模块项目](http://omsz9j1wp.bkt.clouddn.com/image/git/git-ad.png)
+![多模块项目](//raw.githubusercontent.com/George5814/blog-pic/master/image/git/git-ad.png)
 
 - git工具（2.x）我的是v2.8.1
 
@@ -39,15 +39,15 @@ description: 将子模块从原项目中分理出来作为独立项目，同时�
 1. 将指定的子模块B(子模块所在目录B)抽取出来命令为`rename-b`分支:`git subtree split -P ./A/B -b 
 rename-b`
 
-	![多模块项目](http://omsz9j1wp.bkt.clouddn.com/image/git/git-ad-2.png)
+	![多模块项目](//raw.githubusercontent.com/George5814/blog-pic/master/image/git/git-ad-2.png)
 
 	原提交记录
 
-	![多模块项目](http://omsz9j1wp.bkt.clouddn.com/image/git/git-ad-3.png) 
+	![多模块项目](//raw.githubusercontent.com/George5814/blog-pic/master/image/git/git-ad-3.png) 
 
 	拆分后B目录提交记录，B目录下的所有内容都存在git项目根目录下
 	
-	![多模块项目](http://omsz9j1wp.bkt.clouddn.com/image/git/git-ad-4.png) 
+	![多模块项目](//raw.githubusercontent.com/George5814/blog-pic/master/image/git/git-ad-4.png) 
 	
 
 1. 创建新的目录，初始化新的git项目B：`mkdir /F/develop-code-2/B`
@@ -58,13 +58,13 @@ rename-b`
 
 	从截图中可以看到，已经成功将B目录抽取为独立项目了。
 
-	![多模块项目](http://omsz9j1wp.bkt.clouddn.com/image/git/git-ad-5.png) 
+	![多模块项目](//raw.githubusercontent.com/George5814/blog-pic/master/image/git/git-ad-5.png) 
 
 1. 现在可以修改`${B-root}/.git/config`文件
 
 	添加红框中的内容就可以实现向远端服务器提交代码了。
 
-	![多模块项目](http://omsz9j1wp.bkt.clouddn.com/image/git/git-ad-6.png) 
+	![多模块项目](//raw.githubusercontent.com/George5814/blog-pic/master/image/git/git-ad-6.png) 
 
 
 ## 总结

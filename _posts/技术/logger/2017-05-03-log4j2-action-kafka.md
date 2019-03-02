@@ -36,15 +36,15 @@ description:
 
 使用log4j2发送日志到kafka之前，需要现在kafka上创建对应的topic，否则会报错
 
-![log4j2-kafka](http://omsz9j1wp.bkt.clouddn.com/image/log4j2/log4j2-kafka-1.png)
+![log4j2-kafka](//raw.githubusercontent.com/George5814/blog-pic/master/image/log4j2/log4j2-kafka-1.png)
 
 也就是要先创建topic才能进行日志发送操作：
 
-![log4j2-kafka](http://omsz9j1wp.bkt.clouddn.com/image/log4j2/log4j2-kafka-3.png)
+![log4j2-kafka](//raw.githubusercontent.com/George5814/blog-pic/master/image/log4j2/log4j2-kafka-3.png)
 
 查看topic列表：
 
-![log4j2-kafka](http://omsz9j1wp.bkt.clouddn.com/image/log4j2/log4j2-kafka-2.png)
+![log4j2-kafka](//raw.githubusercontent.com/George5814/blog-pic/master/image/log4j2/log4j2-kafka-2.png)
 
 
 既然kafka环境已经成功启动，并且topic已经创建成功，那么就需要配置log4j2来测试将日志发送到kafka。
@@ -126,7 +126,7 @@ public class LoggerTest {
 
 执行代码，发现报错了
 
-![log4j2-kafka](http://omsz9j1wp.bkt.clouddn.com/image/log4j2/log4j2-kafka-4.png)
+![log4j2-kafka](//raw.githubusercontent.com/George5814/blog-pic/master/image/log4j2/log4j2-kafka-4.png)
 
 哦，想起来了，是因为没有配置kafka客户端依赖
 
@@ -145,7 +145,7 @@ public class LoggerTest {
 
 在一台kafka节点上执行命令：`kafka-console-consumer.sh --zookeeper h2m1:2181 --topic test-esn-log-3 --from-beginning` 会从头开始读取kafka中存储的对应topic的消息
 
-![log4j2-kafka](http://omsz9j1wp.bkt.clouddn.com/image/log4j2/log4j2-kafka-5.png)
+![log4j2-kafka](//raw.githubusercontent.com/George5814/blog-pic/master/image/log4j2/log4j2-kafka-5.png)
 
 这样就将发送到kafka的日志消息消费了（仅仅打印在终端）。
 

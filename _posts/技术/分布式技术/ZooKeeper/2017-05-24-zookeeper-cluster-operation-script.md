@@ -57,15 +57,15 @@ echo "===============zookeeper ${OPER} end at all nodes==============="
 以上脚本需要读取当前目录下的"zk-nodes"文件，该文件每行一个节点主机名或ip地址
 
 
-![/etc/profile环境变量](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper-script-4.png)
+![/etc/profile环境变量](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper-script-4.png)
 
 ### 出现的问题
 
-![/etc/profile环境变量](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper-script-2.png)
+![/etc/profile环境变量](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper-script-2.png)
 
 
 
-![/etc/profile环境变量](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper-script-3.png)
+![/etc/profile环境变量](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper-script-3.png)
 
 明明服务已经启动了，但是远程执行查看zk状态的命令就是找不到服务，而且在相应节点上执行`jps`也没有名为"QuorumPeerMain"的进程。
 
@@ -79,7 +79,7 @@ echo "===============zookeeper ${OPER} end at all nodes==============="
 
 而我在linux的环境中只配置了/etc/profile,
 
-![/etc/profile环境变量](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper-script-1.png)
+![/etc/profile环境变量](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper-script-1.png)
 
 如果通过脚本批量执行，需要将其复制到`~/.bashrc`文件中。执行`source ~/.bashrc`使得修改生效。这样再次执行脚本就不会包这样的错误了。
 

@@ -12,35 +12,35 @@ description: 不定期更新
 
 可以只使用mongod命令按照默认配置启动（比如：db dir 是/data/db，port是27017）。
  
- ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-1.png)
+ ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-1.png)
 
-![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-2.png)
+![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-2.png)
  
 介绍命令参数
 
 ### 1	–v，--verbose  显示详细的日志信息
  
-![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-3.png)
+![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-3.png)
 
-![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-4.png)
+![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-4.png)
  
 ### 2	--quiet 安静输出日志信息
 客户端shell执行命令时，不管正确与否，在服务端不再显示日志信息。
 
-![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-5.png)
+![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-5.png)
  
- ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-5-1.png)
+ ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-5-1.png)
 
  
 ### 3	–port arg 指定端口，客户端访问时也要指定相同的参数访问。
 
-![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-6.png)
+![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-6.png)
  
 ### 4	–bind_ip arg  指定绑定的IP地址，其他地址无法访问该服务。默认为all
  
- ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-7.png)
+ ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-7.png)
 
-![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-8.png)
+![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-8.png)
  
 ### 5	–ipv6 开启IPv6的支持，默认不开启   
 
@@ -50,16 +50,16 @@ description: 不定期更新
 
 默认最大连接数是100万
  
- ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-9.png)
+ ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-9.png)
 
- ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-10.png)
+ ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-10.png)
 
  
 ### 7	--logpath arg 设置日志的路径
 
 将日志写入到指定的文件(如：out.log)，代替标准输出
  
- ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-11.png)
+ ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-11.png)
 
 ### 8	--syslog 将日志写入到系统的日志设备来代替写入到指定文件的标准输出   
 
@@ -71,13 +71,13 @@ description: 不定期更新
 
 ### 10	--logRotate arg 设置日志轮转的行为（rename | reopen）  
  
-![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-12.png)
+![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-12.png)
 
-![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-13.png)
+![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-13.png)
  
 ### 11	–timeStampFormat arg 设置时间格式化（ctime,iso8601-utc,iso8601-local 三选一，不过一般选择iso8601-local符合我们的使用习惯）
  
- ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-14.png)
+ ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-14.png)
 
 ### 12	 --pidfilepath  arg pidfile的全路径，不设置pidfile不会被创建   
 
@@ -94,32 +94,32 @@ description: 不定期更新
 
 ### 15	 --httpinterface   开启http访问接口 。使用--rest 更好一些    
  
- ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-15.png)
+ ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-15.png)
 
-  ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-16.png)
+  ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-16.png)
  
 显示http访问页面结果，
  
-  ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-17.png)
+  ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-17.png)
  
 ### 16	--rest  开启简单的rest API    
  
-![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-15-1.png)
+![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-15-1.png)
 
 ### 17	--clusterAuthMode arg 集群权限的权限模式，包括keyFile,sendKeyFile,sendX509,x509
  
- ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-18.png)
+ ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-18.png)
 
-  ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-19.png)
+  ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-19.png)
  
  
 ### 18	--nounixsocket 禁用unix socket监听 
  
-  ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-20.png)
+  ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-20.png)
  
 ### 19	–unixSocketPrefix arg  替换unix domain socket的默认目录(/tmp)
  
- ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-21.png)
+ ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-21.png)
 
  
 ### 20	--filePermissions arg  设置socket文件权限(默认为0700)   
@@ -132,11 +132,11 @@ description: 不定期更新
 
 ### 22	--auth 开启安全运行   
  
- ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-22.png)
+ ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-22.png)
  
 ### 23	--noauth 开启非安全运行，与—auth相反
  
- ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-23.png)
+ ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-23.png)
  
 ### 24	--jsonp 允许jsonp通过http访问   
  
@@ -148,11 +148,11 @@ description: 不定期更新
 
 ### 26	--sysinfo 显示部分诊断系统信息   
  
- ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-24.png)
+ ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-24.png)
  
 ### 27	--noIndexBuildRetry 被shutdown中断后，不再进行任何的索引构建重试
  
- ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-25.png)
+ ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-25.png)
  
 ### 28	--noscripting        禁用脚本引擎   
  
@@ -164,7 +164,7 @@ description: 不定期更新
 
 ### 30	--shutdown         停掉一个运行的服务   
  
- ![mongo-shell](http://omsz9j1wp.bkt.clouddn.com/image/mongodb/mongodb-shell-26.png)
+ ![mongo-shell](//raw.githubusercontent.com/George5814/blog-pic/master/image/mongodb/mongodb-shell-26.png)
 
 ```shell
 Replication options:

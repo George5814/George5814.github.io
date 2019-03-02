@@ -26,7 +26,7 @@ get成功，则返回：window.QRLogin.code = 200; window.QRLogin.uuid = "AAAAAA
 其中的AAAAAAAA就是我们需要的uuid
 
 
-![web端微信登录](http://omsz9j1wp.bkt.clouddn.com/image/weixin/wxjslogin.png)
+![web端微信登录](//raw.githubusercontent.com/George5814/blog-pic/master/image/weixin/wxjslogin.png)
 
 ### 3. 获取登录二维码
  
@@ -49,7 +49,7 @@ window.userAvatar = base64:img/bbb
 ```
 
 
-![web端微信登录](http://omsz9j1wp.bkt.clouddn.com/image/weixin/wxjslogin3.png)
+![web端微信登录](//raw.githubusercontent.com/George5814/blog-pic/master/image/weixin/wxjslogin3.png)
 
 则说明此时用户在手机端已经完成扫描，并在网页端显示扫描人的头像。但还没有点击登录，继续使用上面的地址查询。
 
@@ -60,13 +60,13 @@ window.code=200;
 window.redirect_uri="https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxnewloginpage?ticket=AZBAkjuOKc-2GAHcRBsKNuOt@qrticket_0&uuid=YbHBoVi8_w==&lang=zh_CN&scan=1504160545";
 ```
 
-![web端微信登录](http://omsz9j1wp.bkt.clouddn.com/image/weixin/wxjslogin4.png)
+![web端微信登录](//raw.githubusercontent.com/George5814/blog-pic/master/image/weixin/wxjslogin4.png)
 
 则说明此时用户在手机端已经确认登录，`window.redirect_uri=`后面的这个网址（暂称为BB）要记下来，接着要访问这个地址。
 
 如果服务器返回：window.code=408，则说明等待超时，继续使用上面的地址查询。
 
-![web端微信登录](http://omsz9j1wp.bkt.clouddn.com/image/weixin/wxjslogin2.png)
+![web端微信登录](//raw.githubusercontent.com/George5814/blog-pic/master/image/weixin/wxjslogin2.png)
 
 ### 5. 访问登录地址BB，获得uin、sid、pass_ticket、skey
  
@@ -85,14 +85,14 @@ window.redirect_uri="https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxnewloginpage?tic
 ````
 
 
-![web端微信登录](http://omsz9j1wp.bkt.clouddn.com/image/weixin/wxjslogin6.png)
+![web端微信登录](//raw.githubusercontent.com/George5814/blog-pic/master/image/weixin/wxjslogin6.png)
 
 - skey是获取联系人信息的关键信息(比如获取好友（包括订阅的公众号）头像信息），标识当前人的身份。还是检查web端微信心跳的标识。发消息时也会使用。
 - pass_ticket是在授权成功后进行初始化和收发消息使用的。
 - wxsid在收发消息会子啊url后或请求体中使用。
 - wxuin在发消息时使用
 
-![web端微信登录](http://omsz9j1wp.bkt.clouddn.com/image/weixin/wxjslogin14.png)
+![web端微信登录](//raw.githubusercontent.com/George5814/blog-pic/master/image/weixin/wxjslogin14.png)
 
 
 把这里的wxuin，wxsid，skey，pass_ticket都记下来，这是重要数据。
@@ -114,7 +114,7 @@ POST的内容是个json串，{"BaseRequest":{"Uin":"XXXXXXXX","Sid":"XXXXXXXX","
  
 uin、sid、skey分别对应上面步骤4获取的字符串，DeviceID是e后面跟着一个15字节的随机数。
 
-![web端微信登录](http://omsz9j1wp.bkt.clouddn.com/image/weixin/wxjslogin7.png)
+![web端微信登录](//raw.githubusercontent.com/George5814/blog-pic/master/image/weixin/wxjslogin7.png)
  
 程序里面要注意使用UTF8编码方式。
 POST成功，则服务器返回一个很长的JSON串，格式是这样：
@@ -278,9 +278,9 @@ POST成功，则服务器返回一个很长的JSON串，格式是这样：
 ```
 
 
-![web端微信登录](http://omsz9j1wp.bkt.clouddn.com/image/weixin/wxjslogin9.png)
+![web端微信登录](//raw.githubusercontent.com/George5814/blog-pic/master/image/weixin/wxjslogin9.png)
 
-![web端微信登录](http://omsz9j1wp.bkt.clouddn.com/image/weixin/wxjslogin10.png)
+![web端微信登录](//raw.githubusercontent.com/George5814/blog-pic/master/image/weixin/wxjslogin10.png)
 
  拿到该结果后，浏览器会渲染最近联系人，各个订阅的公众号的最近几篇文章。
 
@@ -352,7 +352,7 @@ POST的内容是JSON串，格式：
      ClientMsgId: 时间戳 
 }
 
-![web端微信登录](http://omsz9j1wp.bkt.clouddn.com/image/weixin/wxjslogin15.png)
+![web端微信登录](//raw.githubusercontent.com/George5814/blog-pic/master/image/weixin/wxjslogin15.png)
 
 ### 9. 心跳包，与服务器同步并获取状态
  
@@ -367,16 +367,16 @@ POST的内容是JSON串，格式：
  
 retcode为0表示成功，selector为2和6表示有新信息。4表示公众号新信息。
 
-![web端微信登录](http://omsz9j1wp.bkt.clouddn.com/image/weixin/wxjslogin11.png)
+![web端微信登录](//raw.githubusercontent.com/George5814/blog-pic/master/image/weixin/wxjslogin11.png)
  
 ### 10. 接收新信息
  
 检测到有新的消息以后，用POST方法，访问：https://wx2.qq.com/cgi-bin/mmwebwx-bin/webwxsync?sid=XXXXXX&skey=XXXXXX
  
 
-![web端微信登录](http://omsz9j1wp.bkt.clouddn.com/image/weixin/wxjslogin12.png)
+![web端微信登录](//raw.githubusercontent.com/George5814/blog-pic/master/image/weixin/wxjslogin12.png)
 
-![web端微信登录](http://omsz9j1wp.bkt.clouddn.com/image/weixin/wxjslogin13.png)
+![web端微信登录](//raw.githubusercontent.com/George5814/blog-pic/master/image/weixin/wxjslogin13.png)
 
 POST的内容：
  
@@ -482,7 +482,7 @@ POST的还是json格式，类似这样：
 
 这里的Content是信息内容，LocalID和ClientMsgId都用当前时间戳。
 
-![web端微信登录](http://omsz9j1wp.bkt.clouddn.com/image/weixin/wxjslogin14.png)
+![web端微信登录](//raw.githubusercontent.com/George5814/blog-pic/master/image/weixin/wxjslogin14.png)
  
 以上就是基本的web端微信授权登录以及收发消息的过程了，个人见解，有理解有偏差的地方还期待您的批评指正。
 

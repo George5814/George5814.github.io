@@ -37,11 +37,11 @@ description:  在VMware虚拟机中安装redis集群安装，CentOS6.4系统。�
 
 在`/usr/local/redis-3.2.0/utils`下执行`./install_server.sh `
 
-![redis服务安装](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-setup.png)
+![redis服务安装](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-setup.png)
 
 上图中，红框中是自定义的端口和路径，紫色框中是`make install`步骤指定的执行文件的路径，蓝框中是要安装的位置的确认信息。
 
-![redis服务安装](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-setup-success.png "redis服务安装成功")
+![redis服务安装](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-setup-success.png "redis服务安装成功")
 
 出现上图所示即安装成功
 
@@ -97,7 +97,7 @@ appendonly yes
 
 `ps -ef | grep redis ` 如果存在端口为6379即代表实例启动成功
 
-![redis启动实例](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-instance-success.png "redis实例启动成功")
+![redis启动实例](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-instance-success.png "redis实例启动成功")
 
 在`/usr/local/redis01/data/redis/`会生成文件`appendonly.aof`和`nodes.conf`
 
@@ -105,7 +105,7 @@ appendonly yes
 
 所有redis实例启动示意图（我这截图是7个实例）
 
-![redis实例示意图](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-instance-show.png "redis实例示意图")
+![redis实例示意图](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-instance-show.png "redis实例示意图")
 
 
 ### 3.安装预装环境和redis集群
@@ -149,7 +149,7 @@ appendonly yes
 
 中间输入一次`yes`
 
-![redis实例集群示意图](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-setup-cluster.png "redis实例集群示意图")
+![redis实例集群示意图](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-setup-cluster.png "redis实例集群示意图")
 
 这表示集群中的 16384 个槽都有至少一个主节点在处理， 集群运作正常。
 
@@ -175,19 +175,19 @@ appendonly yes
 - 默认添加为主节点
 
 
-![redis集群添加新的节点](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-cluster-newnode-2.png "redis集群添加新的节点")
+![redis集群添加新的节点](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-cluster-newnode-2.png "redis集群添加新的节点")
 
 添加节点为slave节点，所属的master节点自动选择：
 
 `redis-trib.rb add-node --slave new-node-host:port cluster-node-ip:port `
 
-![redis集群添加新的节点](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-cluster-newnode-3.png "redis集群添加新的slave节点")
+![redis集群添加新的节点](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-cluster-newnode-3.png "redis集群添加新的slave节点")
 
 添加节点为slave节点，指定所属的master节点：
 
 `redis-trib.rb add-node --slave --master-id masterid   new-node-host:port cluster-node-ip:port `
 
-![redis集群添加新的节点](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-cluster-newnode-4.png "redis集群添加新的slave节点")
+![redis集群添加新的节点](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-cluster-newnode-4.png "redis集群添加新的slave节点")
 
 #### 4.2 删除节点
 
@@ -197,48 +197,48 @@ appendonly yes
 
 被删除的节点会被下线，而不仅仅是移除集群。如果要重新加入，需要重新启动该节点。而且该节点的appendonly.aof和nodes.conf要删除，启动实例时重新生成。
 
-![redis集群删除节点](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-cluster-delnode.png "redis集群删除节点")
+![redis集群删除节点](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-cluster-delnode.png "redis集群删除节点")
 
 #### 4.3 检查节点
 
 `./redis-trib.rb  check  h2s1:6379`:检查节点，很长的一段字符串就是节点的id,如示例图中的`1dda781d73f38b1abed11beba610b155387e2a8d`
 
-![redis集群检查节点](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-cluster-check-node.png "redis集群检查节点")
+![redis集群检查节点](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-cluster-check-node.png "redis集群检查节点")
 
 #### 4.4  查看节点信息
 
 `./redis-trib.rb  info  h2s1:6379`:查看指定节点信息，包括有多少key，多少槽，有多少的从节点以及每个槽上平均有多少key
 
-![redis集群查看节点信息](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-cluster-info-node.png "redis集群检查节点")
+![redis集群查看节点信息](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-cluster-info-node.png "redis集群检查节点")
 
 #### 4.5 修复集群
 
 `./redis-trib.rb  fix   127.0.0.1:6379`:修复`127.0.0.1:6379`所在集群
 
-![redis集群修复](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-cluster-fix-node.png "redis集群修复")
+![redis集群修复](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-cluster-fix-node.png "redis集群修复")
 
 #### 4.6 集群简单操作
 
 可以看出，我从任何一个节点都可以访问到集群其他节点的数据
 
-![redis集群简单操作](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-oper-1.png "redis集群简单操作")
+![redis集群简单操作](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-oper-1.png "redis集群简单操作")
 
 
 #### 4.7 集群重新分片
 
 ` ./redis-trib.rb  reshard    127.0.0.1:6379`:host和port指定节点所在集群
 
-![redis集群reshard](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-cluster-reshard-node-1.png "redis集群reshard")
+![redis集群reshard](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-cluster-reshard-node-1.png "redis集群reshard")
 
 `Source node #1:`我选择的all
 
-![redis集群reshard](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-cluster-reshard-node-2.png "redis集群reshard")
+![redis集群reshard](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-cluster-reshard-node-2.png "redis集群reshard")
 
 询问是否继续reshard计划：我选的的`yes`
 
 执行移动操作：
 
-![redis集群reshard](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-cluster-reshard-node-3.png "redis集群reshard")
+![redis集群reshard](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-cluster-reshard-node-3.png "redis集群reshard")
 
 已经成功移动完成
 
@@ -246,7 +246,7 @@ appendonly yes
 
 `./redis-trib.rb  rebalance     h2s1:6379`:因集群中三个主节点的槽数量差别较大，因此重新分配槽的数量以达到集群的平衡。
 
-![redis集群重新平衡](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-cluster-rebalance-node.png "redis集群重新平衡")
+![redis集群重新平衡](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-cluster-rebalance-node.png "redis集群重新平衡")
 
 
 #### 4.9 集群执行命令
@@ -255,7 +255,7 @@ appendonly yes
 
 即在6379端口的节点上的命令被存储在了6579节点上。
 
-![redis集群执行命令](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-cluster-call-cmd.png "redis集群执行命令")
+![redis集群执行命令](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-cluster-call-cmd.png "redis集群执行命令")
 
 
 **注意点：**
@@ -269,4 +269,4 @@ protected-mode yes
 
 如果想要连接外部host，需要注释掉bind或指定ip，将protected-mode（保护模式设置为no），重启集群。
 
-![redis集群调整配置](http://omsz9j1wp.bkt.clouddn.com/image/redis/redis-server-cluster-note-pointer.png "redis集群调整配置")
+![redis集群调整配置](//raw.githubusercontent.com/George5814/blog-pic/master/image/redis/redis-server-cluster-note-pointer.png "redis集群调整配置")

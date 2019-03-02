@@ -127,7 +127,7 @@ CREATE TABLE `test` (
 
 dtd的修饰符号：
 
-![dtd的修饰符号](http://omsz9j1wp.bkt.clouddn.com/image/mybatis/dtd-definition.jpg)
+![dtd的修饰符号](//raw.githubusercontent.com/George5814/blog-pic/master/image/mybatis/dtd-definition.jpg)
 
 
 - 错误内容：

@@ -13,4 +13,4 @@ description:
 
 ## Map类图
 
-![Map类图](http://omsz9j1wp.bkt.clouddn.com/image/java/map-class-model.png)
+![Map类图](//raw.githubusercontent.com/George5814/blog-pic/master/image/java/map-class-model.png)

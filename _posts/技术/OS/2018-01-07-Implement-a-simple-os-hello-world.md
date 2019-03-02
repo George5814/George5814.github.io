@@ -72,21 +72,21 @@ times 510 - ($ - $$) db 0 表示将0这个字节重复510-($ - $$)遍，也就�
 
 创建虚拟机
 
-![VirtualBox](http://omsz9j1wp.bkt.clouddn.com/image/OS/MyOS1.png)
+![VirtualBox](//raw.githubusercontent.com/George5814/blog-pic/master/image/OS/MyOS1.png)
 
-![VirtualBox](http://omsz9j1wp.bkt.clouddn.com/image/OS/MyOS2.png)
+![VirtualBox](//raw.githubusercontent.com/George5814/blog-pic/master/image/OS/MyOS2.png)
 
 启动顺序中只选择软驱，将启动EFI选项去掉
 
-![VirtualBox](http://omsz9j1wp.bkt.clouddn.com/image/OS/MyOS3.png)
+![VirtualBox](//raw.githubusercontent.com/George5814/blog-pic/master/image/OS/MyOS3.png)
 
 选择软盘控制器并添加软盘，将引导程序添加到虚拟软盘中。
 
-![VirtualBox](http://omsz9j1wp.bkt.clouddn.com/image/OS/MyOS4.png)
+![VirtualBox](//raw.githubusercontent.com/George5814/blog-pic/master/image/OS/MyOS4.png)
 
 点击OK完成设置，然后点启动，就可以看到Hello，World了。
 
-![VirtualBox](http://omsz9j1wp.bkt.clouddn.com/image/OS/MyOS6.png)
+![VirtualBox](//raw.githubusercontent.com/George5814/blog-pic/master/image/OS/MyOS6.png)
 
 
 ### 参考文档

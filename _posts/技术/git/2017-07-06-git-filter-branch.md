@@ -22,7 +22,7 @@ description: 将子模块从原项目中分理出来作为独立项目，同时�
 
 - 多模块项目：父模块A下有三个子模块(B,C,D)
 
-![多模块项目](http://omsz9j1wp.bkt.clouddn.com/image/git/git-ad.png)
+![多模块项目](//raw.githubusercontent.com/George5814/blog-pic/master/image/git/git-ad.png)
 
 - git工具（2.x）我的是v2.8.1
 

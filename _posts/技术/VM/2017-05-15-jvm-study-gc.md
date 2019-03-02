@@ -100,7 +100,7 @@ description:
 
     收集算法是内存回收的方法论，垃圾回收器是内存回收的具体实现。JVM中未规定垃圾回收器的实现。
 
-    ![垃圾收集器的关系](http://omsz9j1wp.bkt.clouddn.com/image/jvm/jvm-1.png)
+    ![垃圾收集器的关系](//raw.githubusercontent.com/George5814/blog-pic/master/image/jvm/jvm-1.png)
 
     - Serial收集器
 
@@ -234,7 +234,7 @@ description:
 16. 垃圾收集器各参数列表
 
 
-    ![垃圾收集器的关系2](http://omsz9j1wp.bkt.clouddn.com/image/jvm/jvm-2.png)
+    ![垃圾收集器的关系2](//raw.githubusercontent.com/George5814/blog-pic/master/image/jvm/jvm-2.png)
 
 17. 内存分配与回收策略
 
@@ -260,4 +260,4 @@ description:
 
     - 空间分配担保
 
-    ![空间分配担保](http://omsz9j1wp.bkt.clouddn.com/image/jvm/jvm-5.png)
+    ![空间分配担保](//raw.githubusercontent.com/George5814/blog-pic/master/image/jvm/jvm-5.png)

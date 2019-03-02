@@ -42,7 +42,7 @@ description: ZooKeeper集群的简单安装
 export ZOOKEEPER_HOME = /usr/local/zk
 ```
 
-![修改环境变量](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper2.png) 
+![修改环境变量](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper2.png) 
 
 此处的`PATH = .:$ZOOKEEPER_HOME/bin:$HADOOP_HOME/bin:$JAVVA_HOME/bin:$PATH`,使环境变量生效
 
@@ -70,12 +70,12 @@ export ZOOKEEPER_HOME = /usr/local/zk
 ```
 
 
-![修改datadir路径](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper3.png) 
+![修改datadir路径](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper3.png) 
 
 修改第十三行的datadir路径为自己想要的路径
  
 
-![配置三个zk服务器](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper4.png) 
+![配置三个zk服务器](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper4.png) 
 
 配置三个zk服务器
  
@@ -141,10 +141,10 @@ c)	启动zk集群服务
 #/usr/local/zk/bin/zkServer.sh status
 ```
 
-![角色状态1](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper5.png) 
+![角色状态1](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper5.png) 
 
 
-![角色状态2](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper6.png) 
+![角色状态2](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper6.png) 
 
 
  
@@ -153,26 +153,26 @@ c)	启动zk集群服务
 
 在命令行中执行`/usr/local/zk/bin/zkCli.sh`
 
-![启动客户端1](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper7.png) 
+![启动客户端1](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper7.png) 
 
 
-![启动客户端2](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper8.png) 
+![启动客户端2](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper8.png) 
 
  
  
 - a.随便输入什么，回车后可以查看提示信息
 
-![查看提示信息](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper9.png) 
+![查看提示信息](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper9.png) 
 
  
 - b.试一试创建的命令：`create /test  test `,创建一个路径/test，设置数据位test
 
-![创建的命令](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper10.png) 
+![创建的命令](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper10.png) 
 
  
 登录另一台zk服务器的客户端，执行`get /test`命令，同样会看到如上的结果，则证明机器间的数据同步成功
 
-![数据同步](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper11.png) 
+![数据同步](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper11.png) 
 
 
  

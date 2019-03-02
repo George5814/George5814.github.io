@@ -14,7 +14,7 @@ description:
 ### 1.首先，导入SpringMVC需要的jar包：
 
 
-![SpringMVC需要的jar包](http://omsz9j1wp.bkt.clouddn.com/image/spring/springmvc-jar.png)
+![SpringMVC需要的jar包](//raw.githubusercontent.com/George5814/blog-pic/master/image/spring/springmvc-jar.png)
 
 ### 2.添加Web.xml配置文件中关于SpringMVC的配置
 
@@ -73,7 +73,10 @@ description:
 ### 4.在WEB-INF文件夹下创建名为jsp的文件夹，用来存放jsp视图。创建一个hello.jsp，在body中添加“Hello World”。
 
 ### 5.建立包及Controller，如下所示
-![建立包及Controller](http://omsz9j1wp.bkt.clouddn.com/image/spring/springmvc-controller.png)
+![建立包及Controller](//raw.githubusercontent.com/George5814/blog-pic/master/image/spring/springmvc-controller.png)
+
+
+
 
 ### 6.编写Controller代码
 
@@ -271,7 +274,7 @@ public String redirect(){
 
 ### 1.需要导入两个jar包
 
-![fileupload.jar](http://omsz9j1wp.bkt.clouddn.com/image/spring/springmvc-extend-jar.png)
+![fileupload.jar](//raw.githubusercontent.com/George5814/blog-pic/master/image/spring/springmvc-extend-jar.png)
 
 ### 2.在SpringMVC配置文件中加入
 
@@ -403,7 +406,7 @@ public class RestController {
 
 ### 1.导入以下jar包
 
-![jackson.jar](http://omsz9j1wp.bkt.clouddn.com/image/spring/springmvc-jackson-jar.png)
+![jackson.jar](//raw.githubusercontent.com/George5814/blog-pic/master/image/spring/springmvc-jackson-jar.png)
 
 
 ### 2.方法代码
@@ -526,7 +529,7 @@ public class MyInterceptor implements HandlerInterceptor {
 
 ### 3.拦截器执行顺序
 
-![拦截器执行顺序](http://omsz9j1wp.bkt.clouddn.com/image/spring/springmvc-handle-process.png)
+![拦截器执行顺序](//raw.githubusercontent.com/George5814/blog-pic/master/image/spring/springmvc-handle-process.png)
 
 
 
@@ -534,10 +537,10 @@ public class MyInterceptor implements HandlerInterceptor {
 
 ### 1.导入Hibernate-validate需要的jar包
 
-![Hibernate-validate.jar](http://omsz9j1wp.bkt.clouddn.com/image/spring/springmvc-hibernate-1.png)
+![Hibernate-validate.jar](//raw.githubusercontent.com/George5814/blog-pic/master/image/spring/springmvc-hibernate-1.png)
 
 (未选中不用导入)
-![Hibernate-validate.jar](http://omsz9j1wp.bkt.clouddn.com/image/spring/springmvc-hibernate-2.png)
+![Hibernate-validate.jar](//raw.githubusercontent.com/George5814/blog-pic/master/image/spring/springmvc-hibernate-2.png)
 
 
 
@@ -692,7 +695,7 @@ password=password
 ### 1.创建一个test.SpringMVC.integrate的包用来演示整合，并创建各类
 
 
-![IOC整合](http://omsz9j1wp.bkt.clouddn.com/image/spring/springmvc-ioc.png)
+![IOC整合](//raw.githubusercontent.com/George5814/blog-pic/master/image/spring/springmvc-ioc.png)
 
 
 ### 2.User实体类
@@ -832,7 +835,7 @@ public class UserController {
 ## 十八、SpringMVC详细运行流程图
 
 
-![SpringMVC详细运行流程图](http://omsz9j1wp.bkt.clouddn.com/image/spring/springmvc-run.png)
+![SpringMVC详细运行流程图](//raw.githubusercontent.com/George5814/blog-pic/master/image/spring/springmvc-run.png)
 
 ## 十九、SpringMVC与struts2的区别
 

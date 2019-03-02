@@ -271,7 +271,7 @@ public class CfzkClientTest {
 
 输出结果:
 
-![输出结果](http://omsz9j1wp.bkt.clouddn.com/image/zk/zk-config-read-1.png)  
+![输出结果](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zk-config-read-1.png)  
 
 
 

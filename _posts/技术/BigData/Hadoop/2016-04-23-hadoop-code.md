@@ -18,15 +18,15 @@ description: 不定期更新
 
 运行截图：
 
-![1](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/hadoop-code-1.png)
+![1](//raw.githubusercontent.com/George5814/blog-pic/master/image/hadoop2/hadoop-code-1.png)
 
-![2](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/hadoop-code-2.png)
+![2](//raw.githubusercontent.com/George5814/blog-pic/master/image/hadoop2/hadoop-code-2.png)
 
-![3](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/hadoop-code-3.png)
+![3](//raw.githubusercontent.com/George5814/blog-pic/master/image/hadoop2/hadoop-code-3.png)
 
 web页面中任务执行结果：
 
-![4](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/hadoop-code-4.png)
+![4](//raw.githubusercontent.com/George5814/blog-pic/master/image/hadoop2/hadoop-code-4.png)
 
 ### hadoop设置成功之后，只是对master格式化
 
@@ -38,15 +38,15 @@ web页面中任务执行结果：
 
 namenode格式化成功：
 
-![5](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/hadoop-code-5.png)
+![5](//raw.githubusercontent.com/George5814/blog-pic/master/image/hadoop2/hadoop-code-5.png)
 
 namenode、datanode和secondary namenodes停止成功：
 
-![6](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/hadoop-code-6.png)
+![6](//raw.githubusercontent.com/George5814/blog-pic/master/image/hadoop2/hadoop-code-6.png)
 
 集群yarn启动成功：
 
-![7](http://omsz9j1wp.bkt.clouddn.com/image/hadoop2/hadoop-code-7.png)
+![7](//raw.githubusercontent.com/George5814/blog-pic/master/image/hadoop2/hadoop-code-7.png)
 
 
 ### namenode -format 再次格式化时错误

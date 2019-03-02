@@ -13,7 +13,7 @@ description:
 
 - 错误截图：
 
-![找不到META-INF](http://omsz9j1wp.bkt.clouddn.com/image/mybatis/mybatis-generator-error-1.png "找不到META-INF")
+![找不到META-INF](//raw.githubusercontent.com/George5814/blog-pic/master/image/mybatis/mybatis-generator-error-1.png "找不到META-INF")
 
 - 错误原因：
 	
@@ -32,7 +32,7 @@ description:
 
 - 错误截图：
 
-![生成只有insert方法](http://omsz9j1wp.bkt.clouddn.com/image/mybatis/mybatis-generator-error-2.png "生成只有insert方法")
+![生成只有insert方法](//raw.githubusercontent.com/George5814/blog-pic/master/image/mybatis/mybatis-generator-error-2.png "生成只有insert方法")
 
 - 错误原因：
 	

@@ -32,11 +32,11 @@ description: 亲测该插件只是有利于连接远程HDFS集群，访问集群
 
 - window --> show view --> other --> MapReduce Tools --> Map/Reduce Locations 点击打开MapReduce配置窗口。
 
-![MR定位窗口](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/MRDev-location.png)
+![MR定位窗口](//raw.githubusercontent.com/George5814/blog-pic/master/image/hadoop/MRDev-location.png)
 
 右击 --> New Hadoop Location --> 显示配置页面
 
-![MR定位窗口](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/MRDev-location-2.png)
+![MR定位窗口](//raw.githubusercontent.com/George5814/blog-pic/master/image/hadoop/MRDev-location-2.png)
 
 **说明：**
 
@@ -49,7 +49,7 @@ Host: MapReduce主节点的Ip地址
 port:hdfs-default.xml中配置的dfs.datanode.address对应端口（默认为50010），此端口为DataNode数据传输的端口。
 如果没有配置或不知道可以通过<http://host:50070/dfshealth.html#tab-datanode>地址查看
 
-![MR定位窗口](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/MRDev-location-3.png)
+![MR定位窗口](//raw.githubusercontent.com/George5814/blog-pic/master/image/hadoop/MRDev-location-3.png)
 
 **DFS M/R Master Host :**
 	
@@ -64,7 +64,7 @@ Port: `core-site.xml`中`fs.defaultFS`指定的端口。如果配置了ViewFs和
 
 Eclipse 的Project Explore 下的DFS Location下一般配置正确就可以查看了。
 
-![在Eclipse中查看HDfs中的文件](http://omsz9j1wp.bkt.clouddn.com/image/hadoop/MRDev-location-hdfs-file.png)
+![在Eclipse中查看HDfs中的文件](//raw.githubusercontent.com/George5814/blog-pic/master/image/hadoop/MRDev-location-hdfs-file.png)
 
 **注意：**在eclipse中显示的HDFS中的文件的内容只能查看不能修改，因为当前查看的用户不是运行HDFS的用户。
 

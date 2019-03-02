@@ -11,11 +11,11 @@ description: Vue的安装使用，内含对nodejs的安装使用
 ### 1. 安装node
 
 
-![工具包](http://omsz9j1wp.bkt.clouddn.com/image/js/node-setup-0.png)
+![工具包](//raw.githubusercontent.com/George5814/blog-pic/master/image/js/node-setup-0.png)
 
 地址:<http://nodejs.cn/download/>
 
-![node版本](http://omsz9j1wp.bkt.clouddn.com/image/js/node-setup-1.png)
+![node版本](//raw.githubusercontent.com/George5814/blog-pic/master/image/js/node-setup-1.png)
 
 解压到指定目录，本例中为`D:\dev_tools\node-v6.10.3-win-x64`,将该路径添加到环境变量中。
 
@@ -30,13 +30,13 @@ description: Vue的安装使用，内含对nodejs的安装使用
 
 `npm install vue-cli -g`
 
-![Vue脚手架](http://omsz9j1wp.bkt.clouddn.com/image/js/vue-setup-1.png)
+![Vue脚手架](//raw.githubusercontent.com/George5814/blog-pic/master/image/js/vue-setup-1.png)
 
 ### 4.安装webpack
 
 `cnpm install webpack -g`
 
-![安装webpack](http://omsz9j1wp.bkt.clouddn.com/image/js/webpack-setup-1.png)
+![安装webpack](//raw.githubusercontent.com/George5814/blog-pic/master/image/js/webpack-setup-1.png)
 
 ### 5.根据模板创建项目
 
@@ -46,7 +46,7 @@ description: Vue的安装使用，内含对nodejs的安装使用
 
 创建完成后会有提示命令如下：
 
-![创建项目](http://omsz9j1wp.bkt.clouddn.com/image/js/vue-setup-2.png)
+![创建项目](//raw.githubusercontent.com/George5814/blog-pic/master/image/js/vue-setup-2.png)
 
 按提示执行命令，执行命令时时间稍长，耐心等待下。
 
@@ -54,7 +54,7 @@ description: Vue的安装使用，内含对nodejs的安装使用
 
 ### 6. 安装Vue路由模块和网络请求模块
 
-![安装Vue路由模块和网络请求模块](http://omsz9j1wp.bkt.clouddn.com/image/js/vue-setup-3.png)
+![安装Vue路由模块和网络请求模块](//raw.githubusercontent.com/George5814/blog-pic/master/image/js/vue-setup-3.png)
 
 
 

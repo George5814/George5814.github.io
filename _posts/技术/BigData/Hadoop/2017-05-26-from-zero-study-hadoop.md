@@ -208,7 +208,7 @@ Allocated new BlockPoolId: BP-1696207355-192.168.2.201-1495774471795
 
 ### 3. 启动单点HDFS
 
-![启动单点HDFS](http://omsz9j1wp.bkt.clouddn.com/image/hdfs/hdfs-1.png)
+![启动单点HDFS](//raw.githubusercontent.com/George5814/blog-pic/master/image/hdfs/hdfs-1.png)
 
 如图说明已经启动了Namenode，Datanode和Secondary Namenode
 
@@ -216,51 +216,51 @@ Allocated new BlockPoolId: BP-1696207355-192.168.2.201-1495774471795
 
 发现已经启动了web管理页面功能，而且可以通过`h2m1:50070`在浏览器中访问了。
 
-![启动单点HDFS](http://omsz9j1wp.bkt.clouddn.com/image/hdfs/hdfs-2.png)
+![启动单点HDFS](//raw.githubusercontent.com/George5814/blog-pic/master/image/hdfs/hdfs-2.png)
 
 
-![启动单点HDFS](http://omsz9j1wp.bkt.clouddn.com/image/hdfs/hdfs-3.png)
+![启动单点HDFS](//raw.githubusercontent.com/George5814/blog-pic/master/image/hdfs/hdfs-3.png)
 
 
 在Namenode的日志中发出了警告，默认方式下fsimage和edits都只有一个存储目录,提示可能会由于缺少冗余导致数据丢失。
 
-![namenode日志](http://omsz9j1wp.bkt.clouddn.com/image/hdfs/hdfs-4.png)
+![namenode日志](//raw.githubusercontent.com/George5814/blog-pic/master/image/hdfs/hdfs-4.png)
 
 
 namenode中的一些提示信息
 
-![namenode日志](http://omsz9j1wp.bkt.clouddn.com/image/hdfs/hdfs-5.png)
+![namenode日志](//raw.githubusercontent.com/George5814/blog-pic/master/image/hdfs/hdfs-5.png)
 
 datenode注册的一些提示信息
 
-![namenode日志](http://omsz9j1wp.bkt.clouddn.com/image/hdfs/hdfs-7.png)
+![namenode日志](//raw.githubusercontent.com/George5814/blog-pic/master/image/hdfs/hdfs-7.png)
 
 **查看DataNode日志**
 
 DataNode初始化
-![namenode日志](http://omsz9j1wp.bkt.clouddn.com/image/hdfs/hdfs-8.png)
+![namenode日志](//raw.githubusercontent.com/George5814/blog-pic/master/image/hdfs/hdfs-8.png)
 
 启动Datanode的web服务并连接namenode的ipc服务
-![namenode日志](http://omsz9j1wp.bkt.clouddn.com/image/hdfs/hdfs-9.png)
+![namenode日志](//raw.githubusercontent.com/George5814/blog-pic/master/image/hdfs/hdfs-9.png)
 
 
 为块池(BloackPool)格式化datanode
-![namenode日志](http://omsz9j1wp.bkt.clouddn.com/image/hdfs/hdfs-10.png)
+![namenode日志](//raw.githubusercontent.com/George5814/blog-pic/master/image/hdfs/hdfs-10.png)
 
 添加卷并连接Namenode
 
-![namenode日志](http://omsz9j1wp.bkt.clouddn.com/image/hdfs/hdfs-11.png)
+![namenode日志](//raw.githubusercontent.com/George5814/blog-pic/master/image/hdfs/hdfs-11.png)
 
 ### 4. 浏览器界面访问
 
 `namenode:http://h2m1:50070`
 
-![namenode日志](http://omsz9j1wp.bkt.clouddn.com/image/hdfs/hdfs-12.png)
+![namenode日志](//raw.githubusercontent.com/George5814/blog-pic/master/image/hdfs/hdfs-12.png)
 
 
 `datanode:http://h2m1:50075`
 
-![namenode日志](http://omsz9j1wp.bkt.clouddn.com/image/hdfs/hdfs-13.png)
+![namenode日志](//raw.githubusercontent.com/George5814/blog-pic/master/image/hdfs/hdfs-13.png)
 
 
 ### 配置MapReduce和YARN
@@ -285,7 +285,7 @@ DataNode初始化
 
 ```
 
-![hadoop默认端口](http://omsz9j1wp.bkt.clouddn.com/image/hdfs/hadoop-default-port.png)
+![hadoop默认端口](//raw.githubusercontent.com/George5814/blog-pic/master/image/hdfs/hadoop-default-port.png)
 
 
 

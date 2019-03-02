@@ -46,7 +46,7 @@ zk为每次更新赋予一个版本号，全局有序。
 
 ZooKeeper提供的namespace很像标准的文件系统，名称是用斜杠（/）分隔路径元素的序列。在ZooKeeper的名字空间中的每个节点由路径标识。
 
-![分级名字空间](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper12.jpg)
+![分级名字空间](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper12.jpg)
 
 ### 4.节点和临时节点
 
@@ -106,7 +106,7 @@ zookeeper中的每个znode节点的状态结构体都包含以下 属性：
 
 示例：
 
-![创建并查看znode](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper-1.png)
+![创建并查看znode](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper-1.png)
 
 
 ### 5.有条件的更新和监控
@@ -129,7 +129,7 @@ zookeeper不是设计用来通用的DB或者大对象存储的，他是管理协
 
 状态图：
 
-![session状态分析](http://omsz9j1wp.bkt.clouddn.com/image/zk/state_dia.jpg)
+![session状态分析](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/state_dia.jpg)
 
 如果能建立连接，连接成功，状态为CONNECTED。
 断开连接，状态为CLOSED时几种情况：
@@ -197,7 +197,7 @@ ZooKeeper的速度非常快，非常简单。因为它的目标，不过，是�
 
 ### 8.实现
 
-![实现](http://omsz9j1wp.bkt.clouddn.com/image/zk/zk-theory-zkcomponents.jpg)
+![实现](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zk-theory-zkcomponents.jpg)
 
 ZooKeeper的组件显示的ZooKeeper服务的高层组件。与请求处理器外，各构成ZooKeeper服务的服务器进行复制其自身的各组成部分的副本。
 
@@ -212,18 +212,18 @@ ZooKeeper被设计用于高性能。
 ZooKeeper的吞吐量读写比变化
 
 
-![吞吐量读写比变化](http://omsz9j1wp.bkt.clouddn.com/image/zk/zk-theory-zkperfRW-3.2.jpg)
+![吞吐量读写比变化](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zk-theory-zkperfRW-3.2.jpg)
 
 
 ### 11.可靠性
 
 可靠性错误的存在
 
-![吞吐量读写比变化](http://omsz9j1wp.bkt.clouddn.com/image/zk/zk-theory-zkperfreliability.jpg)
+![吞吐量读写比变化](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zk-theory-zkperfreliability.jpg)
 
 ### 12.	Zk可以用来保证数据在zk集群之间的数据的事务性的一致	(一般数据在2M以下)
 
-![Zk可以用来保证数据在zk集群之间的数据的事务性的一致](http://omsz9j1wp.bkt.clouddn.com/image/zk/zookeeper1.png)
+![Zk可以用来保证数据在zk集群之间的数据的事务性的一致](//raw.githubusercontent.com/George5814/blog-pic/master/image/zk/zookeeper1.png)
 
 
 ### 13.	zookeeper进行leader选举 

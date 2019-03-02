@@ -18,7 +18,7 @@ description: 原文地址:https://engineering.linkedin.com/blog/2016/04/kafka-ec
 **LinkedIn 的 Kafka 生态环境**
 
 
-![Kafka 生态环境](http://omsz9j1wp.bkt.clouddn.com/image/kafka/kafka-cosystem.jpg)
+![Kafka 生态环境](//raw.githubusercontent.com/George5814/blog-pic/master/image/kafka/kafka-cosystem.jpg)
 
 
 上图并未将 LinkedIn 所有各类的数据管道与拓扑结构全部列出，仅作为 LinkedIn Kafka 关键功能部署及其互动方式的图示说明。
@@ -77,7 +77,7 @@ Kafka 推送任务负责将各类数据从 Hadoop 运送到 Kafka 供在线服�
 
 - Kafka 的审计验证服务会持续监控数据的完整度，并为审计追踪的可视化提供相应 UI。这个服务是审计事件的消费者，它会插入审计数据库中，并在数据出现延迟或丢失时发出警告。我们使用审计数据库来调查警告出现的情况，并确切定义数据丢失的位置。
 
-![Kafka 审计](http://omsz9j1wp.bkt.clouddn.com/image/kafka/kafka-cosystem-2.jpg)
+![Kafka 审计](//raw.githubusercontent.com/George5814/blog-pic/master/image/kafka/kafka-cosystem-2.jpg)
 
 ## Kafka 生态环境
 

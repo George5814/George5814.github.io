@@ -56,7 +56,7 @@ private SingletonBean(){
 两个紫色框中分别是正常的单例对象和反射获取的对象通过toString方法显示的内容。
 而下图报出的异常是因为在构造方法中加入了实例的非空校验，阻止了反射机制创建新的单例实例的行为。
 
-![结果对比图](http://omsz9j1wp.bkt.clouddn.com/image/java/singleton-001.png) 
+![结果对比图](//raw.githubusercontent.com/George5814/blog-pic/master/image/java/singleton-001.png) 
 
 
 ### 2.通过静态方法获取Singleton对象
@@ -131,5 +131,5 @@ SingletonEnum singletonBean = (SingletonEnum)constructors[0].newInstance(null);
 System.out.println("反射获取的枚举对象："+singletonBean.hashCode());
 ```
 
-![试图通过反射实例化新的枚举值会报异常](http://omsz9j1wp.bkt.clouddn.com/image/java/reflect-enum-errorinfo.png) 
+![试图通过反射实例化新的枚举值会报异常](//raw.githubusercontent.com/George5814/blog-pic/master/image/java/reflect-enum-errorinfo.png) 
 
