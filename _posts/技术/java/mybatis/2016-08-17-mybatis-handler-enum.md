@@ -28,16 +28,22 @@ import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.apache.ibatis.type.MappedTypes;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 
 /**
  * 处理实现了{@link EsnBaseEnum}接口的枚举类
- * @author jingzz
+ * @author followtry
  * @time 2016年8月16日 下午8:06:49
  * @since 2016年8月16日 下午8:06:49
  */
+ //在 xml 中添加该 TypeHandler 时需要使用该注解
+@MappedTypes(value = {
+        QcListTypeEnum.class,
+        SellingQcBizTypeEnum.class
+})
 public class EnumValueTypeHandler<E extends EsnBaseEnum> extends BaseTypeHandler<E> {
 
 	private Class<E> type;
@@ -124,6 +130,24 @@ public class EnumValueTypeHandler<E extends EsnBaseEnum> extends BaseTypeHandler
 ```
 
 该处理器是处理继承了`EsnBaseEnum`接口的枚举类，因为该接口中定义了获取自定义int值的方法。
+
+如果在 mybatis 的 xml 中配置 该 typehandler，则需要添加注解`@MappedTypes`。在添加 typeHandler 注册时使用具体的实现类注册。
+
+配置文件如下：
+
+```xml
+<typeAliases>
+<!-- 为自定义的 TypeHandler 指定别名，在 sql 的 xml 中即可使用别名访问了 -->
+    <typeAlias type="cn.followtry.mybatis.EnumValueTypeHandler" alias="enumValueTypeHandler"/>
+</typeAliases>
+<typeHandlers>
+    <!--处理枚举的值转换-->
+    <typeHandler handler="cn.followtry.mybatis.EnumValueTypeHandler"/>
+</typeHandlers>
+```
+
+
+自定义的 Enum 需要实现的接口
 
 ```java
 /**
