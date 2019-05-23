@@ -25,5 +25,6 @@ description: 不定期更新
 |gson format|将 JSON 转为 java 类|可以直接根据 JSON 数据定义出 java 类及其 field|
 |grep console|控制台日志展示|不同级别的日志可以以不同的颜色展示|
 |Material Theme|IDEA 的主题插件，可更换 IDEA 的展示风格|可选主题比较多，个人比较喜欢|
-|string manipulation|变量风格变换|将驼峰、下划线、全大写、全小写等风格的转换|
+|string manipulation|String快速操作|变量拼写切换，Un/Escape，Encode/Decode，Increment/Decrement，sort,trim 等功能。比较强大|
+|CamelCase|变量风格变换|将驼峰、下划线、全大写、全小写等风格的转换。可快速装换变量风格|
 ||||
