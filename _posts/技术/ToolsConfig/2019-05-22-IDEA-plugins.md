@@ -27,4 +27,5 @@ description: 不定期更新
 |Material Theme|IDEA 的主题插件，可更换 IDEA 的展示风格|可选主题比较多，个人比较喜欢|
 |string manipulation|String快速操作|变量拼写切换，Un/Escape，Encode/Decode，Increment/Decrement，sort,trim 等功能。比较强大|
 |CamelCase|变量风格变换|将驼峰、下划线、全大写、全小写等风格的转换。可快速装换变量风格|
+|generateallsetter|一键生成对象的所有 setter 方法调用|快捷便利|
 ||||
