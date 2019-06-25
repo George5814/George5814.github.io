@@ -1,4 +1,4 @@
-   ---
+---
 layout: post
 title: lambda 架构问题的阅读笔记
 category: 技术
