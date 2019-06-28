@@ -309,9 +309,9 @@ public class WordCount {
 
 ### 上传代码到 flink 平台
 
-![flink-web-submit](//raw.githubusercontent.com/George5814/blog-pic/master/image/flink-web-submit.png)
+![flink-web-submit](//raw.githubusercontent.com/George5814/blog-pic/master/image/flink/flink-web-submit.png)
 
-![flink-web-submit-2](//raw.githubusercontent.com/George5814/blog-pic/master/image/flink-web-submit-2.png)
+![flink-web-submit-2](//raw.githubusercontent.com/George5814/blog-pic/master/image/flink/flink-web-submit-2.png)
 
 ### flink 平台执行监控
 
