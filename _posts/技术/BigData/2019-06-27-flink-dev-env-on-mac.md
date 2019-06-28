@@ -97,14 +97,14 @@ web 监控页面正常打开则说明启动正常
 
 <http://localhost:8081>
 
-![flink-web](//raw.githubusercontent.com/George5814/blog-pic/master/image/flink-web.png)
+![flink-web](//raw.githubusercontent.com/George5814/blog-pic/master/image/flink/flink-web.png)
 
 
 ### 页面上传 jar 包执行
 
-![flink-web-submit](//raw.githubusercontent.com/George5814/blog-pic/master/image/flink-web-submit.png)
+![flink-web-submit](//raw.githubusercontent.com/George5814/blog-pic/master/image/flink/flink-web-submit.png)
 
-![flink-web-submit-2](//raw.githubusercontent.com/George5814/blog-pic/master/image/flink-web-submit-2.png)
+![flink-web-submit-2](//raw.githubusercontent.com/George5814/blog-pic/master/image/flink/flink-web-submit-2.png)
 
 
 

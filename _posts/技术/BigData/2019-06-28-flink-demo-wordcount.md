@@ -315,7 +315,7 @@ public class WordCount {
 
 ### flink 平台执行监控
 
-![flink-job-running](//raw.githubusercontent.com/George5814/blog-pic/master/image/flink-job-running.png)
+![flink-job-running](//raw.githubusercontent.com/George5814/blog-pic/master/image/flink/flink-job-running.png)
 
 
 
