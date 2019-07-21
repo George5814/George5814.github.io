@@ -29,12 +29,12 @@ ipv6地址如: `2001:19f0:5:673a:5200:02f1:fe30:601b`
 1. 将光猫设置为 bridge (桥接模式)，因为ivp6 刚开始使用，有些光猫还不支持下发 ipv6前缀
    
 ![model-setup](//raw.githubusercontent.com/George5814/blog-pic/master/image/model-setup.png)
-route-ipv6.png
-2. 路由器设置开启 ipv6 功能，wan 和 lan 的地址及 dns 设置为自动获取配置
+
+1. 路由器设置开启 ipv6 功能，wan 和 lan 的地址及 dns 设置为自动获取配置
    ![route-ipv6](//raw.githubusercontent.com/George5814/blog-pic/master/image/route-ipv6.png)
-3. 路由器设置 pppoe 拨号上网，输入宽带账号和密码
+2. 路由器设置 pppoe 拨号上网，输入宽带账号和密码
    ![pppoe](//raw.githubusercontent.com/George5814/blog-pic/master/image/pppoe.png)
-4. 手机或电脑连接路由器的 wifi，查看在 ip 地址一栏中是否有非 fe 开头的 ipv6 地址，如果存在则说明 ipv6 地址配置成功
+3. 手机或电脑连接路由器的 wifi，查看在 ip 地址一栏中是否有非 fe 开头的 ipv6 地址，如果存在则说明 ipv6 地址配置成功
    ![pc-ipv6](//raw.githubusercontent.com/George5814/blog-pic/master/image/pc-ipv6.png)
 
 
@@ -59,7 +59,9 @@ vps 上安装梯子。参考<https://blog.upx8.com/2249>
 在阿里云的云解析 DNS 中配置
 
 记录类型：`AAAA`
+
 主机记录：`ss`(二级域名)
+
 记录值：`2001:19f0:5:673a:5200:02f1:fe30:601b`
 
 ![dns-1](//raw.githubusercontent.com/George5814/blog-pic/master/image/dns-1.png)
