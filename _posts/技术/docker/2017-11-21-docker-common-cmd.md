@@ -11,25 +11,29 @@ description: 介绍Docker常用命令
 
 [Docker检查](https://docs.docker.com/docker-for-mac/)
 
-## 查看版本
+## 查看信息
 
     $docker --version #查看版本
     $docker-compose --version #查看版本
     $docker-machine --version #查看版本
     $docker version #查看client和server端版本，并可以查看是否开启体验功能
+    $docker info #查看 docker 的详细信息
 
 ## 检查    
 
     $docker ps # 查看当前正在运行的image实例
-    $docker ps -a #查看所有镜像实例
+    $docker container ls # 查看当前正在运行的 image 实例，与 docker ps 相同
+    $docker ps -a #查看所有镜像实例 同 docker container ls -a
     $docker run hello-world #验证docker是否在运行中
     $docker inspect <task or container>   检查任务或容器
     
 
 ## 镜像操作
 
+    $docker search <image-name> $搜索仓库中的指定镜像
     $docker build -t <image-name> . #使用当前目录下的Dockerfile构建镜像
-    $docker images #查看镜像
+    $docker commit <new-image-name> # 使用当前容器构建新的镜像
+    $docker images #列出所有镜像
     $docker image ls -a  显示机器上所有的镜像
     $docker image rm <image id>      删除指定的镜像
     $docker image rm $(docker image ls -a -q)  删除所有的镜像
@@ -39,6 +43,7 @@ description: 介绍Docker常用命令
         上传后访问地址：https://cloud.docker.com/swarm/followtry/repository/docker/followtry/demo/general
     $docker pull <username>/<repository> #pull自定义的上传上去的镜像。如：$docker pull followtry/demo
     $docker run username/repository:tag #运行仓库的镜像
+    $docker run -i -t -h test-docker --name test registry-hulk.sankuai.com/sankuai/centos:6  /bin/bash #以shell 交互方式运行容器，并host 命名为 test-docker,容器命名为 test
  
 ## 容器操作
     
@@ -49,14 +54,35 @@ description: 介绍Docker常用命令
     $docker container kill <hash>  #强制关闭指定的容器
     $docker container rm <hash>    #删除指定的容器
     $docker container rm $(docker container ls -a -q)  #删除所有的容器
-    $docker run -d -p 8080:80 --name webserver nginx # 运行nginx镜像实例，-d：后台，-p:绑定端口8080到docker的80
+    $docker run -d -p 8080:80 --name webserver --restart=always nginx # 运行nginx镜像实例，-d：后台，-p:绑定端口8080到docker的80。--name 指定容器名称为webserver,--restart： 自动重启容器
     $docker stop <containerid/container-name> #停止容器webserver
+    $docker kill <containerid/container-name> # 强制停止容器webserver
     $docker start <containerid/container-name> #启动容器webserver
+    $docker restart <containerid/container-name> #重启容器webserver
     $docker port <containerid/container-name> #查看指定容器的端口映射
-    $docker logs -f <containerid/container-name> #查看指定容器的日志
+    $docker logs -f -t <containerid/container-name> #查看指定容器的操作日志信息并跟踪最新的日志。-t: 打印操作时间
     $docker top <containerid/container-name>  #查看容器的进程
-    $docker inspect <containerid/container-name> #检查容器的底层信息
-    $docker rm <containerid/container-name> #
+    $docker inspect <containerid/container-name> #检查容器的详细底层信息
+    $docker rm <containerid/container-name> #删除容器,只能删除已停止运行的容器
+    $docker attach <containerid/container-name> #将操作附着在刚启动的容器上
+    $docker top <containerid/container-name> # 查看容器内运行的进程
+    $docker exec -i -t  <containerid/container-name> /bin/bash #在已经后台启动的容器上打开一个模拟的交互式的shell 终端
+
+## dockerfile 指令
+
+基于 dockerfile 使用 `docker build` 指定构建新的镜像
+
+1. FROM
+   指定一个已经存在的基础镜像
+2. MAINTAINER
+   镜像作者及作者的邮件地址
+3. RUN
+   在当前镜像产生的容器中运行指定的命令
+4. RUN
+5. RUN
+6. EXPOSE
+   告诉 docker 该容器内的应用程序将会使用容器的指定端口。但是docker 运行新容器时不会自动打开该端口。需要造运行 docker run 时指定。
+7. 
    
 ## Docker操作
 
