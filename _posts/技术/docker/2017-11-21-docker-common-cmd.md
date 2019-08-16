@@ -42,7 +42,8 @@ description: 介绍Docker常用命令
     $docker push <username>/<repository>:<tag> #将自定义的镜像发布到仓库。如：docker push followtry/demo:latest
         上传后访问地址：https://cloud.docker.com/swarm/followtry/repository/docker/followtry/demo/general
     $docker pull <username>/<repository> #pull自定义的上传上去的镜像。如：$docker pull followtry/demo
-    $docker run username/repository:tag #运行仓库的镜像
+    $docker create <image id> # 创建一个镜像的容器，未运行状态
+    $docker run username/repository:tag #创建并运行仓库的镜像，相当于 `docker create`和`docker start`两种操作
     $docker run -i -t -h test-docker --name test registry-hulk.sankuai.com/sankuai/centos:6  /bin/bash #以shell 交互方式运行容器，并host 命名为 test-docker,容器命名为 test
  
 ## 容器操作
