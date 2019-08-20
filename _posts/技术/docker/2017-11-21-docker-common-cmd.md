@@ -31,20 +31,23 @@ description: 介绍Docker常用命令
 ## 镜像操作
 
     $docker search <image-name> $搜索仓库中的指定镜像
-    $docker build -t <image-name> . #使用当前目录下的Dockerfile构建镜像
-    $docker commit <new-image-name> # 使用当前容器构建新的镜像
+    $docker pull <username>/<repository> #获取镜像。如：$docker pull followtry/demo
+    $docker run username/repository:tag #创建并运行仓库的镜像，相当于 `docker create`和`docker start`两种操作
+    $docker run -i -t -h test-docker --rm --name test registry-hulk.sankuai.com/sankuai/centos:6  /bin/bash #以shell 交互方式运行容器，并host 命名为 test-docker,容器命名为 test,使用完成后退出即刻删除
     $docker images #列出所有镜像
     $docker image ls -a  显示机器上所有的镜像
+    $docker history <image-name>  #查看镜像的 commit 历史
+    $docker build -t <image-name> . #使用当前目录下的Dockerfile构建镜像
+    $docker commit <new-image-name> # 使用当前容器构建新的镜像。不要使用该命令定制镜像，会导致镜像特别臃肿
     $docker image rm <image id>      删除指定的镜像
     $docker image rm $(docker image ls -a -q)  删除所有的镜像
     $docker rmi [image-id/image-name] #删除指定的镜像，如docker rmi nginx
     $docker tag <image> <username>/<repository>:<tag> #为自定义的镜像打上tag。如：$docker tag hellopython followtry/demo:latest
     $docker push <username>/<repository>:<tag> #将自定义的镜像发布到仓库。如：docker push followtry/demo:latest
         上传后访问地址：https://cloud.docker.com/swarm/followtry/repository/docker/followtry/demo/general
-    $docker pull <username>/<repository> #pull自定义的上传上去的镜像。如：$docker pull followtry/demo
+    
     $docker create <image id> # 创建一个镜像的容器，未运行状态
-    $docker run username/repository:tag #创建并运行仓库的镜像，相当于 `docker create`和`docker start`两种操作
-    $docker run -i -t -h test-docker --name test registry-hulk.sankuai.com/sankuai/centos:6  /bin/bash #以shell 交互方式运行容器，并host 命名为 test-docker,容器命名为 test
+    
  
 ## 容器操作
     
@@ -63,6 +66,7 @@ description: 介绍Docker常用命令
     $docker port <containerid/container-name> #查看指定容器的端口映射
     $docker logs -f -t <containerid/container-name> #查看指定容器的操作日志信息并跟踪最新的日志。-t: 打印操作时间
     $docker top <containerid/container-name>  #查看容器的进程
+    $docker diff <containerid/container-name>  #查看对容器的改动情况
     $docker inspect <containerid/container-name> #检查容器的详细底层信息
     $docker rm <containerid/container-name> #删除容器,只能删除已停止运行的容器
     $docker attach <containerid/container-name> #将操作附着在刚启动的容器上
