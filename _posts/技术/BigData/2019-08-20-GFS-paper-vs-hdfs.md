@@ -9,7 +9,9 @@ description:
  
 {:toc}
 
-# 论文翻译
+# 论文及翻译
+
+[GFS原文Paper](//raw.githubusercontent.com/George5814/blog-pic/master/paper/gfs-sosp2003.pdf)
 
 [GFS 的中文翻译版本](https://blog.csdn.net/xuleicsu/article/details/526386)
 
