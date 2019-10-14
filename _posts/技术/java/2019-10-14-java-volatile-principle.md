@@ -83,4 +83,4 @@ volatile 是依赖于硬件层面的支持，即需要 CPU 的指定来实现。
 
 
 ## 参考文献
-> https://www.infoq.cn/article/ftf-java-volatile
+> <https://www.infoq.cn/article/ftf-java-volatile>
