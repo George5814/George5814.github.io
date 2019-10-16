@@ -5,6 +5,7 @@ category: 技术
 tags: BigData
 keywords: 
 description: 
+published: true
 ---
  
 {:toc}
@@ -326,6 +327,112 @@ master 的副本。是将 master 的日志和检查点数据复制到多个机�
 ### GFS 脑图
 
 ![GFS 脑图](//raw.githubusercontent.com/George5814/blog-pic/master/image/hdfs/GFS-record.png)
+
+
+## HDFS 
+
+[GFSPaper](//raw.githubusercontent.com/George5814/blog-pic/master/paper/hdfs-paper.pdf)
+
+### 架构
+
+#### NameNode
+
+HDFS的命名空间是文件和目录的层次结构。在 NameNode 上文件和目录用`inode`表示。
+`inode`记录了文件或目录的权限，修改时间，访问时间，命名空间和磁盘配额等。文件内容会被切分为非常大的块(128M)。每个块在多个 DateNode 上存在副本。
+
+NameNode 维护
+1. 命名空间树
+2. 文件块到 DateNode 的映射
+   
+**因为 NameNode 设计为单点，所以会存在单点故障。虽然后来 HDFS 的发展出现了联邦机制，但是联邦机制可以看成是多个 HDFS 集群联合对外提供读写服务。就类似于美国的联邦制，部分制度和权利归国家(HDFS 整个集群)所有，但每个州( HDFS 的小集群)都有自己互不干涉的独立的政治经济法律政策**
+
+**联邦机制实际上是通过联合多个 HDfS 集群的方式绕过了单个 HDFS 集群的 NameNode 的单点内存的限制。**
+
+
+NameNode 在重启的时候会通过读取命名空间和重放
+
+
+
+#### DataNode
+
+DataNode 上的每个块副本都是由本地原生文件系统的两个文件来表示
+1. 第一个文件包含数据自身
+2. 第二个文件是块的元数据。包括数据的 checksum和块的生成时间戳。
+
+数据文件的大小等于块的实际长度，并且不需要额外的空间来将其四舍五入到传统文件系统中的标称块大小。
+
+在 DataNode 启动并连接 NameNode 时会进行握手。握手的目的是校验`NameSpace Id`和 DateNode 的软件版本。对于不匹配的 DataNode 会自动停掉。
+
+`NameSpace Id`是在HDFS 格式化时，分配给文件系统的实例。该命名空间 Id 会一直持久化存在集群的每个节点上。命名空间 Id 不同的节点是不被允许加入到集群中的。
+
+软件版本的一致在 HDFS 中是很重要的，对于不兼容的软件版本可能会造成数据的丢失。在集群升级时，对于上千台机器的集群很容易忽视掉未升级版本的节点是否停掉。
+
+新的 DataNode 节点没有命名空间 Id 标识，并可以直接加入到集群中并获取到命名空间 ID。当 DataNode 通过握手注册到 NameNode 上后，它会持久化它的存储 ID(storage ID),该 ID 是 DataNode 的内部标识，即使该 DataNode 重启时更换了 IP 和端口也可以被识别。
+
+`NameSpace Id`: 是整个集群维度的唯一 ID。
+`storge Id`: 是 DateNode 节点的唯一 Id。
+
+DateNode 通过向 NameNode 发送块报告来标识自己所拥有的块副本。
+
+**该块报告包括: 块 ID，生成时间戳，每个块副本的长度。** 
+
+1. DataNode 注册后会立即发送块报告给 NameNode
+2. DateNode 会周期性的向 NameNode 发送心跳报告自己还活着和持有的块信息及存储信息(总的存储容量，已使用容量，当前并发数据传输量。用于 NameNode 分配和做负载均衡的决定)。默认周期 3s。
+   如果超过 10min 没有搜到 NameNode会认为 DataNode 节点已经离线。会将其上的块在其他 DataNode 上创建一个新副本。
+3. NameNode 通过心跳来想 DataNode 发送指令
+   1. 将块复制到其他节点
+   2. 移除本地的副本
+   3. 重新注册或关闭节点
+   4. 发送最近的块报告。
+
+#### HDFS Client
+
+客户端读取数据
+1. 客户端先联系 NameNode，获取包含文件的数据库的位置。
+2. 然后再从网络距离最近的读取数据。
+
+客户端写数据
+1. 客户端请求 NameNode 指定一组三个节点块。
+2. 然后客户端会以 Pipeline 的方式向三个 DateNode 的块写数据
+
+#### Image and Journal
+
+`Image` :inode数据和属于每个文件的块列表组成的命名系统的元数据。
+`checkinpoint`: 持久化存储在本地文件系统中的`Image`记录。
+`journal` : 由NameNode 将存储在本地文件系统中的`Image`的修改日志称为`journal`。是  write-ahead  方式写入
+
+为了提高可靠性，在其他节点上冗余`image`和`journal`的副本。
+
+对于每个客户端启动的事务，更改将记录在日志中，并且在更改提交并同步到 HDFS 的客户端之前刷新并同步日志文件。NameNode 永远不会更改 Checkinpoint文件。当在重启期间，被管理员或者checkinpoint节点访问checkinpoint 文件时，会用新创建的 checkinpoint 文件完全替换掉。在启动时 NameNode 会从 checkinpoint初始化 image 的命名空间，并且重放journal的更改知道达到最新状态。在 NameNode 开始为客户端服务时，会创建一个新的checkinpoint和空的journal并写回到存储系统中。
+
+
+如果 checkinpoint 或者journal丢失了，那么命名空间信息将会部分或全部丢失。为了应对该问题，HDFS 会配置将checkinpoint和journal存储在多个存储系统中，建议放在不同的卷上，并将一个副本放在 NFS 上。如果NameNode在将日志写入其中一个存储目录时遇到错误，则它会自动从存储目录列表中排除该目录。 如果没有可用的存储目录，NameNode会自动关闭。N
+
+ameNode是一个多线程系统，可以同时处理来自多个客户端的请求。 将事务保存到磁盘成为瓶颈，因为所有其他线程需要等待，直到其中一个启动的同步刷新和同步过程完成。 为了优化此过程，NameNode批处理由不同客户端发起的多个事务。 当其中一个NameNode的线程启动了刷新和同步操作时，那时批处理的所有事务都将一起提交。 剩余的线程只需要检查它们的事务是否已保存，并且不需要启动刷新和同步操作
+
+#### CheckinPointNode 
+
+NameNode 在扮演服务客户端的主要角色外，它还有CheckinPointNode和BackupNode两个角色。
+
+#### BackupNode 
+
+#### upgrades FileSystem Snapshots
+
+### 文件 IO 操作和副本管理
+
+#### 文件读写
+#### 块位置策略
+
+#### 副本管理
+
+#### 负载均衡
+
+#### 块扫描
+
+#### 解除委托(Decommissioing)
+
+
+#### 集群内复制
 
 
 # 参考文献

@@ -7,7 +7,12 @@ layout: base
   <div class="col-md-13 aside3-title">
     <br>
     <h2 id="#identifier">{{ page.title }}</h2>
-    <span style="display: block;margin-left: 40%"> {{ page.date | date:"%Y年%m月%d日" }}</span>
+    {% if page.date %}
+    <span style="display: block;margin-left: 40%"> 创建时间：{{ page.date | date:"%Y年%m月%d日" }}</span>
+    {% endif %}
+    {% if page.modify %}
+    <span style="display: block;margin-left: 40%"> 修改时间：{{ page.modify | date:"%Y年%m月%d日" }}</span>
+    {% endif %}
     <!--<span style="display: block;margin-left: 40%"> 当前文章共有{{ page.content |  size }}字</span>-->
     <div class="post-tags">标签：<span>{{ page.tags }}</span></div>
     <div class="post-desc"><span class="page-desc">摘要：</span><span class="page-description">{{ page.description }}</span></div>
@@ -16,11 +21,14 @@ layout: base
   {% include yunyinyue.html %}
   
   <div class="col-md-13 aside3-content">
+   <span > 提示：文章大约需要花费{{ content | reading_time | pluralize: "minute" }} 分钟读完</span>
     <hr>
     <div id="content">
-      {{ content }}
+      {{ page.content }}
     </div>
     <hr>
+    <div><span style="float: left;">上一篇: <a href="{{page.previous.url}}" target="_blank" style="display: inline-block;">{{page.previous.title}}</a></span>
+      <span style="float: right;">下一篇: <a href="{{page.next.url}}" target="_blank"  style="display: inline-block;">{{page.next.title}}</a></span></div>
     	<!--引入代码片段-->
     {% include changyan.html %}
   </div>

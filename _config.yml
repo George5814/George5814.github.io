@@ -1,8 +1,3 @@
-permalink: /:year-:month-:day/:title.html
-paginate: 20
-paginate_path: "page:num"
-# markdown: redcarpet
-
 # 作者信息
 author: 
   name: 荆中志
@@ -13,10 +8,61 @@ author:
   csdn: http://blog.csdn.net/kisssun0608
   linkedin: http://www.linkedin.com/in/jingzz
   qq: 1182696993
+  wx: jing5814
 
+#站点描述
+description: 疯狂小兵的博客
+# 文章生成地址
+destination: _deploy
+# 设置yaml 头信息的默认值
+default:
+# 设置编码
+encoding: UTF-8
+# 摘录分隔符
+excerpt_separator: "\n\n"
+highlighter: rouge
+kramdown:
+  auto_ids: true
+  input: GFM
+  extensions:
+    - autolink
+    - footnotes
+    - smart
+  syntax_highlighter: rouge
+
+#只重建修改过的 posts 和 pages
+incremental: false
+indextank_index: true
+indextank_api_url: true
+#生成文件索引
+lsi: false
+# markdown解析器
+markdown: kramdown
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+# 分页数量
+paginate: 20
+paginate_path: "page:num"
+# 插件
+plugins:
+    - jekyll-paginate
+    - jemoji
+    - jekyll-seo-tag
+    - liquid_reading_time
+# 端口号
+port:
+    4000
+#链接路径格式
+permalink: /:year-:month-:day/:title.html
+#生成一个Liquid概述文档来帮助你发现性能瓶颈
+profile: true
+tag_page_layout: tag_page
+tag_page_dir: tag
+theme: jekyll-theme-dinky
+# 设置时区
+timezone: null
 # 站点信息
 title: 疯狂小兵
-description: 疯狂小兵的博客
+# 地址
 url: http://followtry.cn
 rss_url: /pages/atom.xml
 
@@ -24,16 +70,8 @@ rss_url: /pages/atom.xml
 gavatar: /public/img/dog.png
 favicon: /public/img/dog.png
 
-# disqus 设置
-#disqus:
-#  shortname: jingzz
-
-#多说 设置 
-duoshuo:
-  shortname: jingzz
-
 # 主题设置，自动激活某个标签
-active: tags
+active: newest
 
 # 首页除了最新文章外显示分类
 cates: 
@@ -49,33 +87,8 @@ locals:
   bookMark: 书签
   BUG: BUG
 
-# markdown解析器
-markdown: kramdown
 
-highlighter: rouge
-
-kramdown:
-  input: GFM
-  extensions:
-    - autolink
-    - footnotes
-    - smart
-  syntax_highlighter: rouge
-  
-plugins:
-    [jekyll-paginate]
-
-# 端口号
-port:
-    4000
     
 #host:
 #    10.2.104.35
-    
 
-
-# 文章生成地址
-destination: _deploy
-
-#为相关文章生成索引
-#lsi: true
