@@ -2,7 +2,7 @@
 layout: post
 title: 红黑树笔记
 category: 技术
-tags:  JAVA
+tags:  java
 keywords: 
 description: 
 ---
