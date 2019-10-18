@@ -45,7 +45,6 @@ paginate_path: "page:num"
 # 插件
 plugins:
     - jekyll-paginate
-    - jemoji
     - jekyll-seo-tag
     - liquid_reading_time
 # 端口号
