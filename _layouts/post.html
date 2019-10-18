@@ -14,7 +14,10 @@ layout: base
     <span style="display: block;margin-left: 40%"> 修改时间：{{ page.modify | date:"%Y年%m月%d日" }}</span>
     {% endif %}
     <!--<span style="display: block;margin-left: 40%"> 当前文章共有{{ page.content |  size }}字</span>-->
-    <div class="post-tags">标签：<span>{{ page.tags }}</span></div>
+    <div class="post-tags">标签：<span>{{ page.tags | replace:' ','' }}</span></div>
+    <!-- {% for tag in page.tags %}
+    <div id="{{ tag }}" class="panel-collapse collapse" style="display: inline-block;">{{ tag }}</div>
+    {% endfor%} -->
     <div class="post-desc"><span class="page-desc">摘要：</span><span class="page-description">{{ page.description }}</span></div>
   </div>
   <!--引入云音乐代码-->
