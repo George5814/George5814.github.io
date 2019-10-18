@@ -26,8 +26,14 @@ layout: base
       {{ page.content }}
     </div>
     <hr>
-    <div><span style="float: left;">上一篇: <a href="{{page.previous.url}}" target="_blank" style="display: inline-block;">{{page.previous.title}}</a></span>
-      <span style="float: right;">下一篇: <a href="{{page.next.url}}" target="_blank"  style="display: inline-block;">{{page.next.title}}</a></span></div>
+    <div>
+      {% if page.previous.url %}
+      <span style="float: left;">上一篇: <a href="{{page.previous.url}}" target="_blank" style="display: inline-block;">{{page.previous.title}}</a></span>
+      {% endif %}
+      {% if page.next.url %}
+      <span style="float: right;">下一篇: <a href="{{page.next.url}}" target="_blank"  style="display: inline-block;">{{page.next.title}}</a></span>
+      {% endif %}
+    </div>
     	<!--引入代码片段-->
     {% include changyan.html %}
   </div>
