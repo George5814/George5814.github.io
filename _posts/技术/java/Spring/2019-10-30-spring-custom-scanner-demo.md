@@ -9,7 +9,9 @@ modify: 2019-10-30
 published: true
 ---
 
-## 创建自定义的注解类型
+## 自定义扫描器
+
+### 创建自定义的注解类型
 
 如创建注解`MyAnno`
 
@@ -29,8 +31,7 @@ public @interface MyAnno {
 
 如果想使用自定义的 value，必须使用`@AliasFor`指定注解为`@Component`,原因还是因为`ClassPathBeanDefinitionScanner`只会取`@Component`的 value 值。
 
-
-## 创建自定义的扫描器
+### 创建自定义的扫描器
 
 ```java
 public class CustomScanner extends ClassPathBeanDefinitionScanner {
@@ -54,7 +55,7 @@ public class CustomScanner extends ClassPathBeanDefinitionScanner {
 通过在构造方法中指定解析的注解来使得自定义的注解生效。通过`super.addIncludeFilter`方法将自定义注解添加进过滤器中。
 
 
-## 引用自定义的注解
+### 引用自定义的注解
 
 ```java
 package cn.followtry.boot.java.service;
@@ -66,7 +67,7 @@ public class MyService {
 
 创建一个测试类，并在该类上打上注解`@MyAnno`并为其 value 赋值。
 
-## 创建测试类
+### 创建测试类
 
 ```java
 package cn.followtry.boot.java.test;
@@ -121,6 +122,7 @@ bean name : my_first_test_scanner_service
 
 
 ###  依赖自定义的扫描器 `CustomScanner`
+
 ###  创建扫描器配置类
 
 配置类`ScannerConfiguration`实现接口 `BeanDefinitionRegistryPostProcessor`, `InitializingBean`, `ApplicationContextAware`, `BeanNameAware`。
