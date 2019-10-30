@@ -5,7 +5,7 @@ category: 技术
 tags:  Spring Java
 keywords: Spring Java genBeanName
 description: Bean 的名称生成过程
-modify: 2019-10-29
+modify: 2019-10-30
 published: true
 ---
 
@@ -24,16 +24,15 @@ published: true
 
 1. 先检查 Bean 的注解上是否有指定不为空字符的字符串名称。如果存在则直接使用指定的名称作为 bean 名称
 2. 如果没有指定名称，会调用`buildDefaultBeanName`方法取类的短名生成 Spring 标准的 bean 名称。
-3. 
-4. `buildDefaultBeanName`会调用`java.beans.Introspector#decapitalize`生成名称。
+3. `buildDefaultBeanName`会调用`java.beans.Introspector#decapitalize`生成名称。
 
 #### bean 名称生成规则
 
-bean 名称的生成主要是通过判断 bean 名称的第二个字符是否大写来决定的。
+bean 名称的生成主要是通过判断 bean 名称的**第二个字符是否大写**来决定的。
 
 1. 类的短名只有一个字符，则将该字符转为小写，作为 bean 的名称。
 2. 类的短名有多于一个字符，且**第1 和 2 个字符都大写**。则直接使用类的短名作为 bean 的名称。
-3. 类的短名有多于一个字符，第二个字符小写，则将类短名的首字母小写后作为 bean 的名称。
+3. 类的短名有多于一个字符，**第2个字符小写**，则将类短名的首字母小写后作为 bean 的名称。
 
 
 ### DefaultBeanNameGenerator
