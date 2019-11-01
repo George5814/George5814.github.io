@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring学习 - bean的名称的生成方式
+title: Spring源码学习 - bean的名称的生成方式
 category: 技术
 tags:  Spring Java
 keywords: Spring Java genBeanName
