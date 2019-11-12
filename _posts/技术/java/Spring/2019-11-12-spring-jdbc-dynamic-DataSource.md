@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring学习 - 1. 动态数据源
+title: Spring学习 - 自定义动态数据源
 category: 技术
 tags:  Spring Mysql Java
 keywords: 
