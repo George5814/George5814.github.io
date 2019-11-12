@@ -16,8 +16,6 @@ published: true
 
 ## 自定义实现动态数据源
 
-代码
-
 ```java
 //自定义实现方法`determineCurrentLookupKey`来确定当前lookupKey，通过该 key 找到配置的多个数据源中的目标数据源。
 public class DynamicDataSource extends AbstractRoutingDataSource {
