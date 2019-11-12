@@ -97,7 +97,7 @@ public class AnnotationReadMasterAdvice implements MethodBeforeAdvice, AfterRetu
         if (readMaster == null) {
             return;
         }
-        ZebraForceMasterHelper.clearLocalContext();
+        DynamicDataSourceHolder.clear();
     }
 }
 ```
