@@ -19,7 +19,7 @@ published: true
 代码
 
 ```java
-//自定义实现如何确定当前 DataSource 的查找 key，通过该 key 找到配置的多个数据源中的目标数据源。
+//自定义实现方法`determineCurrentLookupKey`来确定当前lookupKey，通过该 key 找到配置的多个数据源中的目标数据源。
 public class DynamicDataSource extends AbstractRoutingDataSource {
 
     private String defaultDataSourceKey;
@@ -28,8 +28,6 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
     protected Object determineCurrentLookupKey() {
         String dataSource = DynamicDataSourceHolder.get();
         String dataSourceKey = StringUtils.isNotEmpty(dataSource) ? dataSource : this.defaultDataSourceKey;
-        Cat.logEvent("DynamicDataSource", dataSourceKey);
-        JMonitor.add("DynamicDataSource." + dataSourceKey);
         return dataSourceKey;
     }
 
