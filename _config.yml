@@ -32,7 +32,7 @@ kramdown:
 
 # 端口号
 port:
-    4001
+    4000
 
 # gavatar头像及Favicon
 gavatar: /img/dog.jpg 
@@ -68,8 +68,7 @@ anchorjs: true                          # if you want to customize anchor. check
 
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
-plugins: [jekyll-paginate, jekyll-sitemap]
-# gems: [jekyll-sitemap]
+plugins: [jekyll-paginate]
 
 
 
