@@ -9,6 +9,7 @@ url: "http://followtry.cn"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/George5814/George5814.github.io" # you code repository
 
+
 #站点描述
 description: 疯狂小兵的博客
 # 文章生成地址
@@ -59,7 +60,9 @@ github_username:     George5814
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
-permalink: pretty
+permalink: /:year-:month-:day/:title.html
+#生成一个Liquid概述文档来帮助你发现性能瓶颈
+profile: true
 paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
