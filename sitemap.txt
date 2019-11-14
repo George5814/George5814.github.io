@@ -1,5 +1,10 @@
 ---
-title : Sitemap
+layout: post
+title: Sitemap
+category: 技术
+tags: Sitemap
+keywords: 
+description: 不定期更新
 ---
 
 {% for page in site.pages %}
