@@ -86,6 +86,22 @@ locals:
   bookMark: 书签
   BUG: BUG
 
+# Valine评论系统开关
+# Valine.
+# You can get your appid and appkey from https://leancloud.app
+# more info please open https://valine.js.org
+valine:
+  enable: true
+  appid:  HUdP3tMyFvHRaLPjcxMB0YMc-gzGzoHsz # your leancloud app id
+  appkey: 8oY2Yss0IyYqQFC0kAaDcQNv # your leancloud app key
+  notify: true # mail notifier , https://github.com/xCss/Valine/wiki
+  verify: true # Verification code
+  placeholder: 无需登录，可匿名在此处留言。# comment box placeholder
+  avatar: identicon  # gravatar style
+  guest_info: 昵称,邮件,网址 # custom comment header
+  pageSize: 10 # pagination size
+  #path: window.location.pathname
+
 
     
 #host:

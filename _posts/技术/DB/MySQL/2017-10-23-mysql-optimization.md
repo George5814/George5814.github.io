@@ -47,3 +47,14 @@ DB级别调优的影响因素
 ## 2.3 平衡便捷性和性能
 
 为了在便捷的Mysql程序中使用面向性能的Sql扩展，可以在“/*! */”注释分隔符包装Mysql的特定关键字。
+
+
+## 手段/方法
+
+### 查询表空洞
+
+表空洞：是指删除数据时，mysql 不会物理删除，而是会将数据和索引标记为删除。而会让清除线程来清除索引而导致数据失效但是仍然占用空间未释放给操作系统的现象。
+
+`SELECT DATA_LENGTH,DATA_FREE from information_schema.tables where table_schema='hotel_report' and table_name='deep_poi_bd_room_night'`
+
+可通过`optimize table`命令优化，但是InnoDB类型的表是无法使用`optimize table`命令
