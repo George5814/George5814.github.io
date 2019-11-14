@@ -1,56 +1,302 @@
 ---
-layout: base
+layout: default
 ---
 
-<a href="#" name="top" style="visibility: hidden;"></a>
-<div class="row" >
-  <div class="col-md-13 aside3-title">
-    <br>
-    <h2 id="#identifier">{{ page.title }}</h2>
-    {% if page.date %}
-    <span style="display: block;margin-left: 40%"> 创建时间：{{ page.date | date:"%Y年%m月%d日" }}</span>
+<!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')
+    }
+
+    {% if page.header-mask %}
+    header.intro-header .header-mask{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(0,0,0, {{ page.header-mask }});
+    }
     {% endif %}
-    {% if page.modify %}
-    <span style="display: block;margin-left: 40%"> 修改时间：{{ page.modify | date:"%Y年%m月%d日" }}</span>
-    {% endif %}
-    <!--<span style="display: block;margin-left: 40%"> 当前文章共有{{ page.content |  size }}字</span>-->
-    <div class="post-tags">标签：<span>{{ page.tags | replace:' ','' }}</span></div>
-    <!-- {% for tag in page.tags %}
-    <div id="{{ tag }}" class="panel-collapse collapse" style="display: inline-block;">{{ tag }}</div>
-    {% endfor%} -->
-    <div class="post-desc"><span class="page-desc">摘要：</span><span class="page-description">{{ page.description }}</span></div>
-  </div>
-  <!--引入云音乐代码-->
-  {% include yunyinyue.html %}
-  
-  <div class="col-md-13 aside3-content">
-    <hr>
-    <div id="content">
-      {{ page.content }}
+</style>
+<header class="intro-header" >
+    <div class="header-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        {% for tag in page.tags %}
+                        <a class="tag" href="{{ site.baseurl }}/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                    <h1>{{ page.title }}</h1>
+                    {% comment %}
+                        always create a h2 for keeping the margin , Hux
+                    {% endcomment %}
+                    {% comment %} if page.subtitle {% endcomment %}
+                    <h2 class="subheading">{{ page.subtitle }}</h2>
+                    {% comment %} endif {% endcomment %}
+                    <span class="meta">作者: {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} | {{ page.date | date: "%Y-%m-%d" }} | 阅读<span id="busuanzi_value_page_pv"></span> 次</span>
+                </div>
+            </div>
+        </div>
     </div>
-    <hr>
-    <div>
-      {% if page.previous.url %}
-      <span style="float: left;">上一篇: <a href="{{page.previous.url}}" target="_blank" style="display: inline-block;">{{page.previous.title}}</a></span>
-      {% endif %}
-      {% if page.next.url %}
-      <span style="float: right;">下一篇: <a href="{{page.next.url}}" target="_blank"  style="display: inline-block;">{{page.next.title}}</a></span>
-      {% endif %}
-    </div>
-    {% include pinglun.html %}
-  </div>
-  <!-- 目录 -->
-  <div id="content_table" >
-    <div class="panel panel-success" >
-      <div class="panel-body" id="nav" style="overflow: scroll;width: 100%;height: 600px"></div>
-    </div>
-  </div>
-  
-  <a href="#top" id="return-top" title="返回顶部" data-no-ajax="" style="display: block;">
-			<span class="fa fa-arrow-up fa-lg icon-pos"></span>
-		</a>
-		<!--自动推动链接到百度-->
-    {% include baiduzhanzhang.html %}
-</div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+		    
+		                 <!-- 文章编辑与Markdown源码 -->
+		                <div style="width: 170px;
+		                background-color:#fff;
+		                border: 1px solid #ddd;
+			        margin: 2px 0px 0px 3px;
+                                padding: 0px;
+		                border-radius: 6px 6px 6px 6px;
+		                -moz-border-radius: 6px 6px 6px 6px;
+		                -webkit-border-radius: 6px 6px 6px 6px;" text-align="center">
+		                <a href="//github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/blob/master/{{ page.path }}" target="_blank" title="编辑本文" >「编辑」</a>
+		                <a href="//raw.githubusercontent.com/{{ site.github_username }}/{{ site.github_username }}.github.io/master/{{ page.path }}" target="_blank" title="查看本文Markdown源码" >「本文源码」</a>
+		                </div>
+		    
+		                <!-- 在正文开头添加网易云音乐插件 -->
+		                <!-- cloud music -->
+                                {% if page.music-id %}
+                                   {% include cloud-music.html %}
+                                {% endif %} 
+		    		    
+		                <!-- cloud music full -->
+                                {% if page.music-idfull %}
+                                   {% include cloud-music-full.html %}
+                                {% endif %} 
+
+                                <!-- APlayer 音乐模块 -->
+                                {% if page.apsongid %}
+                                   {% include aplayer.html %}
+                                {% endif %} 
+		    
+				{{ content }}
+		    
+		                <!-- 版权声明 -->
+                                {% include copyright.html %}
+		    
+		                 <!-- 社交分享按钮 -->
+		                {% if site.post_share %}
+		                {% include share.html %}
+		                {% endif %}
+		    
+                <hr style="visibility: hidden;">
+
+                <ul class="pager">
+                    {% if page.previous.url %}
+                    <li class="previous">
+                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">
+                        上一篇<br>
+                        <span>{{page.previous.title}}</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if page.next.url %}
+                    <li class="next">
+                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">
+                        下一篇<br>
+                        <span>{{page.next.title}}</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+		<br>      <!-- 添加一行空行 -->
+
+		    
+	       <!-- 相关文章推荐 开始-->
+	       <div style="border: 1px solid #ddd;">
+	         {% for eachtag in site.tags %}
+	           {% if page.tags.first != eachtag.first %}
+	             {% continue %}
+	           {% endif %}
+	           <h4 align="left">&nbsp;&nbsp;相关文章：</h4>
+	           <ul>
+	          {% for post in eachtag.last offset: 0 limit: 5 %}
+	             <li>
+	               <a href="{{ post.url }}" target="_blank">{{ post.title }} <font color="brown">[{{ post.date | date: "%Y-%m-%d" }}]</font></a>
+	             </li>
+	           {% endfor %}
+	         </ul>
+	         {% endfor %}
+	       </div>
+	       <!-- 相关文章推荐 结束-->
+
+		    
+	       <!-- Valine 评论框 start -->
+	       {% if site.valine.enable %}
+                      {% include valine_comments.html %}
+               {% endif %}
+	       <!-- Valine 评论框 end -->
+		    
+		    
+                <!--Gitalk评论start  -->
+                {% if site.gitalk.enable %}
+                <!-- 引入Gitalk评论插件  -->
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+                <h4 align="left">「Github登录用户留言」：</h4>    
+                <div id="gitalk-container"></div>
+                <!-- 引入一个生产md5的js，用于对id值进行处理，防止其过长 -->
+                <!-- Thank DF:https://github.com/NSDingFan/NSDingFan.github.io/issues/3#issuecomment-407496538 -->
+                <script src="{{ site.baseurl }}/js/md5.min.js"></script>
+                <script type="text/javascript">
+                    var gitalk = new Gitalk({
+                    clientID: '{{site.gitalk.clientID}}',
+                    clientSecret: '{{site.gitalk.clientSecret}}',
+                    repo: '{{site.gitalk.repo}}',
+                    owner: '{{site.gitalk.owner}}',
+                    admin: ['{{site.gitalk.admin}}'],
+                    distractionFreeMode: {{site.gitalk.distractionFreeMode}},
+                    id: md5(location.pathname),
+                    });
+                    gitalk.render('gitalk-container');
+                </script>
+                {% endif %}
+                <!-- Gitalk end -->
+
+                {% if site.disqus_username %}
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                {% endif %}
 
 
+		    
+	       <!-- intensedebate 评论框 start -->
+	       {% if site.intensedebate_comments %}
+                      {% include intensedebate-comments.html %}
+               {% endif %}
+	       <!-- intensedebate 评论框 end -->
+		    
+            </div>  
+
+    <!-- Side Catalog Container -->
+        {% if page.catalog %}
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        {% endif %}
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                {% if site.featured-tags %}
+               hidden <section>
+                    <hr class="-sm hidden-xs">
+                    <h5><a href="/tags/" target="_blank">特色标签</a></h5>
+                    <div class="tags">
+                        {% for tag in site.tags %}
+                        <!--  if tag[1].size > {{site.featured-condition-size}}  -->
+                            {% if tag[1].size > 0 %}
+                				<a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}" target="_blank">
+                                    {{ tag[0] }}
+                                </a>
+                            {% endif %}
+        				{% endfor %}
+        			</div>
+                </section>
+                {% endif %}
+
+                <!-- Friends Blog -->
+                {% if site.friends %}
+                <hr>
+                <h5>友情链接</h5>
+                <ul class="list-inline">
+                    {% for friend in site.friends %}
+                        <li><a href="{{friend.href}}" target="_blank">{{friend.title}}</a></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</article>
+
+
+{% if site.disqus_username %}
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "{{site.disqus_username}}";
+    var disqus_identifier = "{{page.id}}";
+    var disqus_url = "{{site.url}}{{page.url}}";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+{% endif %}
+
+
+{% if site.anchorjs %}
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        // BY Fix:去除标题前的‘#’ issues:<https://github.com/qiubaiying/qiubaiying.github.io/issues/137>
+        // anchors.options = {
+        //   visible: 'always',
+        //   placement: 'right',
+        //   icon: '#'
+        // };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+{% endif %}

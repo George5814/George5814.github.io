@@ -1,15 +1,23 @@
 ---
-layout: post
-title: java各版本新特性
-category: 技术
-tags: Java
+layout: post   # 使用的布局（不需要改）
+title: java各版本新特性  # 标题 
+subtitle: java各版本新特性  #副标题
+date:  2019-10-12  # 时间
+author: followtry
+header-img: img/post-bg-universe.jpg 	#这篇文章标题背景图片
 keywords: 
 description: 描述整理从java8-java13各版本新特性
-published: true
+category: 技术
+istop: false            # 设为true可把文章设置为置顶文章
+music-id:         # 网易云音乐单曲嵌入
+music-idfull:         # 网易云音乐歌单嵌入
+apserver: netease    # 音乐平台netease/tencent/kugou/xiami/baidu
+aptype: playlist    # 音乐类型song/playlist/album/search/artist
+apsongid:         # 音乐song/playlist/album id
+tags: Java
+
 ---
 
-
-{:toc}
 
 ## java13
 

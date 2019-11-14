@@ -1,14 +1,13 @@
-# 作者信息
-author: 
-  name: 荆中志
-  email: zhongzhijing@126.com
-  link: http://followtry.cn/
-  weibo: http://weibo.com/jingzhongzhi
-  github: http://github.com/george5814
-  csdn: http://blog.csdn.net/kisssun0608
-  linkedin: http://www.linkedin.com/in/jingzz
-  qq: 1182696993
-  wx: jing5814
+# Site settings
+title: 疯狂小兵
+SEOTitle: 疯狂小兵博客 | followtry
+header-img: img/post-bg-rwd.jpg
+email: zhongzhijing@126.com
+description: "向往自由的小兵"
+keyword: "疯狂小兵,  followtry, jingzhongzhi, 亲吻昨日的阳光"
+url: "http://followtry.cn"          # your host, for absolute URL
+baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
+github_repo: "https://github.com/George5814/George5814.github.io" # you code repository
 
 #站点描述
 description: 疯狂小兵的博客
@@ -30,61 +29,69 @@ kramdown:
     - smart
   syntax_highlighter: rouge
 
-#只重建修改过的 posts 和 pages
-incremental: false
-indextank_index: true
-indextank_api_url: true
-#生成文件索引
-lsi: false
-# markdown解析器
-markdown: kramdown
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-# 分页数量
-paginate: 20
-paginate_path: "page:num"
-# 插件
-plugins:
-    - jekyll-paginate
-    - jekyll-seo-tag
-    - liquid_reading_time
+
 # 端口号
 port:
-    4000
-#链接路径格式
-permalink: /:year-:month-:day/:title.html
-#生成一个Liquid概述文档来帮助你发现性能瓶颈
-profile: true
-tag_page_layout: tag_page
-tag_page_dir: tag
-theme: jekyll-theme-dinky
-# 设置时区
-timezone: null
-# 站点信息
-title: 疯狂小兵
-# 地址
-url: http://followtry.cn
-rss_url: /pages/atom.xml
+    4001
 
 # gavatar头像及Favicon
-gavatar: /public/img/dog.png
-favicon: /public/img/dog.png
+gavatar: /img/dog.jpg 
+favicon: /img/dog.jpg 
 
-# 主题设置，自动激活某个标签
-active: tags
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "向往自由的小兵"
+sidebar-avatar: /img/dog.png      # use absolute URL, seeing it's used in both `/` and `/about/`
 
-# 首页除了最新文章外显示分类
-cates: 
-  - Optimization
-  - LaTeX
 
-# 中文本地化
-locals:
-  tags: 标签
-  about: 关于
-  newest: 最新文章
-  archive: 归档
-  bookMark: 书签
-  BUG: BUG
+
+# SNS settings
+RSS: true
+# weibo_username:     qiubaiying
+# zhihu_username:     qiubaiying
+github_username:     George5814
+# facebook_username:  baiying.qiu.7
+# jianshu_username:   e71990ada2fd
+#twitter_username:   qiubaiying
+
+
+
+
+# Build settings
+# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
+permalink: pretty
+paginate: 10
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+
+
+
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+plugins: [jekyll-paginate, jekyll-sitemap]
+# gems: [jekyll-sitemap]
+
+
+
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM                            # use Github Flavored Markdown !important
+
+
+
+# 评论系统
+# Disqus（https://disqus.com/）
+# disqus_username: qiubaiying
+
+
+# intensedebate评论系统开关
+intensedebate_comments: false
+
 
 # Valine评论系统开关
 # Valine.
@@ -92,18 +99,89 @@ locals:
 # more info please open https://valine.js.org
 valine:
   enable: true
-  appid:  HUdP3tMyFvHRaLPjcxMB0YMc-gzGzoHsz # your leancloud app id
-  appkey: 8oY2Yss0IyYqQFC0kAaDcQNv # your leancloud app key
+  appid:  HUdP3tMyFvHRaLPjcxMB0YMc-gzGzoHsz
+  appkey: 8oY2Yss0IyYqQFC0kAaDcQNv
   notify: true # mail notifier , https://github.com/xCss/Valine/wiki
   verify: true # Verification code
-  placeholder: 无需登录，可匿名在此处留言。# comment box placeholder
-  avatar: identicon  # gravatar style
+  placeholder: 游客无需登录，可匿名在此处留言。 # comment box placeholder
+  avatar:   # gravatar style
   guest_info: 昵称,邮件,网址 # custom comment header
   pageSize: 10 # pagination size
-  #path: window.location.pathname
+  # path: window.location.pathname
+
+# Gitalk
+gitalk:
+  enable: true    #是否开启Gitalk评论
+  clientID: 64c83ea01252947f35c0                            #生成的clientID
+  clientSecret: cce4747b4ced0435c3e75f45b75a3fc23317b797    #生成的clientSecret
+  repo: George5814.github.io    #仓库名称
+  owner: George5814    #github用户名
+  admin: George5814
+  id: window.location.pathname   #页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
+  distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
-    
-#host:
-#    10.2.104.35
+# 统计
+
+# Analytics settings
+# Baidu Analytics
+ba_track_id: 6b745afaf4056010d2a874cb474bfedf
+
+# Google Analytics
+# ga_track_id: 'UA-148055118-1'            # Format: UA-xxxxxx-xx
+# ga_domain: auto               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
+
+
+
+
+
+# Featured Tags
+featured-tags: true                     # 是否使用首页标签
+featured-condition-size: 0              # 相同标签数量大于这个数，才会出现在首页
+
+
+
+# Progressive Web Apps
+chrome-tab-theme-color: "#000000"
+service-worker: true
+
+
+
+# Friends
+friends: [
+    {
+        title: "优源站点",
+        href: "https://duter2016.github.io"
+    },{
+        title: "罗莎之鹰",
+        href: "https://yelonhimx.wang"
+    },{
+        title: "图片压缩",
+        href: "https://compressjpeg.com/zh/"
+    },{
+        title: "Valine评论",
+        href: "https://duter2016.avosapps.us/"
+    },{
+        title: "Leancloud",
+        href: "https://console.leancloud.app/"
+    }
+]
+
+
+
+
+# Jekyll-Search settings 
+# 是否启用jekyll博客搜索插件
+# url: https://github.com/androiddevelop/jekyll-search
+Jekyll-Search: true
+
+
+
+# lightbox 图片预览插件
+lightbox: true
+
+
+
+ # Share社交分享按钮开关
+post_share: true
 

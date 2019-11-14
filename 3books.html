@@ -1,0 +1,360 @@
+---
+title: 书单
+layout: default
+permalink: /books/
+description: 读万卷书，行万里路
+header-img: "img/post-bg-coffee.jpeg"
+---
+
+<!-- Page Header -->
+<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading" id="tag-heading">
+                    <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+                    <span class="subheading">{{ page.description }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<style>
+.hexo-douban-tabs {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.hexo-douban-tab {
+    padding: 5px;
+}
+
+.hexo-douban-active {
+    background: #657b83;
+    color: #fff;
+}
+
+.hexo-douban-active:hover{
+    background: #657b83;
+    color: red;
+}
+
+.hexo-douban-item {
+    padding-bottom: 10px;
+    position: relative;
+    clear: both;
+    min-height: 170px;
+    padding: 10px 0;
+    border-bottom: 1px #ddd solid;
+}
+
+@media screen and (max-width: 600px) {
+    .hexo-douban-item {
+        width: 100%;
+    }
+}
+
+.hexo-douban-picture {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 100px;
+}
+
+.hexo-douban-info {
+    padding-left: 120px;
+}
+
+.hexo-douban-meta {
+    font-size: 12px;
+    padding-right: 10px;
+}
+
+.hexo-douban-comments {
+    font-size: 12px;
+}
+
+.hexo-douban-pagination {
+    margin-top: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.hexo-douban-button {
+    padding: 5px;
+}
+
+.hexo-douban-button:hover {
+    background: #657b83;
+    color: #fff;
+}
+
+.hexo-douban-hide {
+    display: none;
+}
+
+.hexo-douban-show {
+    display: block;
+}
+
+.hexo-douban-picture img{
+    width:92px;
+    height:131px
+}
+</style>
+</header>
+
+<!-- Main Content start-->
+<div class="container">
+<!--
+<h1>这里是我的书籍清单</h1>
+-->
+<blockquote>
+    <p>{{ site.data.bookstj.booknote }}</p>
+</blockquote>
+
+<div class="hexo-douban-tabs">
+    <a class="hexo-douban-tab" id="hexo-douban-tab1" href="javascript:;" rel="external">
+        在读
+        ({{ site.data.bookstj.zdnum }})</a>
+    <a class="hexo-douban-tab" id="hexo-douban-tab2" href="javascript:;" rel="external">
+        想读
+        ({{ site.data.bookstj.xdnum }})</a>
+    <a class="hexo-douban-tab" id="hexo-douban-tab3" href="javascript:;" rel="external">
+        已读
+        ({{ site.data.bookstj.ydnum }})</a>
+</div>
+
+<div>
+  <!--      在读 start      -->
+  <div id="hexo-douban-item1">
+    <!-- 在读000开始 -->
+    {% for book in site.data.bookszd %}
+    <div class="hexo-douban-item">
+      <div class="hexo-douban-picture"><img src="{{ book.bookimg }}" data-src="{{ book.bookimg }}" referrerpolicy="no-referrer"></div>
+      <div class="hexo-douban-info">
+          <div class="hexo-douban-title"><a target="_blank" href="{{ book.doubanurl }}"> {{ book.name }}</a></div>
+          <div class="hexo-douban-meta">
+            {{ book.author }} | {{ book.translator }}译 | {{ book.press }} | {{ book.publishdate }} | {{ book.price }}
+          </div>
+          <div class="hexo-douban-meta">{{ book.readdate }} 在读 | {{ book.booktag }}</div>
+          <div class="hexo-douban-comments"></div>
+      </div>
+    </div>
+    {% endfor %}
+    <!-- 在读000结束 -->
+    
+    <!-- 分页 开始 -->
+    <div class="hexo-douban-pagination">
+      <a class="hexo-douban-button hexo-douban-firstpage" href="javascript:;"> 首页</a>
+      <a class="hexo-douban-button hexo-douban-previouspage" href="javascript:;">上一页</a>
+      <span class="hexo-douban-pagenum">2 / 3</span>
+      <a class="hexo-douban-button hexo-douban-nextpage" href="javascript:;">下一页</a>
+      <a class="hexo-douban-button hexo-douban-lastpage" href="javascript:;">尾页</a>
+    </div>
+    <!-- 分页 结束 -->
+    
+  </div>
+  <!--      在读 end      -->
+
+
+  <!-- 想读 start -->
+  <div id="hexo-douban-item2">
+    <!-- 想读000开始 -->
+    {% for book in site.data.booksxd %}
+    <div class="hexo-douban-item">
+      <div class="hexo-douban-picture"><img src="{{ book.bookimg }}" data-src="{{ book.bookimg }}" referrerpolicy="no-referrer"></div>
+      <div class="hexo-douban-info">
+          <div class="hexo-douban-title"><a target="_blank" href="{{ book.doubanurl }}"> {{ book.name }}</a></div>
+          <div class="hexo-douban-meta">
+            {{ book.author }} | {{ book.translator }}译 | {{ book.press }} | {{ book.publishdate }} | {{ book.price }}
+          </div>
+          <div class="hexo-douban-meta">{{ book.readdate }} 想读 | {{ book.booktag }}</div>
+          <div class="hexo-douban-comments"></div>
+      </div>
+    </div>
+    {% endfor %}
+    <!-- 想读000结束 -->
+    
+    <!-- 分页 开始 -->
+    <div class="hexo-douban-pagination">
+      <a class="hexo-douban-button hexo-douban-firstpage" href="javascript:;"> 首页</a>
+      <a class="hexo-douban-button hexo-douban-previouspage" href="javascript:;">上一页</a>
+      <span class="hexo-douban-pagenum">2 / 3</span>
+      <a class="hexo-douban-button hexo-douban-nextpage" href="javascript:;">下一页</a>
+      <a class="hexo-douban-button hexo-douban-lastpage" href="javascript:;">尾页</a>
+    </div>
+    <!-- 分页 结束 -->
+    
+  </div>
+  <!--      想读 end      -->
+
+
+  <!--      已读 start      -->
+  <div id="hexo-douban-item3">
+    <!-- 已读000开始 -->
+    {% for book in site.data.booksyd %}
+    <div class="hexo-douban-item">
+      <div class="hexo-douban-picture"><img src="{{ book.bookimg }}" data-src="{{ book.bookimg }}" referrerpolicy="no-referrer"></div>
+      <div class="hexo-douban-info">
+          <div class="hexo-douban-title"><a target="_blank" href="{{ book.doubanurl }}"> {{ book.name }}</a></div>
+          <div class="hexo-douban-meta">
+            {{ book.author }} | {{ book.translator }}译 | {{ book.press }} | {{ book.publishdate }} | {{ book.price }}
+          </div>
+          <div class="hexo-douban-meta">{{ book.readdate }}
+            读过 | {{ book.booktag }} | {{ book.stars }} {{ book.rate }}</div>
+          <div class="hexo-douban-comments">我的书评：{{ book.review }}</div>
+      </div>
+    </div>
+    {% endfor %}
+    <!-- 已读000结束 -->
+    
+    <!-- 分页 开始 -->
+    <div class="hexo-douban-pagination">
+      <a class="hexo-douban-button hexo-douban-firstpage" href="javascript:;"> 首页</a>
+      <a class="hexo-douban-button hexo-douban-previouspage" href="javascript:;">上一页</a>
+      <span class="hexo-douban-pagenum">2 / 3</span>
+      <a class="hexo-douban-button hexo-douban-nextpage" href="javascript:;">下一页</a>
+      <a class="hexo-douban-button hexo-douban-lastpage" href="javascript:;">尾页</a>
+    </div>
+    <!-- 分页 结束 -->
+    
+  </div>
+  <!--      已读 end      -->
+
+</div>
+
+    <!-- 书单统计 开始 -->
+    <div align="center">
+    在读书单共 <script language="JavaScript">
+    var numitem1 = document.getElementById('hexo-douban-item1').getElementsByClassName('hexo-douban-item').length;
+    document.write(numitem1)
+</script> 本；
+    想读书单共 <script language="JavaScript">
+    var numitem2 = document.getElementById('hexo-douban-item2').getElementsByClassName('hexo-douban-item').length;
+    document.write(numitem2)
+</script> 本；
+    已读书单共 <script language="JavaScript">
+    var numitem3 = document.getElementById('hexo-douban-item3').getElementsByClassName('hexo-douban-item').length;
+    document.write(numitem3)
+</script> 本
+    </div>
+    <!-- 书单统计 结束 -->
+
+</div>
+<!-- Main Content end-->
+
+
+<!-- 标签切换脚本 -->
+<script>
+    /**
+ * Created by myths on 18-2-8.
+ */
+
+Element.prototype.siblings = function () {
+    var siblingElement = [];
+    var sibs = this.parentNode.children;
+    for (var i = 0; i < sibs.length; i++) {
+        if (sibs[i] !== this) {
+            siblingElement.push(sibs[i]);
+        }
+    }
+    return siblingElement;
+};
+function tabClick() {
+    //修改标签样式
+    this.classList.add('hexo-douban-active');
+    var sibs = this.siblings();
+    for (var j = 0; j < sibs.length; j++) {
+        sibs[j].classList.remove('hexo-douban-active');
+    }
+    //显示对应板块
+    var itemId = this.id.replace('tab', 'item');
+    var target = document.getElementById(itemId);
+    target.classList.remove('hexo-douban-hide');
+    target.classList.add('hexo-douban-show');
+    sibs = document.getElementById(itemId).siblings();
+    for (var k = 0; k < sibs.length; k++) {
+        sibs[k].classList.remove('hexo-douban-show');
+        sibs[k].classList.add('hexo-douban-hide');
+    }
+}
+var tabs = document.getElementsByClassName("hexo-douban-tab");
+for (var i = 0; i < tabs.length; i++) {
+    tabs[i].onclick = tabClick;
+    tabs[i].onclick.apply(tabs[i]);
+}
+tabs[2].click();
+
+    var firstpages = document.getElementsByClassName("hexo-douban-firstpage");
+var previouspages = document.getElementsByClassName("hexo-douban-previouspage");
+var nextpages = document.getElementsByClassName("hexo-douban-nextpage");
+var lastpages = document.getElementsByClassName("hexo-douban-lastpage");
+var pagenums = document.getElementsByClassName("hexo-douban-pagenum");
+
+function makePageNum(num, arr) {
+    return (num + 1) + ' / ' + (Math.ceil(arr.length / 10 === 0 ? 1 : Math.ceil(arr.length / 10)));
+}
+
+function firstBtn() {
+    var sibs = this.parentNode.siblings();
+    displayPage(sibs, 0);
+    this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText = makePageNum(0, sibs);
+}
+
+function previousBtn() {
+    var sibs = this.parentNode.siblings();
+    var currNum = this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText;
+    currNum = currNum.substr(0, currNum.indexOf('/') - 1);
+    currNum = parseInt(currNum, 10) - 1;
+    if (currNum > 0) {
+        currNum--;
+    }
+    displayPage(sibs, currNum);
+    this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText = makePageNum(currNum, sibs);
+}
+
+function nextBtn() {
+    var sibs = this.parentNode.siblings();
+    var currNum = this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText;
+    currNum = currNum.substr(0, currNum.indexOf('/') - 1);
+    currNum = parseInt(currNum, 10) - 1;
+    if (currNum < Math.ceil(sibs.length / 10) - 1) {
+        currNum++;
+    }
+    displayPage(sibs, currNum);
+    this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText = makePageNum(currNum, sibs);
+}
+
+function lastBtn() {
+    var sibs = this.parentNode.siblings();
+    displayPage(sibs, Math.ceil(sibs.length / 10) - 1);
+    this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText = makePageNum(Math.ceil(sibs.length / 10) - 1 === -1 ? 0 : Math.ceil(sibs.length / 10) - 1, sibs);
+}
+
+function displayPage(arr, num) {
+    for (var i = 0; i < arr.length; i++) {
+        if (Math.floor(i / 10) === num) {
+            arr[i].classList.remove('hexo-douban-hide');
+            var img = arr[i].getElementsByTagName('img')[0];
+            img.src = img.getAttribute('data-src');
+        } else {
+            arr[i].classList.add('hexo-douban-hide');
+        }
+    }
+}
+
+for (var i = 0; i < firstpages.length; i++) {
+
+    //add listener
+    firstpages[i].onclick = firstBtn;
+    previouspages[i].onclick = previousBtn;
+    nextpages[i].onclick = nextBtn;
+    lastpages[i].onclick = lastBtn;
+
+    //set page num
+    var size = pagenums[i].parentNode.siblings().length;
+    pagenums[i].innerText = '1 / ' + (Math.ceil(size / 10) === 0 ? 1 : Math.ceil(size / 10));
+    firstpages[i].click();
+}
+</script>
+

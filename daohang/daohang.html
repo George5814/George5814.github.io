@@ -1,0 +1,3017 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<!--头部信息-->
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!--title keywords description 请改为自己的-->
+<title>优源导航 - 个人导航站</title>
+<meta name="keywords" content="优源,导航,网址"/>
+<meta name="description" content="个人导航站"/>
+
+<!--网站favicon可以没有或者改为自己的-->
+<link rel="shortcut icon" type="image/x-icon" href="http://followtry.cn/img/favicon.ico"/>
+
+<!--CSS 若不需要变动样式不用改-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/zui/1.8.1/css/zui.min.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+ul {
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+a:hover,a:active,a:focus {
+    text-decoration: none;
+}
+body {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEcAAABKBAMAAAAbAFTyAAAAHlBMVEXg5drd49bf49fd5tng5dji59vc4tTd5dfg59rb4NKv4T8FAAAHTElEQVQYGSXAQXPbxhUH8E3LTHX0Q9Bd42ZyUDO5pa3Hcm4L6i8+8KbpiFMevSq9Em5eeMsn3pgaEjc30cMBjW9bOfmpZo1J5SZj4ySfymQ674EJl5wzECJDFr1VfSNBEzkiI66aoOETt5JJHiRWkzLy8Pik3i9uc9LOO0/ktFmcVk1k0pooZBPKysWxe1Lpuq+89tpr7yjkzX1dneakiTSRI4ehq61KdrF+7bR3pLUOekjprGl1MJ7G7ditF18+1zuVRr/2ldPeO639uviK1P3yZaPH2riWKB/qlKzaXafmVpN/Rn4ydGmU9kPcBO1kbOLmeJXSTtmEeb/xnpzX6+b4TqUai6+BzJiI1s39Q0o7ZXdA45x22unQAynZOBtCWwnFbH5aPaSklE3gt4eNc47c9g5IqauxOHEmInlxn5Yp7ZQdARg23pGjoQNQpwT0s6wMeXW6TquUdipdzyIvek3km2N8w+g6IP2UkzH59mVC6uqdsqMoEhuaEg1AB+AMALsxxcdDhy7V2KkIMSKbU6uLI3cMBjpwrTMqF2sAe8AqcDQtla4KA55FAP8DM9+UswPjd1YhzEwIssnnx2twiT+w1T8ujviDVajGRqTl9bYGwIxnHCPmd02HnCMirIJoMhLK7SntARYAjClwvl0DEQzAKoQQJEq+OHXnkBIcIWAAxQdmAAK2ioMxImF/aOqawUCEQIDvjocuQ4xgWAUZGzFx++FxDURmQWREpOJyHmcAA2IVVxsjgn6VmggGi2EA8d/H1fUNficflVRkRLbr61TdAhwZgoh6+7fVcl6D8cyqT2+yaUDzUK/OPIMZiCaiOy6Xq+62EzDDqhwUeX6XlquHX3NwjEAJzC+Xz+Y24oJhFYA2X9SjM5x1h30AwBxr97BcLq/+dZzlAKxCFB3cBbh9gyIaAc9EXt91SzxrcA+cWwWw2a4FM4DnX1jiCBz95RlGNfDLURiwysYgfQlgzoIhjwDi5kOqdyM1irvhIkZYdYE4X6OKXLFgfoqIuPf/7eqVsund5eI/DFgFRg+uTIyQ2ZsmArz/uqvrXaq7B3zuE2BVifkaMsum7Xmc3c/XXay3LxWA2o7sqF7cA1ZVdW9FTBwL50HgP8d9330cATUABRwYOyXzr52IhFbGRvh+I3Gbi4y4nAFQiIWp36vbogaNA7W5DmYa4fc9xPw95xiBT4TZ7eOT8jkqGhORo0AURRfrChJMJYFiMNxWzSu1eFFW5EmTpxsKmfnHMKrKyggFishkTL/1Sg0nDtqT184RbW7KbZ9XmgxlFCTLyJimf6EODUh757V3mvRtN3BfBSLvKOTjjNahf3xS949fxlp778l7528Xx65xG+c9EWVEel0c8aQ+q2biv9FOey3Dj0C/cZ4cURiT1sMIVv15t/jiv9Fea784Xilb3PjNWFMWxi4vnrraKtV1Q9DOf6Nvm3qn7NvDfDMmymaawpBwZpUd4aeD9o3/Ztt3GHE3GK29J+9dceosPip7hvmg+8H13h+aGwF4VvTeO6+d90P8Gfiofk6Mpvdee+ebPuJZnA3ekffOFSf8zLAqJub5oP03zcspGIhYHEhrcjTgAiNYFc8E3PhvNoduygJE8ECetCuOHStYqyxayKb3cuuaOxHhiFLiTwfyRMMngQKssm9QiTRkbjd9LWJEwCI8aO+KA8B/ydmqEp8qMcVJ3PYoIvlMIAix8M416zibBhNfKczEBDL9JgxJxBDitAVJ+OK2h0BCIbSvVBlKITLaLb7uRYjanCYiJi+OxdrkIbBULxQCBUeafVMLSyDJA1EwEz70rTFimOJHVYqQI222p3QehUTIBHIVm+JIMhYTppVVP5CRaSBTHN78EzIVCjlFMzPSnFgzCQXzSl2EcZCgN6ftD5EjUxbaYEKbz48N37AhQ/RCQSp6VtzvT51IqMjESgxVA+ZHQxIqEz6qGMgEqvqUCnlmgpFMgvnteN35CxNkjGiVgAyZ4sPn9N2tiJiQUWZC2Vxeq/nakAhnL5TMxvlY+lSnyyLmIjkCGTN/unq46vqKhMzEqnz2OpsWd90yLX/NWaQFuSzXl1fL66t5Hsw0TKyS2TiQT/USabW5JwlEJoT1crlcXV8fWjML7SsVZ0YWd6lOqNPjV5YQxiYWl98vl0t1tridtmX7StlAua/RpYQu9d258NjIerlcrh6u8LmHAV4pcKjer+qUANSPubyRab75a/f98mo5Gl0WeVZlVvF5fF2nrq5R33fXznKU6NTZw3KZ0oPd9xW3VpUX1XqFDkBCdzl/gXixuBvVNqV0pUbvijLCKsa2xjexwzMH7JvOqhGsUrW6/9MNoBTvjx1DAK7AqOfA27v9JwBTWFhAMz6qfPFyKogVUJWMd91t11zyp/PIBkAE9jme1OkGZZxGbiNi5Hd2U62ByJEl4lmNbPNeFS8ZmE6nImLAKL8b8KycQtDGGIH5YaeaNYjcZExkIgVM3/ZAyRnHimOcTKMsevt/Bv83PPeDrzYAAAAASUVORK5CYII=);
+    background-repeat:repeat;
+    background-attachment:fixed;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+i.icon,i.fa {
+    margin-right: 6px
+}
+.col, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+    padding: 0px 5px;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    height: 50px;
+    background: #FFF;
+}
+header .logo {
+    font-size: 20px;
+    height: 50px;
+    margin: 0;
+    font-weight: 400;
+    position: relative;
+    z-index: 99;
+    border-bottom: 1px solid #e8e8e8;
+    background: #FFF;
+    text-align:center;
+}
+header .main {
+    position: relative;
+}
+header .nav {
+    width: 100%;
+    margin-left: 25px;
+    background: #FFF;
+    margin: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+ /* Firefox 4 */
+    -webkit-transition: all 0.4s ease;
+ /* Safari  Chrome */
+    -o-transition: all 0.4s ease;
+ /* Opera */
+    position: absolute;
+    top: -300px;
+    left: 0;
+}
+header .showNav {
+    top: 50px;
+    box-shadow: 0 5px 5px rgba(204,204,204,.15);
+    -moz-box-shadow: 0 5px 5px rgba(204,204,204,.15);
+}
+header .nav li {
+    font-size: 16px;
+}
+header .nav a {
+    display: block;
+    line-height: 40px;
+    font-size: 16px;
+    color: #959595;
+    padding: 0 25px;
+    border-bottom: 1px solid #f5f5f5;
+}
+header .nav a:hover {
+    border-color: #459df5;
+    color: #459df5;
+}
+header .head-btn {
+    float: right;
+    line-height: 60px;
+}
+header .head-btn a {
+    margin-left: 5px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #f5f5f5;
+    color: #03b8cf;
+    border: 1px solid #e5e5e5;
+    transition: all .2s;
+    -moz-transition: all .2s;
+ /* Firefox 4 */
+    -webkit-transition: all .2s;
+ /* Safari Chrome */
+    -o-transition: all .2s;
+ /* Opera */
+}
+header .head-btn a:hover {
+    background: #03b8cf;
+    color: #FFF;
+    border: 1px solid #03b8cf;
+}
+header .head-btn a>i {
+    margin-right: 0px;
+    font-size: 15px;
+}
+header .nav-btn {
+    position: fixed;
+    border: none;
+    background: transparent;
+    top: 0;
+    left: 10px;
+    outline: 0;
+    margin-top: 10px;
+    z-index: 100
+}
+header .nav-btn {
+    left: inherit;
+    right: 10px;
+}
+header .nav-btn .icon-line {
+    display: block;
+    margin: 6px 0;
+    width: 25px;
+    height: 2px;
+    background: #999;
+    cursor: pointer;
+    transition: all .4s ease;
+    -moz-transition: all .4s ease;
+ /* Firefox 4 */
+    -webkit-transition: all .4s ease;
+ /* Safari  Chrome */
+    -o-transition: all .4s ease;
+ /* Opera */
+}
+header .nav-btn .middle {
+    margin: 0 auto;
+}
+header .animated2 .top {
+    transform: translateY(8px) rotateZ(45deg);
+    -ms-transform: translateY(8px) rotateZ(45deg);
+   /* IE 9 */
+    -moz-transform: translateY(8px) rotateZ(45deg);
+   /* Firefox */
+    -webkit-transform: translateY(8px) rotateZ(45deg);
+ /* Safari  Chrome */
+    -o-transform: translateY(8px) rotateZ(45deg);
+   /* Opera */
+}
+header .animated2 .middle {
+    width: 0;
+}
+header .animated2 .bottom {
+    transform: translateY(-8px) rotateZ(-45deg);
+    -ms-transform: translateY(-8px) rotateZ(-45deg);
+   /* IE 9 */
+    -moz-transform: translateY(-8px) rotateZ(-45deg);
+   /* Firefox */
+    -webkit-transform: translateY(-8px) rotateZ(-45deg);
+ /* Safari Chrome */
+    -o-transform: translateY(-8px) rotateZ(-45deg);
+   /* Opera */
+}
+.left-bar {
+    position: fixed;
+    top: 50px;
+    left: -240px;
+    width: 200px;
+    max-width: 100%;
+    height: 100%;
+    background: #353535;
+    z-index: 12;
+    transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+ /* Firefox 4 */
+    -webkit-transition: all 0.4s ease;
+ /* Safari  Chrome */
+    -o-transition: all 0.4s ease;
+ /* Opera */
+    transform: translateZ(0);
+    -ms-transform: translateZ(0);
+   /* IE 9 */
+    -moz-transform: translateZ(0);
+   /* Firefox */
+    -webkit-transform: translateZ(0);
+ /* Safari  Chrome */
+    -o-transform: translateZ(0);
+   /* Opera */
+}
+.left-bar .header {
+    padding: 0px 15px;
+    border-bottom: 1px solid #464646;
+}
+.left-bar .header h2 {
+    font-size: 17px;
+    line-height: 40px;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0;
+    font-weight: 400;
+    display: block;
+    color: #ccc;
+}
+.left-bar .menu {
+    height: 450px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #424242
+}
+.left-bar .menu ul li a {
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+    color: #777;
+    padding-left: 38px;
+}
+.scrollcontent {
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding-right: 4px;
+    padding-top: 5px
+}
+.left-bar .menu ul li a:hover {
+    background: #f5f5f5
+}
+.left-bar .menu ul li i.fa {
+    width: 15px;
+    text-align: center;
+    margin-right: 20px
+}
+.left-bar .tree li.open > ul::-webkit-scrollbar {
+    width: 3px;
+    margin-right: 2px
+}
+.menu-about p {
+    font-size: 12px;
+    color: #ccc;
+    text-align: center;
+}
+#content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+#content > .Off-left-menu {
+    display: none;
+}
+#content > div.center-main {
+    margin: 0 auto;
+}
+.sousuo {
+    padding: 35px 0;
+}
+.search {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+.search-box {
+    height: 50px;
+  /*box-shadow: 0px 0px 2px 0px #ccc;*/
+    border-radius: 10px;
+    overflow: hidden;
+    display: -webkit-flex;
+ /* Safari */
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #e6e6e6
+}
+.search-engine-name {
+    width: 69px;
+    height: 50px;
+    background: #16C0F8;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    outline: none;
+}
+.search-input {
+    box-sizing: border-box;
+    flex: 1;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    color: #999;
+    border: none;
+    outline: none;
+    padding-left: 6px;
+}
+input::-webkit-input-placeholder {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #ccc;
+}
+.search-btn {
+    width: 80px;
+    height: 50px;
+    background: #16C0F8;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    outline: none;
+}
+.search-engine {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #FFF;
+    padding: 15px 0 0 15px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 20px 0px #d8d7d7;
+    transition: all 0.3s;
+    display: none;
+    z-index: 999
+}
+.search-engine-head {
+    overflow: hidden;
+    margin-bottom: 10px;
+    padding-right: 15px;
+}
+.search-engine-tit {
+    float: left;
+    margin: 0;
+    font-size: 14px;
+    color: #999;
+}
+.search-engine ul::before {
+    content: '';
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: -15px;
+    border-top: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #fff;
+    border-left: 8px solid transparent;
+}
+.search-engine-list::after {
+    content: '';
+    width: 70px;
+    height: 18px;
+    position: absolute;
+    top: -17px;
+    left: 1px;
+}
+.search-engine-list li {
+    float: left;
+    width: 30%;
+    line-height: 30px;
+    font-size: 14px;
+    padding: 5px 10px 5px 10px;
+    margin: 0 10px 10px 0;
+    background: #f9f9f9;
+    color: #999;
+    cursor: pointer
+}
+.search-engine-list li img {
+    width: 25px;
+    height: 25px;
+    border-radius: 15px;
+    float: left;
+    margin-right: 5px;
+    margin-top: 2.5px;
+}
+#content .content-box {
+    padding-top: 51px
+}
+.content-box {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+.item {
+    width: 100%;
+}
+.item > .container-fluid {
+    padding-top: 0;
+    margin-top: 0;
+}
+.item > .container-fluid .row {
+    padding: 10px 5px;
+}
+.item-tit > strong {
+    color: #999;
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+.item-tit > strong > i {
+    margin-right: 5px;
+    font-size: 18px;
+}
+.card-link {
+    display: block;
+    padding: 10px 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    background: #fff;
+    transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+ /* Firefox 4 */
+    -webkit-transition: all 0.2s ease-out;
+ /* Safari Chrome */
+    -o-transition: all 0.2s ease-out;
+ /* Opera */
+}
+.card-link:hover {
+    transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+   /* IE 9 */
+    -moz-transform: translateY(-5px);
+   /* Firefox */
+    -webkit-transform: translateY(-5px);
+ /* Safari  Chrome */
+    -o-transform: translateY(-5px);
+   /* Opera */
+    box-shadow: 4px 4px 10px rgba(204, 204, 204, 0.5);
+    -moz-box-shadow: 4px 4px 10px rgba(204, 204, 204, 0.5);
+ /* Firefox */
+}
+.card-tit {
+    height: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+.card-tit img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.card-desc {
+    color: gray;
+    font-size: 12px;
+    padding-top: 10px;
+    height: 45px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.content-box .list-box {
+    background: #FFF;
+    padding: 20px 10px 0px 10px;
+    margin: 0;
+}
+#get-top {
+    width: 40px;
+    height: 40px;
+    background: #03b8cf;
+    color: #FFF;
+    position: fixed;
+    right: 15px;
+    bottom: 55px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+    z-index: 100;
+}
+#get-top i {
+    margin: 0;
+    font-size: 20px;
+}
+.footer {
+    padding: 15px 20px 10px 20px;
+    border-top: 1px solid #d0d0d0;
+    background-color: #e8e8e8;
+    text-align: center;
+    font-size: 14px;
+    color: #5d5d5d;
+}
+@media (min-width: 768px) {
+    .col, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+        padding: 0 10px
+    }
+    #content .main {
+        padding-top: 51px;
+    }
+    .sousuo {
+        padding: 10px 0 50px 0;
+        margin-top: 0;
+    }
+    .sousuo-form {
+        width: 100%;
+        margin: 0 auto;
+    }
+    #input {
+        outline: none;
+        padding: 0 10px;
+        height: 46px;
+        line-height: 46px;
+        border: 1px solid #ccc;
+        border-left: none;
+        display: block;
+        padding-left: 90px;
+    }
+    .link-box {
+        width: 12.5%;
+        float: left
+    }
+    .item-tit > strong {
+        padding: 5px 0 0 10px;
+        margin-bottom: 10px;
+    }
+    .get-home {
+        margin: 0;
+        margin-top: 20px;
+    }
+    .footer {
+        margin-top: 20px;
+    }
+}
+@media (min-width: 992px) {
+    header {
+        height: 60px;
+        border-bottom: 1px solid #e8e8e8;
+    }
+    header .main {
+        padding: 0 22px;
+    }
+    header .logo {
+        float: left;
+        font-size: 22px;
+        margin: 0;
+        font-weight: 400;
+        border: none;
+    }
+    header .logo a {
+        display: block;
+        line-height: 50px;
+        color: #484848;
+        font-weight: 400;
+    }
+    header .logo img {
+        width: 30px;
+        vertical-align: -10px;
+    }
+    header .nav {
+        float: left;
+        margin-left: 25px;
+        padding-top: 0px;
+        height: 100%;
+        display: block;
+        overflow: hidden;
+        position: static;
+        width: auto;
+        box-shadow: none;
+    }
+    header .nav li {
+        float: left;
+        font-size: 16px;
+    }
+    header .nav a {
+        display: block;
+        line-height: 59px;
+        color: #959595;
+        padding: 0 18px;
+        border-bottom: 1px solid #e8e8e8;
+    }
+    header .nav a:hover {
+        border-color: #459df5;
+        color: #459df5;
+    }
+    .left-bar {
+        height: 100%;
+        background: #FFF;
+        top: 60px;
+        left: 0;
+        z-index: 1;
+    }
+    .left-bar .header {
+        padding: 11px 0px;
+        border-bottom: none;
+        margin: 0 25px;
+        padding-top: 15px;
+    }
+    .left-bar .header h2 {
+        color: #28b779;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: inherit;
+        border-left: 3px solid #28b779;
+        padding-left: 10px;
+    }
+    .left-bar .menu {
+        height: 600px;
+        border-top: 1px solid #f2f2f2;
+        border-bottom: 1px solid #f2f2f2
+    }
+    .left-bar .tree-menu {
+        border-bottom: 1px solid #e8e8e8;
+    }
+    .left-bar .tree li.open > ul {
+        height: 281px;
+        background: #f5f5f5;
+    }
+    .tree-menu li li a {
+        color: #797979;
+        font-size: 14px;
+    }
+    .search {
+        width: 650px;
+    }
+    .search-engine {
+        width: 650px;
+    }
+    .search-engine-list li {
+        width: 112px;
+        margin: 0 15px 15px 0;
+    }
+    #content .main {
+        margin-left: 200px;
+        padding-top: 70px
+    }
+    .content-box {
+        padding: 0 10px;
+        padding-top: 61px
+    }
+    .nav-item .container-fluid {
+        padding: 20px 20px 10px 20px;
+    }
+    .item > .container-fluid .row {
+        padding: 0;
+    }
+    .card-box .col-md-3 {
+        padding: 0 7.5px;
+    }
+    .card-link {
+        margin-bottom: 15px;
+    }
+    .main .list-box .menu-list {
+        margin: 0px 10px 20px 10px;
+    }
+    .nav-tabs > li > a {
+        padding: 4px 15px;
+    }
+    .footer {
+        margin-top: 30px;
+    }
+}
+@media (min-width: 1200px) {
+    header .nav a {
+        padding: 0 25px;
+    }
+    .content-box {
+        padding: 0 20px;
+    }
+    .sousuo-form {
+        width: 60%
+    }
+    .item > .container-fluid {
+        padding: 0;
+        padding-top: 91px;
+        margin-top: -65px;
+    }
+}
+@media (min-width: 1700px) {
+    .content-box {
+        max-width: 1400px;
+    }
+    .col-md-3 {
+        width: 20%;
+    }
+}
+</style>
+</head>
+<body id="nav_body">
+<!--[if lt IE 10]>
+<div class="alert alert-danger">
+    您正在使用 
+    <strong>过时的</strong> 浏览器. 请更换一个更好的浏览器来提升用户体验.
+</div>
+<![endif]--><!--头部导航条-->
+<header>
+<div class="main">
+    <h1 class="logo">
+    <a href="daohang.html">
+    <img src="http://followtry.cn//img/favicon.ico">
+    <span>小兵导航</span>
+    </a>
+    </h1>
+    <!--顶部浮动导航选择框-->
+    <div style="border:1px solid gray;position:fixed;right:12%;top:17px;background:#0085a1;z-index:9999;">
+        <select name="mylink" id="mylink" onchange="window.location=mylink.value">
+            <!--浮动目录，按照需要修改和添加，参考已有的修改名称和href-->
+                <option value="#row-0" selected>选择目录</option>
+                <option value="#row-1">信息·通信</option>
+                <option value="#row-2">阅读·消息</option>
+    		<option value="#row-3">理财·指标</option>
+    		<option value="#row-4">网站·维护</option>
+    		<option value="#row-5"> I  T ·门户</option>
+    		<option value="#row-6">云端·工具</option>
+    		<option value="#row-7">引擎·搜索</option>
+    		<option value="#row-8">万里·长城</option>
+    		<option value="#row-9">社区·论坛</option>
+    	        <option value="#row-10">购物·消费</option>
+    		<option value="#row-11">影音·娱乐</option>
+    		<option value="#row-12">生活·助手</option>
+    		<option value="#row-13">工业·机械</option>
+    		<option value="#row-14">大工·学校</option>
+    		<option value="#row-15">学习·充电</option>
+    		<option value="#row-16">教育·高校</option>
+    	        <option value="#row-17">网络·工具</option>
+    	        <option value="#row-18">数据·年鉴</option>
+    		<option value="#row-19">激活·密钥</option>
+    		<option value="#row-20">工作·应聘</option>
+    		<option value="#row-21">百科·维基</option>
+    	        <option value="#row-22">海信·集团</option>
+        </select>
+    </div>
+    <!--顶部导航条-->
+    <nav class="nav">
+    <ul>
+        <li><a href="hhttp://followtry.cn/img/favicon.ico" target="_blank">优源主站</a></li>
+	<li><a href="http://followtry.cn//daohang/daohang.html" target="_blank">导航主站</a></li>
+        <li><a href="http://followtry.cn/about/" target="_blank">联系方式</a></li>
+    </ul>
+    </nav>
+    <!--便携设备右上角菜单-->
+    <button class="nav-btn visible-xs visible-sm"><span class="icon-line top"></span><span class="icon-line middle"></span><span class="icon-line bottom"></span>
+    </button>
+</div>
+</header>
+<div id="content">
+    <!--左侧目录，导航跳转-->
+    <div class="left-bar">
+        <div class="header">
+            <h2><a href="#row-0">目录</a></h2>
+        </div>
+        <div class="menu" id="menu" style="height: 80%; overflow: scroll;">
+            <ul class="scrollcontent">
+                <!--左侧目录，按照需要修改和添加，参考已有的修改名称和href-->
+                <li><a href="#row-1">信息·通信</a></li>
+                <li><a href="#row-2">阅读·消息</a></li>
+		<li><a href="#row-3">理财·指标</a></li>
+		<li><a href="#row-4">网站·维护</a></li>
+		<li><a href="#row-5"> I  T ·门户</a></li>
+		<li><a href="#row-6">云端·工具</a></li>
+		<li><a href="#row-7">引擎·搜索</a></li>
+		<li><a href="#row-8">万里·长城</a></li>
+		<li><a href="#row-9">社区·论坛</a></li>
+	        <li><a href="#row-10">购物·消费</a></li>
+		<li><a href="#row-11">影音·娱乐</a></li>
+		<li><a href="#row-12">生活·助手</a></li>
+		<li><a href="#row-13">工业·机械</a></li>
+		<li><a href="#row-14">大工·学校</a></li>
+		<li><a href="#row-15">学习·充电</a></li>
+		<li><a href="#row-16">教育·高校</a></li>
+	        <li><a href="#row-17">网络·工具</a></li>
+	        <li><a href="#row-18">数据·年鉴</a></li>
+		<li><a href="#row-19">激活·密钥</a></li>
+		<li><a href="#row-20">工作·应聘</a></li>
+		<li><a href="#row-21">百科·维基</a></li>
+	        <li><a href="#row-22">海信·集团</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--内容-->
+    <div class="main">
+        <div class="container content-box"  id="row-0">
+            <!--搜索栏-->
+            <section class="sousuo">
+            <div class="search">
+                <div class="search-box">
+                    <button class="search-engine-name" id="search-engine-name">Doge</button>
+                    <input type="text" id="txt" class="search-input" placeholder="选择引擎，输入关键字，回车/Enter搜索"/>
+                    <button class="search-btn" id="search-btn">搜索</button>
+                </div>
+                <!-- 搜索引擎 -->
+                <div class="search-engine">
+                    <div class="search-engine-head">
+                        <strong class="search-engine-tit">选择您的默认搜索引擎：</strong>
+                    </div>
+                    <ul class="search-engine-list">
+                    </ul>
+                </div>
+            </div>
+            </section>
+		
+	    <!--分类导航 开始-->	
+            <!--导航分类1，请根据自己的需求进行修改-->
+            <section class="item card-box" id="row-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>信息·通信</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix two-list-box">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://mail.qq.com/" class="card-link" target="_blank">
+                            <div class="card-tit">QQ邮箱</div>
+                            <div class="card-desc">QQ邮箱</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://mail.google.com/" class="card-link" target="_blank">
+                            <div class="card-tit">Gmail</div>
+                            <div class="card-desc">Gmail邮箱</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://mail.dlut.edu.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">大工邮箱</div>
+                            <div class="card-desc">大工邮箱</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://mail.126.com/" class="card-link" target="_blank">
+                            <div class="card-tit">126邮箱</div>
+                            <div class="card-desc">126邮箱</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.hotmail.com/" class="card-link" target="_blank">
+                            <div class="card-tit">Hotmail</div>
+                            <div class="card-desc">Hotmail邮箱</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://exmail.qq.com/login" class="card-link" target="_blank">
+                            <div class="card-tit">QQ企业邮箱</div>
+                            <div class="card-desc">QQ企业邮箱</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://mail.163.com/" class="card-link" target="_blank">
+                            <div class="card-tit">163邮箱</div>
+                            <div class="card-desc">163邮箱</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://inbox.google.com/" class="card-link" target="_blank">
+                            <div class="card-tit">Inbox</div>
+                            <div class="card-desc">Inbox</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://privnote.com/" class="card-link" target="_blank">
+                            <div class="card-tit">阅后即焚</div>
+                            <div class="card-desc">阅后即焚</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://mp.weixin.qq.com/cgi-bin/loginpage?lang=zh_CN&t=wxm2-login" class="card-link" target="_blank">
+                            <div class="card-tit">微信公众号</div>
+                            <div class="card-desc">微信公众号</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://wx.qq.com/" class="card-link" target="_blank">
+                            <div class="card-tit">微信网页版</div>
+                            <div class="card-desc">微信网页版</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://sd.189.cn/selfservice/bill?tag=queryOfferInfo" class="card-link" target="_blank">
+                            <div class="card-tit">电信流量查询</div>
+                            <div class="card-desc">电信流量查询</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://web.whatsapp.com/" class="card-link" target="_blank">
+                            <div class="card-tit">whatsapp</div>
+                            <div class="card-desc">whatsapp网页版</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+			<!--导航分类2 导航内容参考修改，如果需要更多的导航分类，拷贝整个section标签进行修改-->
+            <section class="item card-box" id="row-2">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>阅读·消息</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix ">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://feedly.com/" class="card-link" target="_blank">
+                            <div class="card-tit">Feedly</div>
+                            <div class="card-desc">Feedly</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.inoreader.com/" class="card-link" target="_blank">
+                            <div class="card-tit">Inoreader</div>
+                            <div class="card-desc">Inoreader</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.dapenti.com/blog/" class="card-link" target="_blank">
+                            <div class="card-tit">打喷嚏</div>
+                            <div class="card-desc">打喷嚏</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://meiriyiwen.com/" class="card-link" target="_blank">
+                            <div class="card-tit">每日一文</div>
+                            <div class="card-desc">每日一文</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.mendeley.com/" class="card-link" target="_blank">
+                            <div class="card-tit">Mendeley</div>
+                            <div class="card-desc">Mendeley</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.gkz6.net/shenlun/shishi/" class="card-link" target="_blank">
+                            <div class="card-tit">时事政治</div>
+                            <div class="card-desc">公考时事政治</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.chinagwy.org/html/ggjczs/mszt/index.html" class="card-link" target="_blank">
+                            <div class="card-tit">国公网</div>
+                            <div class="card-desc">国公网</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.sdgwy.org/" class="card-link" target="_blank">
+                            <div class="card-tit">山东公务员</div>
+                            <div class="card-desc">山东公务员</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.qwqt.net/" class="card-link" target="_blank">
+                            <div class="card-tit">奇闻奇图</div>
+                            <div class="card-desc">奇闻奇图</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.tianfateng.cn/7399.html" class="card-link" target="_blank">
+                            <div class="card-tit">经济学人</div>
+                            <div class="card-desc">《经济学人》下载</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.allpku.com/" class="card-link" target="_blank">
+                            <div class="card-tit">北大纵横</div>
+                            <div class="card-desc">北大纵横</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.gemag.com.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">环球企业家</div>
+                            <div class="card-desc">环球企业家</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.meihua.info/" class="card-link" target="_blank">
+                            <div class="card-tit">梅花网</div>
+                            <div class="card-desc">营销锦囊</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.cyone.com.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">创业第一步</div>
+                            <div class="card-desc">创业第一步</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!--导航分类3，请根据自己的需求进行修改-->
+            <section class="item card-box" id="row-3">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>理财·指标</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix two-list-box">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://live.sina.com.cn/zt/app_zt/f/v/finance/globalnews1/?page=2" class="card-link" target="_blank">
+                            <div class="card-tit">新浪突发</div>
+                            <div class="card-desc">新浪实时财经新闻</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://ebank.ccb.com/cn/ebank/wsyh_products_list.html" class="card-link" target="_blank">
+                            <div class="card-tit">建设银行</div>
+                            <div class="card-desc">建设银行</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://favor.fund.eastmoney.com/" class="card-link" target="_blank">
+                            <div class="card-tit">东方基金</div>
+                            <div class="card-desc">东方财富基金</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://quote.eastmoney.com/favor/default.html" class="card-link" target="_blank">
+                            <div class="card-tit">东方票票</div>
+                            <div class="card-desc">东方财富票票</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://quote.eastmoney.com/centerv2/qqzs" class="card-link" target="_blank">
+                            <div class="card-tit">大盘走势</div>
+                            <div class="card-desc">东方财富大盘走势</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://quote.hexun.com/global/default.html" class="card-link" target="_blank">
+                            <div class="card-tit">全球指数</div>
+                            <div class="card-desc">全球指数</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://data.eastmoney.com/bkzj/jlr.html" class="card-link" target="_blank">
+                            <div class="card-tit">资金流</div>
+                            <div class="card-desc">资金流</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://data.eastmoney.com/xuangu/" class="card-link" target="_blank">
+                            <div class="card-tit">选票器</div>
+                            <div class="card-desc">东方财富选票器</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.yuncaijing.com/story/details/id_2573.html" class="card-link" target="_blank">
+                            <div class="card-tit">概念查询</div>
+                            <div class="card-desc">概念查询</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.cninfo.com.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">巨潮资讯</div>
+                            <div class="card-desc">巨潮资讯</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.szse.cn/disclosure/supervision/progress/index.html" class="card-link" target="_blank">
+                            <div class="card-tit">深交所</div>
+                            <div class="card-desc">深交所</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.sse.com.cn/disclosure/overview/" class="card-link" target="_blank">
+                            <div class="card-tit">上交所</div>
+                            <div class="card-desc">上交所</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+			<!--导航分类4 导航内容参考修改，如果需要更多的导航分类，拷贝整个section标签进行修改-->
+            <section class="item card-box" id="row-4">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>网站·维护</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix ">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://duter2016.github.io" class="card-link" target="_blank">
+                            <div class="card-tit">优源[Github]</div>
+                            <div class="card-desc">Github小站</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://console.leancloud.app/" class="card-link" target="_blank">
+                            <div class="card-tit">LeanCloud</div>
+                            <div class="card-desc">LeanCloud</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.intensedebate.com/" class="card-link" target="_blank">
+                            <div class="card-tit">Intensedebate</div>
+                            <div class="card-desc">Intensedebate评论留言</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://sun0539.com/" class="card-link" target="_blank">
+                            <div class="card-tit">朝阳</div>
+                            <div class="card-desc">朝阳无纺布厂</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://portal.qiniu.com/bucket/i58forever/resource" class="card-link" target="_blank">
+                            <div class="card-tit">七牛云</div>
+                            <div class="card-desc">七牛云存储</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.51php.com/" class="card-link" target="_blank">
+                            <div class="card-tit">无忧主机</div>
+                            <div class="card-desc">无忧主机</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.net2ftp.com/" class="card-link" target="_blank">
+                            <div class="card-tit">在线Ftp</div>
+                            <div class="card-desc">在线Ftp</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.dbfen.com/index.php/home/index" class="card-link" target="_blank">
+                            <div class="card-tit">多备份</div>
+                            <div class="card-desc">多备份</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://addon.discuz.com/" class="card-link" target="_blank">
+                            <div class="card-tit">discuz应用中心</div>
+                            <div class="card-desc">discuz应用中心</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://webscan.360.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">360网站安全</div>
+                            <div class="card-desc">360网站安全</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://cpanel.summerhost.info/" class="card-link" target="_blank">
+                            <div class="card-tit">SummerHost</div>
+                            <div class="card-desc">SummerHost</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://zhanzhang.baidu.com/" class="card-link" target="_blank">
+                            <div class="card-tit">百度站长</div>
+                            <div class="card-desc">百度站长</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://tongji.baidu.com/web/10000063192/trend/latest?siteId=13913125" class="card-link" target="_blank">
+                            <div class="card-tit">百度统计</div>
+                            <div class="card-desc">百度统计</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.ip138.com/" class="card-link" target="_blank">
+                            <div class="card-tit">IP查询</div>
+                            <div class="card-desc">IP查询</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://appengine.google.com/" class="card-link" target="_blank">
+                            <div class="card-tit">GAE</div>
+                            <div class="card-desc">GAE</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!--导航分类5，请根据自己的需求进行修改-->
+            <section class="item card-box" id="row-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>IT·门户</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix two-list-box">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://bbs.kafan.cn/forum-74-1.html" class="card-link" target="_blank">
+                            <div class="card-tit">卡饭论坛</div>
+                            <div class="card-desc">卡饭论坛</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://bbs.vc52.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">精睿论坛</div>
+                            <div class="card-desc">精睿论坛</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://forum.ubuntu.org.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">Ubuntu中文论坛</div>
+                            <div class="card-desc">Ubuntu中文论坛</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://bbs.deepin.org/" class="card-link" target="_blank">
+                            <div class="card-tit">深度社区</div>
+                            <div class="card-desc">深度社区</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://bbs.xiaomi.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">小米论坛</div>
+                            <div class="card-desc">小米论坛</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.miui.com/" class="card-link" target="_blank">
+                            <div class="card-tit">MIUI官网</div>
+                            <div class="card-desc">MIUI官网</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.huzheng.org/" class="card-link" target="_blank">
+                            <div class="card-tit">胡正LInux</div>
+                            <div class="card-desc">胡正LInux</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.linuxidc.com/" class="card-link" target="_blank">
+                            <div class="card-tit">Linux公社</div>
+                            <div class="card-desc">Linux公社</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.linux265.com/" class="card-link" target="_blank">
+                            <div class="card-tit">Linux265</div>
+                            <div class="card-desc">Linux265</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.appcgn.com/" class="card-link" target="_blank">
+                            <div class="card-tit">软件缘</div>
+                            <div class="card-desc">软件缘</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://laod.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">老D博客</div>
+                            <div class="card-desc">老D博客</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.ludou.org/" class="card-link" target="_blank">
+                            <div class="card-tit">露兜博客</div>
+                            <div class="card-desc">露兜博客</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.chuyu.me/forum.php" class="card-link" target="_blank">
+                            <div class="card-tit">初雨论坛</div>
+                            <div class="card-desc">Dism++</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://blog.sina.com.cn/u/3810456184" class="card-link" target="_blank">
+                            <div class="card-tit">木子李Sina</div>
+                            <div class="card-desc">木子李Sina</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.fishlee.net/" class="card-link" target="_blank">
+                            <div class="card-tit">鱼后花园</div>
+                            <div class="card-desc">鱼后花园</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://greasyfork.org/scripts" class="card-link" target="_blank">
+                            <div class="card-tit">Greasyfork</div>
+                            <div class="card-desc">Greasyfork</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.livecoding.tv/" class="card-link" target="_blank">
+                            <div class="card-tit">代码直播</div>
+                            <div class="card-desc">代码直播</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.frontopen.com/" class="card-link" target="_blank">
+                            <div class="card-tit">Frontopen</div>
+                            <div class="card-desc">Frontopen</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://sunbox.cc/" class="card-link" target="_blank">
+                            <div class="card-tit">阳光盒子</div>
+                            <div class="card-desc">阳光盒子</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.bokeboke.net/" class="card-link" target="_blank">
+                            <div class="card-tit">爱软客</div>
+                            <div class="card-desc">爱软客</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.qiuquan.cc/" class="card-link" target="_blank">
+                            <div class="card-tit">QiuQuan</div>
+                            <div class="card-desc">QiuQuan</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.laomoit.com/" class="card-link" target="_blank">
+                            <div class="card-tit">殁逍遥</div>
+                            <div class="card-desc">殁逍遥</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.odoomk.com/download" class="card-link" target="_blank">
+                            <div class="card-tit">Odoo下载</div>
+                            <div class="card-desc">Odoo下载</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://masuit.com/" class="card-link" target="_blank">
+                            <div class="card-tit">懒得勤快</div>
+                            <div class="card-desc">懒得勤快</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://51quan.top/" class="card-link" target="_blank">
+                            <div class="card-tit">51圈子</div>
+                            <div class="card-desc">尼古拉斯崔</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.lilun.me/" class="card-link" target="_blank">
+                            <div class="card-tit">慕云</div>
+                            <div class="card-desc">慕云</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+			<!--导航分类6 导航内容参考修改，如果需要更多的导航分类，拷贝整个section标签进行修改-->
+            <section class="item card-box" id="row-6">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>云端·工具</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix ">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://pan.baidu.com/disk/home" class="card-link" target="_blank">
+                            <div class="card-tit">百度网盘</div>
+                            <div class="card-desc">百度网盘</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://ddl.escience.cn/lihuiyuan-mail-dlut-edu-cn/spaceApplicetion" class="card-link" target="_blank">
+                            <div class="card-tit">科研在线网盘</div>
+                            <div class="card-desc">科研在线网盘</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://paste.ubuntu.com/" class="card-link" target="_blank">
+                            <div class="card-tit">Ubuntu粘贴板</div>
+                            <div class="card-desc">Ubuntu粘贴板</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://img.vim-cn.com/" class="card-link" target="_blank">
+                            <div class="card-tit">IRC贴图</div>
+                            <div class="card-desc">IRC贴图</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://github.com/George5814/blog-pic" class="card-link" target="_blank">
+                            <div class="card-tit">Github图床</div>
+                            <div class="card-desc">Github图床</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.baiduwp.com/" class="card-link" target="_blank">
+                            <div class="card-tit">PanDownload</div>
+                            <div class="card-desc">PanDownload</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://sheji.youpsd.com/" class="card-link" target="_blank">
+                            <div class="card-tit">在线PS</div>
+                            <div class="card-desc">在线PS</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://compressjpeg.com/zh/" class="card-link" target="_blank">
+                            <div class="card-tit">图片压缩</div>
+                            <div class="card-desc">图片压缩</div>
+                            </a>
+                        </div>
+			<div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.cssmatic.com/box-shadow" class="card-link" target="_blank">
+                            <div class="card-tit">CSS tools</div>
+                            <div class="card-desc">在线所见即所得CSS样式编写工具，如box shadow</div>
+                            </a>
+                        </div>
+			<div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.w3school.com.cn/tiy/t.asp?f=css3_box-shadow" class="card-link" target="_blank">
+                            <div class="card-tit">W3School</div>
+                            <div class="card-desc">可视在线代码生成工具，首页更多</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!--导航分类7，请根据自己的需求进行修改-->
+            <section class="item card-box" id="row-7">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>引擎·搜索</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix two-list-box">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.google.com.hk/" class="card-link" target="_blank">
+                            <div class="card-tit">谷歌</div>
+                            <div class="card-desc">谷歌香港</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://scholar.google.com/ncr" class="card-link" target="_blank">
+                            <div class="card-tit">谷歌学术NCR</div>
+                            <div class="card-desc">谷歌学术NCR</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://scholar.google.com/?hl=zh-CN" class="card-link" target="_blank">
+                            <div class="card-tit">谷歌学术CN</div>
+                            <div class="card-desc">谷歌学术CN</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://sci-bay.org/" class="card-link" target="_blank">
+                            <div class="card-tit">Sci-Bay</div>
+                            <div class="card-desc">Sci-Bay</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://xueshu.baidu.com/" class="card-link" target="_blank">
+                            <div class="card-tit">百度学术</div>
+                            <div class="card-desc">百度学术</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://scholar.chongbuluo.com/" class="card-link" target="_blank">
+                            <div class="card-tit">虫部落学术</div>
+                            <div class="card-desc">虫部落学术</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://apps.webofknowledge.com/WOS_GeneralSearch_input.do?SID=1CkMIFntp9NyV9caKA4&product=WOS&search_mode=GeneralSearch" class="card-link" target="_blank">
+                            <div class="card-tit">WOS</div>
+                            <div class="card-desc">WOS</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://epub.cnki.net/KNS/brief/result.aspx?dbPrefix=CJFQ" class="card-link" target="_blank">
+                            <div class="card-tit">知网</div>
+                            <div class="card-desc">知网</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://search.ebscohost.com/" class="card-link" target="_blank">
+                            <div class="card-tit">EBSCO</div>
+                            <div class="card-desc">EBSCO</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.lib.dlut.edu.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">大工图书馆</div>
+                            <div class="card-desc">大工图书馆</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://zh.wikipedia.org/zh-cn/Wikipedia:%E9%A6%96%E9%A1%B5" class="card-link" target="_blank">
+                            <div class="card-tit">维基百科</div>
+                            <div class="card-desc">维基百科</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.iacmr.org/v2en/List.asp?navid=41" class="card-link" target="_blank">
+                            <div class="card-tit">量表查询</div>
+                            <div class="card-desc">量表查询</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.hubmed.org/" class="card-link" target="_blank">
+                            <div class="card-tit">HubMed</div>
+                            <div class="card-desc">HubMed</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://git.macropus.org/hubmed/" class="card-link" target="_blank">
+                            <div class="card-tit">HubMed2</div>
+                            <div class="card-desc">HubMed2</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.google.com/maps" class="card-link" target="_blank">
+                            <div class="card-tit">谷歌地图</div>
+                            <div class="card-desc">谷歌地图</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://map.baidu.com/" class="card-link" target="_blank">
+                            <div class="card-tit">百度地图</div>
+                            <div class="card-desc">百度地图</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.dituhui.com/" class="card-link" target="_blank">
+                            <div class="card-tit">地图汇</div>
+                            <div class="card-desc">地图汇</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.mbalib.com/" class="card-link" target="_blank">
+                            <div class="card-tit">智库百科</div>
+                            <div class="card-desc">智库百科</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://translate.google.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">谷歌翻译</div>
+                            <div class="card-desc">谷歌翻译</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://fanyi.baidu.com/" class="card-link" target="_blank">
+                            <div class="card-tit">百度翻译</div>
+                            <div class="card-desc">百度翻译</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.bing.com/translator/" class="card-link" target="_blank">
+                            <div class="card-tit">必应翻译</div>
+                            <div class="card-desc">必应翻译</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://fanyi.youdao.com/" class="card-link" target="_blank">
+                            <div class="card-tit">有道翻译</div>
+                            <div class="card-desc">有道翻译</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://dict.youdao.com/search?q=" class="card-link" target="_blank">
+                            <div class="card-tit">有道词典</div>
+                            <div class="card-desc">有道词典</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://dict.cnki.net/" class="card-link" target="_blank">
+                            <div class="card-tit">CNKI翻译</div>
+                            <div class="card-desc">CNKI翻译</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.midomi.com/" class="card-link" target="_blank">
+                            <div class="card-tit">声音搜歌</div>
+                            <div class="card-desc">声音搜歌</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://stu.baidu.com/" class="card-link" target="_blank">
+                            <div class="card-tit">百度识图</div>
+                            <div class="card-desc">百度识图</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://subhd.tv/" class="card-link" target="_blank">
+                            <div class="card-tit">SUB字幕</div>
+                            <div class="card-desc">SUB字幕</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.baidu.com/s?bs=%E7%99%BE%E5%BA%A6%E7%9A%84%E4%B8%AD%E6%9E%AA%E6%8E%A9%E6%8A%A4%E4%BA%86%E5%A4%9A%E5%B0%91%E4%BA%BA%E5%AE%89%E5%85%A8%E6%92%A4%E9%80%80?&bsst=1&cl=3&f=8&ie=utf-8&inputT=0&rsv_bp=1&rtt=1&tn=baidurt&wd=%E6%9C%80%E6%96%B0" class="card-link" target="_blank">
+                            <div class="card-tit">百度最新</div>
+                            <div class="card-desc">百度最新</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.sobaidupan.com/" class="card-link" target="_blank">
+                            <div class="card-tit">搜百度盘</div>
+                            <div class="card-desc">搜百度盘</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://sobooks.cc/" class="card-link" target="_blank">
+                            <div class="card-tit">搜Kindle</div>
+                            <div class="card-desc">搜Kindle</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.jiumodiary.com/" class="card-link" target="_blank">
+                            <div class="card-tit">鸠摩搜书</div>
+                            <div class="card-desc">鸠摩搜书</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.ireadweek.com/" class="card-link" target="_blank">
+                            <div class="card-tit">周读电子书</div>
+                            <div class="card-desc">周读电子书</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.d4j.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">三秋书屋</div>
+                            <div class="card-desc">电子书搜索</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.giffox.com/" class="card-link" target="_blank">
+                            <div class="card-tit">老司机导航</div>
+                            <div class="card-desc">老司机导航</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.69m.xyz/index.html" class="card-link" target="_blank">
+                            <div class="card-tit">69MAG</div>
+                            <div class="card-desc">69MAG磁力搜索</div>
+                            </a>
+                        </div>
+		        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://bt.yangcs.net/" class="card-link" target="_blank">
+                            <div class="card-tit">磁力聚合</div>
+                            <div class="card-desc">磁力聚合搜索</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://jikipedia.com/" class="card-link" target="_blank">
+                            <div class="card-tit">小鸡词典</div>
+                            <div class="card-desc">小鸡词典</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+			<!--导航分类8 导航内容参考修改，如果需要更多的导航分类，拷贝整个section标签进行修改-->
+            <section class="item card-box" id="row-8">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>万里·长城</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix ">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://ping.pe/" class="card-link" target="_blank">
+                            <div class="card-tit">ping.pe</div>
+                            <div class="card-desc">ping.pe</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.ipip.net/" class="card-link" target="_blank">
+                            <div class="card-tit">IPIP</div>
+                            <div class="card-desc">IPIP</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://ping.chinaz.com/" class="card-link" target="_blank">
+                            <div class="card-tit">超级ping</div>
+                            <div class="card-desc">超级ping</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://network-tools.webwiz.co.uk/ping.htm" class="card-link" target="_blank">
+                            <div class="card-tit">Ping Tools</div>
+                            <div class="card-desc">Ping Tools</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.subnetonline.com/pages/ipv6-network-tools/online-ipv6-ping.php" class="card-link" target="_blank">
+                            <div class="card-tit">IPV6Ping</div>
+                            <div class="card-desc">IPV6Ping</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.ipaddress.com/ip-lookup/" class="card-link" target="_blank">
+                            <div class="card-tit">IpLookup</div>
+                            <div class="card-desc">IpLookup</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://github.com/Alvin9999/new-pac/wiki/ss%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7" class="card-link" target="_blank">
+                            <div class="card-tit">SS免费</div>
+                            <div class="card-desc">SS免费</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://github.com/Alvin9999/new-pac/wiki/Goflyway%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7" class="card-link" target="_blank">
+                            <div class="card-tit">GFW免费</div>
+                            <div class="card-desc">GFW免费</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://github.com/googlehosts/hosts/wiki/%E5%AE%9E%E9%AA%8C%E5%AE%A4#telegram%E4%B8%93%E7%94%A8socks5%E4%BB%A3%E7%90%86" class="card-link" target="_blank">
+                            <div class="card-tit">TG专用SS</div>
+                            <div class="card-desc">TG专用SS</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://github.com/max2max/freess" class="card-link" target="_blank">
+                            <div class="card-tit">SS-Git</div>
+                            <div class="card-desc">SS-Git</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://gitlab.com/Alvin9999/free/wikis/ss%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7" class="card-link" target="_blank">
+                            <div class="card-tit">SS免费-GitLab</div>
+                            <div class="card-desc">SS免费的GitLab Fork</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://github.com/googlehosts/hosts" class="card-link" target="_blank">
+                            <div class="card-tit">Hosts[git]</div>
+                            <div class="card-desc">Hosts[git]</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://zjcqoo.github.io/" class="card-link" target="_blank">
+                            <div class="card-tit">Page Sandbox</div>
+                            <div class="card-desc">网页版代理</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!--导航分类9，请根据自己的需求进行修改-->
+            <section class="item card-box" id="row-9">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>社区·论坛</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix two-list-box">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://qzone.qq.com/" class="card-link" target="_blank">
+                            <div class="card-tit">QQ空间</div>
+                            <div class="card-desc">QQ空间</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://weibo.com/" class="card-link" target="_blank">
+                            <div class="card-tit">新浪微博</div>
+                            <div class="card-desc">新浪微博</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.renren.com/" class="card-link" target="_blank">
+                            <div class="card-tit">人人网</div>
+                            <div class="card-desc">人人网</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://bbs.showtime.cc/forum.php" class="card-link" target="_blank">
+                            <div class="card-tit">白果社区</div>
+                            <div class="card-desc">需教育内网访问</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://edubt.net/forum.php" class="card-link" target="_blank">
+                            <div class="card-tit">亿度空间</div>
+                            <div class="card-desc">亿度空间</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://xmuchong.com/forum/" class="card-link" target="_blank">
+                            <div class="card-tit">小木虫</div>
+                            <div class="card-desc">小木虫</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://sixy.ch/" class="card-link" target="_blank">
+                            <div class="card-tit">SIXY</div>
+                            <div class="card-desc">SIXY</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://bbs.wgpro.com/forum.php" class="card-link" target="_blank">
+                            <div class="card-tit">极内坛</div>
+                            <div class="card-desc">极内坛</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.newsmth.com/" class="card-link" target="_blank">
+                            <div class="card-tit">水木社区</div>
+                            <div class="card-desc">水木社区</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://bbs.shuiguobang.com/" class="card-link" target="_blank">
+                            <div class="card-tit">水果邦</div>
+                            <div class="card-desc">水果邦</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+			<!--导航分类10 导航内容参考修改，如果需要更多的导航分类，拷贝整个section标签进行修改-->
+            <section class="item card-box" id="row-10">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>购物·消费</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix ">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.taobao.com/" class="card-link" target="_blank">
+                            <div class="card-tit">淘宝</div>
+                            <div class="card-desc">淘宝</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://pub.alimama.com/index.htm" class="card-link" target="_blank">
+                            <div class="card-tit">阿里妈妈</div>
+                            <div class="card-desc">阿里妈妈</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.alipay.com/user/logout.htm" class="card-link" target="_blank">
+                            <div class="card-tit">支付宝</div>
+                            <div class="card-desc">支付宝</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://myseller.taobao.com/home.htm" class="card-link" target="_blank">
+                            <div class="card-tit">千牛工作台</div>
+                            <div class="card-desc">千牛工作台</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://shop226850062.taobao.com/" class="card-link" target="_blank">
+                            <div class="card-tit">淘宝店铺</div>
+                            <div class="card-desc">淘宝店铺</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.jd.com/" class="card-link" target="_blank">
+                            <div class="card-tit">京东</div>
+                            <div class="card-desc">京东</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.meituan.com/" class="card-link" target="_blank">
+                            <div class="card-tit">美团</div>
+                            <div class="card-desc">美团</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.gome.com.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">国美</div>
+                            <div class="card-desc">国美</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.suning.com/" class="card-link" target="_blank">
+                            <div class="card-tit">苏宁</div>
+                            <div class="card-desc">苏宁</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.amazon.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">亚马逊</div>
+                            <div class="card-desc">亚马逊</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.dianping.com/" class="card-link" target="_blank">
+                            <div class="card-tit">大众点评</div>
+                            <div class="card-desc">大众点评</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.sgvindex.com/" class="card-link" target="_blank">
+                            <div class="card-tit">蔬菜指数</div>
+                            <div class="card-desc">寿光蔬菜指数</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://bj.zhue.com.cn/search_list.php?pid=9&cid=914&county_id=3708&s_id=10&Submit=%CC%E1%BD%BB" class="card-link" target="_blank">
+                            <div class="card-tit">猪易报价</div>
+                            <div class="card-desc">猪肉价格</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://pfsc.agri.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">农产品价格</div>
+                            <div class="card-desc">农产品价格</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!--导航分类11，请根据自己的需求进行修改-->
+            <section class="item card-box" id="row-11">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>影音·娱乐</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix two-list-box">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://music.163.com/" class="card-link" target="_blank">
+                            <div class="card-tit">网易云音乐</div>
+                            <div class="card-desc">网易云音乐</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://5sing.kugou.com/" class="card-link" target="_blank">
+                            <div class="card-tit">5sing</div>
+                            <div class="card-desc">5sing</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.170mv.com/song" class="card-link" target="_blank">
+                            <div class="card-tit">170歌曲</div>
+                            <div class="card-desc">170歌曲</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.170hi.com/song" class="card-link" target="_blank">
+                            <div class="card-tit">170歌曲2</div>
+                            <div class="card-desc">170歌曲2</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.bilibili.tv/" class="card-link" target="_blank">
+                            <div class="card-tit">B站</div>
+                            <div class="card-desc">哔哩哔哩</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.acfun.tv/" class="card-link" target="_blank">
+                            <div class="card-tit">A站</div>
+                            <div class="card-desc">A站</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://tv.cntv.cn/pindao/" class="card-link" target="_blank">
+                            <div class="card-tit">央视</div>
+                            <div class="card-desc">央视</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.allyingshi.com/" class="card-link" target="_blank">
+                            <div class="card-tit">人人影视</div>
+                            <div class="card-desc">人人影视</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.daofire.com/" class="card-link" target="_blank">
+                            <div class="card-tit">盗火</div>
+                            <div class="card-desc">盗火</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://91mjw.com/" class="card-link" target="_blank">
+                            <div class="card-tit">美剧</div>
+                            <div class="card-desc">美剧</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.rijutv.com/" class="card-link" target="_blank">
+                            <div class="card-tit">日剧TV</div>
+                            <div class="card-desc">日剧TV</div>
+                            </a>
+                        </div>
+			<div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.novipnoad.com/" class="card-link" target="_blank">
+                            <div class="card-tit">NO视频</div>
+                            <div class="card-desc">港台欧美日韩泰剧</div>
+                            </a>
+                        </div>
+			 <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.biantube.com/" class="card-link" target="_blank">
+                            <div class="card-tit">变Tube</div>
+                            <div class="card-desc">Youtube合规视频通道</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.btbtdy.me/" class="card-link" target="_blank">
+                            <div class="card-tit">BT电影</div>
+                            <div class="card-desc">BT电影</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://live.kuaishou.com/v/hot/" class="card-link" target="_blank">
+                            <div class="card-tit">快手</div>
+                            <div class="card-desc">快手网页版</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://v.qq.com/live/tv/list.html" class="card-link" target="_blank">
+                            <div class="card-tit">腾讯直播</div>
+                            <div class="card-desc">腾讯直播</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://sixu.life/" class="card-link" target="_blank">
+                            <div class="card-tit">直播源</div>
+                            <div class="card-desc">思绪提供的直播源</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://guihet.com/tvlive-share.html" class="card-link" target="_blank">
+                            <div class="card-tit">直播源2</div>
+                            <div class="card-desc">黑鸟提供的直播源</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.ximalaya.com/dq/book-%E7%BB%8F%E7%AE%A1/" class="card-link" target="_blank">
+                            <div class="card-tit">喜马拉雅听书</div>
+                            <div class="card-desc">喜马拉雅听书</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.earthcam.com/" class="card-link" target="_blank">
+                            <div class="card-tit">实时CAM</div>
+                            <div class="card-desc">实时CAM</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+			<!--导航分类12 导航内容参考修改，如果需要更多的导航分类，拷贝整个section标签进行修改-->
+            <section class="item card-box" id="row-12">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>生活·助手</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix ">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.weather.com.cn/weather/101120901.shtml" class="card-link" target="_blank">
+                            <div class="card-tit">临沂天气</div>
+                            <div class="card-desc">临沂天气</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.weather.com.cn/weather/101120904.shtml" class="card-link" target="_blank">
+                            <div class="card-tit">兰陵天气</div>
+                            <div class="card-desc">兰陵天气</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.weather.com.cn/html/gov/cn/" class="card-link" target="_blank">
+                            <div class="card-tit">全国云图</div>
+                            <div class="card-desc">全国云图</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.weather.com.cn/static/product_video_v1.php" class="card-link" target="_blank">
+                            <div class="card-tit">风云二号</div>
+                            <div class="card-desc">风云二号</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.accuweather.com/zh/cn/china-weather/" class="card-link" target="_blank">
+                            <div class="card-tit">accuweather</div>
+                            <div class="card-desc">accuweather</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://tf.istrongcloud.com/" class="card-link" target="_blank">
+                            <div class="card-tit">实时台风</div>
+                            <div class="card-desc">实时台风</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://typhoon.weather.com.cn/gis/typhoon_full.shtml" class="card-link" target="_blank">
+                            <div class="card-tit">实时台风2</div>
+                            <div class="card-desc">实时台风2</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://freemeteo.cn/mobile/weather/beijing/live-satellite/?country=china&gid=1816670&language=chinese" class="card-link" target="_blank">
+                            <div class="card-tit">云图</div>
+                            <div class="card-desc">云图</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.wochacha.com/" class="card-link" target="_blank">
+                            <div class="card-tit">我查查</div>
+                            <div class="card-desc">我查查</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://drugs.dxy.cn/?utm_source=www.appinn.com" class="card-link" target="_blank">
+                            <div class="card-tit">用药助手</div>
+                            <div class="card-desc">用药助手</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://kyfw.12306.cn/otn/resources/login.html" class="card-link" target="_blank">
+                            <div class="card-tit">12306</div>
+                            <div class="card-desc">铁路客服中心</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://sd.122.gov.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">山东交管</div>
+                            <div class="card-desc">交通安全综合服务管理平台</div>
+                            </a>
+                        </div>
+			<div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.flightradar24.com/34.44,104.32/5" class="card-link" target="_blank">
+                            <div class="card-tit">Flightradar24</div>
+                            <div class="card-desc">航空台站</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!--导航分类13，请根据自己的需求进行修改-->
+            <section class="item card-box" id="row-13">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>工业·机械</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix two-list-box">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.misumi.com.cn/asia/incadlibrary/" class="card-link" target="_blank">
+                            <div class="card-tit">米思米</div>
+                            <div class="card-desc">米思米</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.cmiw.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">机械社区</div>
+                            <div class="card-desc">机械社区</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.mfcad.com/" class="card-link" target="_blank">
+                            <div class="card-tit">沐风CAD</div>
+                            <div class="card-desc">沐风CAD</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+			<!--导航分类14 导航内容参考修改，如果需要更多的导航分类，拷贝整个section标签进行修改-->
+            <section class="item card-box" id="row-14">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>大工·学校</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix ">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://gs.dlut.edu.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">大工研究生院</div>
+                            <div class="card-desc">大工研究生院</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://fme.dlut.edu.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">大工经管学部</div>
+                            <div class="card-desc">大工经管学部</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.lib.dlut.edu.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">大工图书馆</div>
+                            <div class="card-desc">大工图书馆</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://its.dlut.edu.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">大工网信中心</div>
+                            <div class="card-desc">大工网信中心</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://news.dlut.edu.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">大工新闻网</div>
+                            <div class="card-desc">大工新闻网</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://bbs.dlut.edu.cn/nforum/" class="card-link" target="_blank">
+                            <div class="card-tit">碧海青天站</div>
+                            <div class="card-desc">碧海青天站</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://tulip.dlut.edu.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">校园自助系统</div>
+                            <div class="card-desc">大工校园自助系统</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://portal.dlut.edu.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">大工门户</div>
+                            <div class="card-desc">大工门户</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://202.118.64.15/fabu/front/loginPost.jsp" class="card-link" target="_blank">
+                            <div class="card-tit">大工一卡通</div>
+                            <div class="card-desc">大工校园一卡通</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://career.dlut.edu.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">大工就业网</div>
+                            <div class="card-desc">大工就业网</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://202.118.76.249/index.html" class="card-link" target="_blank">
+                            <div class="card-tit">大工电视墙</div>
+                            <div class="card-desc">大工电视墙</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://hdtv.neu6.edu.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">IPV6视频</div>
+                            <div class="card-desc">IPV6视频</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://pan.dlut.edu.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">大工云盘</div>
+                            <div class="card-desc">大工云盘</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.dutpt.com/forum.php" class="card-link" target="_blank">
+                            <div class="card-tit">PT江湖</div>
+                            <div class="card-desc">PT江湖</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!--导航分类15，请根据自己的需求进行修改-->
+            <section class="item card-box" id="row-15">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>学习·充电</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix two-list-box">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://bbs.kaoyan.com/" class="card-link" target="_blank">
+                            <div class="card-tit">考研论坛</div>
+                            <div class="card-desc">考研论坛</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://yz.chsi.com.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">研招网</div>
+                            <div class="card-desc">研招网</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://emagic.org.cn/forum-57-1.html" class="card-link" target="_blank">
+                            <div class="card-tit">ANKI版</div>
+                            <div class="card-desc">高效学习之ANKI版块</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.unsv.com/" class="card-link" target="_blank">
+                            <div class="card-tit">UNSV英语</div>
+                            <div class="card-desc">UNSV英语学习</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.ebigear.com/" class="card-link" target="_blank">
+                            <div class="card-tit">大耳朵英语</div>
+                            <div class="card-desc">大耳朵英语</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.duolingo.com/" class="card-link" target="_blank">
+                            <div class="card-tit">多邻国</div>
+                            <div class="card-desc">外语学习</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.5icat.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">机辅翻译论坛</div>
+                            <div class="card-desc">机辅翻译论坛</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://bbs.pinggu.org/forum-65-1.html" class="card-link" target="_blank">
+                            <div class="card-tit">人大经济论坛</div>
+                            <div class="card-desc">人大经济论坛</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.danielsoper.com/" class="card-link" target="_blank">
+                            <div class="card-tit">sobel test</div>
+                            <div class="card-desc">sobel test 数据在线计算</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.afhayes.com/" class="card-link" target="_blank">
+                            <div class="card-tit">A.F.Hayes</div>
+                            <div class="card-desc">A.F.Hayes中介调节模型计算</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://davidakenny.net/cm/mediate.htm" class="card-link" target="_blank">
+                            <div class="card-tit">Mediate</div>
+                            <div class="card-desc">中介调节计算</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://cos.name/" class="card-link" target="_blank">
+                            <div class="card-tit">统计之都</div>
+                            <div class="card-desc">各种论文统计数据文章</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.axure.com.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">Axure中文网</div>
+                            <div class="card-desc">Axure中文网</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.iaxure.com/" class="card-link" target="_blank">
+                            <div class="card-tit">Axure教程</div>
+                            <div class="card-desc">Axure教程网</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.yac8.com/" class="card-link" target="_blank">
+                            <div class="card-tit">书法</div>
+                            <div class="card-desc">书法字帖</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://api.ihint.me/shuang/" class="card-link" target="_blank">
+                            <div class="card-tit">双拼练习</div>
+                            <div class="card-desc">双拼在线练习</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.xhup.club/" class="card-link" target="_blank">
+                            <div class="card-tit">小鹤反查</div>
+                            <div class="card-desc">小鹤双拼反查</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+			<!--导航分类16 导航内容参考修改，如果需要更多的导航分类，拷贝整个section标签进行修改-->
+            <section class="item card-box" id="row-16">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>教育·高校</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix ">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.cdgdc.edu.cn/xwyyjsjyxx/zlpj/" class="card-link" target="_blank">
+                            <div class="card-tit">教育部评估</div>
+                            <div class="card-desc">教育部学位评估中心</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.cuaa.net/" class="card-link" target="_blank">
+                            <div class="card-tit">校友会</div>
+                            <div class="card-desc">校友会排行榜</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://edu.sina.com.cn/zt_d/wushulian/" class="card-link" target="_blank">
+                            <div class="card-tit">武书连</div>
+                            <div class="card-desc">武书连排行榜</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.nseac.com/eva/CUAE.php" class="card-link" target="_blank">
+                            <div class="card-tit">科教评价网</div>
+                            <div class="card-desc">中国科教评价网排行榜</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.qs.com/rankings/" class="card-link" target="_blank">
+                            <div class="card-tit">QS排行榜</div>
+                            <div class="card-desc">全球高等教育QS排行榜</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.shanghairanking.com/index.html" class="card-link" target="_blank">
+                            <div class="card-tit">上海交大排行榜</div>
+                            <div class="card-desc">上海交大排行榜</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.usnews.com/education" class="card-link" target="_blank">
+                            <div class="card-tit">USNEWS</div>
+                            <div class="card-desc">USNEWS排行榜</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.timeshighereducation.com/cn/world-university-rankings/2019/world-ranking#!/page/0/length/25/sort_by/rank/sort_order/asc/cols/stats" class="card-link" target="_blank">
+                            <div class="card-tit">泰晤士排行榜</div>
+                            <div class="card-desc">泰晤士排行榜</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.sdzk.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">山东招考</div>
+                            <div class="card-desc">山东省教育招生考试院</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!--导航分类17，请根据自己的需求进行修改-->
+            <section class="item card-box" id="row-17">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>网络·工具</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix two-list-box">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.sojump.com/" class="card-link" target="_blank">
+                            <div class="card-tit">问卷星</div>
+                            <div class="card-desc">问卷星</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.taichangle.com/" class="card-link" target="_blank">
+                            <div class="card-tit">长微博生成器</div>
+                            <div class="card-desc">长微博生成器</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://ext.se.360.cn/webstore/home" class="card-link" target="_blank">
+                            <div class="card-tit">360扩展</div>
+                            <div class="card-desc">360浏览器扩展</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://chrome.google.com/webstore/category/ext/11-web-development" class="card-link" target="_blank">
+                            <div class="card-tit">谷歌扩展</div>
+                            <div class="card-desc">谷歌浏览器扩展</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://yurl.sinaapp.com/crx.php" class="card-link" target="_blank">
+                            <div class="card-tit">Crx离线包</div>
+                            <div class="card-desc">Crx离线包</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://ext.chrome.360.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">360极速扩展</div>
+                            <div class="card-desc">360极速浏览器扩展</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://bbs.kafan.cn/forum.php?mod=collection" class="card-link" target="_blank">
+                            <div class="card-tit">火狐UC脚本</div>
+                            <div class="card-desc">卡饭火狐UC脚本</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.itellyou.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">MSDNITellYou</div>
+                            <div class="card-desc">MSDNITellYou</div>
+                            </a>
+                        </div>
+			<div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://coolapk.com/apk/" class="card-link" target="_blank">
+                            <div class="card-tit">酷安</div>
+                            <div class="card-desc">安卓手机软件</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://ntrqq.net/" class="card-link" target="_blank">
+                            <div class="card-tit">NtrQQ</div>
+                            <div class="card-desc">NtrQQ</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.cz88.net/" class="card-link" target="_blank">
+                            <div class="card-tit">纯真IP</div>
+                            <div class="card-desc">纯真IP</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.reg007.com/" class="card-link" target="_blank">
+                            <div class="card-tit">REG007</div>
+                            <div class="card-desc">查询注册过的网站</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://liwei2.com/2015/11/27/378.html" class="card-link" target="_blank">
+                            <div class="card-tit">流氓终结者</div>
+                            <div class="card-desc">流氓软件终结者</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://tool.chinaz.com/Tools/Unicode.aspx" class="card-link" target="_blank">
+                            <div class="card-tit">Unicode编码转换</div>
+                            <div class="card-desc">Unicode编码转换</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://tool.oschina.net/encode?type=3" class="card-link" target="_blank">
+                            <div class="card-tit">编码转换</div>
+                            <div class="card-desc">编码转换</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.cnblogs.com/ziyunfei/archive/2011/12/20/2293928.html" class="card-link" target="_blank">
+                            <div class="card-tit">超级拖拽</div>
+                            <div class="card-desc">超级拖拽手势脚本</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://my.eset.com/convert" class="card-link" target="_blank">
+                            <div class="card-tit">ESET激活码转换</div>
+                            <div class="card-desc">ESET激活码转换</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://apkpure.com/" class="card-link" target="_blank">
+                            <div class="card-tit">Google Play下载</div>
+                            <div class="card-desc">Google Play APK下载代理</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.torrent.org.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">磁力链接转换</div>
+                            <div class="card-desc">磁力链接转换</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://tool.lu/urlconvert/" class="card-link" target="_blank">
+                            <div class="card-tit">迅雷地址转换</div>
+                            <div class="card-desc">迅雷地址转换</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://sswz.spb.gov.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">邮政申诉</div>
+                            <div class="card-desc">邮政申诉</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://api.izgq.net/weibo/" class="card-link" target="_blank">
+                            <div class="card-tit">新浪微博RSS</div>
+                            <div class="card-desc">新浪微博RSS</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://icons8.cn/icon/17843/mac-os" class="card-link" target="_blank">
+                            <div class="card-tit">icons图标</div>
+                            <div class="card-desc">系统icon图标</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.sccnn.com/" class="card-link" target="_blank">
+                            <div class="card-tit">素材中国</div>
+                            <div class="card-desc">素材中国</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.58pic.com/" class="card-link" target="_blank">
+                            <div class="card-tit">千图网</div>
+                            <div class="card-desc">千图网PS素材</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.zztuku.com/" class="card-link" target="_blank">
+                            <div class="card-tit">站长图库</div>
+                            <div class="card-desc">站长图库</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+			<!--导航分类18 导航内容参考修改，如果需要更多的导航分类，拷贝整个section标签进行修改-->
+            <section class="item card-box" id="row-18">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>数据·年鉴</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix ">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://data.stats.gov.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">国家数据</div>
+                            <div class="card-desc">国家统计局统计数据</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://tongji.cnki.net/kns55/index.aspx" class="card-link" target="_blank">
+                            <div class="card-tit">经济社会发展统计</div>
+                            <div class="card-desc">知网-中国经济与社会发展统计数据库</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://ifb.cass.cn/" class="card-link" target="_blank">
+                            <div class="card-tit">社科院统计</div>
+                            <div class="card-desc">社科院金融研究所统计</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.stats.gov.cn/tjsj/ndsj/2012/indexch.htm" class="card-link" target="_blank">
+                            <div class="card-tit">统计年鉴</div>
+                            <div class="card-desc">中国统计年鉴</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://bbs.jjxj.org/forum-51-1.html" class="card-link" target="_blank">
+                            <div class="card-tit">统计年鉴论坛</div>
+                            <div class="card-desc">统计年鉴论坛</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!--导航分类19，请根据自己的需求进行修改-->
+            <section class="item card-box" id="row-19">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>激活·密钥</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix two-list-box">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.nruan.com/win-key.html" class="card-link" target="_blank">
+                            <div class="card-tit">N软KEY</div>
+                            <div class="card-desc">N软KEY</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://forum.rsload.net/cat-windows-8/topic-3866-page-6.html" class="card-link" target="_blank">
+                            <div class="card-tit">Win8密钥</div>
+                            <div class="card-desc">俄罗斯网站提供</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://forum.rsload.net/cat-Kryaki,-seriyniki,-varez/topic-3566-page-32.html" class="card-link" target="_blank">
+                            <div class="card-tit">Office密钥</div>
+                            <div class="card-desc">俄罗斯网站提供</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.landiannews.com/key" class="card-link" target="_blank">
+                            <div class="card-tit">蓝点KEY</div>
+                            <div class="card-desc">导向蓝点微信公众号</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.ruanhuicn.com/u/key.html" class="card-link" target="_blank">
+                            <div class="card-tit">软慧网KEY</div>
+                            <div class="card-desc">软慧网KEY</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.officezhushou.com/office-key/" class="card-link" target="_blank">
+                            <div class="card-tit">Office激活KEY</div>
+                            <div class="card-desc">办公助手提供的Office激活KEY</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+			<!--导航分类20 导航内容参考修改，如果需要更多的导航分类，拷贝整个section标签进行修改-->
+            <section class="item card-box" id="row-20">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>工作·应聘</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix ">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://bbs.yingjiesheng.com/forum-436-1.html" class="card-link" target="_blank">
+                            <div class="card-tit">应届生求职网</div>
+                            <div class="card-desc">应届生求职网</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.dajie.com/" class="card-link" target="_blank">
+                            <div class="card-tit">大街网</div>
+                            <div class="card-desc">大街网</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.woshipm.com/category/pmd" class="card-link" target="_blank">
+                            <div class="card-tit">人人产品经理</div>
+                            <div class="card-desc">人人产品经理</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.nowcoder.com/questionCenter?mutiTagIds=602" class="card-link" target="_blank">
+                            <div class="card-tit">牛客网</div>
+                            <div class="card-desc">应聘笔试题库</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.acmcoder.com/360/" class="card-link" target="_blank">
+                            <div class="card-tit">赛码</div>
+                            <div class="card-desc">名企真题</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!--导航分类21，请根据自己的需求进行修改-->
+            <section class="item card-box" id="row-21">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>百科·维基</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix two-list-box">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.taozhy.com/ShuJuKu/XueWei/index.aspx" class="card-link" target="_blank">
+                            <div class="card-tit">穴位数据库</div>
+                            <div class="card-desc">穴位数据库</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.huofar.com/ll_tizhi.php" class="card-link" target="_blank">
+                            <div class="card-tit">活法儿体质</div>
+                            <div class="card-desc">活法儿体质测试</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://www.99166.com/index.html" class="card-link" target="_blank">
+                            <div class="card-tit">算命</div>
+                            <div class="card-desc">算命</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://www.haodou.com/" class="card-link" target="_blank">
+                            <div class="card-tit">好豆</div>
+                            <div class="card-desc">美食菜谱</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            			<!--导航分类22 导航内容参考修改，如果需要更多的导航分类，拷贝整个section标签进行修改-->
+            <section class="item card-box" id="row-22">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="item-tit">
+                        <strong>海信·集团</strong>
+                    </div>
+                    <!--获取内容列表-->
+                    <div class="clearfix ">
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="https://mail.hisense.com/" class="card-link" target="_blank">
+                            <div class="card-tit">海信邮箱</div>
+                            <div class="card-desc">海信邮箱</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://114.hisense.com/smtel/index1.do?coremail_userid=lihuiyuan@hisense.com&coremail_username=%E6%9D%8E%E8%BE%89%E6%BA%90&domain=hisense.com" class="card-link" target="_blank">
+                            <div class="card-tit">海信电话查号</div>
+                            <div class="card-desc">海信电话查号</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://koa3.hisense.com/" class="card-link" target="_blank">
+                            <div class="card-tit">海信KOA</div>
+                            <div class="card-desc">海信KOA</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://172.16.52.6/hxfssc/Authenticatelet" class="card-link" target="_blank">
+                            <div class="card-tit">海信SSC</div>
+                            <div class="card-desc">海信SSC</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://cis.hisense.com/" class="card-link" target="_blank">
+                            <div class="card-tit">海信CIS</div>
+                            <div class="card-desc">海信CIS</div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <a href="http://172.16.52.43/fsscdas/index.jsp" class="card-link" target="_blank">
+                            <div class="card-tit">海信报账</div>
+                            <div class="card-desc">海信报账</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            </section
+	    <!--分类导航 结束-->
+		
+            <!--页脚-->
+            <footer class="footer">
+            <div class="container">
+                <div class="rwo">
+                    <div class="col-md-12">
+                        <p>
+                            本导航内容源自互联网整理，模板参考小呆，如有问题请<a href="http://followtry.cn/about/" target="_blank">联系我</a>！
+                        </p>
+                        <!--代码源自小呆导航的开源代码，遵循MIT协议，此处保留源代码的声明-->
+                        <p>
+                            Copyright © <a href="http://followtry.cn" target="_blank">疯狂小兵</a> 2019 ｜Theme by <a href="https://webjike.com/" target="_blank"> 小呆导航</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            </footer>
+        </div>
+        <!--内容区域-->
+    </div>
+    <div id="get-top" title="回到顶部">
+        <i class="icon icon-arrow-up"></i>
+    </div>
+    
+    <!-- jQuery (ZUI中的Javascript组件依赖于jQuery) -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    
+<script>
+window.onscroll = function(){
+//回到顶部
+var sllTop = document.documentElement.scrollTop||document.body.scrollTop;
+if(sllTop>240){
+  $('#get-top').css('display','block')
+}else{
+  $('#get-top').css('display','none')
+}
+}
+$('#get-top').click(function(){ 
+  $('body,html').animate({
+    scrollTop: 0
+  }, 800);//点击回到顶部按钮，数字越小越快
+})
+//判断用户使用的设备
+var deviceVal  = browserRedirect();
+function browserRedirect() {
+  var sUserAgent = navigator.userAgent.toLowerCase();
+  var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+  var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+  var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+  var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+  var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+  var bIsAndroid = sUserAgent.match(/android/i) == "android";
+  var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+  var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+  if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+    return 'phone';
+  } else {
+    return 'pc';
+  }
+}
+  $('.nav-btn').on('click', function () {
+    $('.nav').toggleClass('showNav');
+    $(this).toggleClass('animated2');
+  });
+ 
+// 默认搜索引擎的内容，如果界面修改了需要同步修改
+var thisSearch = 'https://www.dogedoge.com/results?q=';
+
+$('#txt').keydown(function(ev){
+    // 回车键的处理
+    if(ev.keyCode==13){
+        window.open(thisSearch + $('#txt').val())
+        // $('#txt').val('');
+        $('#box ul').html('')
+    }
+})
+$(function(){
+  // 搜索引擎列表，样式一行五个内容，自动换行
+  var search = {
+    data: [{
+      name: 'Doge',
+      url: 'https://www.dogedoge.com/results?q='
+    }, {
+      name: '百度',
+      url: 'https://www.baidu.com/s?wd='
+    }, {
+      name: '谷歌',
+      url: 'https://www.google.com/search?q='
+    }, {
+      name: '必应',
+      url: 'https://cn.bing.com/search?q='
+    }, {
+      name: '萌搜',
+      url: 'https://mengso.com/search?q='
+    },{
+      name: '好搜',
+      url: 'https://www.so.com/s?q='
+    }, {
+      name: '搜狗',
+      url: 'https://www.sogou.com/web?query='
+    }, {
+      name: '淘宝',
+      url: 'https://s.taobao.com/search?q='
+    }, {
+      name: '京东',
+      url: 'http://search.jd.com/Search?keyword='
+    }, {
+      name: '天猫',
+      url: 'https://list.tmall.com/search_product.htm?q='
+    }, {
+      name: '1688',
+      url: 'https://s.1688.com/selloffer/offer_search.htm?keywords='
+    }, {
+      name: '知乎',
+      url: 'https://www.zhihu.com/search?type=content&q='
+    }, {
+      name: '微博',
+      url: 'https://s.weibo.com/weibo/'
+    }, {
+      name: 'Bilibili',
+      url: 'http://search.bilibili.com/all?keyword='
+    }, {
+      name: '豆瓣',
+      url: 'https://www.douban.com/search?source=suggest&q='
+    }, {
+      name: '优酷',
+      url: 'https://so.youku.com/search_video/q_'
+    }, {
+      name: 'GitHub',
+      url: 'https://github.com/search?q='
+    }]
+  }
+  for(var i = 0; i < search.data.length; i++){
+    var addList = '<li>' + search.data[i].name + '</li>'
+    $('.search-engine-list').append(addList);
+  }
+  $('.search-engine-name, .search-engine').hover(function() {
+    $('.search-engine').css('display', 'block')
+  }, function() {
+    $('.search-engine').css('display', 'none')
+  });
+  $('.search-engine-list li').click(function() {
+    var _index = $(this).index();
+    var searchNameBtn = document.getElementById("search-engine-name");
+    searchNameBtn.innerHTML = search.data[_index].name;
+    thisSearch = search.data[_index].url;
+    $('.search-engine').css('display', 'none')
+  })
+})
+$("#search-btn").click(function(){
+  var textValue = $('#txt').val();
+  if(textValue != ''){
+    window.open(thisSearch + textValue)
+  }
+});
+</script>
+</div>
+</body>
+</html>

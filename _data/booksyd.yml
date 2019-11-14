@@ -1,0 +1,672 @@
+- name: "变量：看见中国社会小趋势"    #书名
+  author: " 何帆"    #作者
+  translator: "--"    #翻译者
+  press: "中信出版社"    #出版社
+  publishdate: "2019-1"    #出版日期
+  price: "59.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s29965871.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/30418697/"    #豆瓣书单地址
+  readdate: "2019"    #阅读日期
+  booktag: "社科"    #书的分类标签
+  stars: "★★☆☆☆"    #评价星级
+  rate: "较差"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "说实话，这是一本挺烂的书，整体上就是作者搞的一些学术研究融合在一起，然后在书中对一些事物或现象起了一个新颖的名字，再罗列一些阐述，就成了这本书，实际上作者提的新鲜，实际没什么营养。如果你做过学术，可能读到一半就不想读了……"    #书评
+  
+- name: "OKR工作法：谷歌、领英等顶级公司的高绩效秘籍"    #书名
+  author: "克里斯蒂娜•沃特克 (Christina Wodtke)"    #作者
+  translator: "明道团队"    #翻译者
+  press: "中信出版社"    #出版社
+  publishdate: "2017-9-1"    #出版日期
+  price: "42.00元"    #价格
+  bookimg: "https://img9.doubanio.com/view/subject/l/public/s29808796.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/27132072/"    #豆瓣书单地址
+  readdate: "2019-03"    #阅读日期
+  booktag: "管理"    #书的分类标签
+  stars: "★★★★☆"    #评价星级
+  rate: "推荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "这本书讲解的OKR，实际上是很多公司都在用的“目标-绩效指标考核”管理方法，基本思想是提前制订下一阶段的季度或年度计划，依次为基础推进。对于在公司已经熟练使用该方法的读者，可看读可不读！自认为类似思想的书籍中，《平衡计分卡》更有深度！"    #书评
+  
+- name: "成为：米歇尔·奥巴马自传"    #书名
+  author: "[美] 米歇尔·奥巴马"    #作者
+  translator: "胡晓凯 / 闫洁"    #翻译者
+  press: "天地出版社"    #出版社
+  publishdate: "2019-1"    #出版日期
+  price: " 98.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s29934143.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/30389372/"    #豆瓣书单地址
+  readdate: "2019"    #阅读日期
+  booktag: "文学、自传"    #书的分类标签
+  stars: "★★★☆☆"    #评价星级
+  rate: "还行"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "这是一本米歇尔的自传书吧，讲述了她从小到大的生活经历、她的家人、她的学习、她的工作。如果用一句话概括的话，这是一本讲述心灵鸡汤的成长日记。如果你喜欢这个口味，你可以看，如果你希望看到的是一本传奇式的传记，可能味道不大合口！"    #书评
+  
+- name: "规模：复杂世界的简单法则"    #书名
+  author: "杰弗里·韦斯特 (Geoffrey West)"    #作者
+  translator: "张培"    #翻译者
+  press: "中信出版社"    #出版社
+  publishdate: "2018-6-1"    #出版日期
+  price: " 98.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s29809453.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/30244461/"    #豆瓣书单地址
+  readdate: "2019"    #阅读日期
+  booktag: "社科、管理"    #书的分类标签
+  stars: "★★★☆☆"    #评价星级
+  rate: "还行"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "比较浅显的一本书，读下来，给人的感觉就是，这本书又是把作者自己的学术研究罗列起来变成了一本书。对于熟悉管理的同学来说，这本书讲的内容比较浅，而且是那种一句话能给你恨不得来十个例子的浅。熟悉管理的同学不推荐看！"    #书评
+  
+- name: "刻意练习：如何从新手到大师"    #书名
+  author: "[美] 安德斯·艾利克森（Anders Ericsson） / 罗伯特·普尔（Robert Pool）"    #作者
+  translator: "王正林"    #翻译者
+  press: "机械工业出版社"    #出版社
+  publishdate: "2016-11-6"    #出版日期
+  price: "39.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s29105145.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/26895993/"    #豆瓣书单地址
+  readdate: "2019"    #阅读日期
+  booktag: "心理学"    #书的分类标签
+  stars: "★★★★☆"    #评价星级
+  rate: "推荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "估计这也是一本把学术研究整合成一本书的作品。好在这本书用一些分析和例子讲清了一个心理学问题，为什么你天天练习，别人也天天练习，别人成就非凡，而你却依然平庸？原因就是别人刻意进步，你却刻意简单重复！哈哈！"    #书评
+  
+- name: "深度思考：不断逼近问题的本质-莫琳·希凯"    #书名
+  author: "[美]莫琳·希凯"    #作者
+  translator: "孔锐才"    #翻译者
+  press: "江苏凤凰文艺出版社"    #出版社
+  publishdate: "2018-9"    #出版日期
+  price: "48.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s29856182.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/30312510/"    #豆瓣书单地址
+  readdate: "2019"    #阅读日期
+  booktag: "社科"    #书的分类标签
+  stars: "★★☆☆☆"    #评价星级
+  rate: "较差"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "唉，又读一本一本“好书”！书的内容和书的名字怎么品，都感觉对不上味，我感觉是书的作者深度思考过度了，才写了这本书。全书都在写自己的工作生涯，然后衍生出了一些对工作的思考。然后，我也不知道作者到底是想表达什么了！！！"    #书评
+  
+- name: "显微镜下的大明"    #书名
+  author: "马伯庸"    #作者
+  translator: "--"    #翻译者
+  press: "湖南文艺出版社"    #出版社
+  publishdate: "2019-1"    #出版日期
+  price: "52.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s29960161.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/30414743/"    #豆瓣书单地址
+  readdate: "2019"    #阅读日期
+  booktag: "历史"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "一本好书，通过六个故事缩影把明朝描述的立马鲜活了起来。这本书可以作为《明朝那些事儿》的拓展书来补充知识，可以让你对《明朝那些事儿》讲述的一些历史事件理解的更为透彻。我读完了这本书后，又把《明朝那些事儿》读了一遍！"    #书评
+  
+- name: "明朝那些事儿"    #书名
+  author: "当年明月"    #作者
+  translator: "--"    #翻译者
+  press: "浙江人民出版社"    #出版社
+  publishdate: "2011-12-1"    #出版日期
+  price: "208.60元"    #价格
+  bookimg: "https://img1.doubanio.com/view/subject/l/public/s29399938.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/7163250/"    #豆瓣书单地址
+  readdate: "2014"    #阅读日期
+  booktag: "历史"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "好书，很好的书。"    #书评
+    
+- name: "周期"    #书名
+  author: "[美]霍华德·马克斯"    #作者
+  translator: "刘建位"    #翻译者
+  press: "中信出版集团"    #出版社
+  publishdate: "2019-2"    #出版日期
+  price: "88.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s29988314.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/30443502/"    #豆瓣书单地址
+  readdate: "2019"    #阅读日期
+  booktag: "经济"    #书的分类标签
+  stars: "★★★★☆"    #评价星级
+  rate: "推荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "将周期细分为经济周期、政府干预经济周期、企业盈利周期、投资人心理和情绪钟摆、风险态度周期、信贷周期、不良债权周期、房地产周期、市场周期，并对每种周期做了详细的阐述。作者总结了自己50多年的投资经验，提出了一个鲜明的观点：人的决策对经济周期、企业周期、市场周期产生了巨大影响，而人做的决策，并不是科学的。他认为，人容易走极端的倾向，永远不会终止，因此，这些极端最终需要修正，而不是周期的发生会有改变。"    #书评
+  
+- name: "蓝海战略（扩展版）:超越产业竞争，开创全新市场"    #书名
+  author: "[韩] W.钱·金 / [美] 勒妮·莫博涅"    #作者
+  translator: "吉宓"    #翻译者
+  press: "商务印书馆"    #出版社
+  publishdate: "2016-4"    #出版日期
+  price: "49.90元"    #价格
+  bookimg: "https://img9.doubanio.com/view/subject/l/public/s28711496.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/26791265/"    #豆瓣书单地址
+  readdate: "2016"    #阅读日期
+  booktag: "管理"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "蓝海战略的方法根据书中所讲，实施步骤比较复杂，但是管理思想比较好，而且在实际的应用中，不必照搬，领会其核心管理思想并能将其思想嵌入现有管理方法是要点。"    #书评
+    
+- name: "查令十字街84号"    #书名
+  author: "[美] 海莲·汉芙"    #作者
+  translator: "陈建铭"    #翻译者
+  press: "译林出版社"    #出版社
+  publishdate: "2005-05-01"    #出版日期
+  price: "18.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s1326174.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/1316648/"    #豆瓣书单地址
+  readdate: "2018"    #阅读日期
+  booktag: "文学小说"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "这本书记录了纽约女作家海莲和一家伦敦旧书店的书商弗兰克之间的书缘情缘。双方二十年间始终未曾谋面，相隔万里，深厚情意却能莫逆于心。目前这本书已经被拍成了电影，书和电影我都看了！值得阅读的一本书！"    #书评
+  
+- name: "见识：商业的本质和人生的智慧"    #书名
+  author: "[美]吴军"    #作者
+  translator: "--"    #翻译者
+  press: "中信出版社"    #出版社
+  publishdate: "2017-10"    #出版日期
+  price: "78.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s29575321.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/27167992/"    #豆瓣书单地址
+  readdate: "2018"    #阅读日期
+  booktag: "文学"    #书的分类标签
+  stars: "★★★★☆"    #评价星级
+  rate: "推荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "内容很多很杂的一本书，甚至里面有些内容在读过后，可以不去在读其他讲述类似观点的书，概述性比较广吧！仔细品味，可以算是一本好书，里面又很多作者自己的见解。"    #书评
+  
+- name: "刺杀骑士团长"    #书名
+  author: "[日] 村上春树"    #作者
+  translator: "林少华"    #翻译者
+  press: "上海译文出版社"    #出版社
+  publishdate: "2018-3"    #出版日期
+  price: "98.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s29687411.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/27199470/"    #豆瓣书单地址
+  readdate: "2018"    #阅读日期
+  booktag: "文学小说"    #书的分类标签
+  stars: "★★★☆☆"    #评价星级
+  rate: "还行"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "刚读这本书时，这本书刚上市不久，而且热度挺高的。以为这是一本讲述类似拿破仑那个时代的战争故事，结果看了一半，基本都是在讲这位艺术家的一夜情，虽然内容安排不错，但不喜欢这种题材，读了一半就没有在读……"    #书评
+  
+- name: "我们仨"    #书名
+  author: "杨绛"    #作者
+  translator: "--"    #翻译者
+  press: "生活·读书·新知三联书店"    #出版社
+  publishdate: "2003-7"    #出版日期
+  price: "18.80元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s1015872.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/1023045/"    #豆瓣书单地址
+  readdate: "2016"    #阅读日期
+  booktag: "回忆录"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "说实话，对这本书，读的有点晚了，我是在微信好友的朋友圈看到别人在读这本书，我才发现了这本书。然后，一读就爱上了这本书，我已经读了两遍了！这本书是钱钟书夫人杨绛撰写的家庭生活回忆录。1998年，钱钟书逝世，而他和杨绛唯一的女儿钱瑗已于此前（1997年）先他们而去。在人生的伴侣离去四年后，杨绛在92岁高龄的时候用心记述了他们这个特殊家庭63年的风风雨雨、点点滴滴，结成回忆录《我们仨》。"    #书评
+  
+- name: "原则"    #书名
+  author: "[美] 瑞·达利欧"    #作者
+  translator: "刘波 / 綦相"    #翻译者
+  press: "中信出版社"    #出版社
+  publishdate: "2018-1"    #出版日期
+  price: "98.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s29643861.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/27608239/"    #豆瓣书单地址
+  readdate: "2018"    #阅读日期
+  booktag: "管理、投资"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "这本书是华尔街投资大神、对冲基金公司桥水创始人，根据自己管理桥水的过程中和生活中总结出来的工作原则、生活原则，全书内容比较充实，没有为罗列而罗列的成分。通过这本书，你基本可以读完桥水的发展历程。"    #书评
+  
+- name: "月亮与六便士"    #书名
+  author: "[英] 威廉·萨默塞特·毛姆"    #作者
+  translator: "徐淳刚"    #翻译者
+  press: "浙江文艺出版社"    #出版社
+  publishdate: "2017-1-1"    #出版日期
+  price: "39.80元"    #价格
+  bookimg: "https://img1.doubanio.com/view/subject/l/public/s29634528.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/26954760/"    #豆瓣书单地址
+  readdate: "2019"    #阅读日期
+  booktag: "文学小说"    #书的分类标签
+  stars: "★★★★☆"    #评价星级
+  rate: "推荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "一个冷漠、怪异的画家，就当悬疑小说读吧，没啥太吸引人的点，但也不是太烂。"    #书评
+  
+- name: "重新定义公司：谷歌是如何运营的"    #书名
+  author: "[美] 埃里克·施密特"    #作者
+  translator: "靳婷婷 / 陈序 / 何晔"    #翻译者
+  press: "中信出版社"    #出版社
+  publishdate: "2015-8"    #出版日期
+  price: "49.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s28278604.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/26582822/"    #豆瓣书单地址
+  readdate: "2017"    #阅读日期
+  booktag: "管理"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "披露了谷歌如何颠覆传统的MBA模式，建立独树一帜的管理哲学，作者分享了外界普遍好奇的企业文化、战略、人才、决策、沟通以及创新之道。埃里克•施密特和乔纳森•罗森伯格列举了谷歌历史上众多只有内部人员才知道的实例，其中许多事件更是第一次为广大读者公布。他们旨在将谷歌的管理秘密转化为人人皆可用的经验，帮助我们迎接变化世界中的巨大挑战。"    #书评
+  
+- name: "从0到1：开启商业与未来的秘密"    #书名
+  author: "彼得·蒂尔 / 布莱克·马斯特斯"    #作者
+  translator: "高玉芳"    #翻译者
+  press: "中信出版社"    #出版社
+  publishdate: "2015-1-1"    #出版日期
+  price: "45.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s28299265.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/26297606/"    #豆瓣书单地址
+  readdate: "2016"    #阅读日期
+  booktag: "管理"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "我是在一位同学的面试经历中知道的这本书。本书揭开创新的秘密：创新不是从1到N，而是从0到1。在本书中详细阐述了作者的创业历程与心得，包括如何避免竞争、如何进行垄断、如何发现新的市场。《从0到1》还将带你穿越哲学、历史、经济等多元领域，解读世界运行的脉络，分享商业与未来发展的逻辑，帮助你思考从0到1的秘密，在意想不到之处发现价值与机会。"    #书评
+  
+- name: "白夜行"    #书名
+  author: "[日] 东野圭吾"    #作者
+  translator: "刘姿君"    #翻译者
+  press: "南海出版公司"    #出版社
+  publishdate: "2013-1-1"    #出版日期
+  price: "39.50元"    #价格
+  bookimg: "https://img1.doubanio.com/view/subject/l/public/s24514468.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/10554308/"    #豆瓣书单地址
+  readdate: "2017"    #阅读日期
+  booktag: "文学小说"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "一部命案推力小说，喜欢的可以读。"    #书评
+  
+- name: "嫌疑人X的献身"    #书名
+  author: "[日] 东野圭吾"    #作者
+  translator: "刘子倩"    #翻译者
+  press: "南海出版公司"    #出版社
+  publishdate: "2008-9"    #出版日期
+  price: "28.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s3254244.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/3211779/"    #豆瓣书单地址
+  readdate: "2017"    #阅读日期
+  booktag: "文学小说"    #书的分类标签
+  stars: "★★★★☆"    #评价星级
+  rate: "推荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "如果说《白夜行》我给打五星，《嫌疑人X的献身》我最多给四星。原因是，这本书主要描写了数学天才石神为了掩盖暗恋对象靖子与女儿错手杀害前夫的真相，精心设计了一个将警察带入歧途的谜局，而故事情节的推进不是以警察找到的确切的线索一点点推进，而是完全靠警察的猜测在推进故事情节，对，你没听错，全是警察在猜证据，结局竟他妈的全让警察给猜对了！！！这是什么逻辑，让我脑洞大开！神警！！！"    #书评
+  
+- name: "1942:河南大饥荒"    #书名
+  author: "宋致新"    #作者
+  translator: "--"    #翻译者
+  press: "湖北人民出版社"    #出版社
+  publishdate: "2005-7-1"    #出版日期
+  price: "22.00元"    #价格
+  bookimg: "https://img1.doubanio.com/view/subject/l/public/s10007589.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/1676672/"    #豆瓣书单地址
+  readdate: "2017"    #阅读日期
+  booktag: "历史、档案"    #书的分类标签
+  stars: "★★★★☆"    #评价星级
+  rate: "推荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "黄河决堤、疾病、灾荒、饥荒，天灾还是人祸，可以看看这本书。"    #书评
+  
+- name: "万历十五年:经典版"    #书名
+  author: "黄仁宇"    #作者
+  translator: "--"    #翻译者
+  press: "中华书局"    #出版社
+  publishdate: "2014-7"    #出版日期
+  price: "59.00元"    #价格
+  bookimg: "https://img1.doubanio.com/view/subject/l/public/s28332809.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/25893465/"    #豆瓣书单地址
+  readdate: "2017"    #阅读日期
+  booktag: "历史、档案"    #书的分类标签
+  stars: "★★★★☆"    #评价星级
+  rate: "推荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "因为看了《人民的名义》这部电视剧，才知道的这本书。一本史料，可以看看。"    #书评
+  
+- name: "乌合之众：大众心理研究（修订版）"    #书名
+  author: "（法）勒庞"    #作者
+  translator: "冯克利"    #翻译者
+  press: "中央编译出版社"    #出版社
+  publishdate: "2011-5-1"    #出版日期
+  price: "16.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s1988393.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/1012611/"    #豆瓣书单地址
+  readdate: "2017"    #阅读日期
+  booktag: "心理学"    #书的分类标签
+  stars: "★★★★☆"    #评价星级
+  rate: "推荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "作者在书中极为精致地描述了集体心态，对人们理解集体行为的作用以及对社会心理学的思考发挥了巨大影响。"    #书评
+  
+- name: "闲看水浒:字缝里的梁山规则与江湖世界"    #书名
+  author: "十年砍柴"    #作者
+  translator: "--"    #翻译者
+  press: "同心出版社"    #出版社
+  publishdate: "2004-6"    #出版日期
+  price: "22.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s1828653.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/1009640/"    #豆瓣书单地址
+  readdate: "2017"    #阅读日期
+  booktag: "文学评论"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "这本书可以看作是《水浒传》的新解吧，如果先看一遍《水浒传》、再看一遍这本书》、再看一遍《水浒传》，你一定会看得更加透彻！"    #书评
+  
+- name: "沉默的大多数"    #书名
+  author: "王小波"    #作者
+  translator: "--"    #翻译者
+  press: "陕西师范大学出版社"    #出版社
+  publishdate: "2009-7-1"    #出版日期
+  price: "32.00元"    #价格
+  bookimg: "https://img1.doubanio.com/view/subject/l/public/s3955998.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/3901880/"    #豆瓣书单地址
+  readdate: "2016"    #阅读日期
+  booktag: "杂文随笔"    #书的分类标签
+  stars: "★★★★☆"    #评价星级
+  rate: "推荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "这本书是我的同学郑送我的。这本书真的是杂文，没有章序。作者对一些社会思想进行批判，并阐述了自己的思想。"    #书评
+  
+- name: "岛上书店"    #书名
+  author: "[美] 加布瑞埃拉·泽文"    #作者
+  translator: "孙仲旭 / 李玉瑶"    #翻译者
+  press: "江苏凤凰文艺出版社"    #出版社
+  publishdate: "2015-5-1"    #出版日期
+  price: "35.00元"    #价格
+  bookimg: "https://img1.doubanio.com/view/subject/l/public/s29810488.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/26340138/"    #豆瓣书单地址
+  readdate: "2016"    #阅读日期
+  booktag: "文学小说"    #书的分类标签
+  stars: "★★★★☆"    #评价星级
+  rate: "推荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "费克里，人近中年，在一座与世 隔绝的小岛上，经营一家书店。命运从未眷顾过他，爱妻去世，书店危机，就连唯一值钱的宝贝也遭窃。他的人生陷入僵局，他的内心沦为荒岛。就在此时，一个神秘的包袱出现在书店中，意外地拯救了陷于孤独 绝境中的A．J．，成为了连接他和妻姐伊斯梅、 警长兰比亚斯、出版社女业务员阿米莉娅之间的纽带，为他的生活带来了转机。"    #书评
+  
+- name: "蛙"    #书名
+  author: "莫言"    #作者
+  translator: "--"    #翻译者
+  press: "上海文艺出版社"    #出版社
+  publishdate: "2009-12"    #出版日期
+  price: "27.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s4104535.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/4169424/"    #豆瓣书单地址
+  readdate: "2016"    #阅读日期
+  booktag: "文学小说"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "通过讲述从事妇产科工作50多年的乡村女医生姑姑的人生经历，反映新中国近60年波澜起伏的农村生育史，描述国家为了控制人口剧烈增长、实施计划生育国策所走过的艰巨而复杂的历史过程。"    #书评
+  
+- name: "从你的全世界路过"    #书名
+  author: "张嘉佳"    #作者
+  translator: "--"    #翻译者
+  press: "湖南文艺出版社"    #出版社
+  publishdate: "2013-11-1"    #出版日期
+  price: "36.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s27102925.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/25747921/"    #豆瓣书单地址
+  readdate: "2015"    #阅读日期
+  booktag: "青春小说"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "写的一本不错的很动人的书。里面有多个动人的故事。现在这本书已经被改拍成的电影。不过，我感觉电影不如这书精彩！"    #书评
+  
+- name: "看见"    #书名
+  author: "柴静"    #作者
+  translator: "--"    #翻译者
+  press: "广西师范大学出版社"    #出版社
+  publishdate: "2013-1-1"    #出版日期
+  price: "39.80元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s24468373.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/20427187/"    #豆瓣书单地址
+  readdate: "2014"    #阅读日期
+  booktag: "社会纪实"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "很不错的一本书，相信很多人都已经读过了。我在上学的时候读了一遍，毕业后又读了一遍！这本书是作者讲述央视十年历程的自传性作品，既是柴静个人的成长告白书，某种程度上亦可视作中国社会十年变迁的备忘录。十年前她被选择成为国家电视台新闻主播，却因毫无经验而遭遇挫败，非典时期成为现场记者后，现实生活犬牙交错的切肤之感，让她一点一滴脱离外在与自我的束缚，对生活与人性有了更为宽广与深厚的理解。这本书讲述了十年间，非典、汶川地震、两会报道、北京奥运……在每个重大事件现场，都是柴静在讲自己经历，而如华南虎照、征地等刚性的调查报道也有记述。"    #书评
+  
+- name: "撒哈拉的故事"    #书名
+  author: "三毛"    #作者
+  translator: "--"    #翻译者
+  press: "哈尔滨出版社"    #出版社
+  publishdate: "2013-1-1"    #出版日期
+  price: "15.80元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s1066570.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/1060068/"    #豆瓣书单地址
+  readdate: "2015"    #阅读日期
+  booktag: "散文随笔"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "很好的一本书，主要记述了三毛和其丈夫在撒哈拉的生活，里面故事很多，品味也很多……"    #书评
+  
+- name: "谁的青春不迷茫"    #书名
+  author: "刘同"    #作者
+  translator: "--"    #翻译者
+  press: "中信出版社"    #出版社
+  publishdate: "2012-12"    #出版日期
+  price: "35.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s24476315.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/20278327/"    #豆瓣书单地址
+  readdate: "2014"    #阅读日期
+  booktag: "青春文学、回忆录"    #书的分类标签
+  stars: "★★☆☆☆"    #评价星级
+  rate: "较差"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "一本安排很乱的书，读了找不到头绪，搞不清作者是在说什么、在矫情什么……没有读的价值！"    #书评
+  
+- name: "偷影子的人"    #书名
+  author: "[法] 马克·李维"    #作者
+  translator: "段韵灵"    #翻译者
+  press: "湖南文艺出版社"    #出版社
+  publishdate: "2012-6-20"    #出版日期
+  price: "29.80元"    #价格
+  bookimg: "https://img1.doubanio.com/view/subject/l/public/s10339418.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/10763902/"    #豆瓣书单地址
+  readdate: "2015"    #阅读日期
+  booktag: "文学小说"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "一个老是受班上同学欺负的瘦弱小男孩，因为拥有一种特殊能力而强大：他能“偷别人的影子”，因而能看见他人心事，听见人们心中不愿意说出口的秘密。他开始成为需要帮助者的心灵伙伴，为每个偷来的影子找到点亮生命的小小光芒。"    #书评
+  
+- name: "创京东：刘强东亲述创业之路"    #书名
+  author: "李志刚"    #作者
+  translator: "--"    #翻译者
+  press: "中信出版社"    #出版社
+  publishdate: "2015-5-1"    #出版日期
+  price: "49.80元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s28111410.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/26400900/"    #豆瓣书单地址
+  readdate: "2017"    #阅读日期
+  booktag: "创业传记"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "本书讲述了京东的创立和发展历程。不避讳，不粉饰，从京东的偶然触网，到毅然转型，用一个个真实、鲜活的故事，讲述京东如何持续保持创业的激情，保持团队的凝聚力和强大的执行能力，与互联网磕碰磨合而坚决前行、不断壮大。"    #书评
+  
+- name: "硅谷钢铁侠：埃隆・马斯克的冒险人生"    #书名
+  author: "[美] 阿什利·万斯"    #作者
+  translator: "周恒星"    #翻译者
+  press: "中信出版集团"    #出版社
+  publishdate: "2016-4"    #出版日期
+  price: "68.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s28571694.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/26759508/"    #豆瓣书单地址
+  readdate: "2019"    #阅读日期
+  booktag: "创业传记"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "披露马斯克如何建立和运营PayPal、特斯拉、Space X、Solar City等公司的细节。"    #书评
+  
+- name: "雷军·让创业回归简单"    #书名
+  author: "陈润"    #作者
+  translator: "--"    #翻译者
+  press: "安徽人民出版社"    #出版社
+  publishdate: "2013-6-1"    #出版日期
+  price: "32.80元"    #价格
+  bookimg: "https://img1.doubanio.com/view/subject/l/public/s26684779.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/24716163/"    #豆瓣书单地址
+  readdate: "2018"    #阅读日期
+  booktag: "创业传记"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "讲述了雷军上学时高智商，在金山撑起一片天，创立小米，以及雷军作为风险投资人的投资哲学等，很值得读。"    #书评
+  
+- name: "马云管理日志"    #书名
+  author: "金错刀"    #作者
+  translator: "--"    #翻译者
+  press: "中信出版社"    #出版社
+  publishdate: "2009-4"    #出版日期
+  price: "42.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s3739542.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/3683788/"    #豆瓣书单地址
+  readdate: "2018"    #阅读日期
+  booktag: "创业传记"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "从马云的创业、创新、管理模式、团队建设、资本管理、品牌建设、业务发展等方面清晰地分析了马云成功的步伐。以“管理日志”的形式，将马云“火星式管理”的原生态语言归纳在12个大主题以下，进行了详实的背景分析以及准确的行动指南。"    #书评
+  
+- name: "腾讯传:中国互联网公司进化论"    #书名
+  author: "吴晓波"    #作者
+  translator: "--"    #翻译者
+  press: "浙江大学出版社"    #出版社
+  publishdate: "2017-1-1"    #出版日期
+  price: "58.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s29382914.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/26929955/"    #豆瓣书单地址
+  readdate: "2018"    #阅读日期
+  booktag: "创业传记"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "本书全景式地记录了腾讯崛起的经历，并以互联网的视角重新诠释了中国在融入全球化进程中的曲折与独特性。里面还有当时腾讯为什么已经涉足电商、后来又推出电商。"    #书评
+  
+- name: "宗庆后：万有引力原理"    #书名
+  author: "迟宇宙"    #作者
+  translator: "--"    #翻译者
+  press: "红旗出版社"    #出版社
+  publishdate: "2015-10"    #出版日期
+  price: "56.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s28329320.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/26653962/"    #豆瓣书单地址
+  readdate: "2018"    #阅读日期
+  booktag: "创业传记"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "宗庆后70年来的人生经历、商业思想。如何通过“开明的专制”经营企业，如何用“家文化”凝聚上万员工，如何靠神奇的“联销体”网络，让偏远的西藏那曲，地上除了牛粪就是娃哈哈的瓶子。此外，本书还首次曝光数万字达娃之争的真实内幕。同时，这本书还告诉我们一个真理：没有靠山，你玩个锤子！"    #书评
+  
+- name: "套利的常识"    #书名
+  author: "章文"    #作者
+  translator: "--"    #翻译者
+  press: "上海社会科学院出版社"    #出版社
+  publishdate: "2014-6-1"    #出版日期
+  price: "55.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s27461863.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/25981152/"    #豆瓣书单地址
+  readdate: "2018"    #阅读日期
+  booktag: "经济、投资"    #书的分类标签
+  stars: "★★★☆☆"    #评价星级
+  rate: "还行"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "分析一价定律与金融资产，价值与价格，机会与风险的关系，运用多位获得诺贝尔经济学奖的经济学家的理论和方法，并结合作者自己丰富的套利操作经验，对套利的理论和方法作了比较全面的探讨和介绍。"    #书评
+  
+- name: "史蒂夫·乔布斯传"    #书名
+  author: "[美] 沃尔特·艾萨克森"    #作者
+  translator: "管延圻 / 魏群 / 余倩 / 赵萌萌 / 汤崧"    #翻译者
+  press: "中信出版社"    #出版社
+  publishdate: "2011-10-24"    #出版日期
+  price: "68.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s6974202.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/6798611/"    #豆瓣书单地址
+  readdate: "2012"    #阅读日期
+  booktag: "人物传记"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "这本书，我先读了英文原版的，后来又读了中文版的。"    #书评
+  
+- name: "胡雪岩全传－烟消云散 灯火楼台"    #书名
+  author: "高阳"    #作者
+  translator: "--"    #翻译者
+  press: "中国友谊出版公司"    #出版社
+  publishdate: "1995-1"    #出版日期
+  price: "85.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s3242103.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/1542075/"    #豆瓣书单地址
+  readdate: "2009"    #阅读日期
+  booktag: "人物传记"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "全套七本，看了其中的两本。"    #书评
+  
+- name: "传媒巨人：默多克"    #书名
+  author: "威廉・菲勒 / 宿景祥"    #作者
+  translator: "--"    #翻译者
+  press: "光明日报出版社"    #出版社
+  publishdate: "2002-8-1"    #出版日期
+  price: "28.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s2362983.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/1100525/"    #豆瓣书单地址
+  readdate: "2009"    #阅读日期
+  booktag: "人物传记"    #书的分类标签
+  stars: "★★★★☆"    #评价星级
+  rate: "推荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "讲述鲁伯特·默多克从澳大利亚一份报纸起家，奇迹般地建立起一个空前的国际传媒帝国。在美国，他的富克斯电视网占据43%的电视传播市场；在英国，他控制最著名的两家报纸《泰晤士报》和《太阳报》；在亚洲，他报纸和电视台遍及香港、印度、印尼、日本等；在全球他所创立的新闻集团覆盖三分之二人口……超凡的胆识和谋略，使他当之无愧地成为全球最具竞争力的财富巨人。"    #书评
+  
+- name: "大数据:正在到来的数据革命，以及它如何改变政府、商业与我们的生活"    #书名
+  author: "涂子沛"    #作者
+  translator: "--"    #翻译者
+  press: "广西师范大学出版社"    #出版社
+  publishdate: "2013-4-1"    #出版日期
+  price: "49.90元"    #价格
+  bookimg: "https://img1.doubanio.com/view/subject/l/public/s10391658.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/10799984/"    #豆瓣书单地址
+  readdate: "2016"    #阅读日期
+  booktag: "信息科学"    #书的分类标签
+  stars: "★★★★☆"    #评价星级
+  rate: "推荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "这本书刚出的时候，挺新鲜的，现在对我没有那么大的吸引力。"    #书评
+  
+- name: "世界上最简单的会计书"    #书名
+  author: "（美）达雷尔•穆利斯 / 朱迪丝•奥洛夫"    #作者
+  translator: "黄屹"    #翻译者
+  press: "机械工业出版社"    #出版社
+  publishdate: "2013-10"    #出版日期
+  price: "30.00元"    #价格
+  bookimg: "https://img1.doubanio.com/view/subject/l/public/s28040378.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/25747852/"    #豆瓣书单地址
+  readdate: "2018"    #阅读日期
+  booktag: "财务"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "一本很有意思的会计学习书。"    #书评
+  
+- name: "一本书读懂财报"    #书名
+  author: "肖星"    #作者
+  translator: "--"    #翻译者
+  press: "浙江大学出版社"    #出版社
+  publishdate: "2014-7-1"    #出版日期
+  price: "35.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s29294675.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/25926542/"    #豆瓣书单地址
+  readdate: "2018"    #阅读日期
+  booktag: "财务"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "帮助初学者循序渐进、轻松自如地掌握财务报表的相关知识，快速入门。"    #书评
+  
+- name: "一本书读懂中国税"    #书名
+  author: "言谭"    #作者
+  translator: "--"    #翻译者
+  press: "浙江大学出版社"    #出版社
+  publishdate: "2013-8-1"    #出版日期
+  price: "32.00元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s27968600.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/25716608/"    #豆瓣书单地址
+  readdate: "2018"    #阅读日期
+  booktag: "财务"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "借助生动有趣的人物故事和贴近生活的案例描写，全方位介绍中国的各个税种、中国税制与外国税制的区别与相同之处，以及中国税制改革中的种种热点问题。"    #书评
+  
+- name: "愿有人陪你颠沛流离"    #书名
+  author: "卢思浩"    #作者
+  translator: "--"    #翻译者
+  press: "湖南文艺出版社"    #出版社
+  publishdate: "2014-7-1"    #出版日期
+  price: "35.80元"    #价格
+  bookimg: "https://img1.doubanio.com/view/subject/l/public/s27317967.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/25921293/"    #豆瓣书单地址
+  readdate: "2014"    #阅读日期
+  booktag: "青春、治愈系文学"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "作者是一位在人人网很火的作家，人人网粉丝很多，我也是其中一个☻。读的其第二本作品。"    #书评
+  
+- name: "你要去相信，没有到不了的明天"    #书名
+  author: "卢思浩"    #作者
+  translator: "--"    #翻译者
+  press: "湖南文艺出版社"    #出版社
+  publishdate: "2013-6-3"    #出版日期
+  price: "32.80元"    #价格
+  bookimg: "https://img3.doubanio.com/view/subject/l/public/s26563311.jpg"    #封面图片链接地址
+  doubanurl: "https://book.douban.com/subject/24699104/"    #豆瓣书单地址
+  readdate: "2014"    #阅读日期
+  booktag: "青春、治愈系文学"    #书的分类标签
+  stars: "★★★★★"    #评价星级
+  rate: "力荐"    #1到5星分别为很差、较差、还行、推荐、力荐
+  review: "作者是一位在人人网很火的作家，人人网粉丝很多，我也是其中一个☻。读的其第一本作品。"    #书评
+  
