@@ -166,6 +166,9 @@ friends: [
     },{
         title: "Leancloud",
         href: "https://console.leancloud.app/"
+    },{
+        title: "不蒜子",
+        href: "https://busuanzi.ibruce.info/"
     }
 ]
 
