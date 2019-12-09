@@ -154,14 +154,15 @@ img-prefix: //raw.githubusercontent.com/George5814/blog-pic/master
 # Friends
 friends: [
     {
+        title: "享巴巴",
+        href: "https://www.ahoom.cn/"
+    },
+    {
         title: "优源站点",
         href: "https://duter2016.github.io"
     },{
         title: "罗莎之鹰",
         href: "https://yelonhimx.wang"
-    },{
-        title: "图片压缩",
-        href: "https://compressjpeg.com/zh/"
     },{
         title: "Valine评论",
         href: "https://duter2016.avosapps.us/"
