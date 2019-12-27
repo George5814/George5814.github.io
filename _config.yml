@@ -147,13 +147,16 @@ featured-condition-size: 0              # 相同标签数量大于这个数，�
 chrome-tab-theme-color: "#000000"
 service-worker: true
 
-img-prefix: //raw.githubusercontent.com/George5814/blog-pic/master
+img-prefix: https://raw.githubusercontent.com/George5814/blog-pic/master
 
 
 
 # Friends
 friends: [
     {
+        title: "AiLinkLife",
+        href: "http://www.jiangxindc.com/"
+    },{
         title: "享巴巴",
         href: "https://www.ahoom.cn/"
     },
