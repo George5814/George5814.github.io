@@ -86,15 +86,16 @@ Bean 的别名注册器有定义别名功能的接口`AliasRegistry`。该接口
 
 
 ### 删除别名
-    直接调用 map 的 remove 方法进行删除。
+
+直接调用 map 的 remove 方法进行删除。
 
 ### 判断别名
 
-    通过 map 的containsKey方法判断别名 alias 作为 key是否存在
+通过 map 的containsKey方法判断别名 alias 作为 key是否存在
 
 ### 获取别名
 
-    获取别名就是`canonicalName`方法的反其道而行。通过 beanName 获取所有的 alias。此处使用的遍历 Map 的方式，一旦找到一个 alias，那么再用该 alias 作为 beanName 重新进行一次内层遍历，一次类推。
+获取别名就是`canonicalName`方法的反其道而行。通过 beanName 获取所有的 alias。此处使用的遍历 Map 的方式，一旦找到一个 alias，那么再用该 alias 作为 beanName 重新进行一次内层遍历，一次类推。
 
 **此处存在一个问题：如果一个 bean 的别名特别深，那么循环查找就会呈现指数级增长。**
 
@@ -120,4 +121,9 @@ Bean 的别名注册器有定义别名功能的接口`AliasRegistry`。该接口
 如果加入注册的别名总共有 1百万个，则查找 hello 的所有别名得循环1千1百万次。
 
 即循环比较次数是bean 注册数量的 11 倍。好在 Spring 中注册的 bean 不会超过 1w，而且正常情况一个 bean 也不会有这么多的别名，否则就太可怕了。
+
+## 注意
+
+
+`removeAlias`，`registerAlias`，`getAliases`时都有`synchronized`来锁住`aliasMap`对象，因为该功能调用次数较少，因此使用`synchronized`也没多大性能影响。
 
