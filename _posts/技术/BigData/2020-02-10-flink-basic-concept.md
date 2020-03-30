@@ -31,7 +31,7 @@ published: true
 // 获取当前 Job运行的环境，可能是 Flink 的独立集群，也可能是运行在 yarn 上的 Flink 应用
 getExecutionEnvironment()
 
-// 创建 本地的环境，有利用在 IDE 中进行调试使用
+// 创建 本地的环境，有利于在 IDE 中进行调试使用
 createLocalEnvironment()
 
 //创建远程的环境
@@ -57,7 +57,7 @@ createRemoteEnvironment(String host, int port, String... jarFiles)
 5. writeToSocket
 6. addSink : 自定义的sink 的 Function，比如写入到 kafka 中。
 
-通过 write 开头的都不用于调试目的，线上使用 addSink，然后通过自定义的 sink 或者 connector 来使用。
+通常write 开头的都用于调试目的，线上使用 addSink，然后通过自定义的 sink 或者 connector 来使用。
 
 ## 延迟评估
 

@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  Spring学习 - BeanDefinition 的机制
+title:  Spring学习 - 元数据存储结构 -- BeanDefinition 和 AnnotationMetadata 的机制
 category: 技术
 tags: Spring Java
 keywords: Spring Java
-description: 介绍 spring 存储 Bean 信息的载体：BeanDefinition
+description: 介绍 spring 存储 Bean 信息的载体：BeanDefinition 和 AnnotationMetadata
 date: 2019-12-27
 author: followtry
 published: true
@@ -71,10 +71,44 @@ BeanDefinition是 Spring 中一种重要的数据模型定义，用来存储 Spr
 - destroyMethodName 默认为 null
 
 
+## AnnotatedBeanDefinition
 
+注解用接口
+
+新增接口方法
+
+- getMetadata
+- getFactoryMethodMetadata
+
+
+用于获取注解的元数据和方法的元数据
+
+## GenericBeanDefinition
+
+AbstractBeanDefinition的主要实现类。
+
+GenericBeanDefinition是标准bean定义的一站式服务。与任何bean定义一样，它允许指定一个类加上可选的构造函数参数值和属性值。此外，可以通过“parentName”属性灵活地配置来自父bean定义的派生。通常，使用这个GenericBeanDefinition类的目的是注册用户可见的bean定义(post-processor可以对其进行操作，甚至可能重新配置父名称)。使用RootBeanDefinition / ChildBeanDefinition来预先确定父/子关系。
+
+新增`parentName`属性
+
+## ScannedGenericBeanDefinition
+
+## AnnotatedGenericBeanDefinition
+
+## ConfigurationPropertiesValueObjectBeanDefinition
 
 ------------------------未完待续-----------------------------
 
+## 各个实现类的应用场景是哪些？
+
+**TODO**
 
 
+## AnnotationMetadata介绍
+
+![AnnotationMetadata类依赖图](https://raw.githubusercontent.com/George5814/blog-pic/master/image/spring/AnnotationMetadata.png)
+
+AnnotationMetadata是描述 Bean 上注解信息的数据结构，用来对 Bean 的注解元数据进行存储。主要的实现类有`SimpleAnnotationMetadata`和`StandardAnnotationMetadata`。
+
+## 怎么
 
