@@ -7,8 +7,6 @@ keywords:
 description: 不定期更新
 ---
 
-{:toc}
-
 ## 帮助 JAVA 开发者提升开发效率的插件工具
 
 |插件名称|功能描述|备注|
@@ -28,4 +26,5 @@ description: 不定期更新
 |string manipulation|String快速操作|变量拼写切换，Un/Escape，Encode/Decode，Increment/Decrement，sort,trim 等功能。比较强大|
 |CamelCase|变量风格变换|将驼峰、下划线、全大写、全小写等风格的转换。可快速装换变量风格|
 |generateallsetter|一键生成对象的所有 setter 方法调用|快捷便利|
-||||
+|stackoverflow|问题一键查询，从stackoverflow 上查找||
+|RestfulToolkit|http链接查询||
