@@ -103,7 +103,8 @@ CREATE TABLE `test` (
             selectByExampleQueryId="false" >
             
             <property name="useActualColumnNames" value="false" />
-            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />
+	    <columnOverride column="config" jdbcType="TEXT" javaType="java.lang.String" />
+            <columnOverride column="ext" jdbcType="TEXT" javaType="java.lang.String" />
         </table>
     </context>
 </generatorConfiguration>
