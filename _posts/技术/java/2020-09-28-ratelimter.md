@@ -30,17 +30,14 @@ published: true
 
 ### Guava RateLimiter 原理
 
-RateLimiter 是基于时间轴的变化在每次请求的时候判断是否有可用的 permit（许可证）。主要通过`stableIntervalMicros`、`nextFreeTicketMicros`、`requiredPermits`(当前时间戳)来判断是否有可用的 permit。
+RateLimiter 是基于时间轴的变化在每次请求的时候判断是否有可用的 permit（许可证）。主要通过`stableIntervalMicros`、`nextFreeTicketMicros`、`requiredPermits`(请求的许可证数量)来判断是否有可用的 permit。
 
 **名词解释：**
 
-`stableIntervalMicros`:是稳定后的每个 permit 的间隔秒数。
-
-`nextFreeTicketMicros`:是下次最早可以获得 permit 的时间，相对于RateLimiter启动时的 startTicker的纳秒，如果加上startTick，则为绝对时间。
-
-`requiredPermits`:为请求的permit数量。
-
-`nowMicros`：是 Stopwatch计算的当前时间举例RateLimiter最近一次启动的时间差值，因为Stopwatch可以 stop，因此取最近一次启动的差值。
+1. `stableIntervalMicros`:是稳定后的每个 permit 的间隔秒数。
+1. `nextFreeTicketMicros`:是下次最早可以获得 permit 的时间，相对于RateLimiter启动时的 startTicker的纳秒，如果加上startTick，则为绝对时间。
+1. `requiredPermits`:为请求的permit数量。
+1. `nowMicros`：是 Stopwatch计算的当前时间举例RateLimiter最近一次启动的时间差值，因为Stopwatch可以 stop，因此取最近一次启动的差值。
 
 #### 获取 permit 的机制。
 
