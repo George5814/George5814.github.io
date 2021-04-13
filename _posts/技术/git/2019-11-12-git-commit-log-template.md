@@ -136,4 +136,42 @@ SourceTree也可以配置模板，不过配置在模板内的内容都认为是�
 
 > <https://blog.csdn.net/import_sadaharu/article/details/54576748>
 > <https://www.cnblogs.com/ctaodream/p/6066694.html>
+> 
+
+#### 文本模板
+
+```
+chore （模板）：更新模板内容
+更新模板内容，丰富scope的解释，添加close的示例
+BREAKING CHANGE:无
+CLOSE: #BOS-1273
+
+#TYPE:
+
+#       feat:新功能
+
+#       fix :修补 bug
+
+#       docs:仅文档的改动
+
+#       style：代码格式的改动，不影响代码运行的变动。
+
+#       refactor：重构，即不是新增功能，也不是修改bug的代码变动
+
+#       test： 增加测试
+
+#       chore:构建过程或辅助工具的变动
+
+#       SCOPE：用于说明commit影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。pegasus项目中可以使用“业务+功能模板“，看起来更清晰些,
+
+#       subject:摘要，概述。一句话描述本次提交的目的
+
+#       Body：详细描述本次提交。比如：修改了什么，增加了什么，删除了什么等。
+
+#       Footer：
+
+#       BREAKING CHANGE:不兼容的改动
+
+#       Closes：关闭issue。如#123, #245, #992O
+```
 
