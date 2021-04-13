@@ -152,3 +152,5 @@ I'm a pig,Hello world!
 1. Spring帮我们将接口的所有实现类都注入进了`TestService`的`List<HelloService>`,并且是按照我们通过`@Order`指定的顺序，如果不指定Service 名称，会以默认名称的首字母排序。
 2. Spring 也将接口的所有实现类都注入进了`TestService`的`Map<String, HelloService>`，Key为 Bean 的名称，value 为对应的实现类。因为Map具体类型为`LinkedHashMap`，没有按照我们指定的顺序执行。
 
+**对于List，Map和单个实例的注入的具体实现是在`org.springframework.beans.factory.support.DefaultListableBeanFactory#resolveMultipleBeans`方法内。**
+

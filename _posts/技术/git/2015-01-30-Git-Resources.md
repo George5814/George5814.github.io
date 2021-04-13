@@ -20,6 +20,9 @@ Head^: Head的父提交
 ```
 $ git clone <url>   #克隆远程版本库
 $ git init          #初始化本地版本库
+$ git config --global user.name "zhangsan" # 设置全局的用户名称
+$ git config --global user.email "zhangsan@gmail.com" # 设置全局的用户邮箱，提交时显示用户身份使用
+$ git config -l # 查看配置信息
 ```
 
 ###	修改和提交
