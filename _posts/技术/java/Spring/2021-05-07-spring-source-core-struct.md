@@ -113,7 +113,7 @@ SerializationDelegate是序列化和反序列化比较重要和常用的类，�
 1. AttributeAccessorSupport： 为`AttributeAccessor`的实现类，内部存储结构是个LinkedHashMap，所有属性的操作都是对Map的操作。Map的Key为String，Value为Object。
 1. BridgeMethodResolver： 桥接方法的解析器。获取桥接方法的原始方法。判断桥接方法实际上是通过判断方法名、参数的个数以及泛型类型参数来获取的。
 
-核心方法
+BridgeMethodResolver判断桥接的核心方法
 ```java
 MethodFilter filter = candidateMethod ->
 					isBridgedCandidateFor(candidateMethod, bridgeMethod);
