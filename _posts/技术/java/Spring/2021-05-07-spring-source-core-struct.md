@@ -162,7 +162,13 @@ public static void doWithMethods(Class<?> clazz, MethodCallback mc, @Nullable Me
 
 同构以上两个方法找出所有的符合桥接候选方法的方法集合。查找桥接方法的原方法，会先从当前类中查找，然后再从父类中，如果父类中还没有的话，会再从所有的实现接口里去找。
 
+
 后续的源码再开文章分析
+
+
+## 参考文档
+
+> [java中的桥接方法](https://www.cnblogs.com/yungyu16/p/13253836.html)
 
 
 
