@@ -234,6 +234,12 @@ Observable<com.myapp.MyProduct> 转为 myProductObservable
 
 可以根据异常抛出的深度对异常进行排序，也可以获取到异常的深度。
 
+## ReactiveAdapter 
+
+
+反应式适配器，用来将反应式流适配到一个异步或者反映式类型或者反向。还有个名为`ReactiveAdapterRegistry`的注册器，用来判断注册`Reactor`，`RxJava1`,`RxJava2`,`Java 9+ Flow.Publisher`和`kotlin Coroutines`等不同类型的流适配器
+
+
 
 
 
