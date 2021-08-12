@@ -340,6 +340,9 @@ public class Configuration {
 }
 ```
 
+因为`StatementHandler`的各个子对象都是有状态的，每次调用的`Mapper`不同，参数也不同。那每次调用都需要新生成`StatementHandler`对象，而对于该对象又可能存在多个拦截器实现多次代理。
+此处的疑问就是**每次都新生成StatementHandler的多级代理对象，性能上能有保证吗**
+
 
 
 
