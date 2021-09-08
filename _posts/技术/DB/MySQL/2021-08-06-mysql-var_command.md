@@ -72,4 +72,14 @@ show variables like '%slow%';
 -- 显示连接信息
 show variables like '%connection%';
 
+-- 显示连接信息
+show processlist
+
+-- 查看redolog刷盘的时机，如果设置为1，则表示每次的redo log都是直接写入磁盘中，保证redo log不丢失
+show VARIABLES like '%innodb_flush_log_at_trx_commit%'
+
+--同步binlog的时机，如果设置为1，表示每次事务的binlog都会持久化到磁盘中。保证binlog不丢失
+show VARIABLES like '%sync_binlog%'
+
+
 ```
