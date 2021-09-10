@@ -81,5 +81,16 @@ show VARIABLES like '%innodb_flush_log_at_trx_commit%'
 --同步binlog的时机，如果设置为1，表示每次事务的binlog都会持久化到磁盘中。保证binlog不丢失
 show VARIABLES like '%sync_binlog%'
 
+-- 显示锁等待时间，默认为50s。可以避免死锁的长时间等待
+show variables like '%innodb_lock_wait_timeout%';
+
+-- 开启死锁检测。发现死锁后，主动回滚死锁链条中的某一个事务，让其他事务得以继续执行。默认开启
+show variables like '%innodb_deadlock_detect%';
+
+-- 显示磁盘io的能力
+show variables like 'innodb_io_capacity';
+
+-- 刷脏页的是否设置为将临近的脏页也刷掉。如果是机械硬盘可以开启，设置为1，顺序io提高性能。如果是固态硬盘可以关闭，设置为0；
+show variables like 'innodb_flush_neighbors';
 
 ```
