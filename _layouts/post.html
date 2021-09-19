@@ -40,7 +40,7 @@ layout: default
                     {% comment %} if page.subtitle {% endcomment %}
                     <h2 class="subheading">{{ page.subtitle }}</h2>
                     {% comment %} endif {% endcomment %}
-                    <span class="meta">作者: {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} | {{ page.date | date: "%Y-%m-%d" }} | 字数 {{ page.content | number_of_words }} | 阅读<span id="busuanzi_value_page_pv"></span> 次</span>
+                    <span class="meta">作者: {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} | {{ page.date | date: "%Y-%m-%d" }} | {% if page.modified_date %} 最近修改: {{ page.modified_date }} {% else %} - {% endif %}| 字数 {{ page.content | number_of_words }} | 阅读<span id="busuanzi_value_page_pv"></span> 次</span>                    
                 </div>
             </div>
         </div>
@@ -218,13 +218,9 @@ layout: default
                     <hr class="-sm hidden-xs">
                     <h5><a href="/tags/" target="_blank">特色标签</a></h5>
                     <div class="tags">
-                        {% for tag in site.tags %}
                         <!--  if tag[1].size > {{site.featured-condition-size}}  -->
-                            {% if tag[1].size > 0 %}
-                				<a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}" target="_blank">
-                                    {{ tag[0] }}
-                                </a>
-                            {% endif %}
+                        {% for tag in site.tags %}
+                            {% if tag[1].size > 0 %} <a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}" target="_blank">{{ tag[0] }}</a> {% endif %}
         				{% endfor %}
         			</div>
                 </section>
