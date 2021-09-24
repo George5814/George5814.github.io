@@ -91,7 +91,7 @@
                     {% endif %}
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }} |
+                    Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}|  |
                     <!-- Theme on <a href="{{ site.github_repo }}" target="_blank">GitHub</a> |<a href="https://tongji.baidu.com/web/welcome/ico?s=56e3d01913e5047e6b0bf3f81203222d" target="_blank">百度统计</a> | -->
                     <iframe
                         style="margin-left: 2px; margin-bottom:-5px;"
@@ -101,6 +101,9 @@
                     <br>
                     <!-- 不蒜子计数 -->
                     <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span><span id="busuanzi_container_site_uv"> | 访客数<span id="busuanzi_value_site_uv"></span>人 | </span><span id="htmer_time"></span>
+                </p>
+                <p class="statistics text-muted">
+                    {% include umeng-statistics.html %}
                 </p>
                 <p class="copyright text-muted">
                     <a href="http://beian.miit.gov.cn">
