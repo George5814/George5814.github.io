@@ -60,7 +60,7 @@ Rebalance(再均衡)机制指的是：将一个Topic下的多个队列(或称之
 
 ### Broker端Rebalance协调机制
 
-首选需要老姐触发Rebalance的根本原因
+首选需要了解触发Rebalance的根本原因
 
 1. 订阅的Topic下的Queue数量发生变化
 
@@ -169,15 +169,15 @@ Rebalance时机
 
 1. **启动时**
 
-    消费者立即想所有的Broker发送一次心跳请求，Broker会将消费者添加到由ConsumerManager维护的某个消费者组中。
+    消费者立即向所有的Broker发送一次心跳请求，Broker会将消费者添加到由ConsumerManager维护的某个消费者组中。
     然后这个Consumer自己会立即触发一次Rebalance。
 1. **运行时**
 
-    ConsumerManager内维护的消费组内的消费者有变化时，Broker会通知该消费组下的所有的消费者实例，消费者接收到奥Broker通知后会立即触发Rebalance。
+    ConsumerManager内维护的消费组内的消费者有变化时，Broker会通知该消费组下的所有的消费者实例，消费者接收到Broker通知后会立即触发Rebalance。
     同时为了避免通知丢失，会周期性的触发Rebalance。
 1. **停止时**
 
-    消费者想所有的Broker发送取消注册的命令时，Broker将消费者从ConsuemrManager中移除，并通知其他Consumer进行Rebalance。
+    消费者向所有的Broker发送取消注册的命令时，Broker将消费者从ConsuemrManager中移除，并通知其他Consumer进行Rebalance。
 
 在启动和停止时，被操作的实例都是可以自主知道自己应该Rebalance和将自己下线的。**最需要关注的变化是在运行时，因为在运行时，每个在线的Consumer，需要接收到其他Consumer上下线的通知来Rebalance自身的订阅关系的。**
 
