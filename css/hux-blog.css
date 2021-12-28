@@ -2,7 +2,7 @@
   .post-container,
   .sidebar-container {
     padding-right: 5%;
-  }
+  };
   .container {
     width: 90%;
   }
@@ -11,6 +11,9 @@
   .post-container {
     padding-right: 5%;
   }
+}
+.container {
+  width: 90%;
 }
 .sidebar-container {
   color: #bfbfbf;
