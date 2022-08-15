@@ -21,14 +21,6 @@ encoding: UTF-8
 # 摘录分隔符
 excerpt_separator: "\n\n"
 highlighter: rouge
-kramdown:
-  auto_ids: true
-  input: GFM
-  extensions:
-    - autolink
-    - footnotes
-    - smart
-  syntax_highlighter: rouge
 
 
 # 端口号
@@ -83,7 +75,12 @@ markdown: kramdown
 highlighter: rouge
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
-
+  auto_ids: true
+  extensions:
+    - autolink
+    - footnotes
+    - smart
+  syntax_highlighter: rouge
 
 
 # 评论系统
