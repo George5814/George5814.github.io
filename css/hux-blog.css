@@ -2,12 +2,18 @@
   .post-container,
   .sidebar-container {
     padding-right: 5%;
+  };
+  .container {
+    width: 90%;
   }
 }
 @media (min-width: 768px) {
   .post-container {
     padding-right: 5%;
   }
+}
+.container {
+  width: 90%;
 }
 .sidebar-container {
   color: #bfbfbf;
@@ -695,6 +701,13 @@ footer .copyright {
   text-align: center;
   margin-bottom: 0;
 }
+
+footer .statistics {
+  font-size: 14px;
+  text-align: center;
+  margin: 0;
+}
+
 footer .copyright a {
   color: #337ab7;
 }

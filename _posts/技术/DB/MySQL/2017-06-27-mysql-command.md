@@ -38,14 +38,28 @@ description:
 
 `grant select,delete,update,create,drop on *.* to test@"%" identified by "1234";`
 
-## 报错信息
+并使用`FLUSH PRIVILEGES` 刷新。
 
-### 
+### 分区表
 
+#### 查看表状态
+
+`show table status;`
+
+#### 查看表分区信息
+
+```sql
+-- 查看表的分区信息
+ select 
+  TABLE_SCHEMA as dbName,
+  TABLE_NAME as tableName,
+  partition_name as `partition`,  
+  PARTITION_ORDINAL_POSITION as ordinal,
+  PARTITION_METHOD as method,
+  partition_expression as expr,  
+  partition_description as `desc`,
+  table_rows  
+from information_schema.partitions  where 
+  table_schema = schema()  
+  and table_name='test'; 
 ```
-Can't find any matching row in the user table
-```
-
-解决：
-
-在变更了mysql.user表之后，没有使用FLUSH PRIVILEGES命令来更新权限表（grant tables）
