@@ -32,6 +32,7 @@ description: 介绍Mybatis中支持的OGNL语法
             and id='${@cn.followtry.mybatis.bean.User@list[1]}'
             and id='${@cn.followtry.mybatis.bean.User@map.get("123")}'
             and id='${@cn.followtry.mybatis.bean.CodeTypeEnum@THREE.ordinal()}'
+            and id='${@cn.followtry.mybatis.bean.User@sayHello(_parameter)}'
         </where>
         </if>
     limit 100
@@ -62,6 +63,8 @@ description: 介绍Mybatis中支持的OGNL语法
    
 - java.lang.Math方法
     `id = ${@@abs(-12345678)}` 可以省略class的编写，方法的默认class是java.lang.Math
+- 解析所有参数
+     id='${@cn.followtry.mybatis.bean.User@sayHello(_parameter)}' ，其中的参数_parameter是Mybatis内置的所有参数的标识，Map类型
 
 `${}`语法中通过两个`@`字符，前者定位到Java类，后者定位到类中的方法或属性
 这里只列出的其中一部分，对于Mybatis支持的`${}`语法，可以参见OGNL语法手册。
