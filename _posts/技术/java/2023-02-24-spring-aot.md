@@ -1,4 +1,3 @@
-#! https://zhuanlan.zhihu.com/p/609058247
 ---
 layout: post
 title:  Spring AOT介绍
