@@ -284,7 +284,7 @@ Total time:  02:07 min
 应用启动信息：
 ![应用启动信息]({{ site.baseurl }}/img/spring/first-spring-aot-5.jpg)
 
-## 对比信息如下
+## 两种方式的对比信息
 
 ||原Jar方式|Native Image方式|对比倍数
 |---|---|---|---
@@ -292,14 +292,23 @@ Total time:  02:07 min
 |启动时间|2.38s|0.13s| Native启动时间快18倍
 |编译后大小|20M|68M| Native包是Jar包的3.4倍
 
+如文章(<http://george5814.github.io/2023-02-24/spring-aot.html>)中所说，SpringAOT在执行后会生成Java类对应的BeanDefinition的class信息，该步骤是在`process-aot`时完成的。将打好的jar包解压后可以看到如图中增加的几种字节码文件，该文件即为将注解解析后生成的类编译而成，是为了在graalvm执行native 编译时类一定存在。
 
+![jar包中新增的字节码类信息]({{ site.baseurl }}/img/spring/first-spring-aot-6.jpg)
 
+另一个比较关键的是在`META-INF`中生成的反射、资源等的配置文件。已反射的配置文件`reflect-config.json`为例，如下图中示例，可看出SpringBoot的maven插件已经自定找到反射类信息并将其作为配置进行生成。
 
+![反射类配置文件内容]({{ site.baseurl }}/img/spring/first-spring-aot-7.jpg)
 
+## 结语
+
+本文主要讲解了从环境安装，代码编写，编译启动，打包方式对比等方面简单介绍了SpringBoot3.0 在native image的入门使用，其中的AOT原理机制解析待后续文章继续输出。
 
 
 
 
 ## 参考文章
+
 > https://www.baeldung.com/spring-native-intro#overview-1
 > https://graalvm.github.io/native-build-tools/latest/graalvm-setup.html
+> https://github.com/graalvm/graalvm-demos/tree/master/spring-native-image

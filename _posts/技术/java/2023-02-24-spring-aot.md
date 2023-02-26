@@ -24,7 +24,7 @@ Spring对AOT优化的支持意味着将哪些通常在运行时才发生的事�
 
 当以上的限制都避免了，就可以在构建时执行AOT的处理并生成额外的资产。
 
-经过Spring AOT处理过的应用，通过会生成如下资产：
+经过Spring AOT处理过的应用，通常会生成如下资产：
 1. Java源码
 2. 字节码
 3. `RuntimeHints`,用于反射，资源定位，序列化和Java反射
@@ -165,7 +165,7 @@ public class DataSourceConfiguration__BeanDefinitions {
 runtimeHints.resources().registerPattern("config/app.properties");
 ```
 
-在AOT处理过程中，会自动处理许多合同。例如：检查`@Controller`方法的返回类型，如果Spring检测到类型应该序列化（通常为JSON），则添加相关的反射提示。
+在AOT处理过程中，会自动处理许多约定。例如：检查`@Controller`方法的返回类型，如果Spring检测到类型应该序列化（通常为JSON），则添加相关的反射提示。
 
 对于核心容器无法推断的情况，可以以编程方式注册此类提示。还为常见用例提供了许多方便的注释。
 
@@ -200,7 +200,7 @@ public class SpellCheckService {
 
 `@Reflective`提供了一种惯用的方法来标记对带注解元素的反射的需要。例如，`@EventListener`使用`@Reflective`进行元注释，因为底层实现使用反射调用注释方法.
 
-默认情况下，只考虑Spring的bean，并为带注解的元素注册调用提示。这可以通过通过`@Reflective`注解指定自定义`ReflectiveProcessor`实现来调整。
+默认情况下，只考虑Spring的bean，并为带注解的元素注册调用提示。这可以通过`@Reflective`注解指定自定义`ReflectiveProcessor`实现来调整。
 
 库作者可以出于自己的目的重用此注释。如果需要处理Spring bean以外的组件，`BeanFactoryInitializationAotProcessor`可以检测相关类型并使用`ReflectiveRuntimeHintsRegister`来处理它们。
 
