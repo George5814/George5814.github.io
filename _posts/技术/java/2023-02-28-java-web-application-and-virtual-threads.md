@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  [译]Java web 应用和虚拟线程
+title:  Java web 应用和虚拟线程(译)
 category: 技术
 tags: Java
 keywords: Java Spring virtual-thread web
