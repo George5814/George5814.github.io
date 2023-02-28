@@ -265,6 +265,7 @@ spring-boot-maven-plugin:3.0.3:process-aot
 maven-jar-plugin:3.3.0:jar
 spring-boot-maven-plugin:3.0.3:repackage
 # 需要的类元数据信息重新生成完后，开始执行Native编译
+
 native-maven-plugin:0.9.20:compile
     GraalVM Native Image: Generating 'followtry-image' (executable)...
     [1/7] Initializing...   cost 11.4s
@@ -282,6 +283,7 @@ Total time:  02:07 min
 ![文件大小]({{ site.baseurl }}/img/spring/first-spring-aot-4.jpg)
 
 应用启动信息：
+
 ![应用启动信息]({{ site.baseurl }}/img/spring/first-spring-aot-5.jpg)
 
 ## 两种方式的对比信息

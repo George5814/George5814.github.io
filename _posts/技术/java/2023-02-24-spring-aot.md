@@ -67,8 +67,8 @@ context.refreshForAotProcessing(hints);
 context.close();
 ```
 
-在AOT模式下，`BeanFactoryPostProcessor`扩展点的实现和平时一样调用。包括`configuration`类的解析、`import selector`和类扫描等。这些步骤确保`BeanRegistry`包含应用程序的相关bean定义.如果Bean definition收到`conditions`(如 `@Profile`)的保护，则在该阶段会被抛弃。因为此模式实际上不创建Bean的实例，除了与AOT相关的变体实现之外，`BeanPostProcessor`将不会被调用。变体实现包括：
-1. `MergedBeanDefinitionPostProcessor`的实现，后处理bean定义以提取其他设置，如`init`和`destroy`方法
+在AOT模式下，`BeanFactoryPostProcessor`扩展点的实现和平时一样调用。包括`configuration`类的解析、`import selector`和类扫描、以及`BeanDefinitionRegistryPostProcessor`的`postProcessBeanDefinitionRegistry`方法调用和`postProcessBeanFactory`方法等。这些步骤确保`BeanRegistry`包含应用程序的相关bean定义.如果Bean definition收到`conditions`(如 `@Profile`)的保护，则在该阶段会被抛弃。因为此模式实际上不创建Bean的实例，除了与AOT相关的变体实现之外，其他的`BeanPostProcessor`实现将不会被调用。变体实现包括：
+1. `MergedBeanDefinitionPostProcessor`的实现，后处理bean定义以提取其他设置，如`init`和`destroy`方法。源码中会执行`postProcessMergedBeanDefinition`方法
 
 2. `SmartInstantiationAwareBeanPostProcessor`的实现，如果需要，确定更精确的bean类型，这确保创建运行时需要的任何代理类。
 
